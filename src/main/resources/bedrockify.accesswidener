@@ -1,3 +1,8 @@
 accessWidener v1 named
 
 accessible method net/minecraft/world/gen/treedecorator/TreeDecoratorType register (Ljava/lang/String;Lcom/mojang/serialization/Codec;)Lnet/minecraft/world/gen/treedecorator/TreeDecoratorType;
+accessible class net/minecraft/client/gui/screen/ingame/CreativeInventoryScreen$LockableSlot
+accessible method net/minecraft/client/gui/screen/ingame/CreativeInventoryScreen$LockableSlot <init> (Lnet/minecraft/inventory/Inventory;III)V
+accessible field net/minecraft/client/gui/screen/ingame/CreativeInventoryScreen INVENTORY Lnet/minecraft/inventory/SimpleInventory;
+accessible field net/minecraft/screen/ScreenHandler trackedStacks Lnet/minecraft/util/collection/DefaultedList;
+accessible field net/minecraft/screen/ScreenHandler previousTrackedStacks Lnet/minecraft/util/collection/DefaultedList;

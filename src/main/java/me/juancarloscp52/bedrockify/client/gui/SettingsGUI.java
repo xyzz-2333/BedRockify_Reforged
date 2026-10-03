@@ -115,6 +115,10 @@ public class SettingsGUI {
             gui.addEntry(screenSafeArea.build());
 
             //Other gui improvements.
+            SubCategoryBuilder creativeInventory = entryBuilder.startSubCategory(Text.translatable("bedrockify.options.subCategory.creativeInventory"));
+            creativeInventory.add(entryBuilder.startBooleanToggle(Text.translatable("bedrockify.options.creativeInventory"), settingsClient.creativeInventory).setDefaultValue(true).setTooltip(wrapLines(Text.translatable("bedrockify.options.creativeInventory.tooltip"))).setSaveConsumer(value -> settingsClient.creativeInventory=value).build());
+            creativeInventory.add(entryBuilder.startBooleanToggle(Text.translatable("bedrockify.options.creativeInventoryGroups"), settingsClient.creativeInventoryGroups).setDefaultValue(true).setTooltip(wrapLines(Text.translatable("bedrockify.options.creativeInventoryGroups.tooltip"))).setSaveConsumer(value -> settingsClient.creativeInventoryGroups=value).build());
+            gui.addEntry(creativeInventory.build());
             gui.addEntry(entryBuilder.startBooleanToggle(Text.translatable("bedrockify.options.biggerItems"), settingsClient.biggerIcons).setDefaultValue(true).setSaveConsumer(newValue -> settingsClient.biggerIcons=newValue).build());
             gui.addEntry(entryBuilder.startBooleanToggle(Text.translatable("bedrockify.options.toolbarStyle"), settingsClient.bedrockToolbar).setDefaultValue(true).setSaveConsumer(newValue -> settingsClient.bedrockToolbar =newValue).setYesNoTextSupplier((value)->value ? Text.translatable("bedrockify.options.chatStyle.bedrock") : Text.translatable("bedrockify.options.chatStyle.vanilla")).setTooltip(wrapLines(Text.translatable("bedrockify.options.toolbarStyle.tooltip"))).build());
             gui.addEntry(entryBuilder.startBooleanToggle(Text.translatable("bedrockify.options.expTextStyle"), settingsClient.expTextStyle).setDefaultValue(true).setSaveConsumer(newValue -> settingsClient.expTextStyle=newValue).setYesNoTextSupplier((value)->value ? Text.translatable("bedrockify.options.chatStyle.bedrock") : Text.translatable("bedrockify.options.chatStyle.vanilla")).build());

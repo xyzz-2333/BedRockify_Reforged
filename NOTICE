@@ -2,6 +2,9 @@ Unofficial Forge port modified on 2026-10-03.
 Alpha.2 revised on 2026-10-03: modern/legacy recipe selection, progressive flight braking,
 standing reach-around default, edition subtitle default, Chinese settings and compatibility labels,
 and removal of the unused Panorama settings page.
+Alpha.3 revised on 2026-10-04: classic creative inventory categories and client picker grid,
+collapsible families, NBT-preserving Forge tab aggregation, native Forge page navigation,
+small-window and configurable Java UI fallback, and bilingual creative inventory settings.
 Upstream: https://github.com/juancarloscp52/BedrockIfy
 Upstream authors: juancarloscp52, lonefelidae16 and contributors.
 Base tag: 1.9.1+mc1.20

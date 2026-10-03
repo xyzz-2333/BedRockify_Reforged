@@ -59,6 +59,8 @@ public class BedrockifyClientSettings {
     public int sunlightIntensity = 50;
     public boolean sheepColors = true;
     public boolean hideEditionBranding = true;
+    public boolean creativeInventory = true;
+    public boolean creativeInventoryGroups = true;
 
     public boolean isPickupAnimationsEnabled() {
         return pickupAnimations;
