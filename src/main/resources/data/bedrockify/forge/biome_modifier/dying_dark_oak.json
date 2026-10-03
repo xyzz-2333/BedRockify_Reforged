@@ -1,0 +1,10 @@
+{
+  "type": "bedrockify:trees",
+  "biomes": [
+    "minecraft:dark_forest"
+  ],
+  "features": [
+    "bedrockify:dying_dark_oak_tree"
+  ],
+  "dying": true
+}

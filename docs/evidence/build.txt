@@ -1,0 +1,153 @@
+Picked up JAVA_TOOL_OPTIONS: -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=43811 -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=43811 -Djava.net.preferIPv4Stack=true
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.8/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :
+Architectury Loom: 1.6.422
+You are using an outdated version of Architectury Loom! This version will not receive any support, please consider updating!
+
+> Task :compileJava
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/mixin/common/features/recipes/RecipeManagerMixin.java:42: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+                    bedrockifyRecipes.put(new Identifier("minecraft", elem.getKey().getPath()), elem.getValue());
+                                          ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/client/BedrockifyClient.java:85: warning: [removal] get() in ModLoadingContext has been deprecated and marked for removal
+        ModLoadingContext.get().registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class,
+                         ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/client/gui/SettingsGUI.java:34: warning: [removal] Identifier(String) in Identifier has been deprecated and marked for removal
+        builder.setDefaultBackgroundTexture(new Identifier("minecraft:textures/block/bedrock.png"));
+                                            ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/client/features/savingOverlay/SavingOverlay.java:13: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+    private final Identifier WIDGET_TEXTURE = new Identifier("bedrockify", "textures/gui/bedrockify_widgets.png");
+                                              ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/client/features/sheepColors/SheepSkinResource.java:18: warning: [removal] Identifier(String) in Identifier has been deprecated and marked for removal
+    private static final Identifier TEXTURE_SHEEP_SKIN = new Identifier("textures/entity/sheep/sheep.png");
+                                                         ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/client/features/fishingBobber/FishingBobber3DModel.java:18: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+    public static final EntityModelLayer MODEL_LAYER = new EntityModelLayer(new Identifier(Bedrockify.MOD_ID, "fishing_hook"), "main");
+                                                                            ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/client/features/fishingBobber/FishingBobber3DModel.java:19: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+    public static final Identifier TEXTURE = new Identifier(Bedrockify.MOD_ID, "textures/entity/fishing_hook.png");
+                                             ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/client/features/loadingScreens/LoadingScreenWidget.java:23: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+    private final Identifier WIDGET_TEXTURE = new Identifier("bedrockify", "textures/gui/bedrockify_widgets.png");
+                                              ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/Bedrockify.java:29: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+    public static final Identifier EAT_PARTICLES = new Identifier(MOD_ID, "eat-particles");
+                                                   ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/Bedrockify.java:30: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+    public static final Identifier CAULDRON_ACTION_PARTICLES = new Identifier(MOD_ID, "cauldron_particles");
+                                                               ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/Bedrockify.java:38: warning: [removal] get() in FMLJavaModLoadingContext has been deprecated and marked for removal
+        var bus = FMLJavaModLoadingContext.get().getModEventBus();
+                                          ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/common/features/cauldron/BedrockCauldronBlocks.java:21: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+        event.register(net.minecraft.registry.RegistryKeys.BLOCK, helper -> helper.register(new Identifier(Bedrockify.MOD_ID, "potion_cauldron"), POTION_CAULDRON));
+                                                                                            ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/common/features/cauldron/BedrockCauldronBlocks.java:22: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+        event.register(net.minecraft.registry.RegistryKeys.BLOCK, helper -> helper.register(new Identifier(Bedrockify.MOD_ID, "colored_water_cauldron"), COLORED_WATER_CAULDRON));
+                                                                                            ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/common/features/cauldron/BedrockCauldronBlocks.java:24: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+        event.register(net.minecraft.registry.RegistryKeys.BLOCK_ENTITY_TYPE, helper -> helper.register(new Identifier(Bedrockify.MOD_ID, "water_cauldron_entity"), WATER_CAULDRON_ENTITY));
+                                                                                                        ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/common/features/fernBonemeal/FernBonemeal.java:11: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+    public static final RegistryKey<ConfiguredFeature<?, ?>> SINGLE_PIECE_OF_FERN = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, new Identifier("bedrockify", "single_piece_of_fern"));
+                                                                                                                                    ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/common/features/fernBonemeal/FernBonemeal.java:12: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+    public static final RegistryKey<PlacedFeature> SINGLE_PIECE_OF_FERN_PLACED = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("bedrockify", "single_piece_of_fern_placed"));
+                                                                                                                             ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/common/features/worldGeneration/DyingTrees.java:20: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+    public static final RegistryKey<ConfiguredFeature<?, ?>> DYING_OAK_TREE = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, new Identifier("bedrockify", "dying_oak_tree"));
+                                                                                                                              ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/common/features/worldGeneration/DyingTrees.java:21: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+    public static final RegistryKey<ConfiguredFeature<?, ?>> DYING_BIRCH_TREE = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, new Identifier("bedrockify", "dying_birch_tree"));
+                                                                                                                                ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/common/features/worldGeneration/DyingTrees.java:22: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+    public static final RegistryKey<ConfiguredFeature<?, ?>> DYING_SPRUCE_TREE = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, new Identifier("bedrockify", "dying_spruce_tree"));
+                                                                                                                                 ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/common/features/worldGeneration/DyingTrees.java:23: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+    public static final RegistryKey<ConfiguredFeature<?, ?>> DYING_PINE_TREE = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, new Identifier("bedrockify", "dying_pine_tree"));
+                                                                                                                               ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/common/features/worldGeneration/DyingTrees.java:24: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+    public static final RegistryKey<ConfiguredFeature<?, ?>> DYING_DARK_OAK_TREE = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, new Identifier("bedrockify", "dying_dark_oak_tree"));
+                                                                                                                                   ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/common/features/worldGeneration/DyingTrees.java:27: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+    public static final RegistryKey<PlacedFeature> DYING_BIRCH_TREE_PF = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("bedrockify", "dying_birch_tree"));
+                                                                                                                     ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/common/features/worldGeneration/DyingTrees.java:28: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+    public static final RegistryKey<PlacedFeature> DYING_OAK_TREE_PF = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("bedrockify", "dying_oak_tree"));
+                                                                                                                   ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/common/features/worldGeneration/DyingTrees.java:29: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+    public static final RegistryKey<PlacedFeature> DYING_OAK_TREE_PLAINS_PF = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("bedrockify", "dying_oak_tree_plains"));
+                                                                                                                          ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/common/features/worldGeneration/DyingTrees.java:30: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+    public static final RegistryKey<PlacedFeature> DYING_SPRUCE_TREE_PF = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("bedrockify", "dying_spruce_tree"));
+                                                                                                                      ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/common/features/worldGeneration/DyingTrees.java:31: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+    public static final RegistryKey<PlacedFeature> DYING_PINE_TREE_PF = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("bedrockify", "dying_pine_tree"));
+                                                                                                                    ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/common/features/worldGeneration/DyingTrees.java:32: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+    public static final RegistryKey<PlacedFeature> DYING_DARK_OAK_TREE_PF = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("bedrockify", "dying_dark_oak_tree"));
+                                                                                                                        ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/common/features/worldGeneration/DyingTrees.java:35: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FALLEN_OAK_TREE_CONFIGURED = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, new Identifier("bedrockify", "fallen_oak_tree_c"));
+                                                                                                                                          ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/common/features/worldGeneration/DyingTrees.java:36: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FALLEN_BIRCH_TREE_CONFIGURED = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, new Identifier("bedrockify", "fallen_birch_tree_c"));
+                                                                                                                                            ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/common/features/worldGeneration/DyingTrees.java:37: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FALLEN_SPRUCE_TREE_CONFIGURED = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, new Identifier("bedrockify", "fallen_spruce_tree_c"));
+                                                                                                                                             ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/common/features/worldGeneration/DyingTrees.java:43: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+    public static final RegistryKey<PlacedFeature> FALLEN_OAK_TREE_PLACED = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("bedrockify", "fallen_oak_tree_placed"));
+                                                                                                                        ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/common/features/worldGeneration/DyingTrees.java:44: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+    public static final RegistryKey<PlacedFeature> FALLEN_OAK_TREE_PLAINS_PLACED = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("bedrockify", "fallen_oak_tree_plains_placed"));
+                                                                                                                               ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/common/features/worldGeneration/DyingTrees.java:46: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+    public static final RegistryKey<PlacedFeature> FALLEN_BIRCH_TREE_PLACED = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("bedrockify", "fallen_birch_tree_placed"));
+                                                                                                                          ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/common/features/worldGeneration/DyingTrees.java:47: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+    public static final RegistryKey<PlacedFeature> FALLEN_SPRUCE_TREE_PLACED = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("bedrockify", "fallen_spruce_tree_placed"));
+                                                                                                                           ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/common/features/worldGeneration/DyingTrees.java:54: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+            helper.register(new Identifier("bedrockify", "fallen_oak_tree"), FALLEN_OAK_TREE);
+                            ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/common/features/worldGeneration/DyingTrees.java:55: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+            helper.register(new Identifier("bedrockify", "fallen_birch_tree"), FALLEN_BIRCH_TREE);
+                            ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/common/features/worldGeneration/DyingTrees.java:56: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+            helper.register(new Identifier("bedrockify", "fallen_spruce_tree"), FALLEN_SPRUCE_TREE);
+                            ^
+<workspace>/BedrockIfy-Forge/src/main/java/me/juancarloscp52/bedrockify/common/features/worldGeneration/DyingTrees.java:59: warning: [removal] Identifier(String,String) in Identifier has been deprecated and marked for removal
+                helper.register(new Identifier("bedrockify", "trees"), BedrockTreesBiomeModifier.CODEC));
+                                ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+38 warnings
+
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :validateRefmap
+> Task :jar
+> Task :sourcesJar
+> Task :remapJar
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :test NO-SOURCE
+> Task :validateAccessWidener UP-TO-DATE
+> Task :check
+> Task :remapSourcesJar
+> Task :assemble
+> Task :build
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.8/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 25s
+8 actionable tasks: 6 executed, 2 up-to-date

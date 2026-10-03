@@ -1,0 +1,11 @@
+{
+  "type": "bedrockify:trees",
+  "biomes": [
+    "minecraft:plains",
+    "minecraft:sunflower_plains"
+  ],
+  "features": [
+    "bedrockify:fallen_oak_tree_plains_placed"
+  ],
+  "dying": false
+}

@@ -1,0 +1,58 @@
+Picked up JAVA_TOOL_OPTIONS: -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=38201 -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=38201 -Djava.net.preferIPv4Stack=true
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.8/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :
+Architectury Loom: 1.6.422
+You are using an outdated version of Architectury Loom! This version will not receive any support, please consider updating!
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :generateDLIConfig
+> Task :generateLog4jConfig
+> Task :generateRemapClasspath UP-TO-DATE
+> Task :configureLaunch
+
+> Task :runServer
+Picked up JAVA_TOOL_OPTIONS: -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=38201 -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=38201 -Djava.net.preferIPv4Stack=true
+[14:27:51] [main/INFO] (Launcher) ModLauncher running: args [--launchTarget, forgeserveruserdev, --gameDir, ., --fml.forgeVersion, 47.4.0, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, -mixin.config, bedrockify.mixins.json, nogui, nogui]
+[14:27:52] [main/INFO] (Launcher) ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.20 by Ubuntu; OS Linux arch amd64 version 6.18.44
+[14:27:52] [main/WARN] (FMLConfig) Configuration file <workspace>/BedrockIfy-Forge/run/server/config/fml.toml is not correct. Correcting
+[14:27:52] [main/INFO] (FMLConfig) Incorrect key [earlyWindowSkipGLVersions] was corrected from null to []
+[14:27:52] [main/INFO] (FMLConfig) Incorrect key [earlyWindowLogHelpMessage] was corrected from null to true
+[14:27:52] [main/INFO] (FMLConfig) Incorrect key [earlyWindowSquir] was corrected from null to false
+[14:27:52] [main/INFO] (FMLConfig) Incorrect key [earlyWindowShowCPU] was corrected from null to false
+[14:27:52] [main/INFO] (ImmediateWindowHandler) ImmediateWindowProvider not loading because launch target is forgeserveruserdev
+[14:27:52] [main/INFO] (mixin) SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:<gradle-cache>/caches/modules-2/files-2.1/dev.architectury/mixin-patched/0.8.5.12/cf1f787f58d3b08b0cb53ecbba7928c09a1893c8/mixin-patched-0.8.5.12.jar%23115!/ Service=ModLauncher Env=SERVER
+[14:27:52] [main/WARN] (ModFileParser) Mod file <gradle-cache>/caches/modules-2/files-2.1/net.minecraftforge/javafmllanguage/1.20.1-47.4.0/f0c0b352173d0a378cbdcec9cfc4ba65899a721/javafmllanguage-1.20.1-47.4.0.jar is missing mods.toml file
+[14:27:52] [main/WARN] (ModFileParser) Mod file <gradle-cache>/caches/modules-2/files-2.1/net.minecraftforge/lowcodelanguage/1.20.1-47.4.0/e862740d8c84d08dbfedea412bef88fe42e727c5/lowcodelanguage-1.20.1-47.4.0.jar is missing mods.toml file
+[14:27:52] [main/WARN] (ModFileParser) Mod file <gradle-cache>/caches/modules-2/files-2.1/net.minecraftforge/mclanguage/1.20.1-47.4.0/5719b3a297a33f877ed5dde4cb4bd75c859096af/mclanguage-1.20.1-47.4.0.jar is missing mods.toml file
+[14:27:52] [main/WARN] (ModFileParser) Mod file <gradle-cache>/caches/modules-2/files-2.1/net.minecraftforge/fmlcore/1.20.1-47.4.0/235975dafa4309945b59c56b53f31dc5b65a6051/fmlcore-1.20.1-47.4.0.jar is missing mods.toml file
+[14:27:52] [main/INFO] (ModDiscoverer) Found mod file javafmllanguage-1.20.1-47.4.0.jar of type LANGPROVIDER with provider net.minecraftforge.fml.loading.moddiscovery.MinecraftLocator@10c8f62
+[14:27:52] [main/INFO] (ModDiscoverer) Found mod file lowcodelanguage-1.20.1-47.4.0.jar of type LANGPROVIDER with provider net.minecraftforge.fml.loading.moddiscovery.MinecraftLocator@10c8f62
+[14:27:52] [main/INFO] (ModDiscoverer) Found mod file mclanguage-1.20.1-47.4.0.jar of type LANGPROVIDER with provider net.minecraftforge.fml.loading.moddiscovery.MinecraftLocator@10c8f62
+[14:27:52] [main/INFO] (ModDiscoverer) Found mod file fmlcore-1.20.1-47.4.0.jar of type LIBRARY with provider net.minecraftforge.fml.loading.moddiscovery.MinecraftLocator@10c8f62
+[14:27:52] [main/INFO] (ModDiscoverer) Found mod file forge-1.20.1-47.4.0-minecraft-merged-535e6324d8-1.20.1-net.fabricmc.yarn.1_20_1.1.20.1+build.10-v2-forge-1.20.1-47.4.0.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.MinecraftLocator@10c8f62
+[14:27:52] [main/INFO] (ModDiscoverer) Found mod file main of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.MinecraftLocator@10c8f62
+[14:27:52] [main/INFO] (ModDiscoverer) Found mod file  of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.MinecraftLocator@10c8f62
+[14:27:52] [main/INFO] (ModDiscoverer) Found mod file cloth-config-forge-11.1.136.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.ClasspathLocator@24a1c17f
+[14:27:52] [main/INFO] (ModDiscoverer) Found mod file cloth-config-forge-11.1.136.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.ClasspathLocator@24a1c17f
+[14:27:52] [main/INFO] (JarInJarDependencyLocator) No dependencies to load found. Skipping!
+[14:27:54] [main/INFO] (mixin) Compatibility level set to JAVA_17
+[14:27:54] [main/INFO] (LaunchServiceHandler) Launching target 'forgeserveruserdev' with arguments [--gameDir, ., nogui, nogui]
+[14:27:55] [main/INFO] (unprotect) Found 7431 Minecraft classes
+[14:27:55] [main/WARN] (MixinFeatureManager) BedrockIfy Mixin Config not found, creating new config.
+[14:27:55] [main/INFO] (mixin) Remapping refMap bedrockify-forge-refmap.json using RemapperChain (Architectury Patched)
+2026-10-03 14:27:55,432 main WARN Advanced terminal features are not available in this environment
+[14:27:55] [main/WARN] [minecraft/EulaReader]: Failed to load eula.txt
+[14:27:55] [main/INFO] [minecraft/Main]: You need to agree to the EULA in order to run the server. Go to eula.txt for more info.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.8/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 13s
+6 actionable tasks: 3 executed, 3 up-to-date

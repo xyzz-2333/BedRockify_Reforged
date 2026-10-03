@@ -1,0 +1,13 @@
+{
+  "type": "bedrockify:trees",
+  "biomes": [
+    "minecraft:old_growth_spruce_taiga",
+    "minecraft:old_growth_pine_taiga",
+    "minecraft:taiga",
+    "minecraft:windswept_forest"
+  ],
+  "features": [
+    "bedrockify:fallen_spruce_tree_placed"
+  ],
+  "dying": false
+}

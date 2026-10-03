@@ -1,0 +1,8 @@
+Version: 1.9.1-forge-alpha.1+mc1.20.1
+Minecraft: 1.20.1
+Forge: 47.4.0
+JDK: 17
+Cloth Config Forge: 11.1.136
+JAR: bedrockify-forge-1.9.1-forge-alpha.1+mc1.20.1.jar
+Size: 391994 bytes
+SHA-256: 8775eb84024fa639d3fe46ee6b9e8c67ca5e64f8c23d2c794a6aebb32a3ecfdb

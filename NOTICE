@@ -1,0 +1,7 @@
+Unofficial Forge port modified on 2026-10-03.
+Upstream: https://github.com/juancarloscp52/BedrockIfy
+Upstream authors: juancarloscp52, lonefelidae16 and contributors.
+Base tag: 1.9.1+mc1.20
+Base commit: 907861f43f98622677ae5ed1e896ac7dd68b4aa3
+License: GPL-3.0 with the upstream Minecraft linking exception retained.
+This port is not an official release by the upstream authors.

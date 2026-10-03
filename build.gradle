@@ -1,0 +1,55 @@
+plugins {
+    id 'dev.architectury.loom' version '1.6.422'
+    id 'java'
+}
+
+version = project.mod_version
+group = 'me.juancarloscp52'
+base { archivesName = 'bedrockify-forge' }
+java { toolchain.languageVersion = JavaLanguageVersion.of(17); withSourcesJar() }
+loom {
+    accessWidenerPath = file('src/main/resources/bedrockify.accesswidener')
+    mixin { defaultRefmapName = 'bedrockify-forge-refmap.json' }
+    forge {
+        mixinConfig 'bedrockify.mixins.json'
+        convertAccessWideners = true
+        extraAccessWideners.add 'bedrockify.accesswidener'
+    }
+    runs {
+        client { runDir 'run/client' }
+        server { runDir 'run/server' }
+    }
+}
+repositories {
+    maven { url 'https://maven.shedaniel.me/' }
+}
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    mappings "net.fabricmc:yarn:${yarn_mappings}:v2"
+    forge "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    modImplementation "me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}"
+}
+sourceSets.main.resources.srcDir 'src/main/generated'
+processResources {
+    inputs.property 'version', project.version
+    filesMatching('META-INF/mods.toml') { expand version: project.version }
+}
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 17
+    // Direct file output avoids a truncated Filer resource with the legacy Forge Mixin processor.
+    doFirst {
+        options.compilerArgs.removeAll { it.startsWith('-AoutRefMapFile=') }
+        options.compilerArgs.add("-AoutRefMapFile=${destinationDirectory.get().file('bedrockify-forge-refmap.json').asFile.absolutePath}")
+    }
+}
+tasks.register('validateRefmap') {
+    dependsOn tasks.named('compileJava')
+    doLast {
+        def refmap = new groovy.json.JsonSlurper().parse(file('build/classes/java/main/bedrockify-forge-refmap.json'))
+        if (!refmap.mappings || !refmap.data) throw new GradleException('Mixin reference map is incomplete')
+    }
+}
+tasks.named('check') { dependsOn tasks.named('validateRefmap') }
+tasks.named('jar') { dependsOn tasks.named('validateRefmap') }
+jar { from 'LICENSE'; from 'NOTICE'; manifest.attributes 'MixinConfigs': 'bedrockify.mixins.json' }
