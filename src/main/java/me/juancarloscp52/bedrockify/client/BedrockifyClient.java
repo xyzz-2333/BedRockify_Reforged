@@ -109,13 +109,16 @@ public class BedrockifyClient {
             hudOpacity.tick();
             bedrockSunGlareShading.tick(client.getTickDelta());
 
-            // Stop flying drift
+            // Reduce drift progressively; 100% retains the old instant-stop behavior.
             if(settings.disableFlyingMomentum && null != client.player && client.player.getAbilities().flying){
+                double retention = 1.0 - Math.max(0, Math.min(100, settings.flyingBrakeStrength)) / 100.0;
                 if(!(client.options.leftKey.isPressed() || client.options.backKey.isPressed() ||client.options.rightKey.isPressed() ||client.options.forwardKey.isPressed())){
-                    client.player.setVelocity(0,client.player.getVelocity().getY(),0);
+                    client.player.setVelocity(client.player.getVelocity().getX() * retention,
+                            client.player.getVelocity().getY(), client.player.getVelocity().getZ() * retention);
                 }
                 if(!(client.options.sneakKey.isPressed()|| client.options.jumpKey.isPressed())){
-                    client.player.setVelocity(client.player.getVelocity().getX(), 0,client.player.getVelocity().getZ());
+                    client.player.setVelocity(client.player.getVelocity().getX(),
+                            client.player.getVelocity().getY() * retention, client.player.getVelocity().getZ());
 
                 }
             }

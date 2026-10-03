@@ -1,0 +1,12 @@
+{
+  "file_name": "bedrockify-forge-1.9.1-forge-alpha.2+mc1.20.1.jar",
+  "size_bytes": 398514,
+  "sha256": "f833c8424581da87031e40d7e957a3f5b6baa1e3930a44620dc10994932e10c7",
+  "json_resources": 165,
+  "mixins": 54,
+  "refmap_entries": 52,
+  "english_keys": 202,
+  "simplified_chinese_keys": 202,
+  "recipe_resources": 89,
+  "qa_classes_in_release": false
+}

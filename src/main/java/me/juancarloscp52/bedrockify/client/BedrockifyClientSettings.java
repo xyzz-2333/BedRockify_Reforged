@@ -30,7 +30,7 @@ public class BedrockifyClientSettings {
     public boolean showPaperDoll = true;
     public boolean showChunkMap = false;
     public boolean reacharound = true;
-    public boolean reacharoundSneaking = true;
+    public boolean reacharoundSneaking = false;
     public boolean reacharoundIndicator = true;
     public boolean reacharoundMultiplayer = true;
     public int positionHUDHeight = 50;
@@ -52,12 +52,13 @@ public class BedrockifyClientSettings {
     public boolean sneakingShield = true;
     public boolean bedrockShading = true;
     public boolean disableFlyingMomentum = true;
+    public int flyingBrakeStrength = 25;
     public boolean elytraStop = true;
     public boolean pickupAnimations = true;
     public boolean fishingBobber3D = true;
     public int sunlightIntensity = 50;
     public boolean sheepColors = true;
-    public boolean hideEditionBranding = false;
+    public boolean hideEditionBranding = true;
 
     public boolean isPickupAnimationsEnabled() {
         return pickupAnimations;

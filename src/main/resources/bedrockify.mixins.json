@@ -6,6 +6,7 @@
   "plugin": "me.juancarloscp52.bedrockify.mixin.BedrockIfyMixinPlugin",
   "client": [
     "client.core.bedrockIfyButton.OptionsScreenMixin",
+    "client.core.bedrockIfyButton.SearchFieldEntryMixin",
     "client.core.clientRenderTimer.MinecraftClientMixin",
     "client.features.bedrockShading.lightBlock.BlockModelRendererMixin",
     "client.features.bedrockShading.lightBlock.FluidRendererMixin",

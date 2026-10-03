@@ -36,7 +36,6 @@ public class SettingsGUI {
         ConfigCategory gameplay = builder.getOrCreateCategory(Text.translatable("bedrockify.options.categories.gameplay"));
         ConfigCategory gui = builder.getOrCreateCategory(Text.translatable("bedrockify.options.categories.gui"));
         ConfigCategory visualImprovements = builder.getOrCreateCategory(Text.translatable("bedrockify.options.categories.visualImprovements"));
-        ConfigCategory panorama = builder.getOrCreateCategory(Text.translatable("bedrockify.options.categories.panoramaScreens"));
         ConfigCategory mixins = builder.getOrCreateCategory(Text.translatable("bedrockify.options.categories.mixins"));
 
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
@@ -52,10 +51,10 @@ public class SettingsGUI {
             reachAround.add(entryBuilder.startTextDescription(Text.translatable("bedrockify.options.subCategory.Reach-Around.description")).build());
             reachAround.add(entryBuilder.startBooleanToggle(Text.translatable("bedrockify.options.reachAround"), settingsClient.reacharound).setDefaultValue(true).setSaveConsumer(newValue -> settingsClient.reacharound=newValue).build());
             reachAround.add(entryBuilder.startBooleanToggle(Text.translatable("bedrockify.options.reachAround.multiplayer"), settingsClient.reacharoundMultiplayer).setDefaultValue(true).setSaveConsumer(newValue -> settingsClient.reacharoundMultiplayer=newValue).build());
-            reachAround.add(entryBuilder.startBooleanToggle(Text.translatable("bedrockify.options.reachAround.sneaking"), settingsClient.reacharoundSneaking).setDefaultValue(true).setSaveConsumer(newValue -> settingsClient.reacharoundSneaking=newValue).build());
+            reachAround.add(entryBuilder.startBooleanToggle(Text.translatable("bedrockify.options.reachAround.sneaking"), settingsClient.reacharoundSneaking).setTooltip(wrapLines(Text.translatable("bedrockify.options.reachAround.sneaking.tooltip"))).setDefaultValue(false).setSaveConsumer(newValue -> settingsClient.reacharoundSneaking=newValue).build());
             reachAround.add(entryBuilder.startBooleanToggle(Text.translatable("bedrockify.options.reachAround.indicator"), settingsClient.reacharoundIndicator).setDefaultValue(true).setSaveConsumer(newValue -> settingsClient.reacharoundIndicator=newValue).build());
             reachAround.add(entryBuilder.startIntSlider(Text.translatable("bedrockify.options.reachAround.pitch"), settingsClient.reacharoundPitchAngle, 0,90).setDefaultValue(25).setSaveConsumer(newValue -> settingsClient.reacharoundPitchAngle=newValue).build());
-            reachAround.add(entryBuilder.startIntSlider(Text.translatable("bedrockify.options.reachAround.distance"), MathHelper.floor(settingsClient.reacharoundBlockDistance*100), 0,100).setTextGetter((integer -> Text.literal(String.valueOf(integer/100d)))).setDefaultValue(75).setSaveConsumer(newValue -> settingsClient.reacharoundBlockDistance=newValue/100d).build());
+            reachAround.add(entryBuilder.startIntSlider(Text.translatable("bedrockify.options.reachAround.distance"), MathHelper.floor(settingsClient.reacharoundBlockDistance*100), 0,100).setTextGetter((integer -> Text.literal(String.valueOf(integer/100d)))).setDefaultValue(50).setSaveConsumer(newValue -> settingsClient.reacharoundBlockDistance=newValue/100d).build());
             gameplay.addEntry(reachAround.build());
 
             // Dying and Fallen Trees.
@@ -64,10 +63,12 @@ public class SettingsGUI {
 
             // Other Settings.
             gameplay.addEntry(entryBuilder.startBooleanToggle(Text.translatable("bedrockify.options.recipes"), settingsCommon.bedrockRecipes).setTooltip(wrapLines(Text.translatable("bedrockify.options.recipes.tooltip"))).setDefaultValue(true).setSaveConsumer(newValue -> settingsCommon.bedrockRecipes=newValue).build());
+            gameplay.addEntry(entryBuilder.startBooleanToggle(Text.translatable("bedrockify.options.legacyRecipes"), settingsCommon.legacyBedrockRecipes).setTooltip(wrapLines(Text.translatable("bedrockify.options.legacyRecipes.tooltip"))).setDefaultValue(false).setSaveConsumer(newValue -> settingsCommon.legacyBedrockRecipes=newValue).build());
             gameplay.addEntry(entryBuilder.startBooleanToggle(Text.translatable("bedrockify.options.fireAspectLight"), settingsCommon.fireAspectLight).setTooltip(wrapLines(Text.translatable("bedrockify.options.fireAspectLight.tooltip"))).setDefaultValue(true).setSaveConsumer(newValue -> settingsCommon.fireAspectLight=newValue).build());
             gameplay.addEntry(entryBuilder.startBooleanToggle(Text.translatable("bedrockify.options.fernBonemeal"), settingsCommon.fernBonemeal).setDefaultValue(true).setSaveConsumer(newValue -> settingsCommon.fernBonemeal=newValue).build());
-            gameplay.addEntry(entryBuilder.startBooleanToggle(Text.translatable("bedrockify.options.disableFlyingMomentum"), settingsClient.disableFlyingMomentum).setDefaultValue(true).setSaveConsumer(newValue -> settingsClient.disableFlyingMomentum =newValue).build());
-            gameplay.addEntry(entryBuilder.startBooleanToggle(Text.translatable("bedrockify.options.elytraStop"), settingsClient.elytraStop).setDefaultValue(true).setSaveConsumer(newValue -> settingsClient.elytraStop=newValue).build());
+            gameplay.addEntry(entryBuilder.startBooleanToggle(Text.translatable("bedrockify.options.disableFlyingMomentum"), settingsClient.disableFlyingMomentum).setTooltip(wrapLines(Text.translatable("bedrockify.options.disableFlyingMomentum.tooltip"))).setDefaultValue(true).setSaveConsumer(newValue -> settingsClient.disableFlyingMomentum =newValue).build());
+            gameplay.addEntry(entryBuilder.startIntSlider(Text.translatable("bedrockify.options.flyingBrakeStrength"), settingsClient.flyingBrakeStrength, 0,100).setTooltip(wrapLines(Text.translatable("bedrockify.options.flyingBrakeStrength.tooltip"))).setTextGetter(value -> Text.literal(value + "%")).setDefaultValue(25).setSaveConsumer(newValue -> settingsClient.flyingBrakeStrength=newValue).build());
+            gameplay.addEntry(entryBuilder.startBooleanToggle(Text.translatable("bedrockify.options.elytraStop"), settingsClient.elytraStop).setTooltip(wrapLines(Text.translatable("bedrockify.options.elytraStop.tooltip"))).setDefaultValue(true).setSaveConsumer(newValue -> settingsClient.elytraStop=newValue).build());
             gameplay.addEntry(entryBuilder.startBooleanToggle(Text.translatable("bedrockify.options.bedrockCauldron"), settingsCommon.bedrockCauldron).setTooltip(wrapLines(Text.translatable("bedrockify.options.bedrockCauldron.tooltip"))).setDefaultValue(true).setSaveConsumer(newValue -> settingsCommon.bedrockCauldron=newValue).build());
             gameplay.addEntry(entryBuilder.startBooleanToggle(Text.translatable("bedrockify.options.sheepcolors"), settingsClient.sheepColors).setDefaultValue(true).setSaveConsumer(newValue -> settingsClient.sheepColors=newValue).build());
 
@@ -124,7 +125,7 @@ public class SettingsGUI {
                 BedrockifyClient.getInstance().hudOpacity.resetTicks();
             }).build());
             gui.addEntry(entryBuilder.startEnumSelector(Text.translatable("bedrockify.options.showBedrockIfyButton"), BedrockifyClientSettings.ButtonPosition.class, settingsClient.bedrockIfyButtonPosition).setTooltip(wrapLines(Text.translatable("bedrockify.options.showBedrockIfyButton.tooltip"))).setEnumNameProvider(anEnum -> Text.translatable(((BedrockifyClientSettings.ButtonPosition)anEnum).text)).setDefaultValue(BedrockifyClientSettings.ButtonPosition.BELOW_SLIDERS).setSaveConsumer(buttonPosition -> settingsClient.bedrockIfyButtonPosition =buttonPosition).build());
-            gui.addEntry(entryBuilder.startBooleanToggle(Text.translatable("bedrockify.options.editionBranding"), settingsClient.hideEditionBranding).setDefaultValue(false).setSaveConsumer(newValue -> settingsClient.hideEditionBranding =newValue).build());
+            gui.addEntry(entryBuilder.startBooleanToggle(Text.translatable("bedrockify.options.editionBranding"), settingsClient.hideEditionBranding).setTooltip(wrapLines(Text.translatable("bedrockify.options.editionBranding.tooltip"))).setDefaultValue(true).setSaveConsumer(newValue -> settingsClient.hideEditionBranding =newValue).build());
 
 
         /*
@@ -146,18 +147,13 @@ public class SettingsGUI {
 
         /*
          *
-         *   Panorama Screen Category
-         *
-         */
-            panorama.addEntry(entryBuilder.startTextDescription(Text.translatable("bedrockify.options.panoramaScreens").styled(style -> style.withColor(MathHelper.packRgb(1,.2f,.2f)))).build());
-        /*
-         *
          *   Mixins Category
          *
          */
             mixins.addEntry(entryBuilder.startTextDescription(Text.translatable("bedrockify.options.mixins.description")).build());
-            for(Map.Entry<String, Boolean> elem : MixinFeatureManager.features.entrySet()){
-                mixins.addEntry(entryBuilder.startBooleanToggle(Text.translatable(elem.getKey()), elem.getValue()).setDefaultValue(true).setSaveConsumer(newValue -> MixinFeatureManager.features.put(elem.getKey(),newValue)).build());
+            for(Map.Entry<String, Boolean> elem : MixinFeatureManager.features.entrySet().stream().sorted(Map.Entry.comparingByKey()).toList()){
+                String translationKey = "bedrockify.options.mixin." + elem.getKey();
+                mixins.addEntry(entryBuilder.startBooleanToggle(Text.translatable(translationKey), elem.getValue()).setTooltip(wrapLines(Text.translatable(translationKey + ".tooltip"))).requireRestart().setDefaultValue(true).setSaveConsumer(newValue -> MixinFeatureManager.features.put(elem.getKey(),newValue)).build());
             }
 
 

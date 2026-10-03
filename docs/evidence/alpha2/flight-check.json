@@ -1,0 +1,47 @@
+{
+  "25": {
+    "before": 0.4850766743918326,
+    "after": 0.3310648398136573,
+    "ratio": 0.6825000196695328,
+    "evidence": [
+      "FLIGHT_SAMPLE strength=25 tick=78 flying=true forward=true vx=0.0 vy=0.0 vz=0.4850766743918326",
+      "FLIGHT_SAMPLE strength=25 tick=79 flying=true forward=false vx=0.0 vy=0.0 vz=0.3310648398136573",
+      "FLIGHT_SAMPLE strength=25 tick=80 flying=true forward=false vx=0.0 vy=0.0 vz=0.22595175968471182",
+      "FLIGHT_SAMPLE strength=25 tick=81 flying=true forward=false vx=0.0 vy=0.0 vz=0.15421208042918136",
+      "FLIGHT_SAMPLE strength=25 tick=82 flying=true forward=false vx=0.0 vy=0.0 vz=0.10524974792619585",
+      "FLIGHT_SAMPLE strength=25 tick=83 flying=true forward=false vx=0.0 vy=0.0 vz=0.07183295502984204",
+      "FLIGHT_SAMPLE strength=25 tick=84 flying=true forward=false vx=0.0 vy=0.0 vz=0.04902599322078786",
+      "FLIGHT_SAMPLE strength=25 tick=85 flying=true forward=false vx=0.0 vy=0.0 vz=0.033460241337506094"
+    ]
+  },
+  "100": {
+    "before": 0.4850766743918326,
+    "after": 0.0,
+    "ratio": 0.0,
+    "evidence": [
+      "FLIGHT_SAMPLE strength=100 tick=78 flying=true forward=true vx=0.0 vy=0.0 vz=0.4850766743918326",
+      "FLIGHT_SAMPLE strength=100 tick=79 flying=true forward=false vx=0.0 vy=0.0 vz=0.0",
+      "FLIGHT_SAMPLE strength=100 tick=80 flying=true forward=false vx=0.0 vy=0.0 vz=0.0",
+      "FLIGHT_SAMPLE strength=100 tick=81 flying=true forward=false vx=0.0 vy=0.0 vz=0.0",
+      "FLIGHT_SAMPLE strength=100 tick=82 flying=true forward=false vx=0.0 vy=0.0 vz=0.0",
+      "FLIGHT_SAMPLE strength=100 tick=83 flying=true forward=false vx=0.0 vy=0.0 vz=0.0",
+      "FLIGHT_SAMPLE strength=100 tick=84 flying=true forward=false vx=0.0 vy=0.0 vz=0.0",
+      "FLIGHT_SAMPLE strength=100 tick=85 flying=true forward=false vx=0.0 vy=0.0 vz=0.0"
+    ]
+  },
+  "0": {
+    "before": 0.4850766743918326,
+    "after": 0.4414197864182097,
+    "ratio": 0.9100000262260437,
+    "evidence": [
+      "FLIGHT_SAMPLE strength=0 tick=78 flying=true forward=true vx=0.0 vy=0.0 vz=0.4850766743918326",
+      "FLIGHT_SAMPLE strength=0 tick=79 flying=true forward=false vx=0.0 vy=0.0 vz=0.4414197864182097",
+      "FLIGHT_SAMPLE strength=0 tick=80 flying=true forward=false vx=0.0 vy=0.0 vz=0.40169201721726544",
+      "FLIGHT_SAMPLE strength=0 tick=81 flying=true forward=false vx=0.0 vy=0.0 vz=0.36553974620250396",
+      "FLIGHT_SAMPLE strength=0 tick=82 flying=true forward=false vx=0.0 vy=0.0 vz=0.33264117863093995",
+      "FLIGHT_SAMPLE strength=0 tick=83 flying=true forward=false vx=0.0 vy=0.0 vz=0.30270348127801744",
+      "FLIGHT_SAMPLE strength=0 tick=84 flying=true forward=false vx=0.0 vy=0.0 vz=0.2754601759017106",
+      "FLIGHT_SAMPLE strength=0 tick=85 flying=true forward=false vx=0.0 vy=0.0 vz=0.25066876729478726"
+    ]
+  }
+}

@@ -9,6 +9,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.profiler.Profiler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -17,6 +18,21 @@ import java.util.*;
 
 @Mixin(RecipeManager.class)
 public abstract class RecipeManagerMixin {
+
+    @Unique
+    private static final Set<String> LEGACY_RECIPES = Set.of("oak_boat", "spruce_boat", "birch_boat",
+            "jungle_boat", "acacia_boat", "dark_oak_boat", "mangrove_boat", "cherry_boat",
+            "bamboo_raft", "barrel", "string_from_cobweb");
+
+    @Unique
+    private static String bedrockify$replacementPath(String path) {
+        // Minecraft 1.20 renamed the wool and bed recoloring recipes.
+        if (path.endsWith("_wool")) return "dye_" + path;
+        if (path.endsWith("_bed_from_white_bed")) {
+            return "dye_" + path.substring(0, path.length() - "_from_white_bed".length());
+        }
+        return path;
+    }
 
     @Shadow public abstract Optional<? extends Recipe<?>> get(Identifier id);
 
@@ -37,9 +53,16 @@ public abstract class RecipeManagerMixin {
                 "magenta_dye_from_lapis_lazuli_red_pink", "magenta_dye_from_blue_red_bone_meal_dye", "magenta_dye_from_lapis_lazuli_red_bone_meal_dye", "magenta_dye_from_lapis_lazuli_red_white_dye", "gray_dye_ink_sac","gray_dye_ink_sac_bone_meal","gray_dye_bone_meal");
         while (mapIterator.hasNext()){
             Map.Entry<Identifier, JsonElement> elem = mapIterator.next();
-            if(elem.getKey().getNamespace().equals("bedrockify") && (!exceptions.contains(elem.getKey().getPath()) || !Bedrockify.getInstance().settings.isBedrockRecipesEnabled())){
+            if (!elem.getKey().getNamespace().equals("bedrockify")) continue;
+            boolean recipesEnabled = Bedrockify.getInstance().settings.isBedrockRecipesEnabled();
+            boolean legacyEnabled = Bedrockify.getInstance().settings.isLegacyBedrockRecipesEnabled();
+            if (!recipesEnabled || (!legacyEnabled && LEGACY_RECIPES.contains(elem.getKey().getPath()))) {
+                mapIterator.remove();
+                continue;
+            }
+            if(!exceptions.contains(elem.getKey().getPath())){
                 if(Bedrockify.getInstance().settings.isBedrockRecipesEnabled())
-                    bedrockifyRecipes.put(new Identifier("minecraft", elem.getKey().getPath()), elem.getValue());
+                    bedrockifyRecipes.put(new Identifier("minecraft", bedrockify$replacementPath(elem.getKey().getPath())), elem.getValue());
                 mapIterator.remove();
             }
         }
