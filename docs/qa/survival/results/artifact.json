@@ -1,0 +1,11 @@
+{
+  "file": "bedrockify-forge-1.9.1-forge-alpha.5+mc1.20.1.jar",
+  "size": 468633,
+  "sha256": "219f310cff4ba06e6e1ede17a577913075b45ce4c8c3e30ff63827592145fd5f",
+  "forge": "47.4.0",
+  "minecraft": "1.20.1",
+  "java": 17,
+  "refmap_and_slot_access_transforms": true,
+  "dev_fixture_excluded": true,
+  "optional_jei_mc_type_remapped": true
+}

@@ -61,6 +61,9 @@ public class BedrockifyClientSettings {
     public boolean hideEditionBranding = true;
     public boolean creativeInventory = true;
     public boolean creativeInventoryGroups = true;
+    public boolean survivalInventory = true;
+    public boolean survivalRecipeGroups = true;
+    public boolean survivalRecipeBookOpen = true;
 
     public boolean isPickupAnimationsEnabled() {
         return pickupAnimations;

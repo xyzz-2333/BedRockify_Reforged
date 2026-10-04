@@ -5,6 +5,13 @@ and removal of the unused Panorama settings page.
 Alpha.3 revised on 2026-10-04: classic creative inventory categories and client picker grid,
 collapsible families, NBT-preserving Forge tab aggregation, native Forge page navigation,
 small-window and configurable Java UI fallback, and bilingual creative inventory settings.
+Alpha.4 revised on 2026-10-04: transparent group markers, isolated creative picker inventory,
+preservation of native saved-hotbar slots and restoration before saved-hotbar loading.
+Alpha.5 revised on 2026-10-04: classic survival inventory and crafting-table screens,
+cached native recipe-book classification, collapsible tagged families, paged visible rendering,
+original resource-pack-overridable survival sprites, native slot/recipe/network behavior,
+small-window and custom-container fallback, optional JEI recipe-book area synchronization,
+and bilingual survival settings.
 Upstream: https://github.com/juancarloscp52/BedrockIfy
 Upstream authors: juancarloscp52, lonefelidae16 and contributors.
 Base tag: 1.9.1+mc1.20

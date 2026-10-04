@@ -42,7 +42,12 @@
     "client.features.useAnimations.ClientPlayerEntityMixin",
     "client.features.useAnimations.ClientPlayerInteractionManagerMixin",
     "client.features.useAnimations.ClientPlayNetworkHandlerMixin",
-    "client.features.worldColorNoise.BiomeColorsMixin"
+    "client.features.worldColorNoise.BiomeColorsMixin",
+    "client.features.survivalInventory.InventoryScreenMixin",
+    "client.features.survivalInventory.CraftingScreenMixin",
+    "client.features.survivalInventory.HandledScreenMixin",
+    "client.features.survivalInventory.RecipeBookWidgetMixin",
+    "client.features.survivalInventory.JeiRecipeBookGuiHandlerMixin"
   ],
   "mixins": [
     "common.features.animalEatingParticles.AnimalEntityMixin",
