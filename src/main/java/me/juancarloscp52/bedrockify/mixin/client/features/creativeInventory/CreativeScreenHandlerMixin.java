@@ -4,6 +4,7 @@ import me.juancarloscp52.bedrockify.client.features.creativeInventory.CreativeGr
 import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerType;
@@ -18,6 +19,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.List;
+
 @Mixin(CreativeInventoryScreen.CreativeScreenHandler.class)
 public abstract class CreativeScreenHandlerMixin extends ScreenHandler implements CreativeGrid {
     @Shadow public DefaultedList<ItemStack> itemList;
@@ -25,6 +28,8 @@ public abstract class CreativeScreenHandlerMixin extends ScreenHandler implement
     @Unique private boolean bedrockify$classic;
     @Unique private int bedrockify$columns = 9;
     @Unique private int bedrockify$rows = 5;
+    @Unique private final SimpleInventory bedrockify$picker = new SimpleInventory(17 * 7);
+    @Unique private List<Slot> bedrockify$nativeSlots;
 
     protected CreativeScreenHandlerMixin(ScreenHandlerType<?> type, int syncId) { super(type, syncId); }
 
@@ -33,23 +38,35 @@ public abstract class CreativeScreenHandlerMixin extends ScreenHandler implement
 
     @Override
     public void bedrockify$configureGrid(boolean classic, int columns, int rows, boolean rebuild) {
+        // Capture after construction, so constructor hooks from other mods have run.
+        // Special tabs reuse these slots instead of discarding mod-provided slot behavior.
+        if (bedrockify$nativeSlots == null && !bedrockify$classic) bedrockify$nativeSlots = List.copyOf(slots);
         boolean changed = bedrockify$classic != classic || bedrockify$columns != columns || bedrockify$rows != rows;
+        if (bedrockify$classic && !classic) bedrockify$picker.clear();
         bedrockify$classic = classic;
         bedrockify$columns = columns;
         bedrockify$rows = rows;
-        if (!rebuild || (!changed && slots.size() == columns * rows + 9)) return;
+        int slotCount = classic ? columns * rows + 9 : bedrockify$nativeSlots.size();
+        if (!rebuild || (!changed && slots.size() == slotCount)) return;
         slots.clear();
         trackedStacks.clear();
         previousTrackedStacks.clear();
+        if (!classic) {
+            for (Slot slot : bedrockify$nativeSlots) addSlot(slot);
+            return;
+        }
         for (int row = 0; row < rows; row++) for (int col = 0; col < columns; col++) {
-            addSlot(new CreativeInventoryScreen.LockableSlot(CreativeInventoryScreen.INVENTORY, row * columns + col,
-                    classic ? 14 + col * 20 : 9 + col * 18, classic ? 30 + row * 20 : 18 + row * 18));
+            addSlot(new CreativeInventoryScreen.LockableSlot(bedrockify$pickerInventory(), row * columns + col,
+                    14 + col * 20, 30 + row * 20));
         }
         for (int i = 0; i < 9; i++) {
             int hotbarX = (columns * 20 + 32 - 180) / 2 + 2;
-            addSlot(new Slot(bedrockify$inventory, i, classic ? hotbarX + i * 20 : 9 + i * 18,
-                    classic ? 44 + rows * 20 : 112));
+            addSlot(new Slot(bedrockify$inventory, i, hotbarX + i * 20, 44 + rows * 20));
         }
+    }
+
+    @Override public SimpleInventory bedrockify$pickerInventory() {
+        return bedrockify$classic ? bedrockify$picker : CreativeInventoryScreen.INVENTORY;
     }
 
     @Override public int bedrockify$pickerSize() { return bedrockify$columns * bedrockify$rows; }
@@ -72,9 +89,9 @@ public abstract class CreativeScreenHandlerMixin extends ScreenHandler implement
     private void bedrockify$scroll(float scroll, CallbackInfo ci) {
         if (!bedrockify$classic) return;
         int first = bedrockify$firstVisibleIndex(scroll);
-        for (int cell = 0; cell < bedrockify$pickerSize(); cell++) {
+        for (int cell = 0; cell < bedrockify$picker.size(); cell++) {
             int index = first + cell;
-            CreativeInventoryScreen.INVENTORY.setStack(cell, index < itemList.size() ? itemList.get(index) : ItemStack.EMPTY);
+            bedrockify$picker.setStack(cell, cell < bedrockify$pickerSize() && index < itemList.size() ? itemList.get(index) : ItemStack.EMPTY);
         }
         ci.cancel();
     }
@@ -82,5 +99,15 @@ public abstract class CreativeScreenHandlerMixin extends ScreenHandler implement
     @Inject(method = "shouldShowScrollbar", at = @At("HEAD"), cancellable = true)
     private void bedrockify$scrollbar(CallbackInfoReturnable<Boolean> cir) {
         if (bedrockify$classic) cir.setReturnValue(itemList.size() > bedrockify$pickerSize());
+    }
+
+    @Inject(method = "canInsertIntoSlot(Lnet/minecraft/item/ItemStack;Lnet/minecraft/screen/slot/Slot;)Z", at = @At("HEAD"), cancellable = true)
+    private void bedrockify$excludePickerFromQuickCraft(ItemStack stack, Slot slot, CallbackInfoReturnable<Boolean> cir) {
+        if (bedrockify$classic) cir.setReturnValue(slot.inventory != bedrockify$picker);
+    }
+
+    @Inject(method = "canInsertIntoSlot(Lnet/minecraft/screen/slot/Slot;)Z", at = @At("HEAD"), cancellable = true)
+    private void bedrockify$excludePickerFromInsert(Slot slot, CallbackInfoReturnable<Boolean> cir) {
+        if (bedrockify$classic) cir.setReturnValue(slot.inventory != bedrockify$picker);
     }
 }

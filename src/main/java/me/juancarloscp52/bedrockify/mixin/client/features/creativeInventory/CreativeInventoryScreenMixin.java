@@ -21,7 +21,6 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.client.gui.CreativeTabsScreenPage;
 import net.minecraftforge.common.CreativeModeTabRegistry;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -34,7 +33,6 @@ import java.util.*;
 @Mixin(CreativeInventoryScreen.class)
 public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScreen<CreativeInventoryScreen.CreativeScreenHandler> {
     @Shadow private static ItemGroup selectedTab;
-    @Shadow @Final static SimpleInventory INVENTORY;
     @Shadow private float scrollPosition;
     @Shadow private boolean scrolling;
     @Shadow private TextFieldWidget searchBox;
@@ -56,10 +54,6 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
         super(handler, inventory, title);
     }
 
-    // This inventory is exclusively a local creative picker; server/player inventory sizes do not change.
-    @ModifyArg(method = "<clinit>", at = @At(value = "INVOKE", target = "Lnet/minecraft/inventory/SimpleInventory;<init>(I)V"), index = 0)
-    private static int bedrockify$pickerCapacity(int original) { return Math.max(original, 17 * 7); }
-
     @Unique private boolean bedrockify$enabled() {
         BedrockifyClient mod = BedrockifyClient.getInstance();
         return mod != null && mod.settings != null && mod.settings.creativeInventory;
@@ -78,15 +72,33 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
     @Inject(method = "init", at = @At("HEAD"))
     private void bedrockify$initialGeometry(CallbackInfo ci) { bedrockify$geometry(selectedTab); }
 
-    @Inject(method = {"setSelectedTab", "refreshSelectedTab"}, at = @At("HEAD"))
+    @Inject(method = "refreshSelectedTab", at = @At("HEAD"))
     private void bedrockify$beginPopulate(CallbackInfo ci) { bedrockify$populating = true; }
+
+    @Inject(method = "setSelectedTab", at = @At("HEAD"))
+    private void bedrockify$beginSelect(ItemGroup group, CallbackInfo ci) {
+        bedrockify$populating = true;
+        bedrockify$geometry(group);
+        // Release the old catalogue before vanilla loads saved hotbar NBT. Leave inventory
+        // wrappers intact until vanilla restores its cached picker slots on the way out.
+        if (!bedrockify$classic) bedrockify$sourceFromTab();
+        if (selectedTab.getType() != ItemGroup.Type.INVENTORY) bedrockify$configureGrid(true);
+    }
+
+    @Inject(method = "setSelectedTab", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screen/ingame/CreativeInventoryScreen$CreativeScreenHandler;scrollItems(F)V"))
+    private void bedrockify$prepareScroll(ItemGroup group, CallbackInfo ci) {
+        // The first population must already use the destination grid, including 9 x 5 for
+        // saved hotbars. Configuring only at TAIL exposed the old 17 x 7 grid to mod hooks.
+        bedrockify$configureGrid(group.getType() != ItemGroup.Type.INVENTORY);
+    }
+
+    @Unique private void bedrockify$configureGrid(boolean rebuild) {
+        ((CreativeGrid) handler).bedrockify$configureGrid(bedrockify$classic,
+                bedrockify$classic ? bedrockify$columns : 9, bedrockify$classic ? bedrockify$rows : 5, rebuild);
+    }
 
     @Inject(method = "setSelectedTab", at = @At("TAIL"))
     private void bedrockify$select(ItemGroup group, CallbackInfo ci) {
-        bedrockify$geometry(group);
-        boolean inventory = group.getType() == ItemGroup.Type.INVENTORY;
-        ((CreativeGrid) handler).bedrockify$configureGrid(bedrockify$classic,
-                bedrockify$classic ? bedrockify$columns : 9, bedrockify$classic ? bedrockify$rows : 5, !inventory);
         bedrockify$sourceFromTab();
         bedrockify$rebuild(true);
         bedrockify$positionControls();
@@ -174,8 +186,13 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
         return bedrockify$classic ? ((CreativeGrid) handler).bedrockify$pickerSize() : original;
     }
 
+    @Redirect(method = {"onMouseClick", "isCreativeInventorySlot"}, at = @At(value = "FIELD", target = "Lnet/minecraft/client/gui/screen/ingame/CreativeInventoryScreen;INVENTORY:Lnet/minecraft/inventory/SimpleInventory;"))
+    private SimpleInventory bedrockify$pickerForClicks() {
+        return ((CreativeGrid) handler).bedrockify$pickerInventory();
+    }
+
     @Unique private CreativeGroups.Entry bedrockify$entry(Slot slot) {
-        if (!bedrockify$classic || slot == null || slot.inventory != INVENTORY) return null;
+        if (!bedrockify$classic || slot == null || slot.inventory != ((CreativeGrid) handler).bedrockify$pickerInventory()) return null;
         int index = ((CreativeGrid) handler).bedrockify$firstVisibleIndex(scrollPosition) + slot.getSlotIndex();
         return index >= 0 && index < bedrockify$entries.size() ? bedrockify$entries.get(index) : null;
     }
@@ -298,8 +315,13 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
             if (!entry.header()) continue;
             int left = 12 + cell % bedrockify$columns * 20 + 10;
             int top = 28 + cell / bedrockify$columns * 20 + 10;
-            context.fill(left, top, left + 10, top + 10, 0xe6000000);
-            context.drawText(textRenderer, bedrockify$expanded.contains(entry.group()) ? "−" : "+", left + 2, top, 0xffffffff, false);
+            String marker = bedrockify$expanded.contains(entry.group()) ? "−" : "+";
+            // Outline the glyph itself; Bedrock does not put a black tile behind group markers.
+            context.drawText(textRenderer, marker, left + 1, top, 0xff000000, false);
+            context.drawText(textRenderer, marker, left + 3, top, 0xff000000, false);
+            context.drawText(textRenderer, marker, left + 2, top - 1, 0xff000000, false);
+            context.drawText(textRenderer, marker, left + 2, top + 1, 0xff000000, false);
+            context.drawText(textRenderer, marker, left + 2, top, 0xffffffff, false);
         }
         if (bedrockify$hasGroups) {
             bedrockify$panel(context, backgroundWidth - 54, 6, 18, 16, 0xff8b8b8b);

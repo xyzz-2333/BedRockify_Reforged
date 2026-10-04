@@ -1,0 +1,2383 @@
+{
+  "version": "1.9.1-forge-alpha.4+mc1.20.1",
+  "minecraft": "1.20.1",
+  "forge": "47.4.0",
+  "max_heap_bytes": 1073741824,
+  "saved_records": 81,
+  "saved_payload_bytes": 10616832,
+  "mod_fixture_tabs": 12,
+  "cycles": 700,
+  "note": "Development Forge fixture; user modpack OOM not reproduced or attributed without crash report.",
+  "commands": [
+    {
+      "command": {
+        "action": "open"
+      },
+      "result": {
+        "slots": 128,
+        "items": 105,
+        "classic": true,
+        "source_items": 410,
+        "groups": 16,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 sample",
+        "hotbar0_nbt": "qa_row=0,qa_col=0,payload_bytes=131072",
+        "page_count": 2,
+        "tab": "minecraft:building_blocks",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 oak_planks",
+          "1 cobblestone_wall",
+          "1 oak_fence",
+          "1 oak_fence_gate",
+          "1 oak_stairs",
+          "1 oak_door",
+          "1 oak_trapdoor",
+          "1 glass"
+        ],
+        "hotbar": [
+          "64 sample",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 sample",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "audit"
+      },
+      "result": {
+        "checks": [
+          "CONSTRUCTION: 410 stacks preserved, 16 groups",
+          "EQUIPMENT: 307 stacks preserved, 14 groups",
+          "ITEMS: 448 stacks preserved, 16 groups",
+          "NATURE: 361 stacks preserved, 15 groups",
+          "All 1486 source item/NBT identities reachable in four categories",
+          "Forge additions, 2 NBT variants, 12 mod tabs and 2 pages preserved"
+        ],
+        "slots": 128,
+        "items": 105,
+        "classic": true,
+        "source_items": 410,
+        "groups": 16,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 sample",
+        "hotbar0_nbt": "qa_row=0,qa_col=0,payload_bytes=131072",
+        "page_count": 2,
+        "tab": "minecraft:building_blocks",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 oak_planks",
+          "1 cobblestone_wall",
+          "1 oak_fence",
+          "1 oak_fence_gate",
+          "1 oak_stairs",
+          "1 oak_door",
+          "1 oak_trapdoor",
+          "1 glass"
+        ],
+        "hotbar": [
+          "64 sample",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 sample",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "stress_hotbars",
+        "cycles": 200
+      },
+      "result": {
+        "cycles": 200,
+        "heap_before_bytes": 540785792,
+        "heap_after_bytes": 541378560,
+        "max_heap_bytes": 1073741824,
+        "native_picker_size": 45,
+        "tracked_stacks": 54,
+        "previous_tracked_stacks": 54,
+        "private_picker_empty": true,
+        "slots": 54,
+        "items": 81,
+        "classic": false,
+        "source_items": 0,
+        "groups": 0,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 sample",
+        "hotbar0_nbt": "qa_row=0,qa_col=0,payload_bytes=131072",
+        "page_count": 2,
+        "tab": "minecraft:hotbar",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 sample",
+          "2 diamond",
+          "3 sample",
+          "4 diamond",
+          "5 sample",
+          "6 diamond",
+          "7 sample",
+          "8 diamond"
+        ],
+        "hotbar": [
+          "64 sample",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 sample",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "stress_hotbars",
+        "cycles": 500
+      },
+      "result": {
+        "cycles": 500,
+        "heap_before_bytes": 540420832,
+        "heap_after_bytes": 540975624,
+        "max_heap_bytes": 1073741824,
+        "native_picker_size": 45,
+        "tracked_stacks": 54,
+        "previous_tracked_stacks": 54,
+        "private_picker_empty": true,
+        "slots": 54,
+        "items": 81,
+        "classic": false,
+        "source_items": 0,
+        "groups": 0,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 sample",
+        "hotbar0_nbt": "qa_row=0,qa_col=0,payload_bytes=131072",
+        "page_count": 2,
+        "tab": "minecraft:hotbar",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 sample",
+          "2 diamond",
+          "3 sample",
+          "4 diamond",
+          "5 sample",
+          "6 diamond",
+          "7 sample",
+          "8 diamond"
+        ],
+        "hotbar": [
+          "64 sample",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 sample",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "tab",
+        "id": "minecraft:building_blocks"
+      },
+      "result": {
+        "slots": 128,
+        "items": 105,
+        "classic": true,
+        "source_items": 410,
+        "groups": 16,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 sample",
+        "hotbar0_nbt": "qa_row=0,qa_col=0,payload_bytes=131072",
+        "page_count": 2,
+        "tab": "minecraft:building_blocks",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 oak_planks",
+          "1 cobblestone_wall",
+          "1 oak_fence",
+          "1 oak_fence_gate",
+          "1 oak_stairs",
+          "1 oak_door",
+          "1 oak_trapdoor",
+          "1 glass"
+        ],
+        "hotbar": [
+          "64 sample",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 sample",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "click",
+        "slot": 0,
+        "button": 0,
+        "type": "PICKUP"
+      },
+      "result": {
+        "slots": 128,
+        "items": 116,
+        "classic": true,
+        "source_items": 410,
+        "groups": 16,
+        "expanded": "[planks]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 sample",
+        "hotbar0_nbt": "qa_row=0,qa_col=0,payload_bytes=131072",
+        "page_count": 2,
+        "tab": "minecraft:building_blocks",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 oak_planks",
+          "1 oak_planks",
+          "1 spruce_planks",
+          "1 birch_planks",
+          "1 jungle_planks",
+          "1 acacia_planks",
+          "1 dark_oak_planks",
+          "1 mangrove_planks"
+        ],
+        "hotbar": [
+          "64 sample",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 sample",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "click",
+        "slot": 0,
+        "button": 0,
+        "type": "PICKUP"
+      },
+      "result": {
+        "slots": 128,
+        "items": 105,
+        "classic": true,
+        "source_items": 410,
+        "groups": 16,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 sample",
+        "hotbar0_nbt": "qa_row=0,qa_col=0,payload_bytes=131072",
+        "page_count": 2,
+        "tab": "minecraft:building_blocks",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 oak_planks",
+          "1 cobblestone_wall",
+          "1 oak_fence",
+          "1 oak_fence_gate",
+          "1 oak_stairs",
+          "1 oak_door",
+          "1 oak_trapdoor",
+          "1 glass"
+        ],
+        "hotbar": [
+          "64 sample",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 sample",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "click",
+        "slot": 0,
+        "button": 1,
+        "type": "PICKUP"
+      },
+      "result": {
+        "slots": 128,
+        "items": 105,
+        "classic": true,
+        "source_items": 410,
+        "groups": 16,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "1 oak_planks",
+        "hotbar0": "64 sample",
+        "hotbar0_nbt": "qa_row=0,qa_col=0,payload_bytes=131072",
+        "page_count": 2,
+        "tab": "minecraft:building_blocks",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 oak_planks",
+          "1 cobblestone_wall",
+          "1 oak_fence",
+          "1 oak_fence_gate",
+          "1 oak_stairs",
+          "1 oak_door",
+          "1 oak_trapdoor",
+          "1 glass"
+        ],
+        "hotbar": [
+          "64 sample",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 sample",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "click",
+        "slot": 103,
+        "button": 0,
+        "type": "PICKUP"
+      },
+      "result": {
+        "slots": 128,
+        "items": 105,
+        "classic": true,
+        "source_items": 410,
+        "groups": 16,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 sample",
+        "hotbar0_nbt": "qa_row=0,qa_col=0,payload_bytes=131072",
+        "page_count": 2,
+        "tab": "minecraft:building_blocks",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 oak_planks",
+          "1 cobblestone_wall",
+          "1 oak_fence",
+          "1 oak_fence_gate",
+          "1 oak_stairs",
+          "1 oak_door",
+          "1 oak_trapdoor",
+          "1 glass"
+        ],
+        "hotbar": [
+          "64 sample",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 sample",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "click",
+        "slot": 101,
+        "button": 0,
+        "type": "SWAP"
+      },
+      "result": {
+        "slots": 128,
+        "items": 105,
+        "classic": true,
+        "source_items": 410,
+        "groups": 16,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 diamond",
+        "hotbar0_nbt": "{qa_variant:1}",
+        "page_count": 2,
+        "tab": "minecraft:building_blocks",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 oak_planks",
+          "1 cobblestone_wall",
+          "1 oak_fence",
+          "1 oak_fence_gate",
+          "1 oak_stairs",
+          "1 oak_door",
+          "1 oak_trapdoor",
+          "1 glass"
+        ],
+        "hotbar": [
+          "64 diamond",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 diamond",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "click",
+        "slot": 102,
+        "button": 0,
+        "type": "SWAP"
+      },
+      "result": {
+        "slots": 128,
+        "items": 105,
+        "classic": true,
+        "source_items": 410,
+        "groups": 16,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 diamond",
+        "hotbar0_nbt": "{qa_variant:2}",
+        "page_count": 2,
+        "tab": "minecraft:building_blocks",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 oak_planks",
+          "1 cobblestone_wall",
+          "1 oak_fence",
+          "1 oak_fence_gate",
+          "1 oak_stairs",
+          "1 oak_door",
+          "1 oak_trapdoor",
+          "1 glass"
+        ],
+        "hotbar": [
+          "64 diamond",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 diamond",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "click",
+        "slot": 121,
+        "button": 1,
+        "type": "THROW"
+      },
+      "result": {
+        "slots": 128,
+        "items": 105,
+        "classic": true,
+        "source_items": 410,
+        "groups": 16,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 diamond",
+        "hotbar0_nbt": "{qa_variant:2}",
+        "page_count": 2,
+        "tab": "minecraft:building_blocks",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 oak_planks",
+          "1 cobblestone_wall",
+          "1 oak_fence",
+          "1 oak_fence_gate",
+          "1 oak_stairs",
+          "1 oak_door",
+          "1 oak_trapdoor",
+          "1 glass"
+        ],
+        "hotbar": [
+          "64 diamond",
+          "1 oak_planks",
+          "0 air",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 diamond",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "click",
+        "slot": 122,
+        "button": 1,
+        "type": "THROW"
+      },
+      "result": {
+        "slots": 128,
+        "items": 105,
+        "classic": true,
+        "source_items": 410,
+        "groups": 16,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 diamond",
+        "hotbar0_nbt": "{qa_variant:2}",
+        "page_count": 2,
+        "tab": "minecraft:building_blocks",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 oak_planks",
+          "1 cobblestone_wall",
+          "1 oak_fence",
+          "1 oak_fence_gate",
+          "1 oak_stairs",
+          "1 oak_door",
+          "1 oak_trapdoor",
+          "1 glass"
+        ],
+        "hotbar": [
+          "64 diamond",
+          "1 oak_planks",
+          "0 air",
+          "0 air",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 diamond",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "click",
+        "slot": 124,
+        "button": 1,
+        "type": "THROW"
+      },
+      "result": {
+        "slots": 128,
+        "items": 105,
+        "classic": true,
+        "source_items": 410,
+        "groups": 16,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 diamond",
+        "hotbar0_nbt": "{qa_variant:2}",
+        "page_count": 2,
+        "tab": "minecraft:building_blocks",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 oak_planks",
+          "1 cobblestone_wall",
+          "1 oak_fence",
+          "1 oak_fence_gate",
+          "1 oak_stairs",
+          "1 oak_door",
+          "1 oak_trapdoor",
+          "1 glass"
+        ],
+        "hotbar": [
+          "64 diamond",
+          "1 oak_planks",
+          "0 air",
+          "0 air",
+          "21 oak_planks",
+          "0 air",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 diamond",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "click",
+        "slot": 103,
+        "button": 0,
+        "type": "QUICK_MOVE"
+      },
+      "result": {
+        "slots": 128,
+        "items": 105,
+        "classic": true,
+        "source_items": 410,
+        "groups": 16,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "64 ladder",
+        "hotbar0": "64 diamond",
+        "hotbar0_nbt": "{qa_variant:2}",
+        "page_count": 2,
+        "tab": "minecraft:building_blocks",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 oak_planks",
+          "1 cobblestone_wall",
+          "1 oak_fence",
+          "1 oak_fence_gate",
+          "1 oak_stairs",
+          "1 oak_door",
+          "1 oak_trapdoor",
+          "1 glass"
+        ],
+        "hotbar": [
+          "64 diamond",
+          "1 oak_planks",
+          "0 air",
+          "0 air",
+          "21 oak_planks",
+          "0 air",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 diamond",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "click",
+        "slot": -999,
+        "button": 0,
+        "type": "QUICK_CRAFT"
+      },
+      "result": {
+        "slots": 128,
+        "items": 105,
+        "classic": true,
+        "source_items": 410,
+        "groups": 16,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "64 ladder",
+        "hotbar0": "64 diamond",
+        "hotbar0_nbt": "{qa_variant:2}",
+        "page_count": 2,
+        "tab": "minecraft:building_blocks",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 oak_planks",
+          "1 cobblestone_wall",
+          "1 oak_fence",
+          "1 oak_fence_gate",
+          "1 oak_stairs",
+          "1 oak_door",
+          "1 oak_trapdoor",
+          "1 glass"
+        ],
+        "hotbar": [
+          "64 diamond",
+          "1 oak_planks",
+          "0 air",
+          "0 air",
+          "21 oak_planks",
+          "0 air",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 diamond",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "click",
+        "slot": 121,
+        "button": 1,
+        "type": "QUICK_CRAFT"
+      },
+      "result": {
+        "slots": 128,
+        "items": 105,
+        "classic": true,
+        "source_items": 410,
+        "groups": 16,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "64 ladder",
+        "hotbar0": "64 diamond",
+        "hotbar0_nbt": "{qa_variant:2}",
+        "page_count": 2,
+        "tab": "minecraft:building_blocks",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 oak_planks",
+          "1 cobblestone_wall",
+          "1 oak_fence",
+          "1 oak_fence_gate",
+          "1 oak_stairs",
+          "1 oak_door",
+          "1 oak_trapdoor",
+          "1 glass"
+        ],
+        "hotbar": [
+          "64 diamond",
+          "1 oak_planks",
+          "0 air",
+          "0 air",
+          "21 oak_planks",
+          "0 air",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 diamond",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "click",
+        "slot": 122,
+        "button": 1,
+        "type": "QUICK_CRAFT"
+      },
+      "result": {
+        "slots": 128,
+        "items": 105,
+        "classic": true,
+        "source_items": 410,
+        "groups": 16,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "64 ladder",
+        "hotbar0": "64 diamond",
+        "hotbar0_nbt": "{qa_variant:2}",
+        "page_count": 2,
+        "tab": "minecraft:building_blocks",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 oak_planks",
+          "1 cobblestone_wall",
+          "1 oak_fence",
+          "1 oak_fence_gate",
+          "1 oak_stairs",
+          "1 oak_door",
+          "1 oak_trapdoor",
+          "1 glass"
+        ],
+        "hotbar": [
+          "64 diamond",
+          "1 oak_planks",
+          "0 air",
+          "0 air",
+          "21 oak_planks",
+          "0 air",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 diamond",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "click",
+        "slot": 124,
+        "button": 1,
+        "type": "QUICK_CRAFT"
+      },
+      "result": {
+        "slots": 128,
+        "items": 105,
+        "classic": true,
+        "source_items": 410,
+        "groups": 16,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "64 ladder",
+        "hotbar0": "64 diamond",
+        "hotbar0_nbt": "{qa_variant:2}",
+        "page_count": 2,
+        "tab": "minecraft:building_blocks",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 oak_planks",
+          "1 cobblestone_wall",
+          "1 oak_fence",
+          "1 oak_fence_gate",
+          "1 oak_stairs",
+          "1 oak_door",
+          "1 oak_trapdoor",
+          "1 glass"
+        ],
+        "hotbar": [
+          "64 diamond",
+          "1 oak_planks",
+          "0 air",
+          "0 air",
+          "21 oak_planks",
+          "0 air",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 diamond",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "click",
+        "slot": -999,
+        "button": 2,
+        "type": "QUICK_CRAFT"
+      },
+      "result": {
+        "slots": 128,
+        "items": 105,
+        "classic": true,
+        "source_items": 410,
+        "groups": 16,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "1 ladder",
+        "hotbar0": "64 diamond",
+        "hotbar0_nbt": "{qa_variant:2}",
+        "page_count": 2,
+        "tab": "minecraft:building_blocks",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 oak_planks",
+          "1 cobblestone_wall",
+          "1 oak_fence",
+          "1 oak_fence_gate",
+          "1 oak_stairs",
+          "1 oak_door",
+          "1 oak_trapdoor",
+          "1 glass"
+        ],
+        "hotbar": [
+          "64 diamond",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 diamond",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "click",
+        "slot": 100,
+        "button": 0,
+        "type": "PICKUP"
+      },
+      "result": {
+        "slots": 128,
+        "items": 105,
+        "classic": true,
+        "source_items": 410,
+        "groups": 16,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 diamond",
+        "hotbar0_nbt": "{qa_variant:2}",
+        "page_count": 2,
+        "tab": "minecraft:building_blocks",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 oak_planks",
+          "1 cobblestone_wall",
+          "1 oak_fence",
+          "1 oak_fence_gate",
+          "1 oak_stairs",
+          "1 oak_door",
+          "1 oak_trapdoor",
+          "1 glass"
+        ],
+        "hotbar": [
+          "64 diamond",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 diamond",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "tab",
+        "id": "minecraft:search"
+      },
+      "result": {
+        "slots": 128,
+        "items": 1589,
+        "classic": true,
+        "source_items": 1589,
+        "groups": 0,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 diamond",
+        "hotbar0_nbt": "{qa_variant:2}",
+        "page_count": 2,
+        "tab": "minecraft:search",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 oak_log",
+          "1 oak_wood",
+          "1 stripped_oak_log",
+          "1 stripped_oak_wood",
+          "1 oak_planks",
+          "1 oak_stairs",
+          "1 oak_slab",
+          "1 oak_fence"
+        ],
+        "hotbar": [
+          "64 diamond",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 diamond",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "search",
+        "text": "羊毛"
+      },
+      "result": {
+        "slots": 128,
+        "items": 16,
+        "classic": true,
+        "source_items": 16,
+        "groups": 0,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 diamond",
+        "hotbar0_nbt": "{qa_variant:2}",
+        "page_count": 2,
+        "tab": "minecraft:search",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 white_wool",
+          "1 light_gray_wool",
+          "1 gray_wool",
+          "1 black_wool",
+          "1 brown_wool",
+          "1 red_wool",
+          "1 orange_wool",
+          "1 yellow_wool"
+        ],
+        "hotbar": [
+          "64 diamond",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 diamond",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "search",
+        "text": "#minecraft:planks"
+      },
+      "result": {
+        "slots": 128,
+        "items": 11,
+        "classic": true,
+        "source_items": 11,
+        "groups": 0,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 diamond",
+        "hotbar0_nbt": "{qa_variant:2}",
+        "page_count": 2,
+        "tab": "minecraft:search",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 oak_planks",
+          "1 spruce_planks",
+          "1 birch_planks",
+          "1 jungle_planks",
+          "1 acacia_planks",
+          "1 dark_oak_planks",
+          "1 mangrove_planks",
+          "1 cherry_planks"
+        ],
+        "hotbar": [
+          "64 diamond",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 diamond",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "search",
+        "text": "qa-no-such-item"
+      },
+      "result": {
+        "slots": 128,
+        "items": 0,
+        "classic": true,
+        "source_items": 0,
+        "groups": 0,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 diamond",
+        "hotbar0_nbt": "{qa_variant:2}",
+        "page_count": 2,
+        "tab": "minecraft:search",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [],
+        "hotbar": [
+          "64 diamond",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 diamond",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "tab",
+        "id": "bedrockifyqa:tab_0"
+      },
+      "result": {
+        "slots": 128,
+        "items": 2,
+        "classic": true,
+        "source_items": 3,
+        "groups": 1,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 diamond",
+        "hotbar0_nbt": "{qa_variant:2}",
+        "page_count": 2,
+        "tab": "bedrockifyqa:tab_0",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 sample",
+          "1 oak_planks"
+        ],
+        "hotbar": [
+          "64 diamond",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 diamond",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "search",
+        "text": "桦木"
+      },
+      "result": {
+        "slots": 128,
+        "items": 1,
+        "classic": true,
+        "source_items": 1,
+        "groups": 0,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 diamond",
+        "hotbar0_nbt": "{qa_variant:2}",
+        "page_count": 2,
+        "tab": "bedrockifyqa:tab_0",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 birch_planks"
+        ],
+        "hotbar": [
+          "64 diamond",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 diamond",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "search",
+        "text": ""
+      },
+      "result": {
+        "slots": 128,
+        "items": 2,
+        "classic": true,
+        "source_items": 3,
+        "groups": 1,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 diamond",
+        "hotbar0_nbt": "{qa_variant:2}",
+        "page_count": 2,
+        "tab": "bedrockifyqa:tab_0",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 sample",
+          "1 oak_planks"
+        ],
+        "hotbar": [
+          "64 diamond",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 diamond",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "page",
+        "index": 1
+      },
+      "result": {
+        "slots": 128,
+        "items": 2,
+        "classic": true,
+        "source_items": 3,
+        "groups": 1,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 diamond",
+        "hotbar0_nbt": "{qa_variant:2}",
+        "page_count": 2,
+        "tab": "bedrockifyqa:tab_0",
+        "tabs": [
+          "bedrockifyqa:tab_4",
+          "bedrockifyqa:tab_5",
+          "bedrockifyqa:tab_6",
+          "bedrockifyqa:tab_7",
+          "bedrockifyqa:tab_8",
+          "bedrockifyqa:tab_9",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 sample",
+          "1 oak_planks"
+        ],
+        "hotbar": [
+          "64 diamond",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 diamond",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "page",
+        "index": 0
+      },
+      "result": {
+        "slots": 128,
+        "items": 2,
+        "classic": true,
+        "source_items": 3,
+        "groups": 1,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 diamond",
+        "hotbar0_nbt": "{qa_variant:2}",
+        "page_count": 2,
+        "tab": "bedrockifyqa:tab_0",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 sample",
+          "1 oak_planks"
+        ],
+        "hotbar": [
+          "64 diamond",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 diamond",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "tab",
+        "id": "minecraft:building_blocks"
+      },
+      "result": {
+        "slots": 128,
+        "items": 105,
+        "classic": true,
+        "source_items": 410,
+        "groups": 16,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 diamond",
+        "hotbar0_nbt": "{qa_variant:2}",
+        "page_count": 2,
+        "tab": "minecraft:building_blocks",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 oak_planks",
+          "1 cobblestone_wall",
+          "1 oak_fence",
+          "1 oak_fence_gate",
+          "1 oak_stairs",
+          "1 oak_door",
+          "1 oak_trapdoor",
+          "1 glass"
+        ],
+        "hotbar": [
+          "64 diamond",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 diamond",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "resize",
+        "width": 320,
+        "height": 200
+      },
+      "result": {
+        "slots": 54,
+        "items": 351,
+        "classic": false,
+        "source_items": 0,
+        "groups": 0,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 diamond",
+        "hotbar0_nbt": "{qa_variant:2}",
+        "page_count": 3,
+        "tab": "minecraft:building_blocks",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:colored_blocks",
+          "minecraft:natural_blocks",
+          "minecraft:functional_blocks",
+          "minecraft:redstone_blocks",
+          "minecraft:tools_and_utilities",
+          "minecraft:combat",
+          "minecraft:food_and_drinks",
+          "minecraft:ingredients",
+          "minecraft:spawn_eggs",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 oak_log",
+          "1 oak_wood",
+          "1 stripped_oak_log",
+          "1 stripped_oak_wood",
+          "1 oak_planks",
+          "1 oak_stairs",
+          "1 oak_slab",
+          "1 oak_fence"
+        ],
+        "hotbar": [
+          "64 diamond",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 diamond",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "resize",
+        "width": 640,
+        "height": 360
+      },
+      "result": {
+        "slots": 128,
+        "items": 105,
+        "classic": true,
+        "source_items": 410,
+        "groups": 16,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 diamond",
+        "hotbar0_nbt": "{qa_variant:2}",
+        "page_count": 2,
+        "tab": "minecraft:building_blocks",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 oak_planks",
+          "1 cobblestone_wall",
+          "1 oak_fence",
+          "1 oak_fence_gate",
+          "1 oak_stairs",
+          "1 oak_door",
+          "1 oak_trapdoor",
+          "1 glass"
+        ],
+        "hotbar": [
+          "64 diamond",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 diamond",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "tab",
+        "id": "minecraft:hotbar"
+      },
+      "result": {
+        "slots": 54,
+        "items": 81,
+        "classic": false,
+        "source_items": 0,
+        "groups": 0,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 diamond",
+        "hotbar0_nbt": "{qa_variant:2}",
+        "page_count": 2,
+        "tab": "minecraft:hotbar",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 sample",
+          "2 diamond",
+          "3 sample",
+          "4 diamond",
+          "5 sample",
+          "6 diamond",
+          "7 sample",
+          "8 diamond"
+        ],
+        "hotbar": [
+          "64 diamond",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 diamond",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "click",
+        "slot": 0,
+        "button": 0,
+        "type": "SWAP"
+      },
+      "result": {
+        "slots": 54,
+        "items": 81,
+        "classic": false,
+        "source_items": 0,
+        "groups": 0,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 sample",
+        "hotbar0_nbt": "qa_row=0,qa_col=0,payload_bytes=131072",
+        "page_count": 2,
+        "tab": "minecraft:hotbar",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 sample",
+          "2 diamond",
+          "3 sample",
+          "4 diamond",
+          "5 sample",
+          "6 diamond",
+          "7 sample",
+          "8 diamond"
+        ],
+        "hotbar": [
+          "64 sample",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 sample",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "status"
+      },
+      "result": {
+        "slots": 54,
+        "items": 81,
+        "classic": false,
+        "source_items": 0,
+        "groups": 0,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 sample",
+        "hotbar0_nbt": "qa_row=0,qa_col=0,payload_bytes=131072",
+        "page_count": 2,
+        "tab": "minecraft:hotbar",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 sample",
+          "2 diamond",
+          "3 sample",
+          "4 diamond",
+          "5 sample",
+          "6 diamond",
+          "7 sample",
+          "8 diamond"
+        ],
+        "hotbar": [
+          "64 sample",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 sample",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "tab",
+        "id": "minecraft:building_blocks"
+      },
+      "result": {
+        "slots": 128,
+        "items": 105,
+        "classic": true,
+        "source_items": 410,
+        "groups": 16,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 sample",
+        "hotbar0_nbt": "qa_row=0,qa_col=0,payload_bytes=131072",
+        "page_count": 2,
+        "tab": "minecraft:building_blocks",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 oak_planks",
+          "1 cobblestone_wall",
+          "1 oak_fence",
+          "1 oak_fence_gate",
+          "1 oak_stairs",
+          "1 oak_door",
+          "1 oak_trapdoor",
+          "1 glass"
+        ],
+        "hotbar": [
+          "64 sample",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 sample",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "status"
+      },
+      "result": {
+        "slots": 128,
+        "items": 116,
+        "classic": true,
+        "source_items": 410,
+        "groups": 16,
+        "expanded": "[planks]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 sample",
+        "hotbar0_nbt": "qa_row=0,qa_col=0,payload_bytes=131072",
+        "page_count": 2,
+        "tab": "minecraft:building_blocks",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 oak_planks",
+          "1 oak_planks",
+          "1 spruce_planks",
+          "1 birch_planks",
+          "1 jungle_planks",
+          "1 acacia_planks",
+          "1 dark_oak_planks",
+          "1 mangrove_planks"
+        ],
+        "hotbar": [
+          "64 sample",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 sample",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "status"
+      },
+      "result": {
+        "slots": 128,
+        "items": 105,
+        "classic": true,
+        "source_items": 410,
+        "groups": 16,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 sample",
+        "hotbar0_nbt": "qa_row=0,qa_col=0,payload_bytes=131072",
+        "page_count": 2,
+        "tab": "minecraft:building_blocks",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 oak_planks",
+          "1 cobblestone_wall",
+          "1 oak_fence",
+          "1 oak_fence_gate",
+          "1 oak_stairs",
+          "1 oak_door",
+          "1 oak_trapdoor",
+          "1 glass"
+        ],
+        "hotbar": [
+          "64 sample",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 sample",
+        "ok": true
+      }
+    },
+    {
+      "command": {
+        "action": "status"
+      },
+      "result": {
+        "slots": 54,
+        "items": 81,
+        "classic": false,
+        "source_items": 0,
+        "groups": 0,
+        "expanded": "[]",
+        "scroll": 0.0,
+        "cursor": "0 air",
+        "hotbar0": "64 sample",
+        "hotbar0_nbt": "qa_row=0,qa_col=0,payload_bytes=131072",
+        "page_count": 2,
+        "tab": "minecraft:hotbar",
+        "tabs": [
+          "minecraft:building_blocks",
+          "minecraft:combat",
+          "minecraft:ingredients",
+          "minecraft:natural_blocks",
+          "bedrockifyqa:tab_0",
+          "bedrockifyqa:tab_1",
+          "bedrockifyqa:tab_10",
+          "bedrockifyqa:tab_11",
+          "bedrockifyqa:tab_2",
+          "bedrockifyqa:tab_3",
+          "minecraft:hotbar",
+          "minecraft:search",
+          "minecraft:op_blocks",
+          "minecraft:inventory"
+        ],
+        "first_items": [
+          "1 sample",
+          "2 diamond",
+          "3 sample",
+          "4 diamond",
+          "5 sample",
+          "6 diamond",
+          "7 sample",
+          "8 diamond"
+        ],
+        "hotbar": [
+          "64 sample",
+          "1 oak_planks",
+          "21 ladder",
+          "21 ladder",
+          "21 oak_planks",
+          "21 ladder",
+          "64 spruce_door",
+          "21 oak_planks",
+          "21 oak_planks"
+        ],
+        "server_hotbar0": "64 sample",
+        "ok": true
+      }
+    }
+  ]
+}
