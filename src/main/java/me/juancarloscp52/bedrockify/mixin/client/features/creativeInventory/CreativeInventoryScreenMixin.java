@@ -282,7 +282,6 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
         int left = x + getTabX(group);
         int top = y + getTabY(group) + (currentPage.isTop(group) ? 4 : -4);
         bedrockify$panel(context, left, top, 26, 32, selected ? 0xffc6c6c6 : 0xff5c5c5c);
-        context.fill(left + 4, top + 6, left + 22, top + 26, selected ? 0xffd4d4d4 : 0xff8b8b8b);
         CreativeCatalog.Category category = CreativeCatalog.category(group);
         context.drawItem(category == null ? group.getIcon() : category.icon, left + 5, top + 8);
         ci.cancel();

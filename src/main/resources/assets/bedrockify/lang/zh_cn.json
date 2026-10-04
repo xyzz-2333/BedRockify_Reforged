@@ -297,5 +297,7 @@
   "bedrockify.survival.category.construction": "建筑",
   "bedrockify.survival.category.equipment": "装备",
   "bedrockify.survival.category.items": "物品",
-  "bedrockify.survival.category.nature": "自然"
+  "bedrockify.survival.category.nature": "自然",
+  "bedrockify.survival.showRecipes": "显示配方栏",
+  "bedrockify.survival.hideRecipes": "收起配方栏"
 }

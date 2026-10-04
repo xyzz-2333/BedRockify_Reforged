@@ -6,6 +6,8 @@ import me.juancarloscp52.bedrockify.client.features.survivalInventory.*;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.*;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.gui.Element;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
@@ -86,8 +88,36 @@ public final class SurvivalInventoryQa {
             BedrockifyClient.getInstance().settings.survivalInventory = cmd.get("enabled").getAsBoolean(); return state();
         }
         if (action.equals("creative")) { c.player.closeHandledScreen(); c.setScreen(new CreativeInventoryScreen(c.player,c.player.networkHandler.getEnabledFeatures(),true)); return state(); }
+        if (action.equals("jei_recipes")) {
+            Object runtime=Class.forName("mezz.jei.common.Internal").getMethod("getJeiRuntime").invoke(null);
+            Object gui=Class.forName("mezz.jei.api.runtime.IJeiRuntime").getMethod("getRecipesGui").invoke(runtime);
+            // Open the real JEI recipes screen without a compile-time dependency.
+            var recipeType=Class.forName("mezz.jei.api.recipe.RecipeType");
+            Object crafting=recipeType.getMethod("create",String.class,String.class,Class.class).invoke(null,"minecraft","crafting",net.minecraft.recipe.CraftingRecipe.class);
+            Class.forName("mezz.jei.api.runtime.IRecipesGui").getMethod("showTypes",List.class).invoke(gui,List.of(crafting));
+            return state();
+        }
+        if (action.equals("return_screen")) { c.currentScreen.close(); return state(); }
         if (!(c.currentScreen instanceof HandledScreen<?> screen) || !(screen instanceof SurvivalScreen access)) return state();
         var panel = ((SurvivalRecipeBook)access.bedrockify$recipeBook()).bedrockify$recipePanel();
+        if (action.equals("user_toggle_book")) {
+            var layout=access.bedrockify$survivalLayout();
+            screen.mouseClicked(layout.left(access.bedrockify$recipeBook().isOpen())+SurvivalLayout.WIDTH-20,layout.top()+17,0);
+        }
+        if (action.equals("remove_recipe_controls")) {
+            Method remove=Screen.class.getDeclaredMethod("remove",Element.class);remove.setAccessible(true);
+            for(var child:List.copyOf(screen.children()))
+                if(child instanceof RecipeBookToggle || child instanceof net.minecraft.client.gui.widget.TexturedButtonWidget b && b.getWidth()==20 && b.getHeight()==18)
+                    remove.invoke(screen,child);
+        }
+        if (action.equals("transient_close")) { if(access.bedrockify$recipeBook().isOpen())access.bedrockify$recipeBook().toggleOpen(); }
+        if (action.equals("redisplay") || action.equals("reuse_without_init") || action.equals("disable_redisplay")) {
+            if(cmd.has("close_book")&&cmd.get("close_book").getAsBoolean()&&access.bedrockify$recipeBook().isOpen())access.bedrockify$recipeBook().toggleOpen();
+            c.setScreen(new Screen(Text.literal("QA temporary screen")){});
+            if(action.equals("disable_redisplay"))BedrockifyClient.getInstance().settings.survivalInventory=false;
+            if(action.equals("reuse_without_init"))c.currentScreen=screen;else c.setScreen(screen);
+            return state();
+        }
         if (action.equals("resize")) screen.resize(c, cmd.get("width").getAsInt(), cmd.get("height").getAsInt());
         if (action.equals("search")) {
             TextFieldWidget box = (TextFieldWidget)field(access.bedrockify$recipeBook(), "searchField");
@@ -170,13 +200,16 @@ public final class SurvivalInventoryQa {
         MinecraftClient c=MinecraftClient.getInstance();JsonObject out=new JsonObject();
         out.addProperty("screen",c.currentScreen==null?"none":c.currentScreen.getClass().getName());
         out.addProperty("max_heap",Runtime.getRuntime().maxMemory());
+        out.addProperty("recipe_open_preference",BedrockifyClient.getInstance().settings.survivalRecipeBookOpen);
         if(c.player!=null){out.addProperty("cursor",c.player.currentScreenHandler.getCursorStack().toString());JsonArray hotbar=new JsonArray();for(int i=0;i<9;i++)hotbar.add(c.player.getInventory().getStack(i).toString());out.add("hotbar",hotbar);}
         if(c.currentScreen instanceof HandledScreen<?> screen){
             out.addProperty("x",(int)field(screen,"x"));out.addProperty("y",(int)field(screen,"y"));out.addProperty("width",screen.width);out.addProperty("height",screen.height);
+            out.addProperty("background_width",(int)field(screen,"backgroundWidth"));out.addProperty("background_height",(int)field(screen,"backgroundHeight"));
             var handler=screen.getScreenHandler();out.addProperty("slot_count",handler.slots.size());out.addProperty("sync_id",handler.syncId);
             JsonArray buttons=new JsonArray();for(var element:screen.children())if(element instanceof net.minecraft.client.gui.widget.ClickableWidget widget){JsonObject b=new JsonObject();b.addProperty("class",widget.getClass().getName());b.addProperty("x",widget.getX());b.addProperty("y",widget.getY());b.addProperty("width",widget.getWidth());b.addProperty("height",widget.getHeight());b.addProperty("message",widget.getMessage().getString());buttons.add(b);}out.add("buttons",buttons);
             JsonArray slots=new JsonArray();for(var slot:handler.slots){JsonObject s=new JsonObject();s.addProperty("id",slot.id);s.addProperty("x",slot.x);s.addProperty("y",slot.y);s.addProperty("item",slot.getStack().toString());if(slot.hasStack()&&slot.getStack().hasNbt())s.addProperty("nbt",slot.getStack().getNbt().toString());slots.add(s);}out.add("slots",slots);
             if(screen instanceof SurvivalScreen access){out.addProperty("classic",access.bedrockify$survivalLayout().active());out.addProperty("book_open",access.bedrockify$recipeBook().isOpen());
+                out.addProperty("recovery_toggle",access.bedrockify$recipeToggle()!=null);
                 var panel=((SurvivalRecipeBook)access.bedrockify$recipeBook()).bedrockify$recipePanel();if(panel!=null){out.addProperty("recipe_count",panel.recipeCount());out.addProperty("filtered_count",panel.filteredCount());out.addProperty("entry_count",panel.entries().size());out.addProperty("matching_passes",panel.matchingPasses);out.addProperty("rebuilds",panel.rebuildCount);out.addProperty("painted_cells",panel.paintedCells);out.addProperty("page",panel.page());out.addProperty("pages",panel.pages());out.addProperty("craftable_only",panel.craftableOnly());
                     JsonArray groups=new JsonArray();for(var e:panel.entries())if(e.header()){JsonObject g=new JsonObject();g.addProperty("family",e.family());g.addProperty("count",e.count());groups.add(g);}out.add("groups",groups);
                 }}

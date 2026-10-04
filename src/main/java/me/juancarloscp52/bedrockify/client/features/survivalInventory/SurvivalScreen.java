@@ -6,4 +6,5 @@ import net.minecraft.client.gui.screen.recipebook.RecipeBookWidget;
 public interface SurvivalScreen {
     SurvivalLayout bedrockify$survivalLayout();
     RecipeBookWidget bedrockify$recipeBook();
+    RecipeBookToggle bedrockify$recipeToggle();
 }

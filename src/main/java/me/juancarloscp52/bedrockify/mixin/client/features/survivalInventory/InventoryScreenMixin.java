@@ -17,24 +17,33 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class InventoryScreenMixin extends AbstractInventoryScreen<PlayerScreenHandler> implements SurvivalScreen {
     @Shadow @Final private RecipeBookWidget recipeBook;
     @Unique private final SurvivalLayout bedrockify$layout = new SurvivalLayout();
+    @Unique private RecipeBookToggle bedrockify$toggle;
+    @Unique private boolean bedrockify$geometryCustomized;
     protected InventoryScreenMixin(PlayerScreenHandler handler, PlayerInventory inventory, Text title) { super(handler, inventory, title); }
     @Override public SurvivalLayout bedrockify$survivalLayout() { return bedrockify$layout; }
     @Override public RecipeBookWidget bedrockify$recipeBook() { return recipeBook; }
+    @Override public RecipeBookToggle bedrockify$recipeToggle() { return bedrockify$toggle; }
 
     @Inject(method = "init", at = @At("HEAD"))
     private void bedrockify$prepare(CallbackInfo ci) {
-        boolean previous = bedrockify$layout.active();
         bedrockify$layout.prepare((InventoryScreen)(Object)this, handler, false);
-        if (bedrockify$layout.active()) { backgroundWidth = SurvivalLayout.WIDTH; backgroundHeight = SurvivalLayout.HEIGHT; }
-        else if (previous) { backgroundWidth = 176; backgroundHeight = 166; }
+        if (bedrockify$layout.active()) {
+            backgroundWidth = SurvivalLayout.WIDTH; backgroundHeight = SurvivalLayout.HEIGHT;
+            bedrockify$geometryCustomized = true;
+        } else if (bedrockify$geometryCustomized) {
+            backgroundWidth = 176; backgroundHeight = 166; bedrockify$geometryCustomized = false;
+        }
+        bedrockify$toggle = null;
     }
     @Inject(method = "init", at = @At("TAIL"))
     private void bedrockify$controls(CallbackInfo ci) {
         if (!bedrockify$layout.active()) return;
         for (var child : children()) if (child instanceof TexturedButtonWidget button
                 && button.getWidth() == 20 && button.getHeight() == 18 && button.getX() == x + 104 && button.getY() == height / 2 - 22) {
-            bedrockify$layout.toggle(button); break;
+            button.visible = false; break;
         }
+        bedrockify$toggle = addSelectableChild(new RecipeBookToggle(recipeBook));
+        bedrockify$layout.toggle(bedrockify$toggle);
         bedrockify$align();
     }
     @Unique private void bedrockify$align() {
@@ -43,7 +52,14 @@ public abstract class InventoryScreenMixin extends AbstractInventoryScreen<Playe
         bedrockify$layout.positionToggle(recipeBook.isOpen());
     }
     @Inject(method = "render", at = @At("HEAD"))
-    private void bedrockify$renderPosition(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) { bedrockify$align(); }
+    private void bedrockify$renderPosition(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
+        if (client.currentScreen == (Object)this && bedrockify$layout.needsRefresh((InventoryScreen)(Object)this, handler, false)) clearAndInit();
+        bedrockify$align();
+    }
+    @Inject(method = "render", at = @At("TAIL"))
+    private void bedrockify$renderToggle(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
+        if (bedrockify$layout.active() && bedrockify$toggle != null) bedrockify$toggle.draw(context, mouseX, mouseY, delta);
+    }
     @Inject(method = "drawBackground", at = @At("HEAD"), cancellable = true)
     private void bedrockify$background(DrawContext context, float delta, int mouseX, int mouseY, CallbackInfo ci) {
         if (!bedrockify$layout.active()) return;

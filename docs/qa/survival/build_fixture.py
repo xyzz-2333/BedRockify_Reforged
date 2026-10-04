@@ -16,7 +16,8 @@ if compiled.returncode:raise SystemExit(compiled.returncode)
 stress = int(os.environ.get('SURVIVAL_STRESS_RECIPES', '10000'))
 mods = project/'run/client/mods'; mods.mkdir(parents=True,exist_ok=True)
 out = mods/'bedrockify-survival-qa.jar'
-with zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED) as z:
+staged = mods/'bedrockify-survival-qa.jar.tmp'
+with zipfile.ZipFile(staged,'w',zipfile.ZIP_DEFLATED) as z:
     def data(path,value): z.writestr(path,json.dumps(value,separators=(',',':'),ensure_ascii=False))
     for p in (work/'classes').rglob('*.class'): z.write(p,p.relative_to(work/'classes').as_posix())
     z.writestr('META-INF/mods.toml','modLoader="javafml"\nloaderVersion="[47,)"\nlicense="GPL-3.0"\n[[mods]]\nmodId="bedrockifysurvivalqa"\nversion="1"\ndisplayName="BedrockIfy Survival QA"\n')
@@ -50,4 +51,5 @@ with zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED) as z:
     data('data/bedrockifysurvivalqa/curios/slots/ring.json', {'size': 2, 'add_cosmetic': True})
     data('data/bedrockifysurvivalqa/curios/entities/player.json', {'entities': ['minecraft:player'], 'slots': ['ring']})
     data('data/curios/tags/items/ring.json', {'replace': False, 'values': ['minecraft:diamond']})
+staged.replace(out)
 print(json.dumps({'fixture':str(out),'registered_items':900,'fixture_recipes':900+stress,'stress_nbt_variants':stress}))

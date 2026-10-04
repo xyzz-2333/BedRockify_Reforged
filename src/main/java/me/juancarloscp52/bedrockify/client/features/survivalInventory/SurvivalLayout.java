@@ -32,11 +32,7 @@ public final class SurvivalLayout {
         this.screenWidth = screen.width;
         this.screenHeight = screen.height;
         this.crafting = crafting;
-        var mod = BedrockifyClient.getInstance();
-        active = mod != null && mod.settings != null && mod.settings.survivalInventory
-                && screen.width >= WIDTH + RECIPE_WIDTH + GAP + 32 && screen.height >= HEIGHT + 24
-                && handler.slots.size() == 46
-                && screen.getClass() == (crafting ? CraftingScreen.class : InventoryScreen.class);
+        active = supported(screen, handler, crafting);
         if (!active) return;
         // Keep every native Slot and its ID. Only its client-side screen position changes.
         for (Slot slot : handler.slots) original.put(slot, new int[]{slot.x, slot.y});
@@ -51,6 +47,20 @@ public final class SurvivalLayout {
             move(handler, 45, 90, 98);
             inventory(handler, 9, 36);
         }
+    }
+
+    private static boolean supported(Screen screen, ScreenHandler handler, boolean crafting) {
+        var mod = BedrockifyClient.getInstance();
+        return mod != null && mod.settings != null && mod.settings.survivalInventory
+                && screen.width >= WIDTH + RECIPE_WIDTH + GAP + 32 && screen.height >= HEIGHT + 24
+                && handler.slots.size() == 46
+                && screen.getClass() == (crafting ? CraftingScreen.class : InventoryScreen.class);
+    }
+
+    public boolean needsRefresh(Screen screen, ScreenHandler handler, boolean crafting) {
+        // Some screen wrappers reuse an existing screen without its normal init flow.
+        if (screen.getClass() != (crafting ? CraftingScreen.class : InventoryScreen.class)) return false;
+        return screenWidth != screen.width || screenHeight != screen.height || active != supported(screen, handler, crafting);
     }
 
     private static void inventory(ScreenHandler handler, int first, int hotbar) {

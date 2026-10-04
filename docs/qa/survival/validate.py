@@ -61,6 +61,7 @@ def click(i, button=0, type="PICKUP"):
 
 def fresh():
     send("close")
+    send("toggle_setting", enabled=True)  # Establish the fixture's initial state explicitly.
     send("setup")
     time.sleep(.2)  # Wait for the integrated server and inventory packets.
     until(lambda s: s["hotbar"][0] == "64 oak_log")

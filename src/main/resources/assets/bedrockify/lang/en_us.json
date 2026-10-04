@@ -297,5 +297,7 @@
   "bedrockify.survival.category.construction": "Construction",
   "bedrockify.survival.category.equipment": "Equipment",
   "bedrockify.survival.category.items": "Items",
-  "bedrockify.survival.category.nature": "Nature"
+  "bedrockify.survival.category.nature": "Nature",
+  "bedrockify.survival.showRecipes": "Show recipe panel",
+  "bedrockify.survival.hideRecipes": "Hide recipe panel"
 }

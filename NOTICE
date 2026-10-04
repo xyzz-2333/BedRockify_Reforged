@@ -12,6 +12,9 @@ cached native recipe-book classification, collapsible tagged families, paged vis
 original resource-pack-overridable survival sprites, native slot/recipe/network behavior,
 small-window and custom-container fallback, optional JEI recipe-book area synchronization,
 and bilingual survival settings.
+Alpha.6 revised on 2026-10-04: independent recipe-panel recovery control,
+explicit-user-toggle preference persistence, guarded recipe hooks and screen geometry
+restoration across temporary screens, and removal of creative tab icon inset colors.
 Upstream: https://github.com/juancarloscp52/BedrockIfy
 Upstream authors: juancarloscp52, lonefelidae16 and contributors.
 Base tag: 1.9.1+mc1.20

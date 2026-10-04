@@ -58,33 +58,43 @@ public abstract class RecipeBookWidgetMixin implements SurvivalRecipeBook {
     }
     @Inject(method = "refreshResults", at = @At("HEAD"), cancellable = true)
     private void bedrockify$results(boolean resetPage, CallbackInfo ci) {
-        if (bedrockify$panel == null) return;
+        if (!bedrockify$active()) return;
         bedrockify$panel.refresh(recipeFinder, recipeBook, searchField, bedrockify$inputVersion, resetPage);
         bedrockify$position(); ci.cancel();
     }
+    @Unique private SurvivalLayout bedrockify$currentLayout() {
+        if (client == null || !(client.currentScreen instanceof SurvivalScreen screen)
+                || screen.bedrockify$recipeBook() != (Object)this) return null;
+        return SurvivalLayout.current(client.currentScreen);
+    }
+    @Unique private boolean bedrockify$active() {
+        return bedrockify$panel != null && bedrockify$currentLayout() != null;
+    }
     @Unique private void bedrockify$position() {
-        if (bedrockify$panel != null) bedrockify$panel.position(SurvivalLayout.current(client.currentScreen), searchField);
+        if (bedrockify$panel != null) bedrockify$panel.position(bedrockify$currentLayout(), searchField);
     }
     @Inject(method = "findLeftEdge", at = @At("HEAD"), cancellable = true)
     private void bedrockify$left(int width, int backgroundWidth, CallbackInfoReturnable<Integer> cir) {
-        var layout = client == null ? null : SurvivalLayout.current(client.currentScreen);
+        var layout = bedrockify$currentLayout();
         if (layout != null) cir.setReturnValue(layout.left(isOpen()));
     }
     @Inject(method = "toggleOpen", at = @At("TAIL"))
     private void bedrockify$toggled(CallbackInfo ci) {
-        if (bedrockify$panel != null && !bedrockify$initializing) {
-            BedrockifyClient mod = BedrockifyClient.getInstance();
-            mod.settings.survivalRecipeBookOpen = isOpen(); mod.saveSettings(); bedrockify$position();
-        }
+        if (bedrockify$active() && !bedrockify$initializing) bedrockify$position();
     }
     @Inject(method = "render", at = @At("HEAD"), cancellable = true)
     private void bedrockify$draw(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
-        if (bedrockify$panel == null) return;
+        if (!bedrockify$active()) return;
         if (isOpen()) { bedrockify$position(); bedrockify$panel.render(context, mouseX, mouseY, delta); }
         ci.cancel();
     }
     @Inject(method = "mouseClicked", at = @At("HEAD"), cancellable = true)
     private void bedrockify$click(double x, double y, int button, CallbackInfoReturnable<Boolean> cir) {
+        if (bedrockify$currentLayout() == null) return;
+        var toggle = ((SurvivalScreen)client.currentScreen).bedrockify$recipeToggle();
+        if (toggle != null && toggle.mouseClicked(x, y, button)) {
+            cir.setReturnValue(true); return;
+        }
         if (bedrockify$panel == null || !isOpen()) return;
         boolean consumed = bedrockify$panel.mouseClicked(x, y, button, () -> {
             toggleFilteringCraftable(); sendBookDataPacket(); refreshResults(true);
@@ -93,20 +103,20 @@ public abstract class RecipeBookWidgetMixin implements SurvivalRecipeBook {
     }
     // RecipeBookWidget inherits this default method from Element in 1.20.1.
     public boolean mouseScrolled(double x, double y, double amount) {
-        return bedrockify$panel != null && isOpen() && bedrockify$panel.scroll(x, y, amount);
+        return bedrockify$active() && isOpen() && bedrockify$panel.scroll(x, y, amount);
     }
     @Inject(method = "isMouseOver", at = @At("HEAD"), cancellable = true)
     private void bedrockify$hover(double x, double y, CallbackInfoReturnable<Boolean> cir) {
-        if (bedrockify$panel != null) cir.setReturnValue(isOpen() && bedrockify$panel.contains(x, y));
+        if (bedrockify$active()) cir.setReturnValue(isOpen() && bedrockify$panel.contains(x, y));
     }
     @Inject(method = "drawTooltip", at = @At("HEAD"), cancellable = true)
     private void bedrockify$tooltip(DrawContext context, int x, int y, int mx, int my, CallbackInfo ci) {
-        if (bedrockify$panel == null) return;
+        if (!bedrockify$active()) return;
         if (isOpen()) bedrockify$panel.tooltip(context, mx, my);
         drawGhostSlotTooltip(context, x, y, mx, my); ci.cancel();
     }
     @Inject(method = "isClickOutsideBounds", at = @At("HEAD"), cancellable = true)
     private void bedrockify$outside(double mx, double my, int x, int y, int w, int h, int button, CallbackInfoReturnable<Boolean> cir) {
-        if (bedrockify$panel != null && isOpen()) cir.setReturnValue(!bedrockify$panel.contains(mx, my));
+        if (bedrockify$active() && isOpen()) cir.setReturnValue(!bedrockify$panel.contains(mx, my));
     }
 }
