@@ -88,12 +88,12 @@ try:
     report("recipe control still responds after native and custom widgets are removed")
 
     state = send("redisplay", close_book=True)
-    assert state["classic"] and state["book_open"] and state["background_width"] == 218
+    assert state["classic"] and state["book_open"] and state["background_width"] == 202
     report("native temporary-screen redisplay restores layout and preferred open state")
 
     send("reuse_without_init")
     state = until(lambda value: value.get("classic") and value.get("book_open"))
-    assert state["background_width"] == 218 and state["slots"][0]["x"] == 182
+    assert state["background_width"] == 202 and state["slots"][0]["x"] == 174
     report("screen wrapper return without normal initialization recovers on rendering")
 
     state = send("disable_redisplay")
@@ -107,7 +107,7 @@ try:
     assert state["screen"].endswith("RecipesGui")
     state = send("return_screen")
     assert state["screen"].endswith("InventoryScreen") and state["classic"] and state["book_open"]
-    assert state["slots"][0]["x"] == 182
+    assert state["slots"][0]["x"] == 174
     report("real JEI recipe screen returns to the same inventory with the recipe panel")
 
     send("crafting")

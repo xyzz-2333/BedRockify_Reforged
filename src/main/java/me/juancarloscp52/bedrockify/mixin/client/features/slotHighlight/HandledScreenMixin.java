@@ -2,6 +2,7 @@ package me.juancarloscp52.bedrockify.mixin.client.features.slotHighlight;
 
 import me.juancarloscp52.bedrockify.client.BedrockifyClient;
 import me.juancarloscp52.bedrockify.client.BedrockifyClientSettings;
+import me.juancarloscp52.bedrockify.client.features.survivalInventory.SurvivalLayout;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.*;
 import net.minecraft.screen.slot.Slot;
@@ -62,7 +63,9 @@ public abstract class HandledScreenMixin {
         final int highlight2 = settings.getHighLightColor2();
 
         final int expandStartX, expandStartY, expandEndX, expandEndY;
-        if (($this instanceof AbstractFurnaceScreen && currentSlot.id == 2) ||
+        if (SurvivalLayout.current($this) != null) {
+            expandStartX = expandEndX = expandStartY = expandEndY = 0;
+        } else if (($this instanceof AbstractFurnaceScreen && currentSlot.id == 2) ||
                 ($this instanceof CraftingScreen && currentSlot.id == 0) ||
                 ($this instanceof StonecutterScreen && currentSlot.id == 1) ||
                 ($this instanceof CartographyTableScreen && currentSlot.id == 2)

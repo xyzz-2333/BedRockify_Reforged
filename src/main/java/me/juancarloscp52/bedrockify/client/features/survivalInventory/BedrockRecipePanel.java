@@ -38,7 +38,8 @@ public final class BedrockRecipePanel {
     public record Entry(Node node, String family, int count, boolean craftable) {
         public boolean header() { return family != null; }
     }
-    private static final int COLS = 8, ROWS = 6, PAGE_SIZE = COLS * ROWS;
+    public static final int COLS = 8, ROWS = 6, PAGE_SIZE = COLS * ROWS, GRID_Y = 58;
+    private static final int CATEGORY_Y = 6, CATEGORY_SIZE = 24, FILTER_Y = 32, FOOTER_Y = SurvivalLayout.HEIGHT - 23;
     private static final TagKey<Item> INGOTS = TagKey.of(RegistryKeys.ITEM, new Identifier("forge", "ingots"));
     private static final TagKey<Item> NUGGETS = TagKey.of(RegistryKeys.ITEM, new Identifier("forge", "nuggets"));
     private static final TagKey<Item> STORAGE = TagKey.of(RegistryKeys.ITEM, new Identifier("forge", "storage_blocks"));
@@ -181,7 +182,7 @@ public final class BedrockRecipePanel {
     public void position(SurvivalLayout layout, TextFieldWidget search) {
         this.layout = layout; this.search = search;
         if (search != null && layout != null) {
-            search.setX(layout.recipeLeft() + 10); search.setY(layout.top() + 42);
+            search.setX(layout.recipeLeft() + 10); search.setY(layout.top() + 34);
             search.setWidth(142); search.setEditableColor(0xffffff);
             search.setPlaceholder(Text.translatable("bedrockify.survival.search"));
         }
@@ -193,7 +194,7 @@ public final class BedrockRecipePanel {
     private int hovered(double x, double y) {
         if (layout == null) return -1;
         int col = (int)Math.floor((x - layout.recipeLeft() - 10) / 20);
-        int row = (int)Math.floor((y - layout.top() - 70) / 20);
+        int row = (int)Math.floor((y - layout.top() - GRID_Y) / 20);
         if (col < 0 || col >= COLS || row < 0 || row >= ROWS) return -1;
         int i = page * PAGE_SIZE + row * COLS + col;
         return i < entries.size() ? i : -1;
@@ -204,17 +205,17 @@ public final class BedrockRecipePanel {
         SurvivalSprites.panel(context, x, y, SurvivalLayout.RECIPE_WIDTH, SurvivalLayout.HEIGHT, false);
         for (int i = 0; i < Category.values().length; i++) {
             int tx = x + 10 + i * 32;
-            SurvivalSprites.button(context, tx, y + 8, 28, 28, category.ordinal() == i);
-            context.drawItem(Category.values()[i].icon, tx + 6, y + 14);
+            SurvivalSprites.button(context, tx, y + CATEGORY_Y, CATEGORY_SIZE, CATEGORY_SIZE, category.ordinal() == i);
+            context.drawItem(Category.values()[i].icon, tx + 4, y + CATEGORY_Y + 4);
         }
-        SurvivalSprites.button(context, x + 158, y + 40, 22, 22, craftableOnly);
-        context.drawItem(Items.CRAFTING_TABLE.getDefaultStack(), x + 161, y + 43);
+        SurvivalSprites.button(context, x + 158, y + FILTER_Y, 22, 22, craftableOnly);
+        context.drawItem(Items.CRAFTING_TABLE.getDefaultStack(), x + 161, y + FILTER_Y + 3);
         if (search != null) search.render(context, mouseX, mouseY, delta);
-        SurvivalSprites.panel(context, x + 8, y + 68, 174, 124, true);
+        SurvivalSprites.panel(context, x + 8, y + GRID_Y - 2, 174, SurvivalLayout.HEIGHT - 24 - (GRID_Y - 2), true);
         int hover = hovered(mouseX, mouseY); paintedCells = 0;
         for (int i = page * PAGE_SIZE; i < Math.min(entries.size(), (page + 1) * PAGE_SIZE); i++) {
             Entry entry = entries.get(i); int local = i % PAGE_SIZE;
-            int sx = x + 10 + local % COLS * 20, sy = y + 70 + local / COLS * 20;
+            int sx = x + 10 + local % COLS * 20, sy = y + GRID_Y + local / COLS * 20;
             SurvivalSprites.cell(context, sx, sy, !entry.craftable);
             context.drawItem(entry.node.output, sx + 2, sy + 2);
             if (entry.header()) marker(context, expanded.contains(entry.family) ? "−" : "+", sx + 12, sy + 10);
@@ -226,13 +227,13 @@ public final class BedrockRecipePanel {
             paintedCells++;
         }
         if (entries.isEmpty()) context.drawCenteredTextWithShadow(client.textRenderer,
-                Text.translatable("bedrockify.survival.empty"), x + 95, y + 110, 0xffffff);
-        context.drawText(client.textRenderer, Text.translatable("bedrockify.survival.count", filteredCount), x + 10, y + 203, 0x303030, false);
-        context.drawText(client.textRenderer, (page + 1) + "/" + pages(), x + 88, y + 203, 0x303030, false);
-        SurvivalSprites.button(context, x + 136, y + 198, 20, 20, false);
-        SurvivalSprites.button(context, x + 160, y + 198, 20, 20, false);
-        context.drawText(client.textRenderer, "<", x + 143, y + 203, page > 0 ? 0xffffff : 0x777777, false);
-        context.drawText(client.textRenderer, ">", x + 167, y + 203, page + 1 < pages() ? 0xffffff : 0x777777, false);
+                Text.translatable("bedrockify.survival.empty"), x + 95, y + 100, 0xffffff);
+        context.drawText(client.textRenderer, Text.translatable("bedrockify.survival.count", filteredCount), x + 10, y + FOOTER_Y + 5, 0x303030, false);
+        context.drawText(client.textRenderer, (page + 1) + "/" + pages(), x + 88, y + FOOTER_Y + 5, 0x303030, false);
+        SurvivalSprites.button(context, x + 136, y + FOOTER_Y, 20, 20, false);
+        SurvivalSprites.button(context, x + 160, y + FOOTER_Y, 20, 20, false);
+        SurvivalSprites.pageArrow(context, x + 136, y + FOOTER_Y, false, page > 0);
+        SurvivalSprites.pageArrow(context, x + 160, y + FOOTER_Y, true, page + 1 < pages());
     }
     private void marker(DrawContext c, String text, int x, int y) {
         c.getMatrices().push();
@@ -246,18 +247,21 @@ public final class BedrockRecipePanel {
     }
     public boolean mouseClicked(double mx, double my, int button, Runnable toggleFilter, Runnable clearGhost) {
         if (!contains(mx, my)) { if (search != null) search.setFocused(false); return false; }
-        if (search != null && search.mouseClicked(mx, my, button)) return true;
-        if (search != null) search.setFocused(false);
-        int x = layout.recipeLeft(), y = layout.top();
-        if (button == 0 && my >= y + 8 && my < y + 36 && mx >= x + 10 && mx < x + 170) {
-            int i = (int)(mx - x - 10) / 32;
-            if ((int)(mx - x - 10) % 32 < 28) category(i);
+        if (search != null && search.mouseClicked(mx, my, button)) {
+            search.setFocused(true);
             return true;
         }
-        if (button == 0 && mx >= x + 158 && mx < x + 180 && my >= y + 40 && my < y + 62) {
+        if (search != null) search.setFocused(false);
+        int x = layout.recipeLeft(), y = layout.top();
+        if (button == 0 && my >= y + CATEGORY_Y && my < y + CATEGORY_Y + CATEGORY_SIZE && mx >= x + 10 && mx < x + 170) {
+            int i = (int)(mx - x - 10) / 32;
+            if ((int)(mx - x - 10) % 32 < CATEGORY_SIZE) category(i);
+            return true;
+        }
+        if (button == 0 && mx >= x + 158 && mx < x + 180 && my >= y + FILTER_Y && my < y + FILTER_Y + 22) {
             toggleFilter.run(); return true;
         }
-        if (button == 0 && my >= y + 198 && my < y + 218) {
+        if (button == 0 && my >= y + FOOTER_Y && my < y + FOOTER_Y + 20) {
             if (mx >= x + 136 && mx < x + 156) page = Math.max(0, page - 1);
             if (mx >= x + 160 && mx < x + 180) page = Math.min(pages() - 1, page + 1);
             return true;
@@ -288,10 +292,16 @@ public final class BedrockRecipePanel {
             else context.drawItemTooltip(client.textRenderer, entry.node.output, mx, my);
         } else if (layout != null && contains(mx, my)) {
             int x = layout.recipeLeft(), y = layout.top();
-            if (my >= y + 8 && my < y + 36 && mx >= x + 10 && mx < x + 170)
+            if (my >= y + CATEGORY_Y && my < y + CATEGORY_Y + CATEGORY_SIZE && mx >= x + 10 && mx < x + 170)
                 context.drawTooltip(client.textRenderer, Category.values()[(mx - x - 10) / 32].title(), mx, my);
-            if (my >= y + 40 && my < y + 62 && mx >= x + 158 && mx < x + 180)
+            if (my >= y + FILTER_Y && my < y + FILTER_Y + 22 && mx >= x + 158 && mx < x + 180)
                 context.drawTooltip(client.textRenderer, Text.translatable(craftableOnly ? "bedrockify.survival.craftable" : "bedrockify.survival.allRecipes"), mx, my);
+            if (my >= y + FOOTER_Y && my < y + FOOTER_Y + 20) {
+                if (mx >= x + 136 && mx < x + 156)
+                    context.drawTooltip(client.textRenderer, Text.translatable("bedrockify.survival.previousPage"), mx, my);
+                else if (mx >= x + 160 && mx < x + 180)
+                    context.drawTooltip(client.textRenderer, Text.translatable("bedrockify.survival.nextPage"), mx, my);
+            }
         }
     }
     private static Text familyName(String family) {

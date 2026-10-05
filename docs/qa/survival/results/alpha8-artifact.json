@@ -1,0 +1,10 @@
+{
+  "jar": "bedrockify-forge-1.9.1-forge-alpha.8+mc1.20.1.jar",
+  "bytes": 476247,
+  "sha256": "48f657c9a3aee87825fa14d6d2009e1afaaa67eb45a59242733e7cb7c42d1fe8",
+  "entries": 406,
+  "refmap_classes": 58,
+  "build_exit_code": 0,
+  "fixture_classes_packaged": false,
+  "minecraft_classes_packaged": false
+}

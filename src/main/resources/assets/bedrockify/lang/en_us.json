@@ -299,5 +299,7 @@
   "bedrockify.survival.category.items": "Items",
   "bedrockify.survival.category.nature": "Nature",
   "bedrockify.survival.showRecipes": "Show recipe panel",
-  "bedrockify.survival.hideRecipes": "Hide recipe panel"
+  "bedrockify.survival.hideRecipes": "Hide recipe panel",
+  "bedrockify.survival.previousPage": "Previous page",
+  "bedrockify.survival.nextPage": "Next page"
 }

@@ -299,5 +299,7 @@
   "bedrockify.survival.category.items": "物品",
   "bedrockify.survival.category.nature": "自然",
   "bedrockify.survival.showRecipes": "显示配方栏",
-  "bedrockify.survival.hideRecipes": "收起配方栏"
+  "bedrockify.survival.hideRecipes": "收起配方栏",
+  "bedrockify.survival.previousPage": "上一页",
+  "bedrockify.survival.nextPage": "下一页"
 }

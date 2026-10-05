@@ -14,3 +14,7 @@
 JEI、Curios 兼容测试需把对应 Forge 开发依赖通过 Loom 的 `modRuntimeOnly` 加入；不要把尚未重映射的生产 JAR 直接用作 Yarn 开发环境的依赖。测试数据同时定义两个玩家 Curios 戒指槽，并允许钻石放入，未安装 Curios 时这些数据不会生效。
 
 `results/compat-validation.json` 是最终 JEI / Curios / 压力数据的成功结果；`results/stress-validation.json` 是早期无 JEI / Curios 的成功结果。其他小型记录补充实际鼠标、避让区域、空闲与筛选检查。计时属于对应开发环境，不代表任意整合包的性能保证。
+
+alpha.7 的针对性验证用 `python3 docs/qa/survival/validate_alpha7.py run/client`，需同时加载本目录与 `docs/qa/creative/build_fixture.py` 生成的两份开发测试模组。该脚本会切换生存/创造模式并清空物品，检查真实鼠标点击和原生槽位命中。原始记录为 `results/alpha7-targeted-validation.json`；合成、界面恢复、Curios、创造分类覆盖及截图均使用 `alpha7-` 前缀。
+
+alpha.8 依次运行 `validate_alpha8.py`、`validate.py`、`validate_recovery.py`、`validate_alpha8_pointer.py`。测试器应与客户端共享同一文件系统环境，脚本之间不要并发；隔离环境的快照同步可能使临时指令重放或结果变旧。最终成功记录使用 `alpha8-` 前缀，补充实际输入、JEI 点击及 Curios 状态见 `results/alpha8-extra-checks.json`。

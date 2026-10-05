@@ -163,7 +163,7 @@ try:
     state = send("resize", width=320, height=200)
     assert not state["classic"] and state["slots"][0]["x"] == 154
     state = send("resize", width=640, height=360)
-    assert state["classic"] and state["slots"][0]["x"] == 182
+    assert state["classic"] and state["slots"][0]["x"] == 174
     send("toggle_setting", enabled=False)
     state = send("inventory")
     assert not state["classic"] and state["slots"][0]["x"] == 154

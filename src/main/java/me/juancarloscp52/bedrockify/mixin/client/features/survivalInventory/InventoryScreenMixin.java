@@ -64,17 +64,21 @@ public abstract class InventoryScreenMixin extends AbstractInventoryScreen<Playe
     private void bedrockify$background(DrawContext context, float delta, int mouseX, int mouseY, CallbackInfo ci) {
         if (!bedrockify$layout.active()) return;
         SurvivalSprites.inventory(context, handler, x, y);
-        SurvivalSprites.panel(context, x + 40, y + 30, 70, 64, true);
-        InventoryScreen.drawEntity(context, x + 75, y + 91, 27, x + 75 - mouseX, y + 50 - mouseY, client.player);
-        context.drawText(textRenderer, ">", x + 165, y + 57, 0x404040, false);
+        int portraitX = x + SurvivalLayout.PORTRAIT_X, portraitY = y + SurvivalLayout.PORTRAIT_Y;
+        context.fill(portraitX, portraitY, portraitX + SurvivalLayout.PORTRAIT_WIDTH, portraitY + SurvivalLayout.PORTRAIT_HEIGHT, 0xff000000);
+        int center = portraitX + SurvivalLayout.PORTRAIT_WIDTH / 2;
+        InventoryScreen.drawEntity(context, center, portraitY + SurvivalLayout.PORTRAIT_HEIGHT - 4, 35,
+                center - mouseX, portraitY + 35 - mouseY, client.player);
+        var arrow = bedrockify$layout.craftingArrow();
+        SurvivalSprites.craftingArrow(context, x + arrow.getX(), y + arrow.getY(), arrow.getWidth(), arrow.getHeight());
         ci.cancel();
     }
     @Inject(method = "drawForeground", at = @At("HEAD"), cancellable = true)
     private void bedrockify$titles(DrawContext context, int mouseX, int mouseY, CallbackInfo ci) {
         if (!bedrockify$layout.active()) return;
-        context.drawText(textRenderer, Text.translatable("container.inventory"), 48, 10, 0x303030, false);
-        context.drawText(textRenderer, Text.translatable("container.crafting"), 122, 28, 0x303030, false);
-        context.drawText(textRenderer, playerInventoryTitle, 18, 116, 0x303030, false);
+        context.drawText(textRenderer, Text.translatable("container.inventory"), 46, 4, 0x303030, false);
+        context.drawText(textRenderer, Text.translatable("container.crafting"), 114, 26, 0x303030, false);
+        context.drawText(textRenderer, playerInventoryTitle, 12, 98, 0x303030, false);
         ci.cancel();
     }
 }

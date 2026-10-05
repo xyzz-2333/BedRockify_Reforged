@@ -1,6 +1,7 @@
 package me.juancarloscp52.bedrockify.mixin.client.features.creativeInventory;
 
 import me.juancarloscp52.bedrockify.client.features.creativeInventory.CreativeGrid;
+import me.juancarloscp52.bedrockify.client.features.creativeInventory.CreativePickerSlot;
 import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -56,7 +57,7 @@ public abstract class CreativeScreenHandlerMixin extends ScreenHandler implement
             return;
         }
         for (int row = 0; row < rows; row++) for (int col = 0; col < columns; col++) {
-            addSlot(new CreativeInventoryScreen.LockableSlot(bedrockify$pickerInventory(), row * columns + col,
+            addSlot(new CreativePickerSlot(bedrockify$pickerInventory(), row * columns + col,
                     14 + col * 20, 30 + row * 20));
         }
         for (int i = 0; i < 9; i++) {

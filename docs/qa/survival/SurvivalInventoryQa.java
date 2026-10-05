@@ -40,7 +40,7 @@ public final class SurvivalInventoryQa {
     public SurvivalInventoryQa() {
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         MinecraftForge.EVENT_BUS.addListener((TickEvent.ClientTickEvent event) -> {
-            if (event.phase != TickEvent.Phase.END || MinecraftClient.getInstance().player == null || !Files.exists(COMMAND)) return;
+            if (event.phase != TickEvent.Phase.END || !Files.exists(COMMAND)) return;
             JsonObject result; JsonObject cmd = null;
             try {
                 cmd = new JsonParser().parse(Files.readString(COMMAND)).getAsJsonObject(); Files.delete(COMMAND);
@@ -52,6 +52,35 @@ public final class SurvivalInventoryQa {
     }
     private static JsonObject execute(JsonObject cmd) throws Exception {
         MinecraftClient c = MinecraftClient.getInstance(); String action = cmd.get("action").getAsString();
+        if (action.equals("screen_widgets")) return screenWidgets(c);
+        if (action.equals("widget")) {
+            var children = c.currentScreen.children();
+            var widget = (net.minecraft.client.gui.widget.ClickableWidget)children.get(cmd.get("index").getAsInt());
+            widget.mouseClicked(widget.getX()+widget.getWidth()/2.,widget.getY()+widget.getHeight()/2.,0);
+            return screenWidgets(c);
+        }
+        if (action.equals("jei_probe") || action.equals("jei_capture")) {
+            var screen = (HandledScreen<?>)c.currentScreen;
+            Object runtime = Class.forName("mezz.jei.common.Internal").getMethod("getJeiRuntime").invoke(null);
+            Object helper = Class.forName("mezz.jei.api.runtime.IJeiRuntime").getMethod("getScreenHelper").invoke(runtime);
+            var stream = (java.util.stream.Stream<?>)Class.forName("mezz.jei.api.runtime.IScreenHelper")
+                    .getMethod("getGuiClickableArea",HandledScreen.class,double.class,double.class)
+                    .invoke(helper,screen,cmd.get("x").getAsDouble(),cmd.get("y").getAsDouble());
+            List<?> areas; try(stream){ areas = stream.toList(); }
+            var areaClass = Class.forName("mezz.jei.api.gui.handlers.IGuiClickableArea");
+            JsonArray bounds = new JsonArray();
+            for(var area:areas) bounds.add(rect((net.minecraft.client.util.math.Rect2i)areaClass.getMethod("getArea").invoke(area)));
+            if (action.equals("jei_capture")) {
+                if(areas.size()!=1) throw new AssertionError("expected one JEI arrow");
+                var before=bounds.get(0);
+                JsonObject open=new JsonObject();open.addProperty("action","jei_recipes");execute(open);
+                var after=rect((net.minecraft.client.util.math.Rect2i)areaClass.getMethod("getArea").invoke(areas.get(0)));
+                if(!before.equals(after))throw new AssertionError("JEI area changed after opening recipes");
+                c.currentScreen.close();
+            }
+            var result=state();result.add("jei_click_areas",bounds);
+            result.addProperty("jei_capture_preserved",action.equals("jei_capture"));return result;
+        }
         if (action.equals("command")) {
             c.player.networkHandler.sendChatCommand(cmd.get("text").getAsString()); return state();
         }
@@ -59,6 +88,7 @@ public final class SurvivalInventoryQa {
             c.getServer().execute(() -> {
                 var player = c.getServer().getPlayerManager().getPlayer(c.player.getUuid());
                 player.changeGameMode(net.minecraft.world.GameMode.SURVIVAL);
+                c.getServer().getPlayerManager().addToOperators(player.getGameProfile());
                 player.unlockRecipes(c.getServer().getRecipeManager().values());
                 var inventory = player.getInventory(); inventory.clear();
                 inventory.setStack(0, new ItemStack(Items.OAK_LOG, 64));
@@ -127,15 +157,15 @@ public final class SurvivalInventoryQa {
         if (action.equals("expand")) panel.expandAll(cmd.get("enabled").getAsBoolean());
         if (action.equals("toggle_book")) access.bedrockify$recipeBook().toggleOpen();
         if (action.equals("filter")) {
-            var l=access.bedrockify$survivalLayout(); screen.mouseClicked(l.recipeLeft()+169,l.top()+50,0);
+            var l=access.bedrockify$survivalLayout(); screen.mouseClicked(l.recipeLeft()+169,l.top()+43,0);
         }
         if (action.equals("recipe")) {
             String id = cmd.get("id").getAsString(); int index=-1;
             for(int i=0;i<panel.entries().size();i++) if(!panel.entries().get(i).header() && panel.entries().get(i).node().recipe().getId().toString().equals(id)){index=i;break;}
             if(index<0) throw new AssertionError("missing recipe "+id);
             var l=access.bedrockify$survivalLayout();
-            while(panel.page()!=index/48) panel.scroll(l.recipeLeft()+20,l.top()+80,panel.page()<index/48?-1:1);
-            screen.mouseClicked(l.recipeLeft()+18+index%8*20,l.top()+78+(index%48)/8*20,0);
+            while(panel.page()!=index/BedrockRecipePanel.PAGE_SIZE) panel.scroll(l.recipeLeft()+20,l.top()+80,panel.page()<index/BedrockRecipePanel.PAGE_SIZE?-1:1);
+            screen.mouseClicked(l.recipeLeft()+18+index%BedrockRecipePanel.COLS*20,l.top()+BedrockRecipePanel.GRID_Y+8+(index%BedrockRecipePanel.PAGE_SIZE)/BedrockRecipePanel.COLS*20,0);
         }
         if (action.equals("slot")) {
             int id=cmd.get("id").getAsInt(),button=cmd.get("button").getAsInt();
@@ -143,7 +173,10 @@ public final class SurvivalInventoryQa {
             Method method=HandledScreen.class.getDeclaredMethod("onMouseClick", net.minecraft.screen.slot.Slot.class,int.class,int.class,SlotActionType.class);
             method.setAccessible(true); method.invoke(screen,id<0?null:screen.getScreenHandler().getSlot(id),id,button,type);
         }
-        if (action.equals("mouse")) screen.mouseClicked(cmd.get("x").getAsDouble(),cmd.get("y").getAsDouble(),cmd.get("button").getAsInt());
+        if (action.equals("mouse")) {
+            screen.mouseClicked(cmd.get("x").getAsDouble(),cmd.get("y").getAsDouble(),cmd.get("button").getAsInt());
+            screen.mouseReleased(cmd.get("x").getAsDouble(),cmd.get("y").getAsDouble(),cmd.get("button").getAsInt());
+        }
         if (action.equals("key")) screen.keyPressed(cmd.get("code").getAsInt(),0,0);
         if (action.equals("char")) for(char ch:cmd.get("text").getAsString().toCharArray()) screen.charTyped(ch,0);
         JsonObject result=state();
@@ -193,6 +226,17 @@ public final class SurvivalInventoryQa {
         }
         return result;
     }
+    private static JsonObject screenWidgets(MinecraftClient c) {
+        JsonObject result=new JsonObject();result.addProperty("screen",c.currentScreen==null?"none":c.currentScreen.getClass().getName());
+        JsonArray widgets=new JsonArray();if(c.currentScreen!=null){int i=0;for(var e:c.currentScreen.children()){
+            JsonObject b=new JsonObject();b.addProperty("index",i++);b.addProperty("class",e.getClass().getName());
+            if(e instanceof net.minecraft.client.gui.widget.ClickableWidget w){b.addProperty("message",w.getMessage().getString());b.addProperty("x",w.getX());b.addProperty("y",w.getY());b.addProperty("width",w.getWidth());b.addProperty("height",w.getHeight());b.addProperty("active",w.active);}
+            widgets.add(b);
+        }}result.add("widgets",widgets);return result;
+    }
+    private static JsonObject rect(net.minecraft.client.util.math.Rect2i r){
+        JsonObject b=new JsonObject();b.addProperty("x",r.getX());b.addProperty("y",r.getY());b.addProperty("width",r.getWidth());b.addProperty("height",r.getHeight());return b;
+    }
     private static long used(){return Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();}
     private static Object field(Object obj,String name)throws Exception{for(Class<?> c=obj.getClass();c!=null;c=c.getSuperclass())try{Field f=c.getDeclaredField(name);f.setAccessible(true);return f.get(obj);}catch(NoSuchFieldException ignored){}throw new NoSuchFieldException(name);}
     private static void invoke(Object obj,String name)throws Exception{Method m=obj.getClass().getDeclaredMethod(name);m.setAccessible(true);m.invoke(obj);}
@@ -210,6 +254,13 @@ public final class SurvivalInventoryQa {
             JsonArray slots=new JsonArray();for(var slot:handler.slots){JsonObject s=new JsonObject();s.addProperty("id",slot.id);s.addProperty("x",slot.x);s.addProperty("y",slot.y);s.addProperty("item",slot.getStack().toString());if(slot.hasStack()&&slot.getStack().hasNbt())s.addProperty("nbt",slot.getStack().getNbt().toString());slots.add(s);}out.add("slots",slots);
             if(screen instanceof SurvivalScreen access){out.addProperty("classic",access.bedrockify$survivalLayout().active());out.addProperty("book_open",access.bedrockify$recipeBook().isOpen());
                 out.addProperty("recovery_toggle",access.bedrockify$recipeToggle()!=null);
+                out.addProperty("recipe_left",access.bedrockify$survivalLayout().recipeLeft());
+                var search=(TextFieldWidget)field(access.bedrockify$recipeBook(),"searchField");
+                if(search!=null){
+                    out.addProperty("search_text",search.getText());out.addProperty("search_focused",search.isFocused());
+                    out.addProperty("searching",(boolean)field(access.bedrockify$recipeBook(),"searching"));
+                    JsonObject b=new JsonObject();b.addProperty("x",search.getX());b.addProperty("y",search.getY());b.addProperty("width",search.getWidth());b.addProperty("height",search.getHeight());out.add("search_bounds",b);
+                }
                 var panel=((SurvivalRecipeBook)access.bedrockify$recipeBook()).bedrockify$recipePanel();if(panel!=null){out.addProperty("recipe_count",panel.recipeCount());out.addProperty("filtered_count",panel.filteredCount());out.addProperty("entry_count",panel.entries().size());out.addProperty("matching_passes",panel.matchingPasses);out.addProperty("rebuilds",panel.rebuildCount);out.addProperty("painted_cells",panel.paintedCells);out.addProperty("page",panel.page());out.addProperty("pages",panel.pages());out.addProperty("craftable_only",panel.craftableOnly());
                     JsonArray groups=new JsonArray();for(var e:panel.entries())if(e.header()){JsonObject g=new JsonObject();g.addProperty("family",e.family());g.addProperty("count",e.count());groups.add(g);}out.add("groups",groups);
                 }}

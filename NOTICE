@@ -15,6 +15,13 @@ and bilingual survival settings.
 Alpha.6 revised on 2026-10-04: independent recipe-panel recovery control,
 explicit-user-toggle preference persistence, guarded recipe hooks and screen geometry
 restoration across temporary screens, and removal of creative tab icon inset colors.
+Alpha.7 revised on 2026-10-05: inactive empty catalogue picker cells, visible disabled
+recipe-page arrows and bilingual navigation tooltips, reference-proportioned portrait
+with adjacent armor/offhand slots, thin slot rims and stepped panel corners,
+pixel crafting arrows, and matching classic crafting-output highlights.
+Alpha.8 revised on 2026-10-05: compact adjoining survival and recipe panels,
+lower recipe-well footer edge, native search focus and direct character input,
+and optional JEI crafting click areas synchronized with the visible arrow.
 Upstream: https://github.com/juancarloscp52/BedrockIfy
 Upstream authors: juancarloscp52, lonefelidae16 and contributors.
 Base tag: 1.9.1+mc1.20

@@ -47,7 +47,8 @@
     "client.features.survivalInventory.CraftingScreenMixin",
     "client.features.survivalInventory.HandledScreenMixin",
     "client.features.survivalInventory.RecipeBookWidgetMixin",
-    "client.features.survivalInventory.JeiRecipeBookGuiHandlerMixin"
+    "client.features.survivalInventory.JeiRecipeBookGuiHandlerMixin",
+    "client.features.survivalInventory.JeiCraftingClickAreaMixin"
   ],
   "mixins": [
     "common.features.animalEatingParticles.AnimalEntityMixin",

@@ -23,7 +23,7 @@ public class BedrockIfyMixinPlugin  implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        if (mixinClassName.endsWith(".survivalInventory.JeiRecipeBookGuiHandlerMixin") && !Platform.isModLoaded("jei")) {
+        if (mixinClassName.contains(".survivalInventory.Jei") && !Platform.isModLoaded("jei")) {
             return false;
         }
         if (mixinClassName.contains("client.features.bedrockShading.lightBlock") &&

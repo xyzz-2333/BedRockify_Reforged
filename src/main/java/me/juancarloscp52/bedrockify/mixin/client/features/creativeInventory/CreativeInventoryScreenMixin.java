@@ -4,6 +4,8 @@ import me.juancarloscp52.bedrockify.client.BedrockifyClient;
 import me.juancarloscp52.bedrockify.client.features.creativeInventory.CreativeCatalog;
 import me.juancarloscp52.bedrockify.client.features.creativeInventory.CreativeGrid;
 import me.juancarloscp52.bedrockify.client.features.creativeInventory.CreativeGroups;
+import me.juancarloscp52.bedrockify.client.features.creativeInventory.CreativePickerSlot;
+import me.juancarloscp52.bedrockify.client.features.survivalInventory.SurvivalSprites;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.Element;
 import net.minecraft.client.gui.screen.ingame.AbstractInventoryScreen;
@@ -199,6 +201,7 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
 
     @Inject(method = "onMouseClick", at = @At("HEAD"), cancellable = true)
     private void bedrockify$toggleGroup(Slot slot, int slotId, int button, SlotActionType action, CallbackInfo ci) {
+        if (slot instanceof CreativePickerSlot && !slot.isEnabled()) { ci.cancel(); return; }
         CreativeGroups.Entry entry = bedrockify$entry(slot);
         if (entry == null || !entry.header() || button != 0 || (action != SlotActionType.PICKUP && action != SlotActionType.QUICK_MOVE)) return;
         // Do not disturb a held stack or an in-progress drag when a header is clicked.
@@ -341,16 +344,10 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
     }
 
     @Unique private static void bedrockify$panel(DrawContext context, int x, int y, int w, int h, int color) {
-        context.fill(x, y, x + w, y + h, 0xff171717);
-        context.fill(x + 1, y + 1, x + w - 1, y + h - 1, 0xfff0f0f0);
-        context.fill(x + 2, y + 2, x + w - 2, y + h - 2, color);
-        context.fill(x + 2, y + h - 3, x + w - 1, y + h - 1, 0xff555555);
-        context.fill(x + w - 3, y + 2, x + w - 1, y + h - 1, 0xff555555);
+        SurvivalSprites.frame(context, x, y, w, h, color);
     }
 
     @Unique private static void bedrockify$slot(DrawContext context, int x, int y) {
-        context.fill(x, y, x + 20, y + 20, 0xff424242);
-        context.fill(x + 1, y + 1, x + 20, y + 20, 0xffd0d0d0);
-        context.fill(x + 1, y + 1, x + 19, y + 19, 0xff8b8b8b);
+        SurvivalSprites.cell(context, x, y, false);
     }
 }

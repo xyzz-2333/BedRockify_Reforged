@@ -28,7 +28,7 @@ public abstract class CraftingScreenMixin extends HandledScreen<CraftingScreenHa
         bedrockify$layout.prepare((CraftingScreen)(Object)this, handler, true);
         if (bedrockify$layout.active()) {
             backgroundWidth = SurvivalLayout.WIDTH; backgroundHeight = SurvivalLayout.HEIGHT;
-            titleX = 12; titleY = 10; playerInventoryTitleX = 18; playerInventoryTitleY = 116;
+            titleX = 12; titleY = 6; playerInventoryTitleX = 12; playerInventoryTitleY = 98;
             bedrockify$geometryCustomized = true;
         } else if (bedrockify$geometryCustomized) {
             backgroundWidth = 176; backgroundHeight = 166;
@@ -40,7 +40,7 @@ public abstract class CraftingScreenMixin extends HandledScreen<CraftingScreenHa
     @Inject(method = "init", at = @At("TAIL"))
     private void bedrockify$controls(CallbackInfo ci) {
         if (!bedrockify$layout.active()) return;
-        titleX = 12; titleY = 10; playerInventoryTitleX = 18; playerInventoryTitleY = 116;
+        titleX = 12; titleY = 6; playerInventoryTitleX = 12; playerInventoryTitleY = 98;
         for (var child : children()) if (child instanceof TexturedButtonWidget button
                 && button.getWidth() == 20 && button.getHeight() == 18 && button.getX() == x + 5) {
             button.visible = false; break;
@@ -67,6 +67,7 @@ public abstract class CraftingScreenMixin extends HandledScreen<CraftingScreenHa
     private void bedrockify$background(DrawContext context, float delta, int mouseX, int mouseY, CallbackInfo ci) {
         if (!bedrockify$layout.active()) return;
         SurvivalSprites.inventory(context, handler, x, y);
-        context.drawText(textRenderer, ">", x + 132, y + 57, 0x404040, false); ci.cancel();
+        var arrow = bedrockify$layout.craftingArrow();
+        SurvivalSprites.craftingArrow(context, x + arrow.getX(), y + arrow.getY(), arrow.getWidth(), arrow.getHeight()); ci.cancel();
     }
 }

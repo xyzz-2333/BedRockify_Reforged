@@ -59,7 +59,7 @@ public class CreativeInventoryQa {
         MinecraftForge.EVENT_BUS.addListener((TickEvent.ClientTickEvent event) -> {
             if (event.phase != TickEvent.Phase.END || MinecraftClient.getInstance().player == null || !Files.exists(COMMAND)) return;
             try {
-                JsonObject cmd = JsonParser.parseString(Files.readString(COMMAND)).getAsJsonObject();
+                JsonObject cmd = new JsonParser().parse(Files.readString(COMMAND)).getAsJsonObject();
                 Files.delete(COMMAND);
                 JsonObject result = execute(cmd);
                 result.addProperty("ok", true);
@@ -107,8 +107,17 @@ public class CreativeInventoryQa {
             screen.setCurrentPage(pages.get(cmd.get("index").getAsInt()));
         } else if (action.equals("resize")) {
             screen.resize(client, cmd.get("width").getAsInt(), cmd.get("height").getAsInt());
+        } else if (action.equals("mouse")) {
+            screen.mouseClicked(cmd.get("x").getAsDouble(),cmd.get("y").getAsDouble(),cmd.get("button").getAsInt());
+            screen.mouseReleased(cmd.get("x").getAsDouble(),cmd.get("y").getAsDouble(),cmd.get("button").getAsInt());
         }
         JsonObject out = new JsonObject();
+        if (action.equals("probe")) {
+            Method hit=net.minecraft.client.gui.screen.ingame.HandledScreen.class.getDeclaredMethod("getSlotAt",double.class,double.class);
+            hit.setAccessible(true);
+            Slot slot=(Slot)hit.invoke(screen,cmd.get("x").getAsDouble(),cmd.get("y").getAsDouble());
+            out.addProperty("hit_slot",slot==null?-1:slot.id);
+        }
         if (action.equals("seed_hotbars")) {
             int bytes = cmd.has("bytes") ? cmd.get("bytes").getAsInt() : 128 * 1024;
             var storage = client.getCreativeHotbarStorage();
@@ -201,6 +210,9 @@ public class CreativeInventoryQa {
             out.add("checks", checks);
         }
         var handler = screen.getScreenHandler();
+        out.addProperty("x",(int)field(screen,"x"));out.addProperty("y",(int)field(screen,"y"));
+        out.addProperty("columns",(int)field(screen,"bedrockify$columns"));out.addProperty("rows",(int)field(screen,"bedrockify$rows"));
+        out.addProperty("disabled_picker_cells",handler.slots.stream().filter(s->s instanceof CreativePickerSlot && !s.isEnabled()).count());
         out.addProperty("slots", handler.slots.size());
         out.addProperty("items", handler.itemList.size());
         out.addProperty("classic", (boolean)field(screen, "bedrockify$classic"));

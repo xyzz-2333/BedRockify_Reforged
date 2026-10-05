@@ -99,7 +99,9 @@ public abstract class RecipeBookWidgetMixin implements SurvivalRecipeBook {
         boolean consumed = bedrockify$panel.mouseClicked(x, y, button, () -> {
             toggleFilteringCraftable(); sendBookDataPacket(); refreshResults(true);
         }, ghostSlots::reset);
-        searching = searchField != null && searchField.isFocused(); cir.setReturnValue(consumed);
+        // Native searching suppresses the first character of shortcut-opened search.
+        // Mouse focus must accept the first charTyped event, including IME input.
+        searching = false; cir.setReturnValue(consumed);
     }
     // RecipeBookWidget inherits this default method from Element in 1.20.1.
     public boolean mouseScrolled(double x, double y, double amount) {

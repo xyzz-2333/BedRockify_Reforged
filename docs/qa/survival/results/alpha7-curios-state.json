@@ -1,0 +1,360 @@
+{
+  "screen": "top.theillusivec4.curios.client.gui.CuriosScreenV2",
+  "max_heap": 1073741824,
+  "recipe_open_preference": true,
+  "cursor": "0 air",
+  "hotbar": [
+    "64 oak_log",
+    "64 oak_planks",
+    "64 iron_ingot",
+    "64 diamond",
+    "64 wood_0_log",
+    "64 wood_0_planks",
+    "64 metal_0_ingot",
+    "1 leather_chestplate",
+    "1 shield"
+  ],
+  "x": 232,
+  "y": 97,
+  "width": 640,
+  "height": 360,
+  "background_width": 176,
+  "background_height": 166,
+  "slot_count": 48,
+  "sync_id": 1,
+  "buttons": [
+    {
+      "class": "top.theillusivec4.curios.client.gui.CuriosButton",
+      "x": 258,
+      "y": 105,
+      "width": 14,
+      "height": 14,
+      "message": ""
+    },
+    {
+      "class": "net.minecraft.client.gui.widget.TexturedButtonWidget",
+      "x": 336,
+      "y": 158,
+      "width": 20,
+      "height": 18,
+      "message": ""
+    },
+    {
+      "class": "top.theillusivec4.curios.client.gui.CosmeticButton",
+      "x": 205,
+      "y": 79,
+      "width": 20,
+      "height": 17,
+      "message": ""
+    },
+    {
+      "class": "top.theillusivec4.curios.client.gui.RenderButton",
+      "x": 218,
+      "y": 102,
+      "width": 8,
+      "height": 8,
+      "message": ""
+    },
+    {
+      "class": "top.theillusivec4.curios.client.gui.RenderButton",
+      "x": 218,
+      "y": 120,
+      "width": 8,
+      "height": 8,
+      "message": ""
+    }
+  ],
+  "slots": [
+    {
+      "id": 0,
+      "x": 154,
+      "y": 28,
+      "item": "0 air"
+    },
+    {
+      "id": 1,
+      "x": 98,
+      "y": 18,
+      "item": "0 air"
+    },
+    {
+      "id": 2,
+      "x": 116,
+      "y": 18,
+      "item": "0 air"
+    },
+    {
+      "id": 3,
+      "x": 98,
+      "y": 36,
+      "item": "0 air"
+    },
+    {
+      "id": 4,
+      "x": 116,
+      "y": 36,
+      "item": "0 air"
+    },
+    {
+      "id": 5,
+      "x": 8,
+      "y": 8,
+      "item": "0 air"
+    },
+    {
+      "id": 6,
+      "x": 8,
+      "y": 26,
+      "item": "0 air"
+    },
+    {
+      "id": 7,
+      "x": 8,
+      "y": 44,
+      "item": "0 air"
+    },
+    {
+      "id": 8,
+      "x": 8,
+      "y": 62,
+      "item": "0 air"
+    },
+    {
+      "id": 9,
+      "x": 8,
+      "y": 84,
+      "item": "0 air"
+    },
+    {
+      "id": 10,
+      "x": 26,
+      "y": 84,
+      "item": "0 air"
+    },
+    {
+      "id": 11,
+      "x": 44,
+      "y": 84,
+      "item": "0 air"
+    },
+    {
+      "id": 12,
+      "x": 62,
+      "y": 84,
+      "item": "0 air"
+    },
+    {
+      "id": 13,
+      "x": 80,
+      "y": 84,
+      "item": "0 air"
+    },
+    {
+      "id": 14,
+      "x": 98,
+      "y": 84,
+      "item": "0 air"
+    },
+    {
+      "id": 15,
+      "x": 116,
+      "y": 84,
+      "item": "0 air"
+    },
+    {
+      "id": 16,
+      "x": 134,
+      "y": 84,
+      "item": "0 air"
+    },
+    {
+      "id": 17,
+      "x": 152,
+      "y": 84,
+      "item": "0 air"
+    },
+    {
+      "id": 18,
+      "x": 8,
+      "y": 102,
+      "item": "0 air"
+    },
+    {
+      "id": 19,
+      "x": 26,
+      "y": 102,
+      "item": "0 air"
+    },
+    {
+      "id": 20,
+      "x": 44,
+      "y": 102,
+      "item": "0 air"
+    },
+    {
+      "id": 21,
+      "x": 62,
+      "y": 102,
+      "item": "0 air"
+    },
+    {
+      "id": 22,
+      "x": 80,
+      "y": 102,
+      "item": "0 air"
+    },
+    {
+      "id": 23,
+      "x": 98,
+      "y": 102,
+      "item": "0 air"
+    },
+    {
+      "id": 24,
+      "x": 116,
+      "y": 102,
+      "item": "0 air"
+    },
+    {
+      "id": 25,
+      "x": 134,
+      "y": 102,
+      "item": "0 air"
+    },
+    {
+      "id": 26,
+      "x": 152,
+      "y": 102,
+      "item": "0 air"
+    },
+    {
+      "id": 27,
+      "x": 8,
+      "y": 120,
+      "item": "0 air"
+    },
+    {
+      "id": 28,
+      "x": 26,
+      "y": 120,
+      "item": "0 air"
+    },
+    {
+      "id": 29,
+      "x": 44,
+      "y": 120,
+      "item": "0 air"
+    },
+    {
+      "id": 30,
+      "x": 62,
+      "y": 120,
+      "item": "0 air"
+    },
+    {
+      "id": 31,
+      "x": 80,
+      "y": 120,
+      "item": "0 air"
+    },
+    {
+      "id": 32,
+      "x": 98,
+      "y": 120,
+      "item": "0 air"
+    },
+    {
+      "id": 33,
+      "x": 116,
+      "y": 120,
+      "item": "0 air"
+    },
+    {
+      "id": 34,
+      "x": 134,
+      "y": 120,
+      "item": "0 air"
+    },
+    {
+      "id": 35,
+      "x": 152,
+      "y": 120,
+      "item": "0 air"
+    },
+    {
+      "id": 36,
+      "x": 8,
+      "y": 142,
+      "item": "64 oak_log"
+    },
+    {
+      "id": 37,
+      "x": 26,
+      "y": 142,
+      "item": "64 oak_planks"
+    },
+    {
+      "id": 38,
+      "x": 44,
+      "y": 142,
+      "item": "64 iron_ingot"
+    },
+    {
+      "id": 39,
+      "x": 62,
+      "y": 142,
+      "item": "64 diamond"
+    },
+    {
+      "id": 40,
+      "x": 80,
+      "y": 142,
+      "item": "64 wood_0_log"
+    },
+    {
+      "id": 41,
+      "x": 98,
+      "y": 142,
+      "item": "64 wood_0_planks"
+    },
+    {
+      "id": 42,
+      "x": 116,
+      "y": 142,
+      "item": "64 metal_0_ingot"
+    },
+    {
+      "id": 43,
+      "x": 134,
+      "y": 142,
+      "item": "1 leather_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    {
+      "id": 44,
+      "x": 152,
+      "y": 142,
+      "item": "1 shield",
+      "nbt": "{Damage:0}"
+    },
+    {
+      "id": 45,
+      "x": 77,
+      "y": 62,
+      "item": "0 air"
+    },
+    {
+      "id": 46,
+      "x": -25,
+      "y": 8,
+      "item": "0 air"
+    },
+    {
+      "id": 47,
+      "x": -25,
+      "y": 26,
+      "item": "0 air"
+    }
+  ],
+  "ok": true
+}

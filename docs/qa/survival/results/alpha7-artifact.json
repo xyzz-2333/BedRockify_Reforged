@@ -1,0 +1,19 @@
+{
+  "version": "1.9.1-forge-alpha.7+mc1.20.1",
+  "jar": "bedrockify-forge-1.9.1-forge-alpha.7+mc1.20.1.jar",
+  "bytes": 474205,
+  "sha256": "27ab7082fc451e438edc634680da0872e0c795f0ea95efd6b8c75383d80b8ba1",
+  "entries": 405,
+  "refmap_mixins": 58,
+  "build": "passed",
+  "targeted_commands": 33,
+  "crafting_commands": 90,
+  "recovery_commands": 32,
+  "forge": "47.4.0",
+  "minecraft": "1.20.1",
+  "jei": "15.56.0.205",
+  "curios": "5.14.1+1.20.1",
+  "fixture_items": 900,
+  "fixture_recipes": 10900,
+  "heap_limit_bytes": 1073741824
+}

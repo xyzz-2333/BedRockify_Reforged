@@ -2,6 +2,7 @@ package me.juancarloscp52.bedrockify.client.features.survivalInventory;
 
 import me.juancarloscp52.bedrockify.client.BedrockifyClient;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.util.math.Rect2i;
 import net.minecraft.client.gui.screen.ingame.CraftingScreen;
 import net.minecraft.client.gui.screen.ingame.InventoryScreen;
 import net.minecraft.client.gui.widget.ClickableWidget;
@@ -12,7 +13,8 @@ import java.util.IdentityHashMap;
 import java.util.Map;
 
 public final class SurvivalLayout {
-    public static final int WIDTH = 218, HEIGHT = 226, RECIPE_WIDTH = 190, GAP = 30;
+    public static final int WIDTH = 202, HEIGHT = 210, RECIPE_WIDTH = 190, GAP = 0;
+    public static final int PORTRAIT_X = 30, PORTRAIT_Y = 16, PORTRAIT_WIDTH = 60, PORTRAIT_HEIGHT = 80;
     private final Map<Slot, int[]> original = new IdentityHashMap<>();
     private boolean active, crafting;
     private int screenWidth, screenHeight;
@@ -24,6 +26,10 @@ public final class SurvivalLayout {
     public int left(boolean bookOpen) {
         return bookOpen ? (screenWidth - WIDTH - RECIPE_WIDTH - GAP) / 2 + RECIPE_WIDTH + GAP
                 : (screenWidth - WIDTH) / 2;
+    }
+    /** Container-relative bounds shared by drawing and JEI's recipe shortcut. */
+    public Rect2i craftingArrow() {
+        return crafting ? new Rect2i(125, 43, 26, 18) : new Rect2i(156, 50, 14, 16);
     }
     public int recipeLeft() { return (screenWidth - WIDTH - RECIPE_WIDTH - GAP) / 2; }
 
@@ -37,14 +43,14 @@ public final class SurvivalLayout {
         // Keep every native Slot and its ID. Only its client-side screen position changes.
         for (Slot slot : handler.slots) original.put(slot, new int[]{slot.x, slot.y});
         if (crafting) {
-            move(handler, 0, 164, 54);
-            for (int i = 0; i < 9; i++) move(handler, 1 + i, 48 + i % 3 * 20, 34 + i / 3 * 20);
+            move(handler, 0, 164, 44);
+            for (int i = 0; i < 9; i++) move(handler, 1 + i, 48 + i % 3 * 20, 24 + i / 3 * 20);
             inventory(handler, 10, 37);
         } else {
-            move(handler, 0, 182, 54);
-            for (int i = 0; i < 4; i++) move(handler, 1 + i, 122 + i % 2 * 20, 44 + i / 2 * 20);
-            for (int i = 0; i < 4; i++) move(handler, 5 + i, 14, 32 + i * 20);
-            move(handler, 45, 90, 98);
+            move(handler, 0, 174, 50);
+            for (int i = 0; i < 4; i++) move(handler, 1 + i, 114 + i % 2 * 20, 40 + i / 2 * 20);
+            for (int i = 0; i < 4; i++) move(handler, 5 + i, 12, 18 + i * 20);
+            move(handler, 45, PORTRAIT_X + PORTRAIT_WIDTH + 2, PORTRAIT_Y + PORTRAIT_HEIGHT - 18);
             inventory(handler, 9, 36);
         }
     }
@@ -64,8 +70,8 @@ public final class SurvivalLayout {
     }
 
     private static void inventory(ScreenHandler handler, int first, int hotbar) {
-        for (int i = 0; i < 27; i++) move(handler, first + i, 18 + i % 9 * 20, 130 + i / 9 * 20);
-        for (int i = 0; i < 9; i++) move(handler, hotbar + i, 18 + i * 20, 198);
+        for (int i = 0; i < 27; i++) move(handler, first + i, 12 + i % 9 * 20, 110 + i / 9 * 20);
+        for (int i = 0; i < 9; i++) move(handler, hotbar + i, 12 + i * 20, 178);
     }
     private static void move(ScreenHandler handler, int id, int x, int y) {
         Slot slot = handler.getSlot(id); slot.x = x; slot.y = y;
@@ -80,7 +86,7 @@ public final class SurvivalLayout {
     public void positionToggle(boolean open) {
         if (toggle != null && active) {
             toggle.setX(left(open) + WIDTH - 30);
-            toggle.setY(top() + 8);
+            toggle.setY(top() + 4);
         }
     }
     public static SurvivalLayout current(Screen screen) {
