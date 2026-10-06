@@ -22,6 +22,15 @@ pixel crafting arrows, and matching classic crafting-output highlights.
 Alpha.8 revised on 2026-10-05: compact adjoining survival and recipe panels,
 lower recipe-well footer edge, native search focus and direct character input,
 and optional JEI crafting click areas synchronized with the visible arrow.
+Alpha.9 revised on 2026-10-05: bounded persistent client inventory view state,
+independent creative-tab and survival/workbench profiles, optional remembered search,
+neutral gray classic HUD selection and corrected selection atlas sampling height.
+Alpha.10 revised on 2026-10-05: compact inventory margins and bounded native direct crafting,
+vanilla rotating world-menu/loading panoramas, reversible list background suppression,
+and a short consolidated release changelog.
+Alpha.11 revised on 2026-10-06: neutral source package names and port metadata,
+vanilla options-menu panoramas with reversible list backgrounds,
+and a separate clipped creative-search text pass without heavy text shadows.
 Upstream: https://github.com/juancarloscp52/BedrockIfy
 Upstream authors: juancarloscp52, lonefelidae16 and contributors.
 Base tag: 1.9.1+mc1.20

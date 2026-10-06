@@ -1,0 +1,607 @@
+[
+  {
+    "scope": "panorama",
+    "command": {
+      "action": "status",
+      "request_id": "5391903a5c104d1f97545c4fdf8d0a77"
+    },
+    "result": {
+      "screen": "TitleScreen",
+      "world_ready": false,
+      "enabled": true,
+      "widget_enabled": true,
+      "frames": {},
+      "width": 640,
+      "height": 360,
+      "widgets": [
+        {
+          "index": 0,
+          "class": "ButtonWidget",
+          "message": "Singleplayer",
+          "active": true,
+          "x": 220,
+          "y": 138,
+          "width": 200,
+          "height": 20
+        },
+        {
+          "index": 1,
+          "class": "ButtonWidget",
+          "message": "Multiplayer",
+          "active": true,
+          "x": 220,
+          "y": 162,
+          "width": 200,
+          "height": 20
+        },
+        {
+          "index": 2,
+          "class": "ButtonWidget",
+          "message": "Minecraft Realms",
+          "active": true,
+          "x": 322,
+          "y": 186,
+          "width": 98,
+          "height": 20
+        },
+        {
+          "index": 3,
+          "class": "ButtonWidget",
+          "message": "Mods",
+          "active": true,
+          "x": 220,
+          "y": 186,
+          "width": 98,
+          "height": 20
+        },
+        {
+          "index": 4,
+          "class": "TexturedButtonWidget",
+          "message": "Language",
+          "active": true,
+          "x": 196,
+          "y": 222,
+          "width": 20,
+          "height": 20
+        },
+        {
+          "index": 5,
+          "class": "ButtonWidget",
+          "message": "Options...",
+          "active": true,
+          "x": 220,
+          "y": 222,
+          "width": 98,
+          "height": 20
+        },
+        {
+          "index": 6,
+          "class": "ButtonWidget",
+          "message": "Quit Game",
+          "active": true,
+          "x": 322,
+          "y": 222,
+          "width": 98,
+          "height": 20
+        },
+        {
+          "index": 7,
+          "class": "TexturedButtonWidget",
+          "message": "Accessibility",
+          "active": true,
+          "x": 424,
+          "y": 222,
+          "width": 20,
+          "height": 20
+        },
+        {
+          "index": 8,
+          "class": "PressableTextWidget",
+          "message": "Copyright Mojang AB. Do not distribute!",
+          "active": true,
+          "x": 442,
+          "y": 350,
+          "width": 196,
+          "height": 10
+        }
+      ],
+      "lists": [],
+      "ok": true,
+      "request_id": "5391903a5c104d1f97545c4fdf8d0a77"
+    }
+  },
+  {
+    "scope": "survival",
+    "command": {
+      "action": "command",
+      "request_id": "d0da17b4d00e43f89883d3088a9e6629",
+      "text": "gamemode creative"
+    },
+    "result": {
+      "screen": "none",
+      "max_heap": 1073741824,
+      "recipe_open_preference": true,
+      "server_sync_id": 0,
+      "cursor": "0 air",
+      "hotbar": [
+        "64 oak_log",
+        "64 oak_planks",
+        "64 iron_ingot",
+        "64 diamond",
+        "64 wood_0_log",
+        "64 wood_0_planks",
+        "64 metal_0_ingot",
+        "1 leather_chestplate",
+        "1 shield"
+      ],
+      "ok": true,
+      "request_id": "d0da17b4d00e43f89883d3088a9e6629"
+    }
+  },
+  {
+    "scope": "creative",
+    "command": {
+      "action": "search",
+      "request_id": "4c5dfea683c043e4a1858d40d2a84458",
+      "text": "wwww测试"
+    },
+    "result": {
+      "x": 134,
+      "y": 75,
+      "columns": 17,
+      "rows": 7,
+      "disabled_picker_cells": 119,
+      "slots": 128,
+      "items": 0,
+      "classic": true,
+      "source_items": 0,
+      "groups": 0,
+      "expanded": "[]",
+      "scroll": 0.0,
+      "first_visible": 0,
+      "search_text": "wwww测试",
+      "search_x": 146,
+      "search_y": 85,
+      "search_width": 248,
+      "search_focused": true,
+      "search_visible": true,
+      "cursor": "0 air",
+      "hotbar0": "64 oak_log",
+      "hotbar0_nbt": "null",
+      "page_count": 2,
+      "tab": "minecraft:search",
+      "tabs": [
+        "bedrockifyqa:tab_4",
+        "bedrockifyqa:tab_5",
+        "bedrockifyqa:tab_6",
+        "bedrockifyqa:tab_7",
+        "bedrockifyqa:tab_8",
+        "bedrockifyqa:tab_9",
+        "minecraft:hotbar",
+        "minecraft:search",
+        "minecraft:op_blocks",
+        "minecraft:inventory"
+      ],
+      "first_items": [],
+      "hotbar": [
+        "64 oak_log",
+        "64 oak_planks",
+        "64 iron_ingot",
+        "64 diamond",
+        "64 wood_0_log",
+        "64 wood_0_planks",
+        "64 metal_0_ingot",
+        "1 leather_chestplate",
+        "1 shield"
+      ],
+      "server_hotbar0": "64 oak_log",
+      "ok": true,
+      "request_id": "4c5dfea683c043e4a1858d40d2a84458"
+    }
+  },
+  {
+    "scope": "creative",
+    "command": {
+      "action": "status",
+      "request_id": "8aa20da7ef1945e98268288fb74c912e"
+    },
+    "result": {
+      "x": 134,
+      "y": 75,
+      "columns": 17,
+      "rows": 7,
+      "disabled_picker_cells": 0,
+      "slots": 128,
+      "items": 1589,
+      "classic": true,
+      "source_items": 1589,
+      "groups": 0,
+      "expanded": "[]",
+      "scroll": 0.0,
+      "first_visible": 0,
+      "search_text": "",
+      "search_x": 146,
+      "search_y": 85,
+      "search_width": 248,
+      "search_focused": true,
+      "search_visible": true,
+      "cursor": "0 air",
+      "hotbar0": "64 oak_log",
+      "hotbar0_nbt": "null",
+      "page_count": 2,
+      "tab": "minecraft:search",
+      "tabs": [
+        "bedrockifyqa:tab_4",
+        "bedrockifyqa:tab_5",
+        "bedrockifyqa:tab_6",
+        "bedrockifyqa:tab_7",
+        "bedrockifyqa:tab_8",
+        "bedrockifyqa:tab_9",
+        "minecraft:hotbar",
+        "minecraft:search",
+        "minecraft:op_blocks",
+        "minecraft:inventory"
+      ],
+      "first_items": [
+        "1 oak_log",
+        "1 oak_wood",
+        "1 stripped_oak_log",
+        "1 stripped_oak_wood",
+        "1 oak_planks",
+        "1 oak_stairs",
+        "1 oak_slab",
+        "1 oak_fence"
+      ],
+      "hotbar": [
+        "64 oak_log",
+        "64 oak_planks",
+        "64 iron_ingot",
+        "64 diamond",
+        "64 wood_0_log",
+        "64 wood_0_planks",
+        "64 metal_0_ingot",
+        "1 leather_chestplate",
+        "1 shield"
+      ],
+      "server_hotbar0": "64 oak_log",
+      "ok": true,
+      "request_id": "8aa20da7ef1945e98268288fb74c912e"
+    }
+  },
+  {
+    "scope": "creative",
+    "command": {
+      "action": "close",
+      "request_id": "4de5da7aceab474ab75c099055543b1c"
+    },
+    "result": {
+      "screen": "none",
+      "ok": true,
+      "request_id": "4de5da7aceab474ab75c099055543b1c"
+    }
+  },
+  {
+    "scope": "survival",
+    "command": {
+      "action": "screen_widgets",
+      "request_id": "227c6d3ca3724f6cb0793f64502c0ed4"
+    },
+    "result": {
+      "screen": "net.minecraft.client.gui.screen.GameMenuScreen",
+      "widgets": [
+        {
+          "index": 0,
+          "class": "net.minecraft.client.gui.widget.ButtonWidget",
+          "message": "Back to Game",
+          "x": 218,
+          "y": 92,
+          "width": 204,
+          "height": 20,
+          "active": true
+        },
+        {
+          "index": 1,
+          "class": "net.minecraft.client.gui.widget.ButtonWidget",
+          "message": "Advancements",
+          "x": 218,
+          "y": 116,
+          "width": 98,
+          "height": 20,
+          "active": true
+        },
+        {
+          "index": 2,
+          "class": "net.minecraft.client.gui.widget.ButtonWidget",
+          "message": "Statistics",
+          "x": 324,
+          "y": 116,
+          "width": 98,
+          "height": 20,
+          "active": true
+        },
+        {
+          "index": 3,
+          "class": "net.minecraft.client.gui.widget.ButtonWidget",
+          "message": "Give Feedback",
+          "x": 218,
+          "y": 140,
+          "width": 98,
+          "height": 20,
+          "active": true
+        },
+        {
+          "index": 4,
+          "class": "net.minecraft.client.gui.widget.ButtonWidget",
+          "message": "Report Bugs",
+          "x": 324,
+          "y": 140,
+          "width": 98,
+          "height": 20,
+          "active": true
+        },
+        {
+          "index": 5,
+          "class": "net.minecraft.client.gui.widget.ButtonWidget",
+          "message": "Options...",
+          "x": 218,
+          "y": 164,
+          "width": 98,
+          "height": 20,
+          "active": true
+        },
+        {
+          "index": 6,
+          "class": "net.minecraft.client.gui.widget.ButtonWidget",
+          "message": "Open to LAN",
+          "x": 324,
+          "y": 164,
+          "width": 98,
+          "height": 20,
+          "active": true
+        },
+        {
+          "index": 7,
+          "class": "net.minecraft.client.gui.widget.ButtonWidget",
+          "message": "Mods",
+          "x": 218,
+          "y": 188,
+          "width": 204,
+          "height": 20,
+          "active": true
+        },
+        {
+          "index": 8,
+          "class": "net.minecraft.client.gui.widget.ButtonWidget",
+          "message": "Save and Quit to Title",
+          "x": 218,
+          "y": 212,
+          "width": 204,
+          "height": 20,
+          "active": true
+        },
+        {
+          "index": 9,
+          "class": "net.minecraft.client.gui.widget.TextWidget",
+          "message": "Game Menu",
+          "x": 0,
+          "y": 40,
+          "width": 640,
+          "height": 9,
+          "active": false
+        }
+      ],
+      "ok": true,
+      "request_id": "227c6d3ca3724f6cb0793f64502c0ed4"
+    }
+  },
+  {
+    "scope": "survival",
+    "command": {
+      "action": "widget",
+      "request_id": "703b1dd9521641e1a0bae15a4450d535",
+      "index": 8
+    },
+    "result": {
+      "screen": "net.minecraft.client.gui.screen.TitleScreen",
+      "widgets": [
+        {
+          "index": 0,
+          "class": "net.minecraft.client.gui.widget.ButtonWidget",
+          "message": "Singleplayer",
+          "x": 220,
+          "y": 138,
+          "width": 200,
+          "height": 20,
+          "active": true
+        },
+        {
+          "index": 1,
+          "class": "net.minecraft.client.gui.widget.ButtonWidget",
+          "message": "Multiplayer",
+          "x": 220,
+          "y": 162,
+          "width": 200,
+          "height": 20,
+          "active": true
+        },
+        {
+          "index": 2,
+          "class": "net.minecraft.client.gui.widget.ButtonWidget",
+          "message": "Minecraft Realms",
+          "x": 322,
+          "y": 186,
+          "width": 98,
+          "height": 20,
+          "active": true
+        },
+        {
+          "index": 3,
+          "class": "net.minecraft.client.gui.widget.ButtonWidget",
+          "message": "Mods",
+          "x": 220,
+          "y": 186,
+          "width": 98,
+          "height": 20,
+          "active": true
+        },
+        {
+          "index": 4,
+          "class": "net.minecraft.client.gui.widget.TexturedButtonWidget",
+          "message": "Language",
+          "x": 196,
+          "y": 222,
+          "width": 20,
+          "height": 20,
+          "active": true
+        },
+        {
+          "index": 5,
+          "class": "net.minecraft.client.gui.widget.ButtonWidget",
+          "message": "Options...",
+          "x": 220,
+          "y": 222,
+          "width": 98,
+          "height": 20,
+          "active": true
+        },
+        {
+          "index": 6,
+          "class": "net.minecraft.client.gui.widget.ButtonWidget",
+          "message": "Quit Game",
+          "x": 322,
+          "y": 222,
+          "width": 98,
+          "height": 20,
+          "active": true
+        },
+        {
+          "index": 7,
+          "class": "net.minecraft.client.gui.widget.TexturedButtonWidget",
+          "message": "Accessibility",
+          "x": 424,
+          "y": 222,
+          "width": 20,
+          "height": 20,
+          "active": true
+        },
+        {
+          "index": 8,
+          "class": "net.minecraft.client.gui.widget.PressableTextWidget",
+          "message": "Copyright Mojang AB. Do not distribute!",
+          "x": 442,
+          "y": 350,
+          "width": 196,
+          "height": 10,
+          "active": true
+        }
+      ],
+      "ok": true,
+      "request_id": "703b1dd9521641e1a0bae15a4450d535"
+    }
+  },
+  {
+    "scope": "survival",
+    "command": {
+      "action": "widget",
+      "request_id": "283798641ad141359277c57d09e7767f",
+      "index": 6
+    },
+    "result": {
+      "screen": "net.minecraft.client.gui.screen.TitleScreen",
+      "widgets": [
+        {
+          "index": 0,
+          "class": "net.minecraft.client.gui.widget.ButtonWidget",
+          "message": "Singleplayer",
+          "x": 220,
+          "y": 138,
+          "width": 200,
+          "height": 20,
+          "active": true
+        },
+        {
+          "index": 1,
+          "class": "net.minecraft.client.gui.widget.ButtonWidget",
+          "message": "Multiplayer",
+          "x": 220,
+          "y": 162,
+          "width": 200,
+          "height": 20,
+          "active": true
+        },
+        {
+          "index": 2,
+          "class": "net.minecraft.client.gui.widget.ButtonWidget",
+          "message": "Minecraft Realms",
+          "x": 322,
+          "y": 186,
+          "width": 98,
+          "height": 20,
+          "active": true
+        },
+        {
+          "index": 3,
+          "class": "net.minecraft.client.gui.widget.ButtonWidget",
+          "message": "Mods",
+          "x": 220,
+          "y": 186,
+          "width": 98,
+          "height": 20,
+          "active": true
+        },
+        {
+          "index": 4,
+          "class": "net.minecraft.client.gui.widget.TexturedButtonWidget",
+          "message": "Language",
+          "x": 196,
+          "y": 222,
+          "width": 20,
+          "height": 20,
+          "active": true
+        },
+        {
+          "index": 5,
+          "class": "net.minecraft.client.gui.widget.ButtonWidget",
+          "message": "Options...",
+          "x": 220,
+          "y": 222,
+          "width": 98,
+          "height": 20,
+          "active": true
+        },
+        {
+          "index": 6,
+          "class": "net.minecraft.client.gui.widget.ButtonWidget",
+          "message": "Quit Game",
+          "x": 322,
+          "y": 222,
+          "width": 98,
+          "height": 20,
+          "active": true
+        },
+        {
+          "index": 7,
+          "class": "net.minecraft.client.gui.widget.TexturedButtonWidget",
+          "message": "Accessibility",
+          "x": 424,
+          "y": 222,
+          "width": 20,
+          "height": 20,
+          "active": true
+        },
+        {
+          "index": 8,
+          "class": "net.minecraft.client.gui.widget.PressableTextWidget",
+          "message": "Copyright Mojang AB. Do not distribute!",
+          "x": 442,
+          "y": 350,
+          "width": 196,
+          "height": 10,
+          "active": true
+        }
+      ],
+      "ok": true,
+      "request_id": "283798641ad141359277c57d09e7767f"
+    }
+  }
+]

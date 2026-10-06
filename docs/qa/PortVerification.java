@@ -1,8 +1,8 @@
 package qa;
 
 import com.mojang.brigadier.arguments.IntegerArgumentType;
-import me.juancarloscp52.bedrockify.Bedrockify;
-import me.juancarloscp52.bedrockify.client.BedrockifyClient;
+import dev.bedrockify.forge.Bedrockify;
+import dev.bedrockify.forge.client.BedrockifyClient;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;

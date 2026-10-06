@@ -301,5 +301,12 @@
   "bedrockify.survival.showRecipes": "显示配方栏",
   "bedrockify.survival.hideRecipes": "收起配方栏",
   "bedrockify.survival.previousPage": "上一页",
-  "bedrockify.survival.nextPage": "下一页"
+  "bedrockify.survival.nextPage": "下一页",
+  "bedrockify.options.subCategory.inventoryMemory": "界面状态记忆",
+  "bedrockify.options.rememberInventoryState": "记住物品栏界面状态",
+  "bedrockify.options.rememberInventoryState.tooltip": "重新打开或重启游戏后，恢复分类、分组折叠和列表位置。创造栏各分页、生存背包与工作台分别记忆。",
+  "bedrockify.options.rememberInventorySearch": "记住搜索词",
+  "bedrockify.options.rememberInventorySearch.tooltip": "恢复物品栏与配方列表的搜索词。关闭后重开界面会清空搜索并回到列表首页。",
+  "bedrockify.options.menuPanorama": "菜单全景背景",
+  "bedrockify.options.menuPanorama.tooltip": "世界选择、世界加载、选项菜单及原版设置子页面使用旋转的原版主菜单背景。关闭后恢复原背景；旋转速度沿用原版设置。"
 }

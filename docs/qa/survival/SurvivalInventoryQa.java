@@ -1,8 +1,8 @@
 package bedrockifysurvivalqa;
 
 import com.google.gson.*;
-import me.juancarloscp52.bedrockify.client.BedrockifyClient;
-import me.juancarloscp52.bedrockify.client.features.survivalInventory.*;
+import dev.bedrockify.forge.client.BedrockifyClient;
+import dev.bedrockify.forge.client.features.survivalInventory.*;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.*;
@@ -29,6 +29,7 @@ import java.util.*;
 public final class SurvivalInventoryQa {
     private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "bedrockifysurvivalqa");
     private static final Path COMMAND = Path.of("survival-qa-command.json"), RESULT = Path.of("survival-qa-result.json");
+    private final Set<String> processedRequests = new LinkedHashSet<>();
     static {
         for (int i = 0; i < 100; i++) {
             for (String type : List.of("log", "planks", "stairs", "slab", "door", "fence"))
@@ -44,6 +45,11 @@ public final class SurvivalInventoryQa {
             JsonObject result; JsonObject cmd = null;
             try {
                 cmd = new JsonParser().parse(Files.readString(COMMAND)).getAsJsonObject(); Files.delete(COMMAND);
+                // Mirrored workspaces may replay a command file. Execute each ID once.
+                if (cmd.has("request_id")) {
+                    if (!processedRequests.add(cmd.get("request_id").getAsString())) return;
+                    if (processedRequests.size() > 512) processedRequests.remove(processedRequests.iterator().next());
+                }
                 result = execute(cmd); result.addProperty("ok", true);
             } catch (Throwable e) { result = new JsonObject(); result.addProperty("ok", false); result.addProperty("error", e.toString()); e.printStackTrace(); }
             if (cmd != null && cmd.has("request_id")) result.add("request_id", cmd.get("request_id"));
@@ -53,6 +59,23 @@ public final class SurvivalInventoryQa {
     private static JsonObject execute(JsonObject cmd) throws Exception {
         MinecraftClient c = MinecraftClient.getInstance(); String action = cmd.get("action").getAsString();
         if (action.equals("screen_widgets")) return screenWidgets(c);
+        if (action.equals("memory_setting")) {
+            var mod=BedrockifyClient.getInstance(); mod.settings.rememberInventoryState=cmd.get("enabled").getAsBoolean();
+            mod.settings.rememberInventorySearch=cmd.get("search").getAsBoolean(); return state();
+        }
+        if (action.equals("memory_reset")) {
+            c.setScreen(null); Files.deleteIfExists(Path.of("config/bedrockify/inventoryUiState.json"));
+        }
+        if (action.equals("memory_reload") || action.equals("memory_reset")) {
+            var mod=BedrockifyClient.getInstance();
+            mod.inventoryUiState=new dev.bedrockify.forge.client.features.inventoryMemory.InventoryUiState(Path.of("config/bedrockify/inventoryUiState.json"),BedrockifyClient.LOGGER::warn);
+            return state();
+        }
+        if (action.equals("memory_state")) {
+            var out=state(); Path file=Path.of("config/bedrockify/inventoryUiState.json");
+            out.addProperty("state_bytes",Files.exists(file)?Files.size(file):0);
+            if(Files.exists(file))out.add("state_file",new JsonParser().parse(Files.readString(file))); return out;
+        }
         if (action.equals("widget")) {
             var children = c.currentScreen.children();
             var widget = (net.minecraft.client.gui.widget.ClickableWidget)children.get(cmd.get("index").getAsInt());
@@ -103,17 +126,39 @@ public final class SurvivalInventoryQa {
                 player.playerScreenHandler.sendContentUpdates();
             }); return state();
         }
-        if (action.equals("inventory")) { c.player.closeHandledScreen(); c.setScreen(new InventoryScreen(c.player)); }
-        if (action.equals("crafting")) {
-            c.player.closeHandledScreen(); c.setScreen(null);
+        if (action.equals("quickcraft_setup")) {
+            if(c.player.currentScreenHandler!=c.player.playerScreenHandler)c.player.closeHandledScreen(); c.setScreen(null);
             c.getServer().execute(() -> {
                 var player = c.getServer().getPlayerManager().getPlayer(c.player.getUuid());
+                player.changeGameMode(net.minecraft.world.GameMode.SURVIVAL);
+                player.unlockRecipes(c.getServer().getRecipeManager().values());
+                player.playerScreenHandler.clearCraftingSlots();
+                player.playerScreenHandler.setCursorStack(ItemStack.EMPTY);
+                var inventory = player.getInventory(); inventory.clear();
+                if (cmd.has("full") && cmd.get("full").getAsBoolean())
+                    for (int i=0;i<36;i++) inventory.setStack(i,new ItemStack(Items.STONE,64));
+                var items = cmd.getAsJsonArray("items");
+                for (int i=0;i<items.size();i++) {
+                    var item=items.get(i).getAsJsonObject();
+                    inventory.setStack(i,new ItemStack(Registries.ITEM.get(new Identifier(item.get("id").getAsString())),item.get("count").getAsInt()));
+                }
+                player.playerScreenHandler.updateToClient();
+            }); return state();
+        }
+        if (action.equals("inventory")) { if(c.player.currentScreenHandler!=c.player.playerScreenHandler)c.player.closeHandledScreen(); c.setScreen(new InventoryScreen(c.player)); }
+        if (action.equals("crafting")) {
+            c.setScreen(null);
+            c.getServer().execute(() -> {
+                var player = c.getServer().getPlayerManager().getPlayer(c.player.getUuid());
+                // Keep close and open on the server. A queued client close packet
+                // can otherwise arrive after the new table opens.
+                if(player.currentScreenHandler!=player.playerScreenHandler)player.closeHandledScreen();
                 var pos = player.getBlockPos().down(); var world = player.getServerWorld();
                 world.setBlockState(pos, Blocks.CRAFTING_TABLE.getDefaultState());
                 player.openHandledScreen(Blocks.CRAFTING_TABLE.getDefaultState().createScreenHandlerFactory(world, pos));
             }); return state();
         }
-        if (action.equals("close")) { c.player.closeHandledScreen(); c.setScreen(null); return state(); }
+        if (action.equals("close")) { if(c.player.currentScreenHandler!=c.player.playerScreenHandler)c.player.closeHandledScreen(); c.setScreen(null); return state(); }
         if (action.equals("toggle_setting")) {
             BedrockifyClient.getInstance().settings.survivalInventory = cmd.get("enabled").getAsBoolean(); return state();
         }
@@ -154,6 +199,10 @@ public final class SurvivalInventoryQa {
             box.setText(cmd.get("text").getAsString()); invoke(access.bedrockify$recipeBook(), "refreshSearchResults");
         }
         if (action.equals("category")) panel.category(cmd.get("index").getAsInt());
+        if (action.equals("scroll")) {
+            var l=access.bedrockify$survivalLayout();
+            screen.mouseScrolled(l.recipeLeft()+20,l.top()+80,cmd.get("amount").getAsDouble());
+        }
         if (action.equals("expand")) panel.expandAll(cmd.get("enabled").getAsBoolean());
         if (action.equals("toggle_book")) access.bedrockify$recipeBook().toggleOpen();
         if (action.equals("filter")) {
@@ -245,6 +294,10 @@ public final class SurvivalInventoryQa {
         out.addProperty("screen",c.currentScreen==null?"none":c.currentScreen.getClass().getName());
         out.addProperty("max_heap",Runtime.getRuntime().maxMemory());
         out.addProperty("recipe_open_preference",BedrockifyClient.getInstance().settings.survivalRecipeBookOpen);
+        if(c.player!=null && c.getServer()!=null) {
+            var serverPlayer=c.getServer().getPlayerManager().getPlayer(c.player.getUuid());
+            if(serverPlayer!=null)out.addProperty("server_sync_id",serverPlayer.currentScreenHandler.syncId);
+        }
         if(c.player!=null){out.addProperty("cursor",c.player.currentScreenHandler.getCursorStack().toString());JsonArray hotbar=new JsonArray();for(int i=0;i<9;i++)hotbar.add(c.player.getInventory().getStack(i).toString());out.add("hotbar",hotbar);}
         if(c.currentScreen instanceof HandledScreen<?> screen){
             out.addProperty("x",(int)field(screen,"x"));out.addProperty("y",(int)field(screen,"y"));out.addProperty("width",screen.width);out.addProperty("height",screen.height);
@@ -261,7 +314,7 @@ public final class SurvivalInventoryQa {
                     out.addProperty("searching",(boolean)field(access.bedrockify$recipeBook(),"searching"));
                     JsonObject b=new JsonObject();b.addProperty("x",search.getX());b.addProperty("y",search.getY());b.addProperty("width",search.getWidth());b.addProperty("height",search.getHeight());out.add("search_bounds",b);
                 }
-                var panel=((SurvivalRecipeBook)access.bedrockify$recipeBook()).bedrockify$recipePanel();if(panel!=null){out.addProperty("recipe_count",panel.recipeCount());out.addProperty("filtered_count",panel.filteredCount());out.addProperty("entry_count",panel.entries().size());out.addProperty("matching_passes",panel.matchingPasses);out.addProperty("rebuilds",panel.rebuildCount);out.addProperty("painted_cells",panel.paintedCells);out.addProperty("page",panel.page());out.addProperty("pages",panel.pages());out.addProperty("craftable_only",panel.craftableOnly());
+                var panel=((SurvivalRecipeBook)access.bedrockify$recipeBook()).bedrockify$recipePanel();if(panel!=null){out.addProperty("recipe_count",panel.recipeCount());out.addProperty("filtered_count",panel.filteredCount());out.addProperty("entry_count",panel.entries().size());out.addProperty("matching_passes",panel.matchingPasses);out.addProperty("rebuilds",panel.rebuildCount);out.addProperty("painted_cells",panel.paintedCells);out.addProperty("page",panel.page());out.addProperty("pages",panel.pages());out.addProperty("craftable_only",panel.craftableOnly());out.addProperty("crafting_active",panel.crafting());out.addProperty("category",panel.category());out.add("expanded_groups",new Gson().toJsonTree(panel.expanded()));
                     JsonArray groups=new JsonArray();for(var e:panel.entries())if(e.header()){JsonObject g=new JsonObject();g.addProperty("family",e.family());g.addProperty("count",e.count());groups.add(g);}out.add("groups",groups);
                 }}
         }

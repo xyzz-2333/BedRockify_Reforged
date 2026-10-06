@@ -7,7 +7,7 @@ work = project / 'run/survival-fixture'
 work.mkdir(parents=True, exist_ok=True)
 mapped = next(p for p in (project / '.gradle/loom-cache/minecraftMaven').rglob('*.jar') if not p.name.endswith('-sources.jar'))
 cache = Path(os.environ.get('GRADLE_USER_HOME', str(Path.home()/'.gradle'))) / 'caches/modules-2/files-2.1'
-jars = [mapped, project/'build/classes/java/main'] + list(cache.rglob('*.jar'))
+jars = [mapped, project/'build/classes/java/main'] + [j for j in cache.rglob('*.jar') if not j.name.endswith(('-sources.jar','-installer.jar')) and zipfile.is_zipfile(j)]
 cp = os.pathsep.join(map(str,jars))
 (work/'classpath.txt').write_text(cp)
 compiled=subprocess.run([str(Path(os.environ['JAVA_HOME'])/'bin/javac'),'-proc:none','-encoding','UTF-8','-cp',cp,'-d',str(work/'classes'),str(Path(__file__).with_name('SurvivalInventoryQa.java'))],stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True)

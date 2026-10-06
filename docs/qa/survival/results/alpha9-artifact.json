@@ -1,0 +1,25 @@
+{
+  "version": "1.9.1-forge-alpha.9+mc1.20.1",
+  "jar_bytes": 487645,
+  "sha256": "85adbbc2c040227010ea70d60b21a31288c5c93087abfd891edcaff7813c1ef9",
+  "zip_crc_verified": true,
+  "refmap_entries": 58,
+  "qa_classes_in_release": false,
+  "persistence_assertions": 19,
+  "native_validation_cases": 34,
+  "native_operations": 423,
+  "full_client_restart_verified": true,
+  "restart_query": "木板",
+  "restart_page_index": 1,
+  "test_environment": {
+    "minecraft": "1.20.1",
+    "forge": "47.4.0",
+    "jei": "15.56.0.205",
+    "curios": "5.14.1+1.20.1",
+    "heap_max_bytes": 1073741824
+  },
+  "limits": [
+    "Full user 158-mod pack not tested in this round",
+    "No new multiplayer coverage"
+  ]
+}

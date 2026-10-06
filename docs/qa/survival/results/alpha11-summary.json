@@ -1,0 +1,17 @@
+{
+  "panorama": {
+    "groups": 9,
+    "operations": 123
+  },
+  "creative": {
+    "groups": 5,
+    "operations": 41
+  },
+  "memory": {
+    "groups": 9,
+    "operations": 103
+  },
+  "groups": 23,
+  "operations": 267,
+  "native_client_exit": 0
+}

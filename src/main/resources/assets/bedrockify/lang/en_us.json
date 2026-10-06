@@ -301,5 +301,12 @@
   "bedrockify.survival.showRecipes": "Show recipe panel",
   "bedrockify.survival.hideRecipes": "Hide recipe panel",
   "bedrockify.survival.previousPage": "Previous page",
-  "bedrockify.survival.nextPage": "Next page"
+  "bedrockify.survival.nextPage": "Next page",
+  "bedrockify.options.subCategory.inventoryMemory": "Inventory state memory",
+  "bedrockify.options.rememberInventoryState": "Remember inventory view",
+  "bedrockify.options.rememberInventoryState.tooltip": "Restore categories, expanded groups and list position after reopening or restarting. Creative tabs, inventory and crafting table are remembered separately.",
+  "bedrockify.options.rememberInventorySearch": "Remember search text",
+  "bedrockify.options.rememberInventorySearch.tooltip": "Restore inventory and recipe searches. When disabled, reopening clears the search and starts at the first page.",
+  "bedrockify.options.menuPanorama": "Menu panorama",
+  "bedrockify.options.menuPanorama.tooltip": "Use the rotating vanilla title panorama for world selection, loading, options and vanilla settings subpages. Disable to restore original backgrounds; rotation follows the vanilla speed option."
 }

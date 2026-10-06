@@ -1,0 +1,13 @@
+{
+  "version": "1.9.1-forge-alpha.11+mc1.20.1",
+  "file": "bedrockify-forge-1.9.1-forge-alpha.11+mc1.20.1.jar",
+  "size_bytes": 494915,
+  "sha256": "7b0c890a70e3abcecdb127943154c8ea9c166a270929b9e500b785c11eecf1ec",
+  "class_count": 140,
+  "java_major_version": 61,
+  "refmap_mapping_count": 63,
+  "mixin_count": 67,
+  "cache_entries": 0,
+  "source_entries": 0,
+  "zip_crc_check": "passed"
+}

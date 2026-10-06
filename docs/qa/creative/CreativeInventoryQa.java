@@ -1,8 +1,8 @@
 package bedrockifyqa;
 
 import com.google.gson.*;
-import me.juancarloscp52.bedrockify.client.BedrockifyClient;
-import me.juancarloscp52.bedrockify.client.features.creativeInventory.*;
+import dev.bedrockify.forge.client.BedrockifyClient;
+import dev.bedrockify.forge.client.features.creativeInventory.*;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen;
 import net.minecraft.inventory.SimpleInventory;
@@ -32,6 +32,7 @@ public class CreativeInventoryQa {
     private static final List<RegistryObject<ItemGroup>> TAB_LIST = new ArrayList<>();
     private static final Path COMMAND = Path.of("creative-qa-command.json");
     private static final Path RESULT = Path.of("creative-qa-result.json");
+    private final Set<String> seenRequests = new HashSet<>();
     static {
         for (int i = 0; i < 12; i++) {
             int number = i;
@@ -61,8 +62,10 @@ public class CreativeInventoryQa {
             try {
                 JsonObject cmd = new JsonParser().parse(Files.readString(COMMAND)).getAsJsonObject();
                 Files.delete(COMMAND);
+                if(cmd.has("request_id") && !seenRequests.add(cmd.get("request_id").getAsString()))return;
                 JsonObject result = execute(cmd);
                 result.addProperty("ok", true);
+                if(cmd.has("request_id"))result.add("request_id",cmd.get("request_id"));
                 Files.writeString(RESULT, new GsonBuilder().setPrettyPrinting().create().toJson(result));
             } catch (Throwable failure) {
                 JsonObject result = new JsonObject(); result.addProperty("ok", false); result.addProperty("error", failure.toString());
@@ -75,6 +78,7 @@ public class CreativeInventoryQa {
     private static JsonObject execute(JsonObject cmd) throws Exception {
         MinecraftClient client = MinecraftClient.getInstance();
         String action = cmd.get("action").getAsString();
+        if(action.equals("close")){client.setScreen(null);JsonObject out=new JsonObject();out.addProperty("screen","none");return out;}
         if (action.equals("config")) {
             client.setScreen(BedrockifyClient.getInstance().settingsGUI.getConfigScreen(client.currentScreen, true));
             JsonObject result = new JsonObject(); result.addProperty("screen", client.currentScreen.getClass().getName()); return result;
@@ -90,7 +94,9 @@ public class CreativeInventoryQa {
             client.setScreen(new CreativeInventoryScreen(client.player, client.player.networkHandler.getEnabledFeatures(), true));
         }
         CreativeInventoryScreen screen = (CreativeInventoryScreen) client.currentScreen;
-        if (action.equals("tab")) {
+        if (action.equals("scroll")) {
+            screen.mouseScrolled((int)field(screen,"x")+20,(int)field(screen,"y")+50,cmd.get("amount").getAsDouble());
+        } else if (action.equals("tab")) {
             select(screen, Registries.ITEM_GROUP.get(new Identifier(cmd.get("id").getAsString())));
         } else if (action.equals("click")) {
             Method click = CreativeInventoryScreen.class.getDeclaredMethod("onMouseClick", Slot.class, int.class, int.class, SlotActionType.class);
@@ -98,6 +104,10 @@ public class CreativeInventoryQa {
             int slotId = cmd.get("slot").getAsInt();
             Slot slot = slotId < 0 ? null : screen.getScreenHandler().getSlot(slotId);
             click.invoke(screen, slot, slotId, cmd.get("button").getAsInt(), SlotActionType.valueOf(cmd.get("type").getAsString()));
+        } else if (action.equals("char")) {
+            for(char ch:cmd.get("text").getAsString().toCharArray())screen.charTyped(ch,0);
+        } else if (action.equals("key")) {
+            screen.keyPressed(cmd.get("code").getAsInt(),0,cmd.has("modifiers")?cmd.get("modifiers").getAsInt():0);
         } else if (action.equals("search")) {
             var box = (net.minecraft.client.gui.widget.TextFieldWidget) field(screen, "searchBox");
             box.setText(cmd.get("text").getAsString());
@@ -220,6 +230,10 @@ public class CreativeInventoryQa {
         out.addProperty("groups", ((List<CreativeGroups.Entry>)field(screen,"bedrockify$entries")).stream().filter(CreativeGroups.Entry::header).count());
         out.addProperty("expanded", field(screen, "bedrockify$expanded").toString());
         out.addProperty("scroll", (float)field(screen, "scrollPosition"));
+        out.addProperty("first_visible",((CreativeGrid)handler).bedrockify$firstVisibleIndex((float)field(screen,"scrollPosition")));
+        out.addProperty("search_text",((net.minecraft.client.gui.widget.TextFieldWidget)field(screen,"searchBox")).getText());
+        var searchBox=(net.minecraft.client.gui.widget.TextFieldWidget)field(screen,"searchBox");
+        out.addProperty("search_x",searchBox.getX());out.addProperty("search_y",searchBox.getY());out.addProperty("search_width",searchBox.getWidth());out.addProperty("search_focused",searchBox.isFocused());out.addProperty("search_visible",searchBox.isVisible());
         out.addProperty("cursor", handler.getCursorStack().toString());
         out.addProperty("hotbar0", client.player.getInventory().getStack(0).toString());
         ItemStack hotbar0 = client.player.getInventory().getStack(0);

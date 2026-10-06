@@ -1,0 +1,5936 @@
+[
+  {
+    "channel": "survival",
+    "command": {
+      "action": "close",
+      "request_id": "26c860a55e454db488bbbc25cfefcf90"
+    },
+    "result": {
+      "screen": "none",
+      "max_heap": 1073741824,
+      "recipe_open_preference": true,
+      "cursor": "0 air",
+      "hotbar": [
+        "64 oak_log",
+        "64 oak_planks",
+        "64 iron_ingot",
+        "64 diamond",
+        "64 wood_0_log",
+        "64 wood_0_planks",
+        "64 metal_0_ingot",
+        "1 leather_chestplate",
+        "1 shield"
+      ],
+      "ok": true,
+      "request_id": "26c860a55e454db488bbbc25cfefcf90"
+    }
+  },
+  {
+    "channel": "survival",
+    "command": {
+      "action": "toggle_setting",
+      "enabled": true,
+      "request_id": "19accbc8aca14ee6b24b09dcb1c05327"
+    },
+    "result": {
+      "screen": "none",
+      "max_heap": 1073741824,
+      "recipe_open_preference": true,
+      "cursor": "0 air",
+      "hotbar": [
+        "64 oak_log",
+        "64 oak_planks",
+        "64 iron_ingot",
+        "64 diamond",
+        "64 wood_0_log",
+        "64 wood_0_planks",
+        "64 metal_0_ingot",
+        "1 leather_chestplate",
+        "1 shield"
+      ],
+      "ok": true,
+      "request_id": "19accbc8aca14ee6b24b09dcb1c05327"
+    }
+  },
+  {
+    "channel": "survival",
+    "command": {
+      "action": "setup",
+      "request_id": "2c4af1198bfa475b825f864d2cbb0e9f"
+    },
+    "result": {
+      "screen": "none",
+      "max_heap": 1073741824,
+      "recipe_open_preference": true,
+      "cursor": "0 air",
+      "hotbar": [
+        "64 oak_log",
+        "64 oak_planks",
+        "64 iron_ingot",
+        "64 diamond",
+        "64 wood_0_log",
+        "64 wood_0_planks",
+        "64 metal_0_ingot",
+        "1 leather_chestplate",
+        "1 shield"
+      ],
+      "ok": true,
+      "request_id": "2c4af1198bfa475b825f864d2cbb0e9f"
+    }
+  },
+  {
+    "channel": "survival",
+    "command": {
+      "action": "status",
+      "request_id": "10a39b2eaf104a8c983c61e9b27fa14a"
+    },
+    "result": {
+      "screen": "none",
+      "max_heap": 1073741824,
+      "recipe_open_preference": true,
+      "cursor": "0 air",
+      "hotbar": [
+        "64 oak_log",
+        "64 oak_planks",
+        "64 iron_ingot",
+        "64 diamond",
+        "64 wood_0_log",
+        "64 wood_0_planks",
+        "64 metal_0_ingot",
+        "1 leather_chestplate",
+        "1 shield"
+      ],
+      "ok": true,
+      "request_id": "10a39b2eaf104a8c983c61e9b27fa14a"
+    }
+  },
+  {
+    "channel": "survival",
+    "command": {
+      "action": "inventory",
+      "request_id": "828aaa9407fe4e3b992a277ed1c76b3b"
+    },
+    "result": {
+      "screen": "net.minecraft.client.gui.screen.ingame.InventoryScreen",
+      "max_heap": 1073741824,
+      "recipe_open_preference": true,
+      "cursor": "0 air",
+      "hotbar": [
+        "64 oak_log",
+        "64 oak_planks",
+        "64 iron_ingot",
+        "64 diamond",
+        "64 wood_0_log",
+        "64 wood_0_planks",
+        "64 metal_0_ingot",
+        "1 leather_chestplate",
+        "1 shield"
+      ],
+      "x": 314,
+      "y": 75,
+      "width": 640,
+      "height": 360,
+      "background_width": 202,
+      "background_height": 210,
+      "slot_count": 46,
+      "sync_id": 0,
+      "buttons": [
+        {
+          "class": "net.minecraft.client.gui.widget.TexturedButtonWidget",
+          "x": 418,
+          "y": 158,
+          "width": 20,
+          "height": 18,
+          "message": ""
+        },
+        {
+          "class": "me.juancarloscp52.bedrockify.client.features.survivalInventory.RecipeBookToggle",
+          "x": 486,
+          "y": 79,
+          "width": 20,
+          "height": 18,
+          "message": "Hide recipe panel"
+        },
+        {
+          "class": "top.theillusivec4.curios.client.gui.CuriosButton",
+          "x": 340,
+          "y": 83,
+          "width": 14,
+          "height": 14,
+          "message": ""
+        }
+      ],
+      "slots": [
+        {
+          "id": 0,
+          "x": 174,
+          "y": 50,
+          "item": "0 air"
+        },
+        {
+          "id": 1,
+          "x": 114,
+          "y": 40,
+          "item": "0 air"
+        },
+        {
+          "id": 2,
+          "x": 134,
+          "y": 40,
+          "item": "0 air"
+        },
+        {
+          "id": 3,
+          "x": 114,
+          "y": 60,
+          "item": "0 air"
+        },
+        {
+          "id": 4,
+          "x": 134,
+          "y": 60,
+          "item": "0 air"
+        },
+        {
+          "id": 5,
+          "x": 12,
+          "y": 18,
+          "item": "0 air"
+        },
+        {
+          "id": 6,
+          "x": 12,
+          "y": 38,
+          "item": "0 air"
+        },
+        {
+          "id": 7,
+          "x": 12,
+          "y": 58,
+          "item": "0 air"
+        },
+        {
+          "id": 8,
+          "x": 12,
+          "y": 78,
+          "item": "0 air"
+        },
+        {
+          "id": 9,
+          "x": 12,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 10,
+          "x": 32,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 11,
+          "x": 52,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 12,
+          "x": 72,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 13,
+          "x": 92,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 14,
+          "x": 112,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 15,
+          "x": 132,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 16,
+          "x": 152,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 17,
+          "x": 172,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 18,
+          "x": 12,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 19,
+          "x": 32,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 20,
+          "x": 52,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 21,
+          "x": 72,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 22,
+          "x": 92,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 23,
+          "x": 112,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 24,
+          "x": 132,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 25,
+          "x": 152,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 26,
+          "x": 172,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 27,
+          "x": 12,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 28,
+          "x": 32,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 29,
+          "x": 52,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 30,
+          "x": 72,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 31,
+          "x": 92,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 32,
+          "x": 112,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 33,
+          "x": 132,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 34,
+          "x": 152,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 35,
+          "x": 172,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 36,
+          "x": 12,
+          "y": 178,
+          "item": "64 oak_log"
+        },
+        {
+          "id": 37,
+          "x": 32,
+          "y": 178,
+          "item": "64 oak_planks"
+        },
+        {
+          "id": 38,
+          "x": 52,
+          "y": 178,
+          "item": "64 iron_ingot"
+        },
+        {
+          "id": 39,
+          "x": 72,
+          "y": 178,
+          "item": "64 diamond"
+        },
+        {
+          "id": 40,
+          "x": 92,
+          "y": 178,
+          "item": "64 wood_0_log"
+        },
+        {
+          "id": 41,
+          "x": 112,
+          "y": 178,
+          "item": "64 wood_0_planks"
+        },
+        {
+          "id": 42,
+          "x": 132,
+          "y": 178,
+          "item": "64 metal_0_ingot"
+        },
+        {
+          "id": 43,
+          "x": 152,
+          "y": 178,
+          "item": "1 leather_chestplate",
+          "nbt": "{Damage:0}"
+        },
+        {
+          "id": 44,
+          "x": 172,
+          "y": 178,
+          "item": "1 shield",
+          "nbt": "{Damage:0}"
+        },
+        {
+          "id": 45,
+          "x": 92,
+          "y": 78,
+          "item": "0 air"
+        }
+      ],
+      "classic": true,
+      "book_open": true,
+      "recovery_toggle": true,
+      "recipe_left": 124,
+      "search_text": "",
+      "search_focused": false,
+      "searching": false,
+      "search_bounds": {
+        "x": 134,
+        "y": 109,
+        "width": 142,
+        "height": 12
+      },
+      "recipe_count": 11768,
+      "filtered_count": 11049,
+      "entry_count": 134,
+      "matching_passes": 1,
+      "rebuilds": 1,
+      "painted_cells": 0,
+      "page": 0,
+      "pages": 3,
+      "craftable_only": false,
+      "category": 0,
+      "expanded_groups": [],
+      "groups": [
+        {
+          "family": "slabs",
+          "count": 104
+        },
+        {
+          "family": "wool",
+          "count": 22
+        },
+        {
+          "family": "planks",
+          "count": 111
+        },
+        {
+          "family": "logs",
+          "count": 20
+        },
+        {
+          "family": "stairs",
+          "count": 104
+        },
+        {
+          "family": "carpet",
+          "count": 33
+        },
+        {
+          "family": "storage_blocks",
+          "count": 2
+        },
+        {
+          "family": "beds",
+          "count": 21
+        },
+        {
+          "family": "nuggets",
+          "count": 10102
+        },
+        {
+          "family": "doors",
+          "count": 100
+        },
+        {
+          "family": "ingots",
+          "count": 105
+        },
+        {
+          "family": "dyes",
+          "count": 53
+        },
+        {
+          "family": "fences",
+          "count": 100
+        },
+        {
+          "family": "candles",
+          "count": 17
+        },
+        {
+          "family": "chest_boats",
+          "count": 9
+        },
+        {
+          "family": "seeds",
+          "count": 2
+        },
+        {
+          "family": "pressure_plates",
+          "count": 15
+        },
+        {
+          "family": "buttons",
+          "count": 13
+        }
+      ],
+      "ok": true,
+      "request_id": "828aaa9407fe4e3b992a277ed1c76b3b"
+    }
+  },
+  {
+    "channel": "survival",
+    "command": {
+      "action": "search",
+      "text": "minecraft:oak_planks",
+      "request_id": "4f0ce5be96dc495182a9546351d0e2ba"
+    },
+    "result": {
+      "screen": "net.minecraft.client.gui.screen.ingame.InventoryScreen",
+      "max_heap": 1073741824,
+      "recipe_open_preference": true,
+      "cursor": "0 air",
+      "hotbar": [
+        "64 oak_log",
+        "64 oak_planks",
+        "64 iron_ingot",
+        "64 diamond",
+        "64 wood_0_log",
+        "64 wood_0_planks",
+        "64 metal_0_ingot",
+        "1 leather_chestplate",
+        "1 shield"
+      ],
+      "x": 314,
+      "y": 75,
+      "width": 640,
+      "height": 360,
+      "background_width": 202,
+      "background_height": 210,
+      "slot_count": 46,
+      "sync_id": 0,
+      "buttons": [
+        {
+          "class": "net.minecraft.client.gui.widget.TexturedButtonWidget",
+          "x": 418,
+          "y": 158,
+          "width": 20,
+          "height": 18,
+          "message": ""
+        },
+        {
+          "class": "me.juancarloscp52.bedrockify.client.features.survivalInventory.RecipeBookToggle",
+          "x": 486,
+          "y": 79,
+          "width": 20,
+          "height": 18,
+          "message": "Hide recipe panel"
+        },
+        {
+          "class": "top.theillusivec4.curios.client.gui.CuriosButton",
+          "x": 340,
+          "y": 83,
+          "width": 14,
+          "height": 14,
+          "message": ""
+        }
+      ],
+      "slots": [
+        {
+          "id": 0,
+          "x": 174,
+          "y": 50,
+          "item": "0 air"
+        },
+        {
+          "id": 1,
+          "x": 114,
+          "y": 40,
+          "item": "0 air"
+        },
+        {
+          "id": 2,
+          "x": 134,
+          "y": 40,
+          "item": "0 air"
+        },
+        {
+          "id": 3,
+          "x": 114,
+          "y": 60,
+          "item": "0 air"
+        },
+        {
+          "id": 4,
+          "x": 134,
+          "y": 60,
+          "item": "0 air"
+        },
+        {
+          "id": 5,
+          "x": 12,
+          "y": 18,
+          "item": "0 air"
+        },
+        {
+          "id": 6,
+          "x": 12,
+          "y": 38,
+          "item": "0 air"
+        },
+        {
+          "id": 7,
+          "x": 12,
+          "y": 58,
+          "item": "0 air"
+        },
+        {
+          "id": 8,
+          "x": 12,
+          "y": 78,
+          "item": "0 air"
+        },
+        {
+          "id": 9,
+          "x": 12,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 10,
+          "x": 32,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 11,
+          "x": 52,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 12,
+          "x": 72,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 13,
+          "x": 92,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 14,
+          "x": 112,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 15,
+          "x": 132,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 16,
+          "x": 152,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 17,
+          "x": 172,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 18,
+          "x": 12,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 19,
+          "x": 32,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 20,
+          "x": 52,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 21,
+          "x": 72,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 22,
+          "x": 92,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 23,
+          "x": 112,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 24,
+          "x": 132,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 25,
+          "x": 152,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 26,
+          "x": 172,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 27,
+          "x": 12,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 28,
+          "x": 32,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 29,
+          "x": 52,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 30,
+          "x": 72,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 31,
+          "x": 92,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 32,
+          "x": 112,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 33,
+          "x": 132,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 34,
+          "x": 152,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 35,
+          "x": 172,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 36,
+          "x": 12,
+          "y": 178,
+          "item": "64 oak_log"
+        },
+        {
+          "id": 37,
+          "x": 32,
+          "y": 178,
+          "item": "64 oak_planks"
+        },
+        {
+          "id": 38,
+          "x": 52,
+          "y": 178,
+          "item": "64 iron_ingot"
+        },
+        {
+          "id": 39,
+          "x": 72,
+          "y": 178,
+          "item": "64 diamond"
+        },
+        {
+          "id": 40,
+          "x": 92,
+          "y": 178,
+          "item": "64 wood_0_log"
+        },
+        {
+          "id": 41,
+          "x": 112,
+          "y": 178,
+          "item": "64 wood_0_planks"
+        },
+        {
+          "id": 42,
+          "x": 132,
+          "y": 178,
+          "item": "64 metal_0_ingot"
+        },
+        {
+          "id": 43,
+          "x": 152,
+          "y": 178,
+          "item": "1 leather_chestplate",
+          "nbt": "{Damage:0}"
+        },
+        {
+          "id": 44,
+          "x": 172,
+          "y": 178,
+          "item": "1 shield",
+          "nbt": "{Damage:0}"
+        },
+        {
+          "id": 45,
+          "x": 92,
+          "y": 78,
+          "item": "0 air"
+        }
+      ],
+      "classic": true,
+      "book_open": true,
+      "recovery_toggle": true,
+      "recipe_left": 124,
+      "search_text": "minecraft:oak_planks",
+      "search_focused": false,
+      "searching": false,
+      "search_bounds": {
+        "x": 134,
+        "y": 109,
+        "width": 142,
+        "height": 12
+      },
+      "recipe_count": 11768,
+      "filtered_count": 1,
+      "entry_count": 1,
+      "matching_passes": 1,
+      "rebuilds": 2,
+      "painted_cells": 48,
+      "page": 0,
+      "pages": 1,
+      "craftable_only": false,
+      "category": 0,
+      "expanded_groups": [],
+      "groups": [],
+      "ok": true,
+      "request_id": "4f0ce5be96dc495182a9546351d0e2ba"
+    }
+  },
+  {
+    "channel": "survival",
+    "command": {
+      "action": "mouse",
+      "x": 270,
+      "y": 270,
+      "button": 0,
+      "request_id": "fee4f8a5202d462d9b9013d6b2cc9b51"
+    },
+    "result": {
+      "screen": "net.minecraft.client.gui.screen.ingame.InventoryScreen",
+      "max_heap": 1073741824,
+      "recipe_open_preference": true,
+      "cursor": "0 air",
+      "hotbar": [
+        "64 oak_log",
+        "64 oak_planks",
+        "64 iron_ingot",
+        "64 diamond",
+        "64 wood_0_log",
+        "64 wood_0_planks",
+        "64 metal_0_ingot",
+        "1 leather_chestplate",
+        "1 shield"
+      ],
+      "x": 314,
+      "y": 75,
+      "width": 640,
+      "height": 360,
+      "background_width": 202,
+      "background_height": 210,
+      "slot_count": 46,
+      "sync_id": 0,
+      "buttons": [
+        {
+          "class": "net.minecraft.client.gui.widget.TexturedButtonWidget",
+          "x": 418,
+          "y": 158,
+          "width": 20,
+          "height": 18,
+          "message": ""
+        },
+        {
+          "class": "me.juancarloscp52.bedrockify.client.features.survivalInventory.RecipeBookToggle",
+          "x": 486,
+          "y": 79,
+          "width": 20,
+          "height": 18,
+          "message": "Hide recipe panel"
+        },
+        {
+          "class": "top.theillusivec4.curios.client.gui.CuriosButton",
+          "x": 340,
+          "y": 83,
+          "width": 14,
+          "height": 14,
+          "message": ""
+        }
+      ],
+      "slots": [
+        {
+          "id": 0,
+          "x": 174,
+          "y": 50,
+          "item": "0 air"
+        },
+        {
+          "id": 1,
+          "x": 114,
+          "y": 40,
+          "item": "0 air"
+        },
+        {
+          "id": 2,
+          "x": 134,
+          "y": 40,
+          "item": "0 air"
+        },
+        {
+          "id": 3,
+          "x": 114,
+          "y": 60,
+          "item": "0 air"
+        },
+        {
+          "id": 4,
+          "x": 134,
+          "y": 60,
+          "item": "0 air"
+        },
+        {
+          "id": 5,
+          "x": 12,
+          "y": 18,
+          "item": "0 air"
+        },
+        {
+          "id": 6,
+          "x": 12,
+          "y": 38,
+          "item": "0 air"
+        },
+        {
+          "id": 7,
+          "x": 12,
+          "y": 58,
+          "item": "0 air"
+        },
+        {
+          "id": 8,
+          "x": 12,
+          "y": 78,
+          "item": "0 air"
+        },
+        {
+          "id": 9,
+          "x": 12,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 10,
+          "x": 32,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 11,
+          "x": 52,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 12,
+          "x": 72,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 13,
+          "x": 92,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 14,
+          "x": 112,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 15,
+          "x": 132,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 16,
+          "x": 152,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 17,
+          "x": 172,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 18,
+          "x": 12,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 19,
+          "x": 32,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 20,
+          "x": 52,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 21,
+          "x": 72,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 22,
+          "x": 92,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 23,
+          "x": 112,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 24,
+          "x": 132,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 25,
+          "x": 152,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 26,
+          "x": 172,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 27,
+          "x": 12,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 28,
+          "x": 32,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 29,
+          "x": 52,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 30,
+          "x": 72,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 31,
+          "x": 92,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 32,
+          "x": 112,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 33,
+          "x": 132,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 34,
+          "x": 152,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 35,
+          "x": 172,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 36,
+          "x": 12,
+          "y": 178,
+          "item": "64 oak_log"
+        },
+        {
+          "id": 37,
+          "x": 32,
+          "y": 178,
+          "item": "64 oak_planks"
+        },
+        {
+          "id": 38,
+          "x": 52,
+          "y": 178,
+          "item": "64 iron_ingot"
+        },
+        {
+          "id": 39,
+          "x": 72,
+          "y": 178,
+          "item": "64 diamond"
+        },
+        {
+          "id": 40,
+          "x": 92,
+          "y": 178,
+          "item": "64 wood_0_log"
+        },
+        {
+          "id": 41,
+          "x": 112,
+          "y": 178,
+          "item": "64 wood_0_planks"
+        },
+        {
+          "id": 42,
+          "x": 132,
+          "y": 178,
+          "item": "64 metal_0_ingot"
+        },
+        {
+          "id": 43,
+          "x": 152,
+          "y": 178,
+          "item": "1 leather_chestplate",
+          "nbt": "{Damage:0}"
+        },
+        {
+          "id": 44,
+          "x": 172,
+          "y": 178,
+          "item": "1 shield",
+          "nbt": "{Damage:0}"
+        },
+        {
+          "id": 45,
+          "x": 92,
+          "y": 78,
+          "item": "0 air"
+        }
+      ],
+      "classic": true,
+      "book_open": true,
+      "recovery_toggle": true,
+      "recipe_left": 124,
+      "search_text": "minecraft:oak_planks",
+      "search_focused": false,
+      "searching": false,
+      "search_bounds": {
+        "x": 134,
+        "y": 109,
+        "width": 142,
+        "height": 12
+      },
+      "recipe_count": 11768,
+      "filtered_count": 1,
+      "entry_count": 1,
+      "matching_passes": 1,
+      "rebuilds": 2,
+      "painted_cells": 1,
+      "page": 0,
+      "pages": 1,
+      "craftable_only": false,
+      "category": 0,
+      "expanded_groups": [],
+      "groups": [],
+      "ok": true,
+      "request_id": "fee4f8a5202d462d9b9013d6b2cc9b51"
+    }
+  },
+  {
+    "channel": "survival",
+    "command": {
+      "action": "mouse",
+      "x": 294,
+      "y": 270,
+      "button": 0,
+      "request_id": "0214d5a366944db4964d73abbff89269"
+    },
+    "result": {
+      "screen": "net.minecraft.client.gui.screen.ingame.InventoryScreen",
+      "max_heap": 1073741824,
+      "recipe_open_preference": true,
+      "cursor": "0 air",
+      "hotbar": [
+        "64 oak_log",
+        "64 oak_planks",
+        "64 iron_ingot",
+        "64 diamond",
+        "64 wood_0_log",
+        "64 wood_0_planks",
+        "64 metal_0_ingot",
+        "1 leather_chestplate",
+        "1 shield"
+      ],
+      "x": 314,
+      "y": 75,
+      "width": 640,
+      "height": 360,
+      "background_width": 202,
+      "background_height": 210,
+      "slot_count": 46,
+      "sync_id": 0,
+      "buttons": [
+        {
+          "class": "net.minecraft.client.gui.widget.TexturedButtonWidget",
+          "x": 418,
+          "y": 158,
+          "width": 20,
+          "height": 18,
+          "message": ""
+        },
+        {
+          "class": "me.juancarloscp52.bedrockify.client.features.survivalInventory.RecipeBookToggle",
+          "x": 486,
+          "y": 79,
+          "width": 20,
+          "height": 18,
+          "message": "Hide recipe panel"
+        },
+        {
+          "class": "top.theillusivec4.curios.client.gui.CuriosButton",
+          "x": 340,
+          "y": 83,
+          "width": 14,
+          "height": 14,
+          "message": ""
+        }
+      ],
+      "slots": [
+        {
+          "id": 0,
+          "x": 174,
+          "y": 50,
+          "item": "0 air"
+        },
+        {
+          "id": 1,
+          "x": 114,
+          "y": 40,
+          "item": "0 air"
+        },
+        {
+          "id": 2,
+          "x": 134,
+          "y": 40,
+          "item": "0 air"
+        },
+        {
+          "id": 3,
+          "x": 114,
+          "y": 60,
+          "item": "0 air"
+        },
+        {
+          "id": 4,
+          "x": 134,
+          "y": 60,
+          "item": "0 air"
+        },
+        {
+          "id": 5,
+          "x": 12,
+          "y": 18,
+          "item": "0 air"
+        },
+        {
+          "id": 6,
+          "x": 12,
+          "y": 38,
+          "item": "0 air"
+        },
+        {
+          "id": 7,
+          "x": 12,
+          "y": 58,
+          "item": "0 air"
+        },
+        {
+          "id": 8,
+          "x": 12,
+          "y": 78,
+          "item": "0 air"
+        },
+        {
+          "id": 9,
+          "x": 12,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 10,
+          "x": 32,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 11,
+          "x": 52,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 12,
+          "x": 72,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 13,
+          "x": 92,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 14,
+          "x": 112,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 15,
+          "x": 132,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 16,
+          "x": 152,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 17,
+          "x": 172,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 18,
+          "x": 12,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 19,
+          "x": 32,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 20,
+          "x": 52,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 21,
+          "x": 72,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 22,
+          "x": 92,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 23,
+          "x": 112,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 24,
+          "x": 132,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 25,
+          "x": 152,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 26,
+          "x": 172,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 27,
+          "x": 12,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 28,
+          "x": 32,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 29,
+          "x": 52,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 30,
+          "x": 72,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 31,
+          "x": 92,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 32,
+          "x": 112,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 33,
+          "x": 132,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 34,
+          "x": 152,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 35,
+          "x": 172,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 36,
+          "x": 12,
+          "y": 178,
+          "item": "64 oak_log"
+        },
+        {
+          "id": 37,
+          "x": 32,
+          "y": 178,
+          "item": "64 oak_planks"
+        },
+        {
+          "id": 38,
+          "x": 52,
+          "y": 178,
+          "item": "64 iron_ingot"
+        },
+        {
+          "id": 39,
+          "x": 72,
+          "y": 178,
+          "item": "64 diamond"
+        },
+        {
+          "id": 40,
+          "x": 92,
+          "y": 178,
+          "item": "64 wood_0_log"
+        },
+        {
+          "id": 41,
+          "x": 112,
+          "y": 178,
+          "item": "64 wood_0_planks"
+        },
+        {
+          "id": 42,
+          "x": 132,
+          "y": 178,
+          "item": "64 metal_0_ingot"
+        },
+        {
+          "id": 43,
+          "x": 152,
+          "y": 178,
+          "item": "1 leather_chestplate",
+          "nbt": "{Damage:0}"
+        },
+        {
+          "id": 44,
+          "x": 172,
+          "y": 178,
+          "item": "1 shield",
+          "nbt": "{Damage:0}"
+        },
+        {
+          "id": 45,
+          "x": 92,
+          "y": 78,
+          "item": "0 air"
+        }
+      ],
+      "classic": true,
+      "book_open": true,
+      "recovery_toggle": true,
+      "recipe_left": 124,
+      "search_text": "minecraft:oak_planks",
+      "search_focused": false,
+      "searching": false,
+      "search_bounds": {
+        "x": 134,
+        "y": 109,
+        "width": 142,
+        "height": 12
+      },
+      "recipe_count": 11768,
+      "filtered_count": 1,
+      "entry_count": 1,
+      "matching_passes": 1,
+      "rebuilds": 2,
+      "painted_cells": 1,
+      "page": 0,
+      "pages": 1,
+      "craftable_only": false,
+      "category": 0,
+      "expanded_groups": [],
+      "groups": [],
+      "ok": true,
+      "request_id": "0214d5a366944db4964d73abbff89269"
+    }
+  },
+  {
+    "channel": "survival",
+    "command": {
+      "action": "search",
+      "text": "",
+      "request_id": "24e4676caad045f6b5dfa5cbff08f748"
+    },
+    "result": {
+      "screen": "net.minecraft.client.gui.screen.ingame.InventoryScreen",
+      "max_heap": 1073741824,
+      "recipe_open_preference": true,
+      "cursor": "0 air",
+      "hotbar": [
+        "64 oak_log",
+        "64 oak_planks",
+        "64 iron_ingot",
+        "64 diamond",
+        "64 wood_0_log",
+        "64 wood_0_planks",
+        "64 metal_0_ingot",
+        "1 leather_chestplate",
+        "1 shield"
+      ],
+      "x": 314,
+      "y": 75,
+      "width": 640,
+      "height": 360,
+      "background_width": 202,
+      "background_height": 210,
+      "slot_count": 46,
+      "sync_id": 0,
+      "buttons": [
+        {
+          "class": "net.minecraft.client.gui.widget.TexturedButtonWidget",
+          "x": 418,
+          "y": 158,
+          "width": 20,
+          "height": 18,
+          "message": ""
+        },
+        {
+          "class": "me.juancarloscp52.bedrockify.client.features.survivalInventory.RecipeBookToggle",
+          "x": 486,
+          "y": 79,
+          "width": 20,
+          "height": 18,
+          "message": "Hide recipe panel"
+        },
+        {
+          "class": "top.theillusivec4.curios.client.gui.CuriosButton",
+          "x": 340,
+          "y": 83,
+          "width": 14,
+          "height": 14,
+          "message": ""
+        }
+      ],
+      "slots": [
+        {
+          "id": 0,
+          "x": 174,
+          "y": 50,
+          "item": "0 air"
+        },
+        {
+          "id": 1,
+          "x": 114,
+          "y": 40,
+          "item": "0 air"
+        },
+        {
+          "id": 2,
+          "x": 134,
+          "y": 40,
+          "item": "0 air"
+        },
+        {
+          "id": 3,
+          "x": 114,
+          "y": 60,
+          "item": "0 air"
+        },
+        {
+          "id": 4,
+          "x": 134,
+          "y": 60,
+          "item": "0 air"
+        },
+        {
+          "id": 5,
+          "x": 12,
+          "y": 18,
+          "item": "0 air"
+        },
+        {
+          "id": 6,
+          "x": 12,
+          "y": 38,
+          "item": "0 air"
+        },
+        {
+          "id": 7,
+          "x": 12,
+          "y": 58,
+          "item": "0 air"
+        },
+        {
+          "id": 8,
+          "x": 12,
+          "y": 78,
+          "item": "0 air"
+        },
+        {
+          "id": 9,
+          "x": 12,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 10,
+          "x": 32,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 11,
+          "x": 52,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 12,
+          "x": 72,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 13,
+          "x": 92,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 14,
+          "x": 112,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 15,
+          "x": 132,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 16,
+          "x": 152,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 17,
+          "x": 172,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 18,
+          "x": 12,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 19,
+          "x": 32,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 20,
+          "x": 52,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 21,
+          "x": 72,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 22,
+          "x": 92,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 23,
+          "x": 112,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 24,
+          "x": 132,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 25,
+          "x": 152,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 26,
+          "x": 172,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 27,
+          "x": 12,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 28,
+          "x": 32,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 29,
+          "x": 52,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 30,
+          "x": 72,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 31,
+          "x": 92,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 32,
+          "x": 112,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 33,
+          "x": 132,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 34,
+          "x": 152,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 35,
+          "x": 172,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 36,
+          "x": 12,
+          "y": 178,
+          "item": "64 oak_log"
+        },
+        {
+          "id": 37,
+          "x": 32,
+          "y": 178,
+          "item": "64 oak_planks"
+        },
+        {
+          "id": 38,
+          "x": 52,
+          "y": 178,
+          "item": "64 iron_ingot"
+        },
+        {
+          "id": 39,
+          "x": 72,
+          "y": 178,
+          "item": "64 diamond"
+        },
+        {
+          "id": 40,
+          "x": 92,
+          "y": 178,
+          "item": "64 wood_0_log"
+        },
+        {
+          "id": 41,
+          "x": 112,
+          "y": 178,
+          "item": "64 wood_0_planks"
+        },
+        {
+          "id": 42,
+          "x": 132,
+          "y": 178,
+          "item": "64 metal_0_ingot"
+        },
+        {
+          "id": 43,
+          "x": 152,
+          "y": 178,
+          "item": "1 leather_chestplate",
+          "nbt": "{Damage:0}"
+        },
+        {
+          "id": 44,
+          "x": 172,
+          "y": 178,
+          "item": "1 shield",
+          "nbt": "{Damage:0}"
+        },
+        {
+          "id": 45,
+          "x": 92,
+          "y": 78,
+          "item": "0 air"
+        }
+      ],
+      "classic": true,
+      "book_open": true,
+      "recovery_toggle": true,
+      "recipe_left": 124,
+      "search_text": "",
+      "search_focused": false,
+      "searching": false,
+      "search_bounds": {
+        "x": 134,
+        "y": 109,
+        "width": 142,
+        "height": 12
+      },
+      "recipe_count": 11768,
+      "filtered_count": 11049,
+      "entry_count": 134,
+      "matching_passes": 1,
+      "rebuilds": 3,
+      "painted_cells": 1,
+      "page": 0,
+      "pages": 3,
+      "craftable_only": false,
+      "category": 0,
+      "expanded_groups": [],
+      "groups": [
+        {
+          "family": "slabs",
+          "count": 104
+        },
+        {
+          "family": "wool",
+          "count": 22
+        },
+        {
+          "family": "planks",
+          "count": 111
+        },
+        {
+          "family": "logs",
+          "count": 20
+        },
+        {
+          "family": "stairs",
+          "count": 104
+        },
+        {
+          "family": "carpet",
+          "count": 33
+        },
+        {
+          "family": "storage_blocks",
+          "count": 2
+        },
+        {
+          "family": "beds",
+          "count": 21
+        },
+        {
+          "family": "nuggets",
+          "count": 10102
+        },
+        {
+          "family": "doors",
+          "count": 100
+        },
+        {
+          "family": "ingots",
+          "count": 105
+        },
+        {
+          "family": "dyes",
+          "count": 53
+        },
+        {
+          "family": "fences",
+          "count": 100
+        },
+        {
+          "family": "candles",
+          "count": 17
+        },
+        {
+          "family": "chest_boats",
+          "count": 9
+        },
+        {
+          "family": "seeds",
+          "count": 2
+        },
+        {
+          "family": "pressure_plates",
+          "count": 15
+        },
+        {
+          "family": "buttons",
+          "count": 13
+        }
+      ],
+      "ok": true,
+      "request_id": "24e4676caad045f6b5dfa5cbff08f748"
+    }
+  },
+  {
+    "channel": "survival",
+    "command": {
+      "action": "mouse",
+      "x": 294,
+      "y": 270,
+      "button": 0,
+      "request_id": "8e8792ddc7504a5d8e16903eff9c1acb"
+    },
+    "result": {
+      "screen": "net.minecraft.client.gui.screen.ingame.InventoryScreen",
+      "max_heap": 1073741824,
+      "recipe_open_preference": true,
+      "cursor": "0 air",
+      "hotbar": [
+        "64 oak_log",
+        "64 oak_planks",
+        "64 iron_ingot",
+        "64 diamond",
+        "64 wood_0_log",
+        "64 wood_0_planks",
+        "64 metal_0_ingot",
+        "1 leather_chestplate",
+        "1 shield"
+      ],
+      "x": 314,
+      "y": 75,
+      "width": 640,
+      "height": 360,
+      "background_width": 202,
+      "background_height": 210,
+      "slot_count": 46,
+      "sync_id": 0,
+      "buttons": [
+        {
+          "class": "net.minecraft.client.gui.widget.TexturedButtonWidget",
+          "x": 418,
+          "y": 158,
+          "width": 20,
+          "height": 18,
+          "message": ""
+        },
+        {
+          "class": "me.juancarloscp52.bedrockify.client.features.survivalInventory.RecipeBookToggle",
+          "x": 486,
+          "y": 79,
+          "width": 20,
+          "height": 18,
+          "message": "Hide recipe panel"
+        },
+        {
+          "class": "top.theillusivec4.curios.client.gui.CuriosButton",
+          "x": 340,
+          "y": 83,
+          "width": 14,
+          "height": 14,
+          "message": ""
+        }
+      ],
+      "slots": [
+        {
+          "id": 0,
+          "x": 174,
+          "y": 50,
+          "item": "0 air"
+        },
+        {
+          "id": 1,
+          "x": 114,
+          "y": 40,
+          "item": "0 air"
+        },
+        {
+          "id": 2,
+          "x": 134,
+          "y": 40,
+          "item": "0 air"
+        },
+        {
+          "id": 3,
+          "x": 114,
+          "y": 60,
+          "item": "0 air"
+        },
+        {
+          "id": 4,
+          "x": 134,
+          "y": 60,
+          "item": "0 air"
+        },
+        {
+          "id": 5,
+          "x": 12,
+          "y": 18,
+          "item": "0 air"
+        },
+        {
+          "id": 6,
+          "x": 12,
+          "y": 38,
+          "item": "0 air"
+        },
+        {
+          "id": 7,
+          "x": 12,
+          "y": 58,
+          "item": "0 air"
+        },
+        {
+          "id": 8,
+          "x": 12,
+          "y": 78,
+          "item": "0 air"
+        },
+        {
+          "id": 9,
+          "x": 12,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 10,
+          "x": 32,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 11,
+          "x": 52,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 12,
+          "x": 72,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 13,
+          "x": 92,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 14,
+          "x": 112,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 15,
+          "x": 132,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 16,
+          "x": 152,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 17,
+          "x": 172,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 18,
+          "x": 12,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 19,
+          "x": 32,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 20,
+          "x": 52,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 21,
+          "x": 72,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 22,
+          "x": 92,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 23,
+          "x": 112,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 24,
+          "x": 132,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 25,
+          "x": 152,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 26,
+          "x": 172,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 27,
+          "x": 12,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 28,
+          "x": 32,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 29,
+          "x": 52,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 30,
+          "x": 72,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 31,
+          "x": 92,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 32,
+          "x": 112,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 33,
+          "x": 132,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 34,
+          "x": 152,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 35,
+          "x": 172,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 36,
+          "x": 12,
+          "y": 178,
+          "item": "64 oak_log"
+        },
+        {
+          "id": 37,
+          "x": 32,
+          "y": 178,
+          "item": "64 oak_planks"
+        },
+        {
+          "id": 38,
+          "x": 52,
+          "y": 178,
+          "item": "64 iron_ingot"
+        },
+        {
+          "id": 39,
+          "x": 72,
+          "y": 178,
+          "item": "64 diamond"
+        },
+        {
+          "id": 40,
+          "x": 92,
+          "y": 178,
+          "item": "64 wood_0_log"
+        },
+        {
+          "id": 41,
+          "x": 112,
+          "y": 178,
+          "item": "64 wood_0_planks"
+        },
+        {
+          "id": 42,
+          "x": 132,
+          "y": 178,
+          "item": "64 metal_0_ingot"
+        },
+        {
+          "id": 43,
+          "x": 152,
+          "y": 178,
+          "item": "1 leather_chestplate",
+          "nbt": "{Damage:0}"
+        },
+        {
+          "id": 44,
+          "x": 172,
+          "y": 178,
+          "item": "1 shield",
+          "nbt": "{Damage:0}"
+        },
+        {
+          "id": 45,
+          "x": 92,
+          "y": 78,
+          "item": "0 air"
+        }
+      ],
+      "classic": true,
+      "book_open": true,
+      "recovery_toggle": true,
+      "recipe_left": 124,
+      "search_text": "",
+      "search_focused": false,
+      "searching": false,
+      "search_bounds": {
+        "x": 134,
+        "y": 109,
+        "width": 142,
+        "height": 12
+      },
+      "recipe_count": 11768,
+      "filtered_count": 11049,
+      "entry_count": 134,
+      "matching_passes": 1,
+      "rebuilds": 3,
+      "painted_cells": 48,
+      "page": 1,
+      "pages": 3,
+      "craftable_only": false,
+      "category": 0,
+      "expanded_groups": [],
+      "groups": [
+        {
+          "family": "slabs",
+          "count": 104
+        },
+        {
+          "family": "wool",
+          "count": 22
+        },
+        {
+          "family": "planks",
+          "count": 111
+        },
+        {
+          "family": "logs",
+          "count": 20
+        },
+        {
+          "family": "stairs",
+          "count": 104
+        },
+        {
+          "family": "carpet",
+          "count": 33
+        },
+        {
+          "family": "storage_blocks",
+          "count": 2
+        },
+        {
+          "family": "beds",
+          "count": 21
+        },
+        {
+          "family": "nuggets",
+          "count": 10102
+        },
+        {
+          "family": "doors",
+          "count": 100
+        },
+        {
+          "family": "ingots",
+          "count": 105
+        },
+        {
+          "family": "dyes",
+          "count": 53
+        },
+        {
+          "family": "fences",
+          "count": 100
+        },
+        {
+          "family": "candles",
+          "count": 17
+        },
+        {
+          "family": "chest_boats",
+          "count": 9
+        },
+        {
+          "family": "seeds",
+          "count": 2
+        },
+        {
+          "family": "pressure_plates",
+          "count": 15
+        },
+        {
+          "family": "buttons",
+          "count": 13
+        }
+      ],
+      "ok": true,
+      "request_id": "8e8792ddc7504a5d8e16903eff9c1acb"
+    }
+  },
+  {
+    "channel": "survival",
+    "command": {
+      "action": "mouse",
+      "x": 270,
+      "y": 270,
+      "button": 0,
+      "request_id": "537e76a0b38e461da9d94bbd666f599d"
+    },
+    "result": {
+      "screen": "net.minecraft.client.gui.screen.ingame.InventoryScreen",
+      "max_heap": 1073741824,
+      "recipe_open_preference": true,
+      "cursor": "0 air",
+      "hotbar": [
+        "64 oak_log",
+        "64 oak_planks",
+        "64 iron_ingot",
+        "64 diamond",
+        "64 wood_0_log",
+        "64 wood_0_planks",
+        "64 metal_0_ingot",
+        "1 leather_chestplate",
+        "1 shield"
+      ],
+      "x": 314,
+      "y": 75,
+      "width": 640,
+      "height": 360,
+      "background_width": 202,
+      "background_height": 210,
+      "slot_count": 46,
+      "sync_id": 0,
+      "buttons": [
+        {
+          "class": "net.minecraft.client.gui.widget.TexturedButtonWidget",
+          "x": 418,
+          "y": 158,
+          "width": 20,
+          "height": 18,
+          "message": ""
+        },
+        {
+          "class": "me.juancarloscp52.bedrockify.client.features.survivalInventory.RecipeBookToggle",
+          "x": 486,
+          "y": 79,
+          "width": 20,
+          "height": 18,
+          "message": "Hide recipe panel"
+        },
+        {
+          "class": "top.theillusivec4.curios.client.gui.CuriosButton",
+          "x": 340,
+          "y": 83,
+          "width": 14,
+          "height": 14,
+          "message": ""
+        }
+      ],
+      "slots": [
+        {
+          "id": 0,
+          "x": 174,
+          "y": 50,
+          "item": "0 air"
+        },
+        {
+          "id": 1,
+          "x": 114,
+          "y": 40,
+          "item": "0 air"
+        },
+        {
+          "id": 2,
+          "x": 134,
+          "y": 40,
+          "item": "0 air"
+        },
+        {
+          "id": 3,
+          "x": 114,
+          "y": 60,
+          "item": "0 air"
+        },
+        {
+          "id": 4,
+          "x": 134,
+          "y": 60,
+          "item": "0 air"
+        },
+        {
+          "id": 5,
+          "x": 12,
+          "y": 18,
+          "item": "0 air"
+        },
+        {
+          "id": 6,
+          "x": 12,
+          "y": 38,
+          "item": "0 air"
+        },
+        {
+          "id": 7,
+          "x": 12,
+          "y": 58,
+          "item": "0 air"
+        },
+        {
+          "id": 8,
+          "x": 12,
+          "y": 78,
+          "item": "0 air"
+        },
+        {
+          "id": 9,
+          "x": 12,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 10,
+          "x": 32,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 11,
+          "x": 52,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 12,
+          "x": 72,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 13,
+          "x": 92,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 14,
+          "x": 112,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 15,
+          "x": 132,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 16,
+          "x": 152,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 17,
+          "x": 172,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 18,
+          "x": 12,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 19,
+          "x": 32,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 20,
+          "x": 52,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 21,
+          "x": 72,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 22,
+          "x": 92,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 23,
+          "x": 112,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 24,
+          "x": 132,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 25,
+          "x": 152,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 26,
+          "x": 172,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 27,
+          "x": 12,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 28,
+          "x": 32,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 29,
+          "x": 52,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 30,
+          "x": 72,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 31,
+          "x": 92,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 32,
+          "x": 112,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 33,
+          "x": 132,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 34,
+          "x": 152,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 35,
+          "x": 172,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 36,
+          "x": 12,
+          "y": 178,
+          "item": "64 oak_log"
+        },
+        {
+          "id": 37,
+          "x": 32,
+          "y": 178,
+          "item": "64 oak_planks"
+        },
+        {
+          "id": 38,
+          "x": 52,
+          "y": 178,
+          "item": "64 iron_ingot"
+        },
+        {
+          "id": 39,
+          "x": 72,
+          "y": 178,
+          "item": "64 diamond"
+        },
+        {
+          "id": 40,
+          "x": 92,
+          "y": 178,
+          "item": "64 wood_0_log"
+        },
+        {
+          "id": 41,
+          "x": 112,
+          "y": 178,
+          "item": "64 wood_0_planks"
+        },
+        {
+          "id": 42,
+          "x": 132,
+          "y": 178,
+          "item": "64 metal_0_ingot"
+        },
+        {
+          "id": 43,
+          "x": 152,
+          "y": 178,
+          "item": "1 leather_chestplate",
+          "nbt": "{Damage:0}"
+        },
+        {
+          "id": 44,
+          "x": 172,
+          "y": 178,
+          "item": "1 shield",
+          "nbt": "{Damage:0}"
+        },
+        {
+          "id": 45,
+          "x": 92,
+          "y": 78,
+          "item": "0 air"
+        }
+      ],
+      "classic": true,
+      "book_open": true,
+      "recovery_toggle": true,
+      "recipe_left": 124,
+      "search_text": "",
+      "search_focused": false,
+      "searching": false,
+      "search_bounds": {
+        "x": 134,
+        "y": 109,
+        "width": 142,
+        "height": 12
+      },
+      "recipe_count": 11768,
+      "filtered_count": 11049,
+      "entry_count": 134,
+      "matching_passes": 1,
+      "rebuilds": 3,
+      "painted_cells": 48,
+      "page": 0,
+      "pages": 3,
+      "craftable_only": false,
+      "category": 0,
+      "expanded_groups": [],
+      "groups": [
+        {
+          "family": "slabs",
+          "count": 104
+        },
+        {
+          "family": "wool",
+          "count": 22
+        },
+        {
+          "family": "planks",
+          "count": 111
+        },
+        {
+          "family": "logs",
+          "count": 20
+        },
+        {
+          "family": "stairs",
+          "count": 104
+        },
+        {
+          "family": "carpet",
+          "count": 33
+        },
+        {
+          "family": "storage_blocks",
+          "count": 2
+        },
+        {
+          "family": "beds",
+          "count": 21
+        },
+        {
+          "family": "nuggets",
+          "count": 10102
+        },
+        {
+          "family": "doors",
+          "count": 100
+        },
+        {
+          "family": "ingots",
+          "count": 105
+        },
+        {
+          "family": "dyes",
+          "count": 53
+        },
+        {
+          "family": "fences",
+          "count": 100
+        },
+        {
+          "family": "candles",
+          "count": 17
+        },
+        {
+          "family": "chest_boats",
+          "count": 9
+        },
+        {
+          "family": "seeds",
+          "count": 2
+        },
+        {
+          "family": "pressure_plates",
+          "count": 15
+        },
+        {
+          "family": "buttons",
+          "count": 13
+        }
+      ],
+      "ok": true,
+      "request_id": "537e76a0b38e461da9d94bbd666f599d"
+    }
+  },
+  {
+    "channel": "survival",
+    "command": {
+      "action": "status",
+      "request_id": "d51c3f1fc7164cbea9cc194845a372e0"
+    },
+    "result": {
+      "screen": "net.minecraft.client.gui.screen.ingame.InventoryScreen",
+      "max_heap": 1073741824,
+      "recipe_open_preference": true,
+      "cursor": "0 air",
+      "hotbar": [
+        "64 oak_log",
+        "64 oak_planks",
+        "64 iron_ingot",
+        "64 diamond",
+        "64 wood_0_log",
+        "64 wood_0_planks",
+        "64 metal_0_ingot",
+        "1 leather_chestplate",
+        "1 shield"
+      ],
+      "x": 314,
+      "y": 75,
+      "width": 640,
+      "height": 360,
+      "background_width": 202,
+      "background_height": 210,
+      "slot_count": 46,
+      "sync_id": 0,
+      "buttons": [
+        {
+          "class": "net.minecraft.client.gui.widget.TexturedButtonWidget",
+          "x": 418,
+          "y": 158,
+          "width": 20,
+          "height": 18,
+          "message": ""
+        },
+        {
+          "class": "me.juancarloscp52.bedrockify.client.features.survivalInventory.RecipeBookToggle",
+          "x": 486,
+          "y": 79,
+          "width": 20,
+          "height": 18,
+          "message": "Hide recipe panel"
+        },
+        {
+          "class": "top.theillusivec4.curios.client.gui.CuriosButton",
+          "x": 340,
+          "y": 83,
+          "width": 14,
+          "height": 14,
+          "message": ""
+        }
+      ],
+      "slots": [
+        {
+          "id": 0,
+          "x": 174,
+          "y": 50,
+          "item": "0 air"
+        },
+        {
+          "id": 1,
+          "x": 114,
+          "y": 40,
+          "item": "0 air"
+        },
+        {
+          "id": 2,
+          "x": 134,
+          "y": 40,
+          "item": "0 air"
+        },
+        {
+          "id": 3,
+          "x": 114,
+          "y": 60,
+          "item": "0 air"
+        },
+        {
+          "id": 4,
+          "x": 134,
+          "y": 60,
+          "item": "0 air"
+        },
+        {
+          "id": 5,
+          "x": 12,
+          "y": 18,
+          "item": "0 air"
+        },
+        {
+          "id": 6,
+          "x": 12,
+          "y": 38,
+          "item": "0 air"
+        },
+        {
+          "id": 7,
+          "x": 12,
+          "y": 58,
+          "item": "0 air"
+        },
+        {
+          "id": 8,
+          "x": 12,
+          "y": 78,
+          "item": "0 air"
+        },
+        {
+          "id": 9,
+          "x": 12,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 10,
+          "x": 32,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 11,
+          "x": 52,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 12,
+          "x": 72,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 13,
+          "x": 92,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 14,
+          "x": 112,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 15,
+          "x": 132,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 16,
+          "x": 152,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 17,
+          "x": 172,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 18,
+          "x": 12,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 19,
+          "x": 32,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 20,
+          "x": 52,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 21,
+          "x": 72,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 22,
+          "x": 92,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 23,
+          "x": 112,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 24,
+          "x": 132,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 25,
+          "x": 152,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 26,
+          "x": 172,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 27,
+          "x": 12,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 28,
+          "x": 32,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 29,
+          "x": 52,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 30,
+          "x": 72,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 31,
+          "x": 92,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 32,
+          "x": 112,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 33,
+          "x": 132,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 34,
+          "x": 152,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 35,
+          "x": 172,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 36,
+          "x": 12,
+          "y": 178,
+          "item": "64 oak_log"
+        },
+        {
+          "id": 37,
+          "x": 32,
+          "y": 178,
+          "item": "64 oak_planks"
+        },
+        {
+          "id": 38,
+          "x": 52,
+          "y": 178,
+          "item": "64 iron_ingot"
+        },
+        {
+          "id": 39,
+          "x": 72,
+          "y": 178,
+          "item": "64 diamond"
+        },
+        {
+          "id": 40,
+          "x": 92,
+          "y": 178,
+          "item": "64 wood_0_log"
+        },
+        {
+          "id": 41,
+          "x": 112,
+          "y": 178,
+          "item": "64 wood_0_planks"
+        },
+        {
+          "id": 42,
+          "x": 132,
+          "y": 178,
+          "item": "64 metal_0_ingot"
+        },
+        {
+          "id": 43,
+          "x": 152,
+          "y": 178,
+          "item": "1 leather_chestplate",
+          "nbt": "{Damage:0}"
+        },
+        {
+          "id": 44,
+          "x": 172,
+          "y": 178,
+          "item": "1 shield",
+          "nbt": "{Damage:0}"
+        },
+        {
+          "id": 45,
+          "x": 92,
+          "y": 78,
+          "item": "0 air"
+        }
+      ],
+      "classic": true,
+      "book_open": true,
+      "recovery_toggle": true,
+      "recipe_left": 124,
+      "search_text": "",
+      "search_focused": false,
+      "searching": false,
+      "search_bounds": {
+        "x": 134,
+        "y": 109,
+        "width": 142,
+        "height": 12
+      },
+      "recipe_count": 11768,
+      "filtered_count": 11049,
+      "entry_count": 134,
+      "matching_passes": 1,
+      "rebuilds": 3,
+      "painted_cells": 48,
+      "page": 0,
+      "pages": 3,
+      "craftable_only": false,
+      "category": 0,
+      "expanded_groups": [],
+      "groups": [
+        {
+          "family": "slabs",
+          "count": 104
+        },
+        {
+          "family": "wool",
+          "count": 22
+        },
+        {
+          "family": "planks",
+          "count": 111
+        },
+        {
+          "family": "logs",
+          "count": 20
+        },
+        {
+          "family": "stairs",
+          "count": 104
+        },
+        {
+          "family": "carpet",
+          "count": 33
+        },
+        {
+          "family": "storage_blocks",
+          "count": 2
+        },
+        {
+          "family": "beds",
+          "count": 21
+        },
+        {
+          "family": "nuggets",
+          "count": 10102
+        },
+        {
+          "family": "doors",
+          "count": 100
+        },
+        {
+          "family": "ingots",
+          "count": 105
+        },
+        {
+          "family": "dyes",
+          "count": 53
+        },
+        {
+          "family": "fences",
+          "count": 100
+        },
+        {
+          "family": "candles",
+          "count": 17
+        },
+        {
+          "family": "chest_boats",
+          "count": 9
+        },
+        {
+          "family": "seeds",
+          "count": 2
+        },
+        {
+          "family": "pressure_plates",
+          "count": 15
+        },
+        {
+          "family": "buttons",
+          "count": 13
+        }
+      ],
+      "ok": true,
+      "request_id": "d51c3f1fc7164cbea9cc194845a372e0"
+    }
+  },
+  {
+    "channel": "survival",
+    "command": {
+      "action": "mouse",
+      "x": 334,
+      "y": 261,
+      "button": 0,
+      "request_id": "14078688f61c4d1db1aa42ad13763ce8"
+    },
+    "result": {
+      "screen": "net.minecraft.client.gui.screen.ingame.InventoryScreen",
+      "max_heap": 1073741824,
+      "recipe_open_preference": true,
+      "cursor": "64 oak_log",
+      "hotbar": [
+        "0 air",
+        "64 oak_planks",
+        "64 iron_ingot",
+        "64 diamond",
+        "64 wood_0_log",
+        "64 wood_0_planks",
+        "64 metal_0_ingot",
+        "1 leather_chestplate",
+        "1 shield"
+      ],
+      "x": 314,
+      "y": 75,
+      "width": 640,
+      "height": 360,
+      "background_width": 202,
+      "background_height": 210,
+      "slot_count": 46,
+      "sync_id": 0,
+      "buttons": [
+        {
+          "class": "net.minecraft.client.gui.widget.TexturedButtonWidget",
+          "x": 418,
+          "y": 158,
+          "width": 20,
+          "height": 18,
+          "message": ""
+        },
+        {
+          "class": "me.juancarloscp52.bedrockify.client.features.survivalInventory.RecipeBookToggle",
+          "x": 486,
+          "y": 79,
+          "width": 20,
+          "height": 18,
+          "message": "Hide recipe panel"
+        },
+        {
+          "class": "top.theillusivec4.curios.client.gui.CuriosButton",
+          "x": 340,
+          "y": 83,
+          "width": 14,
+          "height": 14,
+          "message": ""
+        }
+      ],
+      "slots": [
+        {
+          "id": 0,
+          "x": 174,
+          "y": 50,
+          "item": "0 air"
+        },
+        {
+          "id": 1,
+          "x": 114,
+          "y": 40,
+          "item": "0 air"
+        },
+        {
+          "id": 2,
+          "x": 134,
+          "y": 40,
+          "item": "0 air"
+        },
+        {
+          "id": 3,
+          "x": 114,
+          "y": 60,
+          "item": "0 air"
+        },
+        {
+          "id": 4,
+          "x": 134,
+          "y": 60,
+          "item": "0 air"
+        },
+        {
+          "id": 5,
+          "x": 12,
+          "y": 18,
+          "item": "0 air"
+        },
+        {
+          "id": 6,
+          "x": 12,
+          "y": 38,
+          "item": "0 air"
+        },
+        {
+          "id": 7,
+          "x": 12,
+          "y": 58,
+          "item": "0 air"
+        },
+        {
+          "id": 8,
+          "x": 12,
+          "y": 78,
+          "item": "0 air"
+        },
+        {
+          "id": 9,
+          "x": 12,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 10,
+          "x": 32,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 11,
+          "x": 52,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 12,
+          "x": 72,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 13,
+          "x": 92,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 14,
+          "x": 112,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 15,
+          "x": 132,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 16,
+          "x": 152,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 17,
+          "x": 172,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 18,
+          "x": 12,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 19,
+          "x": 32,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 20,
+          "x": 52,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 21,
+          "x": 72,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 22,
+          "x": 92,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 23,
+          "x": 112,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 24,
+          "x": 132,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 25,
+          "x": 152,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 26,
+          "x": 172,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 27,
+          "x": 12,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 28,
+          "x": 32,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 29,
+          "x": 52,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 30,
+          "x": 72,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 31,
+          "x": 92,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 32,
+          "x": 112,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 33,
+          "x": 132,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 34,
+          "x": 152,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 35,
+          "x": 172,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 36,
+          "x": 12,
+          "y": 178,
+          "item": "0 air"
+        },
+        {
+          "id": 37,
+          "x": 32,
+          "y": 178,
+          "item": "64 oak_planks"
+        },
+        {
+          "id": 38,
+          "x": 52,
+          "y": 178,
+          "item": "64 iron_ingot"
+        },
+        {
+          "id": 39,
+          "x": 72,
+          "y": 178,
+          "item": "64 diamond"
+        },
+        {
+          "id": 40,
+          "x": 92,
+          "y": 178,
+          "item": "64 wood_0_log"
+        },
+        {
+          "id": 41,
+          "x": 112,
+          "y": 178,
+          "item": "64 wood_0_planks"
+        },
+        {
+          "id": 42,
+          "x": 132,
+          "y": 178,
+          "item": "64 metal_0_ingot"
+        },
+        {
+          "id": 43,
+          "x": 152,
+          "y": 178,
+          "item": "1 leather_chestplate",
+          "nbt": "{Damage:0}"
+        },
+        {
+          "id": 44,
+          "x": 172,
+          "y": 178,
+          "item": "1 shield",
+          "nbt": "{Damage:0}"
+        },
+        {
+          "id": 45,
+          "x": 92,
+          "y": 78,
+          "item": "0 air"
+        }
+      ],
+      "classic": true,
+      "book_open": true,
+      "recovery_toggle": true,
+      "recipe_left": 124,
+      "search_text": "",
+      "search_focused": false,
+      "searching": false,
+      "search_bounds": {
+        "x": 134,
+        "y": 109,
+        "width": 142,
+        "height": 12
+      },
+      "recipe_count": 11768,
+      "filtered_count": 11049,
+      "entry_count": 134,
+      "matching_passes": 1,
+      "rebuilds": 3,
+      "painted_cells": 48,
+      "page": 0,
+      "pages": 3,
+      "craftable_only": false,
+      "category": 0,
+      "expanded_groups": [],
+      "groups": [
+        {
+          "family": "slabs",
+          "count": 104
+        },
+        {
+          "family": "wool",
+          "count": 22
+        },
+        {
+          "family": "planks",
+          "count": 111
+        },
+        {
+          "family": "logs",
+          "count": 20
+        },
+        {
+          "family": "stairs",
+          "count": 104
+        },
+        {
+          "family": "carpet",
+          "count": 33
+        },
+        {
+          "family": "storage_blocks",
+          "count": 2
+        },
+        {
+          "family": "beds",
+          "count": 21
+        },
+        {
+          "family": "nuggets",
+          "count": 10102
+        },
+        {
+          "family": "doors",
+          "count": 100
+        },
+        {
+          "family": "ingots",
+          "count": 105
+        },
+        {
+          "family": "dyes",
+          "count": 53
+        },
+        {
+          "family": "fences",
+          "count": 100
+        },
+        {
+          "family": "candles",
+          "count": 17
+        },
+        {
+          "family": "chest_boats",
+          "count": 9
+        },
+        {
+          "family": "seeds",
+          "count": 2
+        },
+        {
+          "family": "pressure_plates",
+          "count": 15
+        },
+        {
+          "family": "buttons",
+          "count": 13
+        }
+      ],
+      "ok": true,
+      "request_id": "14078688f61c4d1db1aa42ad13763ce8"
+    }
+  },
+  {
+    "channel": "survival",
+    "command": {
+      "action": "status",
+      "request_id": "8cd51691378345469ff0c99b5398f41b"
+    },
+    "result": {
+      "screen": "net.minecraft.client.gui.screen.ingame.InventoryScreen",
+      "max_heap": 1073741824,
+      "recipe_open_preference": true,
+      "cursor": "64 oak_log",
+      "hotbar": [
+        "0 air",
+        "64 oak_planks",
+        "64 iron_ingot",
+        "64 diamond",
+        "64 wood_0_log",
+        "64 wood_0_planks",
+        "64 metal_0_ingot",
+        "1 leather_chestplate",
+        "1 shield"
+      ],
+      "x": 314,
+      "y": 75,
+      "width": 640,
+      "height": 360,
+      "background_width": 202,
+      "background_height": 210,
+      "slot_count": 46,
+      "sync_id": 0,
+      "buttons": [
+        {
+          "class": "net.minecraft.client.gui.widget.TexturedButtonWidget",
+          "x": 418,
+          "y": 158,
+          "width": 20,
+          "height": 18,
+          "message": ""
+        },
+        {
+          "class": "me.juancarloscp52.bedrockify.client.features.survivalInventory.RecipeBookToggle",
+          "x": 486,
+          "y": 79,
+          "width": 20,
+          "height": 18,
+          "message": "Hide recipe panel"
+        },
+        {
+          "class": "top.theillusivec4.curios.client.gui.CuriosButton",
+          "x": 340,
+          "y": 83,
+          "width": 14,
+          "height": 14,
+          "message": ""
+        }
+      ],
+      "slots": [
+        {
+          "id": 0,
+          "x": 174,
+          "y": 50,
+          "item": "0 air"
+        },
+        {
+          "id": 1,
+          "x": 114,
+          "y": 40,
+          "item": "0 air"
+        },
+        {
+          "id": 2,
+          "x": 134,
+          "y": 40,
+          "item": "0 air"
+        },
+        {
+          "id": 3,
+          "x": 114,
+          "y": 60,
+          "item": "0 air"
+        },
+        {
+          "id": 4,
+          "x": 134,
+          "y": 60,
+          "item": "0 air"
+        },
+        {
+          "id": 5,
+          "x": 12,
+          "y": 18,
+          "item": "0 air"
+        },
+        {
+          "id": 6,
+          "x": 12,
+          "y": 38,
+          "item": "0 air"
+        },
+        {
+          "id": 7,
+          "x": 12,
+          "y": 58,
+          "item": "0 air"
+        },
+        {
+          "id": 8,
+          "x": 12,
+          "y": 78,
+          "item": "0 air"
+        },
+        {
+          "id": 9,
+          "x": 12,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 10,
+          "x": 32,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 11,
+          "x": 52,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 12,
+          "x": 72,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 13,
+          "x": 92,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 14,
+          "x": 112,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 15,
+          "x": 132,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 16,
+          "x": 152,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 17,
+          "x": 172,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 18,
+          "x": 12,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 19,
+          "x": 32,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 20,
+          "x": 52,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 21,
+          "x": 72,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 22,
+          "x": 92,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 23,
+          "x": 112,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 24,
+          "x": 132,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 25,
+          "x": 152,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 26,
+          "x": 172,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 27,
+          "x": 12,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 28,
+          "x": 32,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 29,
+          "x": 52,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 30,
+          "x": 72,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 31,
+          "x": 92,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 32,
+          "x": 112,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 33,
+          "x": 132,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 34,
+          "x": 152,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 35,
+          "x": 172,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 36,
+          "x": 12,
+          "y": 178,
+          "item": "0 air"
+        },
+        {
+          "id": 37,
+          "x": 32,
+          "y": 178,
+          "item": "64 oak_planks"
+        },
+        {
+          "id": 38,
+          "x": 52,
+          "y": 178,
+          "item": "64 iron_ingot"
+        },
+        {
+          "id": 39,
+          "x": 72,
+          "y": 178,
+          "item": "64 diamond"
+        },
+        {
+          "id": 40,
+          "x": 92,
+          "y": 178,
+          "item": "64 wood_0_log"
+        },
+        {
+          "id": 41,
+          "x": 112,
+          "y": 178,
+          "item": "64 wood_0_planks"
+        },
+        {
+          "id": 42,
+          "x": 132,
+          "y": 178,
+          "item": "64 metal_0_ingot"
+        },
+        {
+          "id": 43,
+          "x": 152,
+          "y": 178,
+          "item": "1 leather_chestplate",
+          "nbt": "{Damage:0}"
+        },
+        {
+          "id": 44,
+          "x": 172,
+          "y": 178,
+          "item": "1 shield",
+          "nbt": "{Damage:0}"
+        },
+        {
+          "id": 45,
+          "x": 92,
+          "y": 78,
+          "item": "0 air"
+        }
+      ],
+      "classic": true,
+      "book_open": true,
+      "recovery_toggle": true,
+      "recipe_left": 124,
+      "search_text": "",
+      "search_focused": false,
+      "searching": false,
+      "search_bounds": {
+        "x": 134,
+        "y": 109,
+        "width": 142,
+        "height": 12
+      },
+      "recipe_count": 11768,
+      "filtered_count": 11049,
+      "entry_count": 134,
+      "matching_passes": 2,
+      "rebuilds": 4,
+      "painted_cells": 48,
+      "page": 0,
+      "pages": 3,
+      "craftable_only": false,
+      "category": 0,
+      "expanded_groups": [],
+      "groups": [
+        {
+          "family": "slabs",
+          "count": 104
+        },
+        {
+          "family": "wool",
+          "count": 22
+        },
+        {
+          "family": "planks",
+          "count": 111
+        },
+        {
+          "family": "logs",
+          "count": 20
+        },
+        {
+          "family": "stairs",
+          "count": 104
+        },
+        {
+          "family": "carpet",
+          "count": 33
+        },
+        {
+          "family": "storage_blocks",
+          "count": 2
+        },
+        {
+          "family": "beds",
+          "count": 21
+        },
+        {
+          "family": "nuggets",
+          "count": 10102
+        },
+        {
+          "family": "doors",
+          "count": 100
+        },
+        {
+          "family": "ingots",
+          "count": 105
+        },
+        {
+          "family": "dyes",
+          "count": 53
+        },
+        {
+          "family": "fences",
+          "count": 100
+        },
+        {
+          "family": "candles",
+          "count": 17
+        },
+        {
+          "family": "chest_boats",
+          "count": 9
+        },
+        {
+          "family": "seeds",
+          "count": 2
+        },
+        {
+          "family": "pressure_plates",
+          "count": 15
+        },
+        {
+          "family": "buttons",
+          "count": 13
+        }
+      ],
+      "ok": true,
+      "request_id": "8cd51691378345469ff0c99b5398f41b"
+    }
+  },
+  {
+    "channel": "survival",
+    "command": {
+      "action": "mouse",
+      "x": 334,
+      "y": 193,
+      "button": 0,
+      "request_id": "8ce146ff521342f5b0581f80de599568"
+    },
+    "result": {
+      "screen": "net.minecraft.client.gui.screen.ingame.InventoryScreen",
+      "max_heap": 1073741824,
+      "recipe_open_preference": true,
+      "cursor": "0 air",
+      "hotbar": [
+        "0 air",
+        "64 oak_planks",
+        "64 iron_ingot",
+        "64 diamond",
+        "64 wood_0_log",
+        "64 wood_0_planks",
+        "64 metal_0_ingot",
+        "1 leather_chestplate",
+        "1 shield"
+      ],
+      "x": 314,
+      "y": 75,
+      "width": 640,
+      "height": 360,
+      "background_width": 202,
+      "background_height": 210,
+      "slot_count": 46,
+      "sync_id": 0,
+      "buttons": [
+        {
+          "class": "net.minecraft.client.gui.widget.TexturedButtonWidget",
+          "x": 418,
+          "y": 158,
+          "width": 20,
+          "height": 18,
+          "message": ""
+        },
+        {
+          "class": "me.juancarloscp52.bedrockify.client.features.survivalInventory.RecipeBookToggle",
+          "x": 486,
+          "y": 79,
+          "width": 20,
+          "height": 18,
+          "message": "Hide recipe panel"
+        },
+        {
+          "class": "top.theillusivec4.curios.client.gui.CuriosButton",
+          "x": 340,
+          "y": 83,
+          "width": 14,
+          "height": 14,
+          "message": ""
+        }
+      ],
+      "slots": [
+        {
+          "id": 0,
+          "x": 174,
+          "y": 50,
+          "item": "0 air"
+        },
+        {
+          "id": 1,
+          "x": 114,
+          "y": 40,
+          "item": "0 air"
+        },
+        {
+          "id": 2,
+          "x": 134,
+          "y": 40,
+          "item": "0 air"
+        },
+        {
+          "id": 3,
+          "x": 114,
+          "y": 60,
+          "item": "0 air"
+        },
+        {
+          "id": 4,
+          "x": 134,
+          "y": 60,
+          "item": "0 air"
+        },
+        {
+          "id": 5,
+          "x": 12,
+          "y": 18,
+          "item": "0 air"
+        },
+        {
+          "id": 6,
+          "x": 12,
+          "y": 38,
+          "item": "0 air"
+        },
+        {
+          "id": 7,
+          "x": 12,
+          "y": 58,
+          "item": "0 air"
+        },
+        {
+          "id": 8,
+          "x": 12,
+          "y": 78,
+          "item": "0 air"
+        },
+        {
+          "id": 9,
+          "x": 12,
+          "y": 110,
+          "item": "64 oak_log"
+        },
+        {
+          "id": 10,
+          "x": 32,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 11,
+          "x": 52,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 12,
+          "x": 72,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 13,
+          "x": 92,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 14,
+          "x": 112,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 15,
+          "x": 132,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 16,
+          "x": 152,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 17,
+          "x": 172,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 18,
+          "x": 12,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 19,
+          "x": 32,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 20,
+          "x": 52,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 21,
+          "x": 72,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 22,
+          "x": 92,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 23,
+          "x": 112,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 24,
+          "x": 132,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 25,
+          "x": 152,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 26,
+          "x": 172,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 27,
+          "x": 12,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 28,
+          "x": 32,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 29,
+          "x": 52,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 30,
+          "x": 72,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 31,
+          "x": 92,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 32,
+          "x": 112,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 33,
+          "x": 132,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 34,
+          "x": 152,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 35,
+          "x": 172,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 36,
+          "x": 12,
+          "y": 178,
+          "item": "0 air"
+        },
+        {
+          "id": 37,
+          "x": 32,
+          "y": 178,
+          "item": "64 oak_planks"
+        },
+        {
+          "id": 38,
+          "x": 52,
+          "y": 178,
+          "item": "64 iron_ingot"
+        },
+        {
+          "id": 39,
+          "x": 72,
+          "y": 178,
+          "item": "64 diamond"
+        },
+        {
+          "id": 40,
+          "x": 92,
+          "y": 178,
+          "item": "64 wood_0_log"
+        },
+        {
+          "id": 41,
+          "x": 112,
+          "y": 178,
+          "item": "64 wood_0_planks"
+        },
+        {
+          "id": 42,
+          "x": 132,
+          "y": 178,
+          "item": "64 metal_0_ingot"
+        },
+        {
+          "id": 43,
+          "x": 152,
+          "y": 178,
+          "item": "1 leather_chestplate",
+          "nbt": "{Damage:0}"
+        },
+        {
+          "id": 44,
+          "x": 172,
+          "y": 178,
+          "item": "1 shield",
+          "nbt": "{Damage:0}"
+        },
+        {
+          "id": 45,
+          "x": 92,
+          "y": 78,
+          "item": "0 air"
+        }
+      ],
+      "classic": true,
+      "book_open": true,
+      "recovery_toggle": true,
+      "recipe_left": 124,
+      "search_text": "",
+      "search_focused": false,
+      "searching": false,
+      "search_bounds": {
+        "x": 134,
+        "y": 109,
+        "width": 142,
+        "height": 12
+      },
+      "recipe_count": 11768,
+      "filtered_count": 11049,
+      "entry_count": 134,
+      "matching_passes": 2,
+      "rebuilds": 4,
+      "painted_cells": 48,
+      "page": 0,
+      "pages": 3,
+      "craftable_only": false,
+      "category": 0,
+      "expanded_groups": [],
+      "groups": [
+        {
+          "family": "slabs",
+          "count": 104
+        },
+        {
+          "family": "wool",
+          "count": 22
+        },
+        {
+          "family": "planks",
+          "count": 111
+        },
+        {
+          "family": "logs",
+          "count": 20
+        },
+        {
+          "family": "stairs",
+          "count": 104
+        },
+        {
+          "family": "carpet",
+          "count": 33
+        },
+        {
+          "family": "storage_blocks",
+          "count": 2
+        },
+        {
+          "family": "beds",
+          "count": 21
+        },
+        {
+          "family": "nuggets",
+          "count": 10102
+        },
+        {
+          "family": "doors",
+          "count": 100
+        },
+        {
+          "family": "ingots",
+          "count": 105
+        },
+        {
+          "family": "dyes",
+          "count": 53
+        },
+        {
+          "family": "fences",
+          "count": 100
+        },
+        {
+          "family": "candles",
+          "count": 17
+        },
+        {
+          "family": "chest_boats",
+          "count": 9
+        },
+        {
+          "family": "seeds",
+          "count": 2
+        },
+        {
+          "family": "pressure_plates",
+          "count": 15
+        },
+        {
+          "family": "buttons",
+          "count": 13
+        }
+      ],
+      "ok": true,
+      "request_id": "8ce146ff521342f5b0581f80de599568"
+    }
+  },
+  {
+    "channel": "survival",
+    "command": {
+      "action": "status",
+      "request_id": "160be0095a414f7aaf7e2522d2fb9913"
+    },
+    "result": {
+      "screen": "net.minecraft.client.gui.screen.ingame.InventoryScreen",
+      "max_heap": 1073741824,
+      "recipe_open_preference": true,
+      "cursor": "0 air",
+      "hotbar": [
+        "0 air",
+        "64 oak_planks",
+        "64 iron_ingot",
+        "64 diamond",
+        "64 wood_0_log",
+        "64 wood_0_planks",
+        "64 metal_0_ingot",
+        "1 leather_chestplate",
+        "1 shield"
+      ],
+      "x": 314,
+      "y": 75,
+      "width": 640,
+      "height": 360,
+      "background_width": 202,
+      "background_height": 210,
+      "slot_count": 46,
+      "sync_id": 0,
+      "buttons": [
+        {
+          "class": "net.minecraft.client.gui.widget.TexturedButtonWidget",
+          "x": 418,
+          "y": 158,
+          "width": 20,
+          "height": 18,
+          "message": ""
+        },
+        {
+          "class": "me.juancarloscp52.bedrockify.client.features.survivalInventory.RecipeBookToggle",
+          "x": 486,
+          "y": 79,
+          "width": 20,
+          "height": 18,
+          "message": "Hide recipe panel"
+        },
+        {
+          "class": "top.theillusivec4.curios.client.gui.CuriosButton",
+          "x": 340,
+          "y": 83,
+          "width": 14,
+          "height": 14,
+          "message": ""
+        }
+      ],
+      "slots": [
+        {
+          "id": 0,
+          "x": 174,
+          "y": 50,
+          "item": "0 air"
+        },
+        {
+          "id": 1,
+          "x": 114,
+          "y": 40,
+          "item": "0 air"
+        },
+        {
+          "id": 2,
+          "x": 134,
+          "y": 40,
+          "item": "0 air"
+        },
+        {
+          "id": 3,
+          "x": 114,
+          "y": 60,
+          "item": "0 air"
+        },
+        {
+          "id": 4,
+          "x": 134,
+          "y": 60,
+          "item": "0 air"
+        },
+        {
+          "id": 5,
+          "x": 12,
+          "y": 18,
+          "item": "0 air"
+        },
+        {
+          "id": 6,
+          "x": 12,
+          "y": 38,
+          "item": "0 air"
+        },
+        {
+          "id": 7,
+          "x": 12,
+          "y": 58,
+          "item": "0 air"
+        },
+        {
+          "id": 8,
+          "x": 12,
+          "y": 78,
+          "item": "0 air"
+        },
+        {
+          "id": 9,
+          "x": 12,
+          "y": 110,
+          "item": "64 oak_log"
+        },
+        {
+          "id": 10,
+          "x": 32,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 11,
+          "x": 52,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 12,
+          "x": 72,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 13,
+          "x": 92,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 14,
+          "x": 112,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 15,
+          "x": 132,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 16,
+          "x": 152,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 17,
+          "x": 172,
+          "y": 110,
+          "item": "0 air"
+        },
+        {
+          "id": 18,
+          "x": 12,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 19,
+          "x": 32,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 20,
+          "x": 52,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 21,
+          "x": 72,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 22,
+          "x": 92,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 23,
+          "x": 112,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 24,
+          "x": 132,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 25,
+          "x": 152,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 26,
+          "x": 172,
+          "y": 130,
+          "item": "0 air"
+        },
+        {
+          "id": 27,
+          "x": 12,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 28,
+          "x": 32,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 29,
+          "x": 52,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 30,
+          "x": 72,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 31,
+          "x": 92,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 32,
+          "x": 112,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 33,
+          "x": 132,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 34,
+          "x": 152,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 35,
+          "x": 172,
+          "y": 150,
+          "item": "0 air"
+        },
+        {
+          "id": 36,
+          "x": 12,
+          "y": 178,
+          "item": "0 air"
+        },
+        {
+          "id": 37,
+          "x": 32,
+          "y": 178,
+          "item": "64 oak_planks"
+        },
+        {
+          "id": 38,
+          "x": 52,
+          "y": 178,
+          "item": "64 iron_ingot"
+        },
+        {
+          "id": 39,
+          "x": 72,
+          "y": 178,
+          "item": "64 diamond"
+        },
+        {
+          "id": 40,
+          "x": 92,
+          "y": 178,
+          "item": "64 wood_0_log"
+        },
+        {
+          "id": 41,
+          "x": 112,
+          "y": 178,
+          "item": "64 wood_0_planks"
+        },
+        {
+          "id": 42,
+          "x": 132,
+          "y": 178,
+          "item": "64 metal_0_ingot"
+        },
+        {
+          "id": 43,
+          "x": 152,
+          "y": 178,
+          "item": "1 leather_chestplate",
+          "nbt": "{Damage:0}"
+        },
+        {
+          "id": 44,
+          "x": 172,
+          "y": 178,
+          "item": "1 shield",
+          "nbt": "{Damage:0}"
+        },
+        {
+          "id": 45,
+          "x": 92,
+          "y": 78,
+          "item": "0 air"
+        }
+      ],
+      "classic": true,
+      "book_open": true,
+      "recovery_toggle": true,
+      "recipe_left": 124,
+      "search_text": "",
+      "search_focused": false,
+      "searching": false,
+      "search_bounds": {
+        "x": 134,
+        "y": 109,
+        "width": 142,
+        "height": 12
+      },
+      "recipe_count": 11768,
+      "filtered_count": 11049,
+      "entry_count": 134,
+      "matching_passes": 3,
+      "rebuilds": 5,
+      "painted_cells": 48,
+      "page": 0,
+      "pages": 3,
+      "craftable_only": false,
+      "category": 0,
+      "expanded_groups": [],
+      "groups": [
+        {
+          "family": "slabs",
+          "count": 104
+        },
+        {
+          "family": "wool",
+          "count": 22
+        },
+        {
+          "family": "planks",
+          "count": 111
+        },
+        {
+          "family": "logs",
+          "count": 20
+        },
+        {
+          "family": "stairs",
+          "count": 104
+        },
+        {
+          "family": "carpet",
+          "count": 33
+        },
+        {
+          "family": "storage_blocks",
+          "count": 2
+        },
+        {
+          "family": "beds",
+          "count": 21
+        },
+        {
+          "family": "nuggets",
+          "count": 10102
+        },
+        {
+          "family": "doors",
+          "count": 100
+        },
+        {
+          "family": "ingots",
+          "count": 105
+        },
+        {
+          "family": "dyes",
+          "count": 53
+        },
+        {
+          "family": "fences",
+          "count": 100
+        },
+        {
+          "family": "candles",
+          "count": 17
+        },
+        {
+          "family": "chest_boats",
+          "count": 9
+        },
+        {
+          "family": "seeds",
+          "count": 2
+        },
+        {
+          "family": "pressure_plates",
+          "count": 15
+        },
+        {
+          "family": "buttons",
+          "count": 13
+        }
+      ],
+      "ok": true,
+      "request_id": "160be0095a414f7aaf7e2522d2fb9913"
+    }
+  },
+  {
+    "channel": "survival",
+    "command": {
+      "action": "close",
+      "request_id": "2a1df873929f4d289d869a47a0475807"
+    },
+    "result": {
+      "screen": "none",
+      "max_heap": 1073741824,
+      "recipe_open_preference": true,
+      "cursor": "0 air",
+      "hotbar": [
+        "0 air",
+        "64 oak_planks",
+        "64 iron_ingot",
+        "64 diamond",
+        "64 wood_0_log",
+        "64 wood_0_planks",
+        "64 metal_0_ingot",
+        "1 leather_chestplate",
+        "1 shield"
+      ],
+      "ok": true,
+      "request_id": "2a1df873929f4d289d869a47a0475807"
+    }
+  },
+  {
+    "channel": "survival",
+    "command": {
+      "action": "command",
+      "text": "gamemode creative",
+      "request_id": "d26733942f99465b8cb49dfca47ce854"
+    },
+    "result": {
+      "screen": "none",
+      "max_heap": 1073741824,
+      "recipe_open_preference": true,
+      "cursor": "0 air",
+      "hotbar": [
+        "0 air",
+        "64 oak_planks",
+        "64 iron_ingot",
+        "64 diamond",
+        "64 wood_0_log",
+        "64 wood_0_planks",
+        "64 metal_0_ingot",
+        "1 leather_chestplate",
+        "1 shield"
+      ],
+      "ok": true,
+      "request_id": "d26733942f99465b8cb49dfca47ce854"
+    }
+  },
+  {
+    "channel": "survival",
+    "command": {
+      "action": "command",
+      "text": "clear",
+      "request_id": "24c661da0147464b878143a2ccbc1aed"
+    },
+    "result": {
+      "screen": "none",
+      "max_heap": 1073741824,
+      "recipe_open_preference": true,
+      "cursor": "0 air",
+      "hotbar": [
+        "0 air",
+        "64 oak_planks",
+        "64 iron_ingot",
+        "64 diamond",
+        "64 wood_0_log",
+        "64 wood_0_planks",
+        "64 metal_0_ingot",
+        "1 leather_chestplate",
+        "1 shield"
+      ],
+      "ok": true,
+      "request_id": "24c661da0147464b878143a2ccbc1aed"
+    }
+  },
+  {
+    "channel": "creative",
+    "command": {
+      "action": "open"
+    },
+    "result": {
+      "screen": "none",
+      "ok": true,
+      "request_id": "d821c4f96d4e46d38daff8f6213afc60"
+    }
+  },
+  {
+    "channel": "creative",
+    "command": {
+      "action": "tab",
+      "id": "bedrockifyqa:tab_0"
+    },
+    "result": {
+      "x": 134,
+      "y": 75,
+      "columns": 17,
+      "rows": 7,
+      "disabled_picker_cells": 117,
+      "slots": 128,
+      "items": 2,
+      "classic": true,
+      "source_items": 3,
+      "groups": 1,
+      "expanded": "[]",
+      "scroll": 0.0,
+      "first_visible": 0,
+      "search_text": "",
+      "cursor": "0 air",
+      "hotbar0": "0 air",
+      "hotbar0_nbt": "null",
+      "page_count": 2,
+      "tab": "bedrockifyqa:tab_0",
+      "tabs": [
+        "minecraft:building_blocks",
+        "minecraft:combat",
+        "minecraft:ingredients",
+        "minecraft:natural_blocks",
+        "bedrockifyqa:tab_0",
+        "bedrockifyqa:tab_1",
+        "bedrockifyqa:tab_10",
+        "bedrockifyqa:tab_11",
+        "bedrockifyqa:tab_2",
+        "bedrockifyqa:tab_3",
+        "minecraft:hotbar",
+        "minecraft:search",
+        "minecraft:op_blocks",
+        "minecraft:inventory"
+      ],
+      "first_items": [
+        "1 sample",
+        "1 oak_planks"
+      ],
+      "hotbar": [
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air"
+      ],
+      "server_hotbar0": "0 air",
+      "ok": true
+    }
+  },
+  {
+    "channel": "creative",
+    "command": {
+      "action": "probe",
+      "x": 156,
+      "y": 113
+    },
+    "result": {
+      "hit_slot": 0,
+      "x": 134,
+      "y": 75,
+      "columns": 17,
+      "rows": 7,
+      "disabled_picker_cells": 117,
+      "slots": 128,
+      "items": 2,
+      "classic": true,
+      "source_items": 3,
+      "groups": 1,
+      "expanded": "[]",
+      "scroll": 0.0,
+      "first_visible": 0,
+      "search_text": "",
+      "cursor": "0 air",
+      "hotbar0": "0 air",
+      "hotbar0_nbt": "null",
+      "page_count": 2,
+      "tab": "bedrockifyqa:tab_0",
+      "tabs": [
+        "minecraft:building_blocks",
+        "minecraft:combat",
+        "minecraft:ingredients",
+        "minecraft:natural_blocks",
+        "bedrockifyqa:tab_0",
+        "bedrockifyqa:tab_1",
+        "bedrockifyqa:tab_10",
+        "bedrockifyqa:tab_11",
+        "bedrockifyqa:tab_2",
+        "bedrockifyqa:tab_3",
+        "minecraft:hotbar",
+        "minecraft:search",
+        "minecraft:op_blocks",
+        "minecraft:inventory"
+      ],
+      "first_items": [
+        "1 sample",
+        "1 oak_planks"
+      ],
+      "hotbar": [
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air"
+      ],
+      "server_hotbar0": "0 air",
+      "ok": true
+    }
+  },
+  {
+    "channel": "creative",
+    "command": {
+      "action": "probe",
+      "x": 276,
+      "y": 153
+    },
+    "result": {
+      "hit_slot": -1,
+      "x": 134,
+      "y": 75,
+      "columns": 17,
+      "rows": 7,
+      "disabled_picker_cells": 117,
+      "slots": 128,
+      "items": 2,
+      "classic": true,
+      "source_items": 3,
+      "groups": 1,
+      "expanded": "[]",
+      "scroll": 0.0,
+      "first_visible": 0,
+      "search_text": "",
+      "cursor": "0 air",
+      "hotbar0": "0 air",
+      "hotbar0_nbt": "null",
+      "page_count": 2,
+      "tab": "bedrockifyqa:tab_0",
+      "tabs": [
+        "minecraft:building_blocks",
+        "minecraft:combat",
+        "minecraft:ingredients",
+        "minecraft:natural_blocks",
+        "bedrockifyqa:tab_0",
+        "bedrockifyqa:tab_1",
+        "bedrockifyqa:tab_10",
+        "bedrockifyqa:tab_11",
+        "bedrockifyqa:tab_2",
+        "bedrockifyqa:tab_3",
+        "minecraft:hotbar",
+        "minecraft:search",
+        "minecraft:op_blocks",
+        "minecraft:inventory"
+      ],
+      "first_items": [
+        "1 sample",
+        "1 oak_planks"
+      ],
+      "hotbar": [
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air"
+      ],
+      "server_hotbar0": "0 air",
+      "ok": true
+    }
+  },
+  {
+    "channel": "creative",
+    "command": {
+      "action": "mouse",
+      "x": 156,
+      "y": 113,
+      "button": 0
+    },
+    "result": {
+      "x": 134,
+      "y": 75,
+      "columns": 17,
+      "rows": 7,
+      "disabled_picker_cells": 117,
+      "slots": 128,
+      "items": 2,
+      "classic": true,
+      "source_items": 3,
+      "groups": 1,
+      "expanded": "[]",
+      "scroll": 0.0,
+      "first_visible": 0,
+      "search_text": "",
+      "cursor": "1 sample",
+      "hotbar0": "0 air",
+      "hotbar0_nbt": "null",
+      "page_count": 2,
+      "tab": "bedrockifyqa:tab_0",
+      "tabs": [
+        "minecraft:building_blocks",
+        "minecraft:combat",
+        "minecraft:ingredients",
+        "minecraft:natural_blocks",
+        "bedrockifyqa:tab_0",
+        "bedrockifyqa:tab_1",
+        "bedrockifyqa:tab_10",
+        "bedrockifyqa:tab_11",
+        "bedrockifyqa:tab_2",
+        "bedrockifyqa:tab_3",
+        "minecraft:hotbar",
+        "minecraft:search",
+        "minecraft:op_blocks",
+        "minecraft:inventory"
+      ],
+      "first_items": [
+        "1 sample",
+        "1 oak_planks"
+      ],
+      "hotbar": [
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air"
+      ],
+      "server_hotbar0": "0 air",
+      "ok": true
+    }
+  },
+  {
+    "channel": "creative",
+    "command": {
+      "action": "mouse",
+      "x": 276,
+      "y": 153,
+      "button": 0
+    },
+    "result": {
+      "x": 134,
+      "y": 75,
+      "columns": 17,
+      "rows": 7,
+      "disabled_picker_cells": 117,
+      "slots": 128,
+      "items": 2,
+      "classic": true,
+      "source_items": 3,
+      "groups": 1,
+      "expanded": "[]",
+      "scroll": 0.0,
+      "first_visible": 0,
+      "search_text": "",
+      "cursor": "1 sample",
+      "hotbar0": "0 air",
+      "hotbar0_nbt": "null",
+      "page_count": 2,
+      "tab": "bedrockifyqa:tab_0",
+      "tabs": [
+        "minecraft:building_blocks",
+        "minecraft:combat",
+        "minecraft:ingredients",
+        "minecraft:natural_blocks",
+        "bedrockifyqa:tab_0",
+        "bedrockifyqa:tab_1",
+        "bedrockifyqa:tab_10",
+        "bedrockifyqa:tab_11",
+        "bedrockifyqa:tab_2",
+        "bedrockifyqa:tab_3",
+        "minecraft:hotbar",
+        "minecraft:search",
+        "minecraft:op_blocks",
+        "minecraft:inventory"
+      ],
+      "first_items": [
+        "1 sample",
+        "1 oak_planks"
+      ],
+      "hotbar": [
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air"
+      ],
+      "server_hotbar0": "0 air",
+      "ok": true
+    }
+  },
+  {
+    "channel": "creative",
+    "command": {
+      "action": "probe",
+      "x": 240,
+      "y": 267
+    },
+    "result": {
+      "hit_slot": 119,
+      "x": 134,
+      "y": 75,
+      "columns": 17,
+      "rows": 7,
+      "disabled_picker_cells": 117,
+      "slots": 128,
+      "items": 2,
+      "classic": true,
+      "source_items": 3,
+      "groups": 1,
+      "expanded": "[]",
+      "scroll": 0.0,
+      "first_visible": 0,
+      "search_text": "",
+      "cursor": "1 sample",
+      "hotbar0": "0 air",
+      "hotbar0_nbt": "null",
+      "page_count": 2,
+      "tab": "bedrockifyqa:tab_0",
+      "tabs": [
+        "minecraft:building_blocks",
+        "minecraft:combat",
+        "minecraft:ingredients",
+        "minecraft:natural_blocks",
+        "bedrockifyqa:tab_0",
+        "bedrockifyqa:tab_1",
+        "bedrockifyqa:tab_10",
+        "bedrockifyqa:tab_11",
+        "bedrockifyqa:tab_2",
+        "bedrockifyqa:tab_3",
+        "minecraft:hotbar",
+        "minecraft:search",
+        "minecraft:op_blocks",
+        "minecraft:inventory"
+      ],
+      "first_items": [
+        "1 sample",
+        "1 oak_planks"
+      ],
+      "hotbar": [
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air"
+      ],
+      "server_hotbar0": "0 air",
+      "ok": true
+    }
+  },
+  {
+    "channel": "creative",
+    "command": {
+      "action": "mouse",
+      "x": 240,
+      "y": 267,
+      "button": 0
+    },
+    "result": {
+      "x": 134,
+      "y": 75,
+      "columns": 17,
+      "rows": 7,
+      "disabled_picker_cells": 117,
+      "slots": 128,
+      "items": 2,
+      "classic": true,
+      "source_items": 3,
+      "groups": 1,
+      "expanded": "[]",
+      "scroll": 0.0,
+      "first_visible": 0,
+      "search_text": "",
+      "cursor": "0 air",
+      "hotbar0": "1 sample",
+      "hotbar0_nbt": "null",
+      "page_count": 2,
+      "tab": "bedrockifyqa:tab_0",
+      "tabs": [
+        "minecraft:building_blocks",
+        "minecraft:combat",
+        "minecraft:ingredients",
+        "minecraft:natural_blocks",
+        "bedrockifyqa:tab_0",
+        "bedrockifyqa:tab_1",
+        "bedrockifyqa:tab_10",
+        "bedrockifyqa:tab_11",
+        "bedrockifyqa:tab_2",
+        "bedrockifyqa:tab_3",
+        "minecraft:hotbar",
+        "minecraft:search",
+        "minecraft:op_blocks",
+        "minecraft:inventory"
+      ],
+      "first_items": [
+        "1 sample",
+        "1 oak_planks"
+      ],
+      "hotbar": [
+        "1 sample",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air"
+      ],
+      "server_hotbar0": "1 sample",
+      "ok": true
+    }
+  },
+  {
+    "channel": "creative",
+    "command": {
+      "action": "search",
+      "text": "zzzz_nonexistent_alpha7"
+    },
+    "result": {
+      "x": 134,
+      "y": 75,
+      "columns": 17,
+      "rows": 7,
+      "disabled_picker_cells": 119,
+      "slots": 128,
+      "items": 0,
+      "classic": true,
+      "source_items": 0,
+      "groups": 0,
+      "expanded": "[]",
+      "scroll": 0.0,
+      "first_visible": 0,
+      "search_text": "zzzz_nonexistent_alpha7",
+      "cursor": "0 air",
+      "hotbar0": "1 sample",
+      "hotbar0_nbt": "null",
+      "page_count": 2,
+      "tab": "bedrockifyqa:tab_0",
+      "tabs": [
+        "minecraft:building_blocks",
+        "minecraft:combat",
+        "minecraft:ingredients",
+        "minecraft:natural_blocks",
+        "bedrockifyqa:tab_0",
+        "bedrockifyqa:tab_1",
+        "bedrockifyqa:tab_10",
+        "bedrockifyqa:tab_11",
+        "bedrockifyqa:tab_2",
+        "bedrockifyqa:tab_3",
+        "minecraft:hotbar",
+        "minecraft:search",
+        "minecraft:op_blocks",
+        "minecraft:inventory"
+      ],
+      "first_items": [],
+      "hotbar": [
+        "1 sample",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air"
+      ],
+      "server_hotbar0": "1 sample",
+      "ok": true
+    }
+  },
+  {
+    "channel": "creative",
+    "command": {
+      "action": "probe",
+      "x": 156,
+      "y": 113
+    },
+    "result": {
+      "hit_slot": -1,
+      "x": 134,
+      "y": 75,
+      "columns": 17,
+      "rows": 7,
+      "disabled_picker_cells": 119,
+      "slots": 128,
+      "items": 0,
+      "classic": true,
+      "source_items": 0,
+      "groups": 0,
+      "expanded": "[]",
+      "scroll": 0.0,
+      "first_visible": 0,
+      "search_text": "zzzz_nonexistent_alpha7",
+      "cursor": "0 air",
+      "hotbar0": "1 sample",
+      "hotbar0_nbt": "null",
+      "page_count": 2,
+      "tab": "bedrockifyqa:tab_0",
+      "tabs": [
+        "minecraft:building_blocks",
+        "minecraft:combat",
+        "minecraft:ingredients",
+        "minecraft:natural_blocks",
+        "bedrockifyqa:tab_0",
+        "bedrockifyqa:tab_1",
+        "bedrockifyqa:tab_10",
+        "bedrockifyqa:tab_11",
+        "bedrockifyqa:tab_2",
+        "bedrockifyqa:tab_3",
+        "minecraft:hotbar",
+        "minecraft:search",
+        "minecraft:op_blocks",
+        "minecraft:inventory"
+      ],
+      "first_items": [],
+      "hotbar": [
+        "1 sample",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air"
+      ],
+      "server_hotbar0": "1 sample",
+      "ok": true
+    }
+  },
+  {
+    "channel": "creative",
+    "command": {
+      "action": "search",
+      "text": ""
+    },
+    "result": {
+      "x": 134,
+      "y": 75,
+      "columns": 17,
+      "rows": 7,
+      "disabled_picker_cells": 117,
+      "slots": 128,
+      "items": 2,
+      "classic": true,
+      "source_items": 3,
+      "groups": 1,
+      "expanded": "[]",
+      "scroll": 0.0,
+      "first_visible": 0,
+      "search_text": "",
+      "cursor": "0 air",
+      "hotbar0": "1 sample",
+      "hotbar0_nbt": "null",
+      "page_count": 2,
+      "tab": "bedrockifyqa:tab_0",
+      "tabs": [
+        "minecraft:building_blocks",
+        "minecraft:combat",
+        "minecraft:ingredients",
+        "minecraft:natural_blocks",
+        "bedrockifyqa:tab_0",
+        "bedrockifyqa:tab_1",
+        "bedrockifyqa:tab_10",
+        "bedrockifyqa:tab_11",
+        "bedrockifyqa:tab_2",
+        "bedrockifyqa:tab_3",
+        "minecraft:hotbar",
+        "minecraft:search",
+        "minecraft:op_blocks",
+        "minecraft:inventory"
+      ],
+      "first_items": [
+        "1 sample",
+        "1 oak_planks"
+      ],
+      "hotbar": [
+        "1 sample",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air"
+      ],
+      "server_hotbar0": "1 sample",
+      "ok": true
+    }
+  },
+  {
+    "channel": "creative",
+    "command": {
+      "action": "probe",
+      "x": 156,
+      "y": 113
+    },
+    "result": {
+      "hit_slot": 0,
+      "x": 134,
+      "y": 75,
+      "columns": 17,
+      "rows": 7,
+      "disabled_picker_cells": 117,
+      "slots": 128,
+      "items": 2,
+      "classic": true,
+      "source_items": 3,
+      "groups": 1,
+      "expanded": "[]",
+      "scroll": 0.0,
+      "first_visible": 0,
+      "search_text": "",
+      "cursor": "0 air",
+      "hotbar0": "1 sample",
+      "hotbar0_nbt": "null",
+      "page_count": 2,
+      "tab": "bedrockifyqa:tab_0",
+      "tabs": [
+        "minecraft:building_blocks",
+        "minecraft:combat",
+        "minecraft:ingredients",
+        "minecraft:natural_blocks",
+        "bedrockifyqa:tab_0",
+        "bedrockifyqa:tab_1",
+        "bedrockifyqa:tab_10",
+        "bedrockifyqa:tab_11",
+        "bedrockifyqa:tab_2",
+        "bedrockifyqa:tab_3",
+        "minecraft:hotbar",
+        "minecraft:search",
+        "minecraft:op_blocks",
+        "minecraft:inventory"
+      ],
+      "first_items": [
+        "1 sample",
+        "1 oak_planks"
+      ],
+      "hotbar": [
+        "1 sample",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air",
+        "0 air"
+      ],
+      "server_hotbar0": "1 sample",
+      "ok": true
+    }
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "ok": true,
+  "jar": "bedrockify-forge-1.9.1-forge-alpha.10+mc1.20.1.jar",
+  "size": 495637,
+  "sha256": "c222ab16316808e28d765003aeeb44ad8b0fcd75c551b924b6bcc90c50d0f8a3",
+  "entries": 414,
+  "new_background_mixins": [
+    "loadingScreens.ScreenMixin",
+    "loadingScreens.SelectWorldScreenMixin",
+    "loadingScreens.EntryListWidgetMixin"
+  ],
+  "refmap_loading_screens": [
+    "me/juancarloscp52/bedrockify/mixin/client/features/loadingScreens/SelectWorldScreenMixin",
+    "me/juancarloscp52/bedrockify/mixin/client/features/loadingScreens/ConnectScreenMixin",
+    "me/juancarloscp52/bedrockify/mixin/client/features/loadingScreens/EntryListWidgetMixin",
+    "me/juancarloscp52/bedrockify/mixin/client/features/loadingScreens/ProgressScreenMixin",
+    "me/juancarloscp52/bedrockify/mixin/client/features/loadingScreens/DownloadingTerrainScreenMixin",
+    "me/juancarloscp52/bedrockify/mixin/client/features/loadingScreens/SaveLevelScreenMixin",
+    "me/juancarloscp52/bedrockify/mixin/client/features/loadingScreens/LevelLoadingScreenMixin",
+    "me/juancarloscp52/bedrockify/mixin/client/features/loadingScreens/DisconnectedScreenMixin",
+    "me/juancarloscp52/bedrockify/mixin/client/features/loadingScreens/ScreenMixin"
+  ],
+  "qa_classes_bundled": false,
+  "minecraft_resources_bundled": false,
+  "version": "1.9.1-forge-alpha.10+mc1.20.1",
+  "generator_cache_bundled": false
+}

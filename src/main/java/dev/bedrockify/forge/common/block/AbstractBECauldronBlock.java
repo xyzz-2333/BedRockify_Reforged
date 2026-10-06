@@ -1,0 +1,51 @@
+package dev.bedrockify.forge.common.block;
+
+import dev.bedrockify.forge.Bedrockify;
+import dev.bedrockify.forge.common.block.entity.WaterCauldronBlockEntity;
+import net.minecraft.block.AbstractCauldronBlock;
+import net.minecraft.block.BlockEntityProvider;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.cauldron.CauldronBehavior;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.Map;
+
+public abstract class AbstractBECauldronBlock extends AbstractCauldronBlock implements BlockEntityProvider {
+    public AbstractBECauldronBlock(Settings settings, Map<Item, CauldronBehavior> behaviorMap) {
+        super(settings, behaviorMap);
+    }
+
+    @Override
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (!Bedrockify.getInstance().settings.bedrockCauldron) {
+            return ActionResult.PASS;
+        }
+
+        return super.onUse(state, world, pos, player, hand, hit);
+    }
+
+    @Override
+    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+        return new ItemStack(Blocks.CAULDRON);
+    }
+
+    /**
+     * Allows to keep water state.
+     */
+    @Nullable
+    @Override
+    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        return new WaterCauldronBlockEntity(pos, state);
+    }
+}

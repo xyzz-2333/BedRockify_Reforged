@@ -4,7 +4,7 @@ plugins {
 }
 
 version = project.mod_version
-group = 'me.juancarloscp52'
+group = 'dev.bedrockify.forge'
 base { archivesName = 'bedrockify-forge' }
 java { toolchain.languageVersion = JavaLanguageVersion.of(17); withSourcesJar() }
 loom {
@@ -31,6 +31,7 @@ dependencies {
 }
 sourceSets.main.resources.srcDir 'src/main/generated'
 processResources {
+    exclude '.cache/**'
     inputs.property 'version', project.version
     filesMatching('META-INF/mods.toml') { expand version: project.version }
 }
@@ -52,4 +53,8 @@ tasks.register('validateRefmap') {
 }
 tasks.named('check') { dependsOn tasks.named('validateRefmap') }
 tasks.named('jar') { dependsOn tasks.named('validateRefmap') }
-jar { from 'LICENSE'; from 'NOTICE'; manifest.attributes 'MixinConfigs': 'bedrockify.mixins.json' }
+jar {
+    exclude '.cache', '.cache/**', '**/.cache', '**/.cache/**'
+    from 'LICENSE'; from 'NOTICE'
+    manifest.attributes 'MixinConfigs': 'bedrockify.mixins.json'
+}

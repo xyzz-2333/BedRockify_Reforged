@@ -1,0 +1,40 @@
+{
+  "baseline": "Forge 1.20.1 alpha.9",
+  "source_only": true,
+  "production_jar_created": false,
+  "quickcraft": {
+    "ok": true,
+    "cases": 13,
+    "operations": 224
+  },
+  "inventory_memory": {
+    "ok": true,
+    "cases": 9,
+    "operations": 103
+  },
+  "environment": {
+    "forge": "47.4.0",
+    "jei": "15.56.0.205",
+    "curios": "5.14.1+1.20.1",
+    "max_heap_mib": 1024,
+    "fixture_items": 900,
+    "fixture_recipes": 10900
+  },
+  "jei": {
+    "inventory_arrow": [
+      156,
+      44,
+      14,
+      16
+    ],
+    "crafting_arrow": [
+      125,
+      37,
+      26,
+      18
+    ],
+    "old_positions_inactive": true
+  },
+  "verification_note": "Native checks completed before workspace recovery; product source restored from the verified implementation and compilation/refmap checks rerun. Original per-operation files were not retained after recovery.",
+  "post_recovery_compile_and_refmap": "passed"
+}

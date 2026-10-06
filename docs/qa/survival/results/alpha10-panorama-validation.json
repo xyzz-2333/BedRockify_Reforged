@@ -1,0 +1,3899 @@
+{
+  "ok": true,
+  "passed": [
+    "world menu uses a rotating panorama while native list controls remain",
+    "world selection, search and Escape retain native behavior",
+    "the same world list restores its original background when disabled",
+    "panorama and native list adapt to screen resizing",
+    "rotation honors the vanilla panorama-speed option",
+    "generation, terrain download, progress and preparation screens rotate",
+    "panorama is independent of loading-widget mode and can be disabled",
+    "unrelated options screens keep their original background",
+    "native world entry succeeds with loading background hooks enabled"
+  ],
+  "operations": 56,
+  "records": [
+    {
+      "command": {
+        "action": "status",
+        "request_id": "2329a11a10a748c7950785950bae0b74"
+      },
+      "result": {
+        "screen": "TitleScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170
+        },
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "ButtonWidget",
+            "message": "Singleplayer",
+            "active": true,
+            "x": 220,
+            "y": 138,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Multiplayer",
+            "active": true,
+            "x": 220,
+            "y": 162,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Minecraft Realms",
+            "active": true,
+            "x": 322,
+            "y": 186,
+            "width": 98,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Mods",
+            "active": true,
+            "x": 220,
+            "y": 186,
+            "width": 98,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "TexturedButtonWidget",
+            "message": "Language",
+            "active": true,
+            "x": 196,
+            "y": 222,
+            "width": 20,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Options...",
+            "active": true,
+            "x": 220,
+            "y": 222,
+            "width": 98,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Quit Game",
+            "active": true,
+            "x": 322,
+            "y": 222,
+            "width": 98,
+            "height": 20
+          },
+          {
+            "index": 7,
+            "class": "TexturedButtonWidget",
+            "message": "Accessibility",
+            "active": true,
+            "x": 424,
+            "y": 222,
+            "width": 20,
+            "height": 20
+          },
+          {
+            "index": 8,
+            "class": "PressableTextWidget",
+            "message": "Copyright Mojang AB. Do not distribute!",
+            "active": true,
+            "x": 442,
+            "y": 350,
+            "width": 196,
+            "height": 10
+          }
+        ],
+        "ok": true,
+        "request_id": "2329a11a10a748c7950785950bae0b74"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "851bcfa876674403a18717397e590706"
+      },
+      "result": {
+        "screen": "TitleScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170
+        },
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "ButtonWidget",
+            "message": "Singleplayer",
+            "active": true,
+            "x": 220,
+            "y": 138,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Multiplayer",
+            "active": true,
+            "x": 220,
+            "y": 162,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Minecraft Realms",
+            "active": true,
+            "x": 322,
+            "y": 186,
+            "width": 98,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Mods",
+            "active": true,
+            "x": 220,
+            "y": 186,
+            "width": 98,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "TexturedButtonWidget",
+            "message": "Language",
+            "active": true,
+            "x": 196,
+            "y": 222,
+            "width": 20,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Options...",
+            "active": true,
+            "x": 220,
+            "y": 222,
+            "width": 98,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Quit Game",
+            "active": true,
+            "x": 322,
+            "y": 222,
+            "width": 98,
+            "height": 20
+          },
+          {
+            "index": 7,
+            "class": "TexturedButtonWidget",
+            "message": "Accessibility",
+            "active": true,
+            "x": 424,
+            "y": 222,
+            "width": 20,
+            "height": 20
+          },
+          {
+            "index": 8,
+            "class": "PressableTextWidget",
+            "message": "Copyright Mojang AB. Do not distribute!",
+            "active": true,
+            "x": 442,
+            "y": 350,
+            "width": 196,
+            "height": 10
+          }
+        ],
+        "ok": true,
+        "request_id": "851bcfa876674403a18717397e590706"
+      }
+    },
+    {
+      "command": {
+        "action": "select_world",
+        "request_id": "168e745cb7da4279bf8b742d5ac75a9f"
+      },
+      "result": {
+        "screen": "SelectWorldScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170
+        },
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "TextFieldWidget",
+            "message": "search for worlds",
+            "active": true,
+            "x": 220,
+            "y": 22,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Play Selected World",
+            "active": false,
+            "x": 166,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Create New World",
+            "active": true,
+            "x": 324,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Edit",
+            "active": false,
+            "x": 166,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "ButtonWidget",
+            "message": "Delete",
+            "active": false,
+            "x": 244,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Re-Create",
+            "active": false,
+            "x": 324,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Cancel",
+            "active": true,
+            "x": 402,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          }
+        ],
+        "dirt": true,
+        "shadows": true,
+        "world_count": 1,
+        "selected": false,
+        "search": "",
+        "ok": true,
+        "request_id": "168e745cb7da4279bf8b742d5ac75a9f"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "8adcfa39a039413d87a090a93b318622"
+      },
+      "result": {
+        "screen": "SelectWorldScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 1
+        },
+        "rotation": 0.048,
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "TextFieldWidget",
+            "message": "search for worlds",
+            "active": true,
+            "x": 220,
+            "y": 22,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Play Selected World",
+            "active": false,
+            "x": 166,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Create New World",
+            "active": true,
+            "x": 324,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Edit",
+            "active": false,
+            "x": 166,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "ButtonWidget",
+            "message": "Delete",
+            "active": false,
+            "x": 244,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Re-Create",
+            "active": false,
+            "x": 324,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Cancel",
+            "active": true,
+            "x": 402,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          }
+        ],
+        "dirt": false,
+        "shadows": false,
+        "world_count": 1,
+        "selected": false,
+        "search": "",
+        "ok": true,
+        "request_id": "8adcfa39a039413d87a090a93b318622"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "d65ce047a10e4ed3bb5e2357c0357aca"
+      },
+      "result": {
+        "screen": "SelectWorldScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 17
+        },
+        "rotation": 1.192,
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "TextFieldWidget",
+            "message": "search for worlds",
+            "active": true,
+            "x": 220,
+            "y": 22,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Play Selected World",
+            "active": false,
+            "x": 166,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Create New World",
+            "active": true,
+            "x": 324,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Edit",
+            "active": false,
+            "x": 166,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "ButtonWidget",
+            "message": "Delete",
+            "active": false,
+            "x": 244,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Re-Create",
+            "active": false,
+            "x": 324,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Cancel",
+            "active": true,
+            "x": 402,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          }
+        ],
+        "dirt": false,
+        "shadows": false,
+        "world_count": 1,
+        "selected": false,
+        "search": "",
+        "ok": true,
+        "request_id": "d65ce047a10e4ed3bb5e2357c0357aca"
+      }
+    },
+    {
+      "command": {
+        "action": "select_first",
+        "request_id": "dbf21ec14b7d4938b48acf2e70ee1e70"
+      },
+      "result": {
+        "screen": "SelectWorldScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 19
+        },
+        "rotation": 1.32,
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "TextFieldWidget",
+            "message": "search for worlds",
+            "active": true,
+            "x": 220,
+            "y": 22,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Play Selected World",
+            "active": true,
+            "x": 166,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Create New World",
+            "active": true,
+            "x": 324,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Edit",
+            "active": true,
+            "x": 166,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "ButtonWidget",
+            "message": "Delete",
+            "active": true,
+            "x": 244,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Re-Create",
+            "active": true,
+            "x": 324,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Cancel",
+            "active": true,
+            "x": 402,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          }
+        ],
+        "dirt": false,
+        "shadows": false,
+        "world_count": 1,
+        "selected": true,
+        "search": "",
+        "ok": true,
+        "request_id": "dbf21ec14b7d4938b48acf2e70ee1e70"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "cc6fe9a5359d40b38a8d8362899116cd"
+      },
+      "result": {
+        "screen": "SelectWorldScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 21
+        },
+        "rotation": 1.4300001,
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "TextFieldWidget",
+            "message": "search for worlds",
+            "active": true,
+            "x": 220,
+            "y": 22,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Play Selected World",
+            "active": true,
+            "x": 166,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Create New World",
+            "active": true,
+            "x": 324,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Edit",
+            "active": true,
+            "x": 166,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "ButtonWidget",
+            "message": "Delete",
+            "active": true,
+            "x": 244,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Re-Create",
+            "active": true,
+            "x": 324,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Cancel",
+            "active": true,
+            "x": 402,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          }
+        ],
+        "dirt": false,
+        "shadows": false,
+        "world_count": 1,
+        "selected": true,
+        "search": "",
+        "ok": true,
+        "request_id": "cc6fe9a5359d40b38a8d8362899116cd"
+      }
+    },
+    {
+      "command": {
+        "action": "mouse",
+        "request_id": "1dd595d0858a4df2a9d3b728e1028214",
+        "x": 225,
+        "y": 27
+      },
+      "result": {
+        "screen": "SelectWorldScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 22
+        },
+        "rotation": 1.4840001,
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "TextFieldWidget",
+            "message": "search for worlds",
+            "active": true,
+            "x": 220,
+            "y": 22,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Play Selected World",
+            "active": true,
+            "x": 166,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Create New World",
+            "active": true,
+            "x": 324,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Edit",
+            "active": true,
+            "x": 166,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "ButtonWidget",
+            "message": "Delete",
+            "active": true,
+            "x": 244,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Re-Create",
+            "active": true,
+            "x": 324,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Cancel",
+            "active": true,
+            "x": 402,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          }
+        ],
+        "dirt": false,
+        "shadows": false,
+        "world_count": 1,
+        "selected": true,
+        "search": "",
+        "ok": true,
+        "request_id": "1dd595d0858a4df2a9d3b728e1028214"
+      }
+    },
+    {
+      "command": {
+        "action": "char",
+        "request_id": "31df847df9114d3baf8f9a65bb036ed4",
+        "text": "zz-no-such-world"
+      },
+      "result": {
+        "screen": "SelectWorldScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 24
+        },
+        "rotation": 1.598,
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "TextFieldWidget",
+            "message": "search for worlds",
+            "active": true,
+            "x": 220,
+            "y": 22,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Play Selected World",
+            "active": true,
+            "x": 166,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Create New World",
+            "active": true,
+            "x": 324,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Edit",
+            "active": true,
+            "x": 166,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "ButtonWidget",
+            "message": "Delete",
+            "active": true,
+            "x": 244,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Re-Create",
+            "active": true,
+            "x": 324,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Cancel",
+            "active": true,
+            "x": 402,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          }
+        ],
+        "dirt": false,
+        "shadows": false,
+        "world_count": 0,
+        "selected": false,
+        "search": "zz-no-such-world",
+        "ok": true,
+        "request_id": "31df847df9114d3baf8f9a65bb036ed4"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "d8fc77fb8d85471bac62c6372e8c3d43"
+      },
+      "result": {
+        "screen": "SelectWorldScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 26
+        },
+        "rotation": 1.7140001,
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "TextFieldWidget",
+            "message": "search for worlds",
+            "active": true,
+            "x": 220,
+            "y": 22,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Play Selected World",
+            "active": true,
+            "x": 166,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Create New World",
+            "active": true,
+            "x": 324,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Edit",
+            "active": true,
+            "x": 166,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "ButtonWidget",
+            "message": "Delete",
+            "active": true,
+            "x": 244,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Re-Create",
+            "active": true,
+            "x": 324,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Cancel",
+            "active": true,
+            "x": 402,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          }
+        ],
+        "dirt": false,
+        "shadows": false,
+        "world_count": 0,
+        "selected": false,
+        "search": "zz-no-such-world",
+        "ok": true,
+        "request_id": "d8fc77fb8d85471bac62c6372e8c3d43"
+      }
+    },
+    {
+      "command": {
+        "action": "key",
+        "request_id": "482adb7ea8ce4e299f0c49a3272b6314",
+        "code": 256
+      },
+      "result": {
+        "screen": "TitleScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 28
+        },
+        "rotation": 1.8260001,
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "ButtonWidget",
+            "message": "Singleplayer",
+            "active": true,
+            "x": 220,
+            "y": 138,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Multiplayer",
+            "active": true,
+            "x": 220,
+            "y": 162,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Minecraft Realms",
+            "active": true,
+            "x": 322,
+            "y": 186,
+            "width": 98,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Mods",
+            "active": true,
+            "x": 220,
+            "y": 186,
+            "width": 98,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "TexturedButtonWidget",
+            "message": "Language",
+            "active": true,
+            "x": 196,
+            "y": 222,
+            "width": 20,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Options...",
+            "active": true,
+            "x": 220,
+            "y": 222,
+            "width": 98,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Quit Game",
+            "active": true,
+            "x": 322,
+            "y": 222,
+            "width": 98,
+            "height": 20
+          },
+          {
+            "index": 7,
+            "class": "TexturedButtonWidget",
+            "message": "Accessibility",
+            "active": true,
+            "x": 424,
+            "y": 222,
+            "width": 20,
+            "height": 20
+          },
+          {
+            "index": 8,
+            "class": "PressableTextWidget",
+            "message": "Copyright Mojang AB. Do not distribute!",
+            "active": true,
+            "x": 442,
+            "y": 350,
+            "width": 196,
+            "height": 10
+          }
+        ],
+        "ok": true,
+        "request_id": "482adb7ea8ce4e299f0c49a3272b6314"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "ce28c8e2d9394f87bc4b2d7604a93567"
+      },
+      "result": {
+        "screen": "TitleScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 28
+        },
+        "rotation": 1.8260001,
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "ButtonWidget",
+            "message": "Singleplayer",
+            "active": true,
+            "x": 220,
+            "y": 138,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Multiplayer",
+            "active": true,
+            "x": 220,
+            "y": 162,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Minecraft Realms",
+            "active": true,
+            "x": 322,
+            "y": 186,
+            "width": 98,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Mods",
+            "active": true,
+            "x": 220,
+            "y": 186,
+            "width": 98,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "TexturedButtonWidget",
+            "message": "Language",
+            "active": true,
+            "x": 196,
+            "y": 222,
+            "width": 20,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Options...",
+            "active": true,
+            "x": 220,
+            "y": 222,
+            "width": 98,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Quit Game",
+            "active": true,
+            "x": 322,
+            "y": 222,
+            "width": 98,
+            "height": 20
+          },
+          {
+            "index": 7,
+            "class": "TexturedButtonWidget",
+            "message": "Accessibility",
+            "active": true,
+            "x": 424,
+            "y": 222,
+            "width": 20,
+            "height": 20
+          },
+          {
+            "index": 8,
+            "class": "PressableTextWidget",
+            "message": "Copyright Mojang AB. Do not distribute!",
+            "active": true,
+            "x": 442,
+            "y": 350,
+            "width": 196,
+            "height": 10
+          }
+        ],
+        "ok": true,
+        "request_id": "ce28c8e2d9394f87bc4b2d7604a93567"
+      }
+    },
+    {
+      "command": {
+        "action": "select_world",
+        "request_id": "bf81733446c846aba83fabfc91830e7a"
+      },
+      "result": {
+        "screen": "SelectWorldScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 28
+        },
+        "rotation": 1.8260001,
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "TextFieldWidget",
+            "message": "search for worlds",
+            "active": true,
+            "x": 220,
+            "y": 22,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Play Selected World",
+            "active": false,
+            "x": 166,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Create New World",
+            "active": true,
+            "x": 324,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Edit",
+            "active": false,
+            "x": 166,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "ButtonWidget",
+            "message": "Delete",
+            "active": false,
+            "x": 244,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Re-Create",
+            "active": false,
+            "x": 324,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Cancel",
+            "active": true,
+            "x": 402,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          }
+        ],
+        "dirt": true,
+        "shadows": true,
+        "world_count": 1,
+        "selected": false,
+        "search": "",
+        "ok": true,
+        "request_id": "bf81733446c846aba83fabfc91830e7a"
+      }
+    },
+    {
+      "command": {
+        "action": "toggle",
+        "request_id": "f206a076a08a4b2398b4faa5003cdab9",
+        "enabled": false
+      },
+      "result": {
+        "screen": "SelectWorldScreen",
+        "world_ready": false,
+        "enabled": false,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 31
+        },
+        "rotation": 1.9520001,
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "TextFieldWidget",
+            "message": "search for worlds",
+            "active": true,
+            "x": 220,
+            "y": 22,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Play Selected World",
+            "active": false,
+            "x": 166,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Create New World",
+            "active": true,
+            "x": 324,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Edit",
+            "active": false,
+            "x": 166,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "ButtonWidget",
+            "message": "Delete",
+            "active": false,
+            "x": 244,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Re-Create",
+            "active": false,
+            "x": 324,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Cancel",
+            "active": true,
+            "x": 402,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          }
+        ],
+        "dirt": false,
+        "shadows": false,
+        "world_count": 1,
+        "selected": false,
+        "search": "",
+        "ok": true,
+        "request_id": "f206a076a08a4b2398b4faa5003cdab9"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "1e396700d40f45afa444298373aa2629"
+      },
+      "result": {
+        "screen": "SelectWorldScreen",
+        "world_ready": false,
+        "enabled": false,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 31
+        },
+        "rotation": 1.9520001,
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "TextFieldWidget",
+            "message": "search for worlds",
+            "active": true,
+            "x": 220,
+            "y": 22,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Play Selected World",
+            "active": false,
+            "x": 166,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Create New World",
+            "active": true,
+            "x": 324,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Edit",
+            "active": false,
+            "x": 166,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "ButtonWidget",
+            "message": "Delete",
+            "active": false,
+            "x": 244,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Re-Create",
+            "active": false,
+            "x": 324,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Cancel",
+            "active": true,
+            "x": 402,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          }
+        ],
+        "dirt": true,
+        "shadows": true,
+        "world_count": 1,
+        "selected": false,
+        "search": "",
+        "ok": true,
+        "request_id": "1e396700d40f45afa444298373aa2629"
+      }
+    },
+    {
+      "command": {
+        "action": "toggle",
+        "request_id": "36f3c85f2e404c4d9a8aaf19e9c450a3",
+        "enabled": true
+      },
+      "result": {
+        "screen": "SelectWorldScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 31
+        },
+        "rotation": 1.9520001,
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "TextFieldWidget",
+            "message": "search for worlds",
+            "active": true,
+            "x": 220,
+            "y": 22,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Play Selected World",
+            "active": false,
+            "x": 166,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Create New World",
+            "active": true,
+            "x": 324,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Edit",
+            "active": false,
+            "x": 166,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "ButtonWidget",
+            "message": "Delete",
+            "active": false,
+            "x": 244,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Re-Create",
+            "active": false,
+            "x": 324,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Cancel",
+            "active": true,
+            "x": 402,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          }
+        ],
+        "dirt": true,
+        "shadows": true,
+        "world_count": 1,
+        "selected": false,
+        "search": "",
+        "ok": true,
+        "request_id": "36f3c85f2e404c4d9a8aaf19e9c450a3"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "fea78d6400db44e4b60ec7a523868334"
+      },
+      "result": {
+        "screen": "SelectWorldScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 34
+        },
+        "rotation": 2.072,
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "TextFieldWidget",
+            "message": "search for worlds",
+            "active": true,
+            "x": 220,
+            "y": 22,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Play Selected World",
+            "active": false,
+            "x": 166,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Create New World",
+            "active": true,
+            "x": 324,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Edit",
+            "active": false,
+            "x": 166,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "ButtonWidget",
+            "message": "Delete",
+            "active": false,
+            "x": 244,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Re-Create",
+            "active": false,
+            "x": 324,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Cancel",
+            "active": true,
+            "x": 402,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          }
+        ],
+        "dirt": false,
+        "shadows": false,
+        "world_count": 1,
+        "selected": false,
+        "search": "",
+        "ok": true,
+        "request_id": "fea78d6400db44e4b60ec7a523868334"
+      }
+    },
+    {
+      "command": {
+        "action": "resize",
+        "request_id": "0a1a0dd9ffb440e9949856434ae529f0",
+        "width": 500,
+        "height": 300
+      },
+      "result": {
+        "screen": "SelectWorldScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 36
+        },
+        "rotation": 2.1599998,
+        "width": 500,
+        "height": 300,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "TextFieldWidget",
+            "message": "search for worlds",
+            "active": true,
+            "x": 150,
+            "y": 22,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Play Selected World",
+            "active": false,
+            "x": 96,
+            "y": 248,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Create New World",
+            "active": true,
+            "x": 254,
+            "y": 248,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Edit",
+            "active": false,
+            "x": 96,
+            "y": 272,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "ButtonWidget",
+            "message": "Delete",
+            "active": false,
+            "x": 174,
+            "y": 272,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Re-Create",
+            "active": false,
+            "x": 254,
+            "y": 272,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Cancel",
+            "active": true,
+            "x": 332,
+            "y": 272,
+            "width": 72,
+            "height": 20
+          }
+        ],
+        "dirt": true,
+        "shadows": true,
+        "world_count": 1,
+        "selected": false,
+        "search": "",
+        "ok": true,
+        "request_id": "0a1a0dd9ffb440e9949856434ae529f0"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "2a1882d2c329446daa60142f759cfdfe"
+      },
+      "result": {
+        "screen": "SelectWorldScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 41
+        },
+        "rotation": 2.346,
+        "width": 500,
+        "height": 300,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "TextFieldWidget",
+            "message": "search for worlds",
+            "active": true,
+            "x": 150,
+            "y": 22,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Play Selected World",
+            "active": false,
+            "x": 96,
+            "y": 248,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Create New World",
+            "active": true,
+            "x": 254,
+            "y": 248,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Edit",
+            "active": false,
+            "x": 96,
+            "y": 272,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "ButtonWidget",
+            "message": "Delete",
+            "active": false,
+            "x": 174,
+            "y": 272,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Re-Create",
+            "active": false,
+            "x": 254,
+            "y": 272,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Cancel",
+            "active": true,
+            "x": 332,
+            "y": 272,
+            "width": 72,
+            "height": 20
+          }
+        ],
+        "dirt": false,
+        "shadows": false,
+        "world_count": 1,
+        "selected": false,
+        "search": "",
+        "ok": true,
+        "request_id": "2a1882d2c329446daa60142f759cfdfe"
+      }
+    },
+    {
+      "command": {
+        "action": "select_world",
+        "request_id": "bd10499d14aa4c24b8b36e01bbb72eda"
+      },
+      "result": {
+        "screen": "SelectWorldScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 46
+        },
+        "rotation": 2.5500002,
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "TextFieldWidget",
+            "message": "search for worlds",
+            "active": true,
+            "x": 220,
+            "y": 22,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Play Selected World",
+            "active": false,
+            "x": 166,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Create New World",
+            "active": true,
+            "x": 324,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Edit",
+            "active": false,
+            "x": 166,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "ButtonWidget",
+            "message": "Delete",
+            "active": false,
+            "x": 244,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Re-Create",
+            "active": false,
+            "x": 324,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Cancel",
+            "active": true,
+            "x": 402,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          }
+        ],
+        "dirt": true,
+        "shadows": true,
+        "world_count": 1,
+        "selected": false,
+        "search": "",
+        "ok": true,
+        "request_id": "bd10499d14aa4c24b8b36e01bbb72eda"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "723b2626efb44efcbe3235256ca70d74"
+      },
+      "result": {
+        "screen": "SelectWorldScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 51
+        },
+        "rotation": 2.7740002,
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "TextFieldWidget",
+            "message": "search for worlds",
+            "active": true,
+            "x": 220,
+            "y": 22,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Play Selected World",
+            "active": false,
+            "x": 166,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Create New World",
+            "active": true,
+            "x": 324,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Edit",
+            "active": false,
+            "x": 166,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "ButtonWidget",
+            "message": "Delete",
+            "active": false,
+            "x": 244,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Re-Create",
+            "active": false,
+            "x": 324,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Cancel",
+            "active": true,
+            "x": 402,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          }
+        ],
+        "dirt": false,
+        "shadows": false,
+        "world_count": 1,
+        "selected": false,
+        "search": "",
+        "ok": true,
+        "request_id": "723b2626efb44efcbe3235256ca70d74"
+      }
+    },
+    {
+      "command": {
+        "action": "speed",
+        "request_id": "6590858be02b4a7b94a8f43c2c7a2d0e",
+        "value": 0
+      },
+      "result": {
+        "screen": "SelectWorldScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 53
+        },
+        "rotation": 2.8720002,
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "TextFieldWidget",
+            "message": "search for worlds",
+            "active": true,
+            "x": 220,
+            "y": 22,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Play Selected World",
+            "active": false,
+            "x": 166,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Create New World",
+            "active": true,
+            "x": 324,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Edit",
+            "active": false,
+            "x": 166,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "ButtonWidget",
+            "message": "Delete",
+            "active": false,
+            "x": 244,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Re-Create",
+            "active": false,
+            "x": 324,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Cancel",
+            "active": true,
+            "x": 402,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          }
+        ],
+        "dirt": false,
+        "shadows": false,
+        "world_count": 1,
+        "selected": false,
+        "search": "",
+        "ok": true,
+        "request_id": "6590858be02b4a7b94a8f43c2c7a2d0e"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "6d38d609172941088b56d4cd45577654"
+      },
+      "result": {
+        "screen": "SelectWorldScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 64
+        },
+        "rotation": 2.8720002,
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "TextFieldWidget",
+            "message": "search for worlds",
+            "active": true,
+            "x": 220,
+            "y": 22,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Play Selected World",
+            "active": false,
+            "x": 166,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Create New World",
+            "active": true,
+            "x": 324,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Edit",
+            "active": false,
+            "x": 166,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "ButtonWidget",
+            "message": "Delete",
+            "active": false,
+            "x": 244,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Re-Create",
+            "active": false,
+            "x": 324,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Cancel",
+            "active": true,
+            "x": 402,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          }
+        ],
+        "dirt": false,
+        "shadows": false,
+        "world_count": 1,
+        "selected": false,
+        "search": "",
+        "ok": true,
+        "request_id": "6d38d609172941088b56d4cd45577654"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "fb145f2a71034df4b8569fe9b5d0c3f4"
+      },
+      "result": {
+        "screen": "SelectWorldScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 77
+        },
+        "rotation": 2.8720002,
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "TextFieldWidget",
+            "message": "search for worlds",
+            "active": true,
+            "x": 220,
+            "y": 22,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Play Selected World",
+            "active": false,
+            "x": 166,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Create New World",
+            "active": true,
+            "x": 324,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Edit",
+            "active": false,
+            "x": 166,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "ButtonWidget",
+            "message": "Delete",
+            "active": false,
+            "x": 244,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Re-Create",
+            "active": false,
+            "x": 324,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Cancel",
+            "active": true,
+            "x": 402,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          }
+        ],
+        "dirt": false,
+        "shadows": false,
+        "world_count": 1,
+        "selected": false,
+        "search": "",
+        "ok": true,
+        "request_id": "fb145f2a71034df4b8569fe9b5d0c3f4"
+      }
+    },
+    {
+      "command": {
+        "action": "speed",
+        "request_id": "91c9aa8246c04fc79916d304f37e1b4c",
+        "value": 1
+      },
+      "result": {
+        "screen": "SelectWorldScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 79
+        },
+        "rotation": 2.8720002,
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "TextFieldWidget",
+            "message": "search for worlds",
+            "active": true,
+            "x": 220,
+            "y": 22,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Play Selected World",
+            "active": false,
+            "x": 166,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Create New World",
+            "active": true,
+            "x": 324,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Edit",
+            "active": false,
+            "x": 166,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "ButtonWidget",
+            "message": "Delete",
+            "active": false,
+            "x": 244,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Re-Create",
+            "active": false,
+            "x": 324,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Cancel",
+            "active": true,
+            "x": 402,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          }
+        ],
+        "dirt": false,
+        "shadows": false,
+        "world_count": 1,
+        "selected": false,
+        "search": "",
+        "ok": true,
+        "request_id": "91c9aa8246c04fc79916d304f37e1b4c"
+      }
+    },
+    {
+      "command": {
+        "action": "loading_probe",
+        "request_id": "a493197654f5488682984f8f5456b311"
+      },
+      "result": {
+        "screen": "LevelLoadingScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 83
+        },
+        "rotation": 3.0340004,
+        "width": 640,
+        "height": 360,
+        "widgets": [],
+        "ok": true,
+        "request_id": "a493197654f5488682984f8f5456b311"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "68376187fbe9424796b17f48b6acc973"
+      },
+      "result": {
+        "screen": "LevelLoadingScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 83,
+          "LevelLoadingScreen": 1
+        },
+        "rotation": 3.0920005,
+        "width": 640,
+        "height": 360,
+        "widgets": [],
+        "ok": true,
+        "request_id": "68376187fbe9424796b17f48b6acc973"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "1df1d728305a474bad07355bdaf6733d"
+      },
+      "result": {
+        "screen": "LevelLoadingScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 83,
+          "LevelLoadingScreen": 6
+        },
+        "rotation": 3.3900006,
+        "width": 640,
+        "height": 360,
+        "widgets": [],
+        "ok": true,
+        "request_id": "1df1d728305a474bad07355bdaf6733d"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "231ddf5d8a0e4e0c8569b3c40f85b72a"
+      },
+      "result": {
+        "screen": "LevelLoadingScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 83,
+          "LevelLoadingScreen": 18
+        },
+        "rotation": 3.8820007,
+        "width": 640,
+        "height": 360,
+        "widgets": [],
+        "ok": true,
+        "request_id": "231ddf5d8a0e4e0c8569b3c40f85b72a"
+      }
+    },
+    {
+      "command": {
+        "action": "terrain_probe",
+        "request_id": "57d4fa3461eb4ddca1de0d7771ec5715"
+      },
+      "result": {
+        "screen": "DownloadingTerrainScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 83,
+          "LevelLoadingScreen": 23
+        },
+        "rotation": 4.086001,
+        "width": 640,
+        "height": 360,
+        "widgets": [],
+        "ok": true,
+        "request_id": "57d4fa3461eb4ddca1de0d7771ec5715"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "f21049e907bc4cbdb90ff340cfedce4a"
+      },
+      "result": {
+        "screen": "DownloadingTerrainScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 83,
+          "LevelLoadingScreen": 23,
+          "DownloadingTerrainScreen": 4
+        },
+        "rotation": 4.258001,
+        "width": 640,
+        "height": 360,
+        "widgets": [],
+        "ok": true,
+        "request_id": "f21049e907bc4cbdb90ff340cfedce4a"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "dba8f857e58b4e229e7cf415ed73508b"
+      },
+      "result": {
+        "screen": "DownloadingTerrainScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 83,
+          "LevelLoadingScreen": 23,
+          "DownloadingTerrainScreen": 16
+        },
+        "rotation": 4.7420006,
+        "width": 640,
+        "height": 360,
+        "widgets": [],
+        "ok": true,
+        "request_id": "dba8f857e58b4e229e7cf415ed73508b"
+      }
+    },
+    {
+      "command": {
+        "action": "progress_probe",
+        "request_id": "c4ae84258f3f43798591d97ce72ff51e"
+      },
+      "result": {
+        "screen": "ProgressScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 83,
+          "LevelLoadingScreen": 23,
+          "DownloadingTerrainScreen": 21
+        },
+        "rotation": 4.9800005,
+        "width": 640,
+        "height": 360,
+        "widgets": [],
+        "ok": true,
+        "request_id": "c4ae84258f3f43798591d97ce72ff51e"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "fa5e0ab4bc7c4e84a977916280c1f177"
+      },
+      "result": {
+        "screen": "ProgressScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 83,
+          "LevelLoadingScreen": 23,
+          "DownloadingTerrainScreen": 21,
+          "ProgressScreen": 2
+        },
+        "rotation": 5.0740004,
+        "width": 640,
+        "height": 360,
+        "widgets": [],
+        "ok": true,
+        "request_id": "fa5e0ab4bc7c4e84a977916280c1f177"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "e2e8512ba6d44927acd6f2d0f3dc9920"
+      },
+      "result": {
+        "screen": "ProgressScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 83,
+          "LevelLoadingScreen": 23,
+          "DownloadingTerrainScreen": 21,
+          "ProgressScreen": 12
+        },
+        "rotation": 5.588001,
+        "width": 640,
+        "height": 360,
+        "widgets": [],
+        "ok": true,
+        "request_id": "e2e8512ba6d44927acd6f2d0f3dc9920"
+      }
+    },
+    {
+      "command": {
+        "action": "message_probe",
+        "request_id": "afe383edcbe6404fb3d1a81ea52ccddf"
+      },
+      "result": {
+        "screen": "MessageScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 83,
+          "LevelLoadingScreen": 23,
+          "DownloadingTerrainScreen": 21,
+          "ProgressScreen": 17
+        },
+        "rotation": 5.7800007,
+        "width": 640,
+        "height": 360,
+        "widgets": [],
+        "ok": true,
+        "request_id": "afe383edcbe6404fb3d1a81ea52ccddf"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "f93fd26e8f974327905514ccb8c0c9cd"
+      },
+      "result": {
+        "screen": "MessageScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 83,
+          "LevelLoadingScreen": 23,
+          "DownloadingTerrainScreen": 21,
+          "ProgressScreen": 17,
+          "MessageScreen": 4
+        },
+        "rotation": 5.9780006,
+        "width": 640,
+        "height": 360,
+        "widgets": [],
+        "ok": true,
+        "request_id": "f93fd26e8f974327905514ccb8c0c9cd"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "0b66b0e18a0c4f568b180ffe0bef7d5f"
+      },
+      "result": {
+        "screen": "MessageScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 83,
+          "LevelLoadingScreen": 23,
+          "DownloadingTerrainScreen": 21,
+          "ProgressScreen": 17,
+          "MessageScreen": 19
+        },
+        "rotation": 6.583999,
+        "width": 640,
+        "height": 360,
+        "widgets": [],
+        "ok": true,
+        "request_id": "0b66b0e18a0c4f568b180ffe0bef7d5f"
+      }
+    },
+    {
+      "command": {
+        "action": "widget_mode",
+        "request_id": "cb9a16ddcfeb4915969bc8b8232d0bfc",
+        "enabled": false
+      },
+      "result": {
+        "screen": "MessageScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": false,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 83,
+          "LevelLoadingScreen": 23,
+          "DownloadingTerrainScreen": 21,
+          "ProgressScreen": 17,
+          "MessageScreen": 21
+        },
+        "rotation": 6.659999,
+        "width": 640,
+        "height": 360,
+        "widgets": [],
+        "ok": true,
+        "request_id": "cb9a16ddcfeb4915969bc8b8232d0bfc"
+      }
+    },
+    {
+      "command": {
+        "action": "loading_probe",
+        "request_id": "db44ae419ba74c6a9a41f56789323721"
+      },
+      "result": {
+        "screen": "LevelLoadingScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": false,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 83,
+          "LevelLoadingScreen": 23,
+          "DownloadingTerrainScreen": 21,
+          "ProgressScreen": 17,
+          "MessageScreen": 24
+        },
+        "rotation": 6.785999,
+        "width": 640,
+        "height": 360,
+        "widgets": [],
+        "ok": true,
+        "request_id": "db44ae419ba74c6a9a41f56789323721"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "3f68f476c3db4b7cbc686520d558ad4a"
+      },
+      "result": {
+        "screen": "LevelLoadingScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": false,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 83,
+          "LevelLoadingScreen": 34,
+          "DownloadingTerrainScreen": 21,
+          "ProgressScreen": 17,
+          "MessageScreen": 24
+        },
+        "rotation": 7.271999,
+        "width": 640,
+        "height": 360,
+        "widgets": [],
+        "ok": true,
+        "request_id": "3f68f476c3db4b7cbc686520d558ad4a"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "fb6785c28a8245b6a131e472d20bb84e"
+      },
+      "result": {
+        "screen": "LevelLoadingScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": false,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 83,
+          "LevelLoadingScreen": 42,
+          "DownloadingTerrainScreen": 21,
+          "ProgressScreen": 17,
+          "MessageScreen": 24
+        },
+        "rotation": 7.675999,
+        "width": 640,
+        "height": 360,
+        "widgets": [],
+        "ok": true,
+        "request_id": "fb6785c28a8245b6a131e472d20bb84e"
+      }
+    },
+    {
+      "command": {
+        "action": "widget_mode",
+        "request_id": "737d82a86502438390e4938d1bdd8538",
+        "enabled": true
+      },
+      "result": {
+        "screen": "LevelLoadingScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 83,
+          "LevelLoadingScreen": 44,
+          "DownloadingTerrainScreen": 21,
+          "ProgressScreen": 17,
+          "MessageScreen": 24
+        },
+        "rotation": 7.789999,
+        "width": 640,
+        "height": 360,
+        "widgets": [],
+        "ok": true,
+        "request_id": "737d82a86502438390e4938d1bdd8538"
+      }
+    },
+    {
+      "command": {
+        "action": "toggle",
+        "request_id": "7edf8e9b992b4f7f8d23483a8c77ed20",
+        "enabled": false
+      },
+      "result": {
+        "screen": "LevelLoadingScreen",
+        "world_ready": false,
+        "enabled": false,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 83,
+          "LevelLoadingScreen": 47,
+          "DownloadingTerrainScreen": 21,
+          "ProgressScreen": 17,
+          "MessageScreen": 24
+        },
+        "rotation": 7.947999,
+        "width": 640,
+        "height": 360,
+        "widgets": [],
+        "ok": true,
+        "request_id": "7edf8e9b992b4f7f8d23483a8c77ed20"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "af331891a9ad4696a212406bdb417bae"
+      },
+      "result": {
+        "screen": "LevelLoadingScreen",
+        "world_ready": false,
+        "enabled": false,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 83,
+          "LevelLoadingScreen": 61,
+          "DownloadingTerrainScreen": 21,
+          "ProgressScreen": 17,
+          "MessageScreen": 24
+        },
+        "rotation": 7.947999,
+        "width": 640,
+        "height": 360,
+        "widgets": [],
+        "ok": true,
+        "request_id": "af331891a9ad4696a212406bdb417bae"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "13e2e034b76949138cdb30aefa516de1"
+      },
+      "result": {
+        "screen": "LevelLoadingScreen",
+        "world_ready": false,
+        "enabled": false,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 83,
+          "LevelLoadingScreen": 76,
+          "DownloadingTerrainScreen": 21,
+          "ProgressScreen": 17,
+          "MessageScreen": 24
+        },
+        "rotation": 7.947999,
+        "width": 640,
+        "height": 360,
+        "widgets": [],
+        "ok": true,
+        "request_id": "13e2e034b76949138cdb30aefa516de1"
+      }
+    },
+    {
+      "command": {
+        "action": "toggle",
+        "request_id": "751fe62d46f844a4abc145cd6b4c3294",
+        "enabled": true
+      },
+      "result": {
+        "screen": "LevelLoadingScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 83,
+          "LevelLoadingScreen": 78,
+          "DownloadingTerrainScreen": 21,
+          "ProgressScreen": 17,
+          "MessageScreen": 24
+        },
+        "rotation": 7.947999,
+        "width": 640,
+        "height": 360,
+        "widgets": [],
+        "ok": true,
+        "request_id": "751fe62d46f844a4abc145cd6b4c3294"
+      }
+    },
+    {
+      "command": {
+        "action": "options_probe",
+        "request_id": "778ab68b724442c39d6c5208c885f3cb"
+      },
+      "result": {
+        "screen": "OptionsScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 83,
+          "LevelLoadingScreen": 81,
+          "DownloadingTerrainScreen": 21,
+          "ProgressScreen": 17,
+          "MessageScreen": 24
+        },
+        "rotation": 8.057999,
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "OptionSliderWidgetImpl",
+            "message": "FOV: Normal",
+            "active": true,
+            "x": 165,
+            "y": 48,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Online...",
+            "active": true,
+            "x": 325,
+            "y": 48,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Bedrockify Settings",
+            "active": true,
+            "x": 165,
+            "y": 72,
+            "width": 310,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Skin Customization...",
+            "active": true,
+            "x": 165,
+            "y": 96,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "ButtonWidget",
+            "message": "Music & Sounds...",
+            "active": true,
+            "x": 325,
+            "y": 96,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Video Settings...",
+            "active": true,
+            "x": 165,
+            "y": 120,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Controls...",
+            "active": true,
+            "x": 325,
+            "y": 120,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 7,
+            "class": "ButtonWidget",
+            "message": "Language...",
+            "active": true,
+            "x": 165,
+            "y": 144,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 8,
+            "class": "ButtonWidget",
+            "message": "Chat Settings...",
+            "active": true,
+            "x": 325,
+            "y": 144,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 9,
+            "class": "ButtonWidget",
+            "message": "Resource Packs...",
+            "active": true,
+            "x": 165,
+            "y": 168,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 10,
+            "class": "ButtonWidget",
+            "message": "Accessibility Settings...",
+            "active": true,
+            "x": 325,
+            "y": 168,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 11,
+            "class": "ButtonWidget",
+            "message": "Telemetry Data...",
+            "active": true,
+            "x": 165,
+            "y": 192,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 12,
+            "class": "ButtonWidget",
+            "message": "Credits & Attribution...",
+            "active": true,
+            "x": 325,
+            "y": 192,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 13,
+            "class": "ButtonWidget",
+            "message": "Done",
+            "active": true,
+            "x": 220,
+            "y": 222,
+            "width": 200,
+            "height": 20
+          }
+        ],
+        "ok": true,
+        "request_id": "778ab68b724442c39d6c5208c885f3cb"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "6550c8ad31d84fb9bd12a28ec24578ba"
+      },
+      "result": {
+        "screen": "OptionsScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 83,
+          "LevelLoadingScreen": 81,
+          "DownloadingTerrainScreen": 21,
+          "ProgressScreen": 17,
+          "MessageScreen": 24,
+          "OptionsScreen": 15
+        },
+        "rotation": 8.057999,
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "OptionSliderWidgetImpl",
+            "message": "FOV: Normal",
+            "active": true,
+            "x": 165,
+            "y": 48,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Online...",
+            "active": true,
+            "x": 325,
+            "y": 48,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Bedrockify Settings",
+            "active": true,
+            "x": 165,
+            "y": 72,
+            "width": 310,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Skin Customization...",
+            "active": true,
+            "x": 165,
+            "y": 96,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "ButtonWidget",
+            "message": "Music & Sounds...",
+            "active": true,
+            "x": 325,
+            "y": 96,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Video Settings...",
+            "active": true,
+            "x": 165,
+            "y": 120,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Controls...",
+            "active": true,
+            "x": 325,
+            "y": 120,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 7,
+            "class": "ButtonWidget",
+            "message": "Language...",
+            "active": true,
+            "x": 165,
+            "y": 144,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 8,
+            "class": "ButtonWidget",
+            "message": "Chat Settings...",
+            "active": true,
+            "x": 325,
+            "y": 144,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 9,
+            "class": "ButtonWidget",
+            "message": "Resource Packs...",
+            "active": true,
+            "x": 165,
+            "y": 168,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 10,
+            "class": "ButtonWidget",
+            "message": "Accessibility Settings...",
+            "active": true,
+            "x": 325,
+            "y": 168,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 11,
+            "class": "ButtonWidget",
+            "message": "Telemetry Data...",
+            "active": true,
+            "x": 165,
+            "y": 192,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 12,
+            "class": "ButtonWidget",
+            "message": "Credits & Attribution...",
+            "active": true,
+            "x": 325,
+            "y": 192,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 13,
+            "class": "ButtonWidget",
+            "message": "Done",
+            "active": true,
+            "x": 220,
+            "y": 222,
+            "width": 200,
+            "height": 20
+          }
+        ],
+        "ok": true,
+        "request_id": "6550c8ad31d84fb9bd12a28ec24578ba"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "f711b65872394bb7919b25b1cfc5584c"
+      },
+      "result": {
+        "screen": "OptionsScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 83,
+          "LevelLoadingScreen": 81,
+          "DownloadingTerrainScreen": 21,
+          "ProgressScreen": 17,
+          "MessageScreen": 24,
+          "OptionsScreen": 30
+        },
+        "rotation": 8.057999,
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "OptionSliderWidgetImpl",
+            "message": "FOV: Normal",
+            "active": true,
+            "x": 165,
+            "y": 48,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Online...",
+            "active": true,
+            "x": 325,
+            "y": 48,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Bedrockify Settings",
+            "active": true,
+            "x": 165,
+            "y": 72,
+            "width": 310,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Skin Customization...",
+            "active": true,
+            "x": 165,
+            "y": 96,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "ButtonWidget",
+            "message": "Music & Sounds...",
+            "active": true,
+            "x": 325,
+            "y": 96,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Video Settings...",
+            "active": true,
+            "x": 165,
+            "y": 120,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Controls...",
+            "active": true,
+            "x": 325,
+            "y": 120,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 7,
+            "class": "ButtonWidget",
+            "message": "Language...",
+            "active": true,
+            "x": 165,
+            "y": 144,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 8,
+            "class": "ButtonWidget",
+            "message": "Chat Settings...",
+            "active": true,
+            "x": 325,
+            "y": 144,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 9,
+            "class": "ButtonWidget",
+            "message": "Resource Packs...",
+            "active": true,
+            "x": 165,
+            "y": 168,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 10,
+            "class": "ButtonWidget",
+            "message": "Accessibility Settings...",
+            "active": true,
+            "x": 325,
+            "y": 168,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 11,
+            "class": "ButtonWidget",
+            "message": "Telemetry Data...",
+            "active": true,
+            "x": 165,
+            "y": 192,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 12,
+            "class": "ButtonWidget",
+            "message": "Credits & Attribution...",
+            "active": true,
+            "x": 325,
+            "y": 192,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 13,
+            "class": "ButtonWidget",
+            "message": "Done",
+            "active": true,
+            "x": 220,
+            "y": 222,
+            "width": 200,
+            "height": 20
+          }
+        ],
+        "ok": true,
+        "request_id": "f711b65872394bb7919b25b1cfc5584c"
+      }
+    },
+    {
+      "command": {
+        "action": "select_world",
+        "request_id": "9d9260726e9c4fe8830a41007d4dd293"
+      },
+      "result": {
+        "screen": "SelectWorldScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 83,
+          "LevelLoadingScreen": 81,
+          "DownloadingTerrainScreen": 21,
+          "ProgressScreen": 17,
+          "MessageScreen": 24,
+          "OptionsScreen": 33
+        },
+        "rotation": 8.057999,
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "TextFieldWidget",
+            "message": "search for worlds",
+            "active": true,
+            "x": 220,
+            "y": 22,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Play Selected World",
+            "active": false,
+            "x": 166,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Create New World",
+            "active": true,
+            "x": 324,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Edit",
+            "active": false,
+            "x": 166,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "ButtonWidget",
+            "message": "Delete",
+            "active": false,
+            "x": 244,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Re-Create",
+            "active": false,
+            "x": 324,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Cancel",
+            "active": true,
+            "x": 402,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          }
+        ],
+        "dirt": true,
+        "shadows": true,
+        "world_count": 1,
+        "selected": false,
+        "search": "",
+        "ok": true,
+        "request_id": "9d9260726e9c4fe8830a41007d4dd293"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "7e31a5bda423412daebab562ec97b1c0"
+      },
+      "result": {
+        "screen": "SelectWorldScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 85,
+          "LevelLoadingScreen": 81,
+          "DownloadingTerrainScreen": 21,
+          "ProgressScreen": 17,
+          "MessageScreen": 24,
+          "OptionsScreen": 33
+        },
+        "rotation": 8.155999,
+        "width": 640,
+        "height": 360,
+        "widgets": [
+          {
+            "index": 0,
+            "class": "TextFieldWidget",
+            "message": "search for worlds",
+            "active": true,
+            "x": 220,
+            "y": 22,
+            "width": 200,
+            "height": 20
+          },
+          {
+            "index": 1,
+            "class": "ButtonWidget",
+            "message": "Play Selected World",
+            "active": false,
+            "x": 166,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 2,
+            "class": "ButtonWidget",
+            "message": "Create New World",
+            "active": true,
+            "x": 324,
+            "y": 308,
+            "width": 150,
+            "height": 20
+          },
+          {
+            "index": 3,
+            "class": "ButtonWidget",
+            "message": "Edit",
+            "active": false,
+            "x": 166,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 4,
+            "class": "ButtonWidget",
+            "message": "Delete",
+            "active": false,
+            "x": 244,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 5,
+            "class": "ButtonWidget",
+            "message": "Re-Create",
+            "active": false,
+            "x": 324,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          },
+          {
+            "index": 6,
+            "class": "ButtonWidget",
+            "message": "Cancel",
+            "active": true,
+            "x": 402,
+            "y": 332,
+            "width": 72,
+            "height": 20
+          }
+        ],
+        "dirt": false,
+        "shadows": false,
+        "world_count": 1,
+        "selected": false,
+        "search": "",
+        "ok": true,
+        "request_id": "7e31a5bda423412daebab562ec97b1c0"
+      }
+    },
+    {
+      "command": {
+        "action": "load_first",
+        "request_id": "9b69b86a56a941618f8628d64c7d7731"
+      },
+      "result": {
+        "screen": "LevelLoadingScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 87,
+          "LevelLoadingScreen": 275,
+          "DownloadingTerrainScreen": 21,
+          "ProgressScreen": 18,
+          "MessageScreen": 25,
+          "OptionsScreen": 33
+        },
+        "rotation": 15.69602,
+        "width": 640,
+        "height": 360,
+        "widgets": [],
+        "ok": true,
+        "request_id": "9b69b86a56a941618f8628d64c7d7731"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "a2daa3a5e8604459acbfd5fbacde1530"
+      },
+      "result": {
+        "screen": "LevelLoadingScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 87,
+          "LevelLoadingScreen": 278,
+          "DownloadingTerrainScreen": 21,
+          "ProgressScreen": 18,
+          "MessageScreen": 25,
+          "OptionsScreen": 33
+        },
+        "rotation": 38.412018,
+        "width": 640,
+        "height": 360,
+        "widgets": [],
+        "ok": true,
+        "request_id": "a2daa3a5e8604459acbfd5fbacde1530"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "6ea42acc114d4ca5a288cc5228c3b265"
+      },
+      "result": {
+        "screen": "LevelLoadingScreen",
+        "world_ready": false,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 87,
+          "LevelLoadingScreen": 285,
+          "DownloadingTerrainScreen": 21,
+          "ProgressScreen": 18,
+          "MessageScreen": 25,
+          "OptionsScreen": 33
+        },
+        "rotation": 38.72202,
+        "width": 640,
+        "height": 360,
+        "widgets": [],
+        "ok": true,
+        "request_id": "6ea42acc114d4ca5a288cc5228c3b265"
+      }
+    },
+    {
+      "command": {
+        "action": "status",
+        "request_id": "22e7e7ff0c714a8e9e8f1eea332348b1"
+      },
+      "result": {
+        "screen": "DownloadingTerrainScreen",
+        "world_ready": true,
+        "enabled": true,
+        "widget_enabled": true,
+        "frames": {
+          "LoadingErrorScreen": 2170,
+          "SelectWorldScreen": 87,
+          "LevelLoadingScreen": 287,
+          "DownloadingTerrainScreen": 21,
+          "ProgressScreen": 19,
+          "MessageScreen": 25,
+          "OptionsScreen": 33
+        },
+        "rotation": 38.85802,
+        "width": 640,
+        "height": 360,
+        "widgets": [],
+        "ok": true,
+        "request_id": "22e7e7ff0c714a8e9e8f1eea332348b1"
+      }
+    }
+  ]
+}
