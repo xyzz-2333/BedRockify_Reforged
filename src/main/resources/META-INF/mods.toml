@@ -4,10 +4,10 @@ license="GPL-3.0 with Minecraft linking exception"
 [[mods]]
 modId="bedrockify"
 version="${version}"
-displayName="BedrockIfy (Unofficial Forge Port)"
+displayName="BedrockIfy Reforged (Forge 1.20.1)"
 logoFile="assets/bedrockify/icon.png"
-authors="BedrockIfy Forge port contributors"
-description='''An experimental Forge 1.20.1 port of BedrockIfy 1.9.1.'''
+authors="BedrockIfy Reforged contributors"
+description='''Brings Bedrock Edition features to Minecraft 1.20.1 on Forge. Started as an unofficial port of BedrockIfy 1.9.1 and has since grown past it, with classic creative and survival inventories, a categorized recipe panel and remembered inventory view state. Not an official release by the upstream authors.'''
 displayTest="IGNORE_SERVER_VERSION"
 [[dependencies.bedrockify]]
 modId="forge"
