@@ -33,6 +33,11 @@ public final class MaterialReducerScreenHandler extends ScreenHandler {
         for (int col = 0; col < 9; col++) addSlot(new Slot(player, col, 12+col*20, 168));
     }
     public boolean isLocked() { return properties.get(0) != 0; }
+    @Override public void sendContentUpdates() {
+        // Recheck after datapack reloads and changes made by another viewer.
+        if (reducer != null) reducer.refreshPreview();
+        super.sendContentUpdates();
+    }
     @Override public boolean canUse(PlayerEntity player) { return inventory.canPlayerUse(player); }
     @Override public ItemStack quickMove(PlayerEntity player, int index) {
         if (index < 0 || index >= slots.size()) return ItemStack.EMPTY;

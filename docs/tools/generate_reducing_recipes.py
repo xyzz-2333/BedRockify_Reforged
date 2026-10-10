@@ -3,13 +3,13 @@ No chemical guesses for modded items; extend these recipes with a datapack.
 """
 from pathlib import Path
 import json
-ROOT=Path(__file__).resolve().parents[1]/'src/main/resources/data/bedrockify/recipes/education/reducing'
+ROOT=Path(__file__).resolve().parents[2]/'src/main/resources/data/bedrockify/recipes/education/reducing'
 ROOT.mkdir(parents=True,exist_ok=True)
 def recipe(name,items,parts):
  ingredients=[{'item':i if ':' in i else 'minecraft:'+i} for i in items]
  assert sum((n+63)//64 for _,n in parts)<=9
  value={'type':'bedrockify:material_reducing','ingredient':ingredients,'elements':[{'element':e,'count':n} for e,n in parts]}
- (ROOT/(name+'.json')).write_text(json.dumps(value,indent=2)+'\n')
+ (ROOT/(name+'.json')).write_text(json.dumps(value,indent=2)+'\n',encoding='utf-8',newline='\n')
 woods=[]
 for w in 'oak spruce birch jungle acacia dark_oak mangrove cherry'.split():
  woods.extend([w+'_'+s for s in ['log','wood','planks','stairs','slab']]+['stripped_'+w+'_'+s for s in ['log','wood']])

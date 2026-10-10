@@ -37,3 +37,9 @@ Base tag: 1.9.1+mc1.20
 Base commit: 907861f43f98622677ae5ed1e896ac7dd68b4aa3
 License: GPL-3.0 with the upstream Minecraft linking exception retained.
 This port is not an official release by the upstream authors.
+
+Alpha.12 education resource update on 2026-10-11:
+Education block/item textures and display names were imported from the
+user-supplied chemistry resource pack. The imported PNG bytes, source entries,
+archive digest and locale coverage are recorded in docs/education_resources.json.
+These resources replace the earlier generated education textures.
