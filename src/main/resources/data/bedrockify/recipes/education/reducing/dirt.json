@@ -1,0 +1,46 @@
+{
+  "type": "bedrockify:material_reducing",
+  "ingredient": [
+    {
+      "item": "minecraft:dirt"
+    }
+  ],
+  "elements": [
+    {
+      "element": 14,
+      "count": 21
+    },
+    {
+      "element": 20,
+      "count": 8
+    },
+    {
+      "element": 15,
+      "count": 3
+    },
+    {
+      "element": 7,
+      "count": 3
+    },
+    {
+      "element": 26,
+      "count": 13
+    },
+    {
+      "element": 12,
+      "count": 6
+    },
+    {
+      "element": 30,
+      "count": 2
+    },
+    {
+      "element": 29,
+      "count": 2
+    },
+    {
+      "element": 8,
+      "count": 42
+    }
+  ]
+}

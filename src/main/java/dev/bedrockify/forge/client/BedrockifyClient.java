@@ -67,6 +67,10 @@ public class BedrockifyClient {
     }
     public static void register(IEventBus bus) {
         instance = new BedrockifyClient();
+        MinecraftForge.EVENT_BUS.addListener((net.minecraftforge.client.event.ClientPlayerNetworkEvent.LoggingOut event) ->
+                dev.bedrockify.forge.common.features.mechanics.MechanicsRules.clearServerRule());
+        bus.addListener((FMLClientSetupEvent event) -> event.enqueueWork(() ->
+                dev.bedrockify.forge.client.features.education.EducationClient.register()));
         bus.addListener((FMLClientSetupEvent event) -> event.enqueueWork(instance::onInitializeClient));
         bus.addListener((RegisterKeyMappingsEvent event) -> {
             keyBinding = new KeyBinding("bedrockIfy.key.settings", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_B, "BedrockIfy");

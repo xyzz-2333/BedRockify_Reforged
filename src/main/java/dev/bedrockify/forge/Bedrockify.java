@@ -38,6 +38,9 @@ public class Bedrockify {
         var bus = FMLJavaModLoadingContext.get().getModEventBus();
         bus.addListener(BedrockCauldronBlocks::register);
         bus.addListener(DyingTrees::register);
+        bus.addListener(dev.bedrockify.forge.common.features.education.EducationContent::register);
+        bus.addListener(dev.bedrockify.forge.common.features.education.EducationContent::creativeContents);
+        dev.bedrockify.forge.common.features.mechanics.MechanicsNetwork.register();
         bus.addListener((FMLCommonSetupEvent event) -> event.enqueueWork(BedrockCauldronBehavior::registerBehavior));
         MinecraftForge.EVENT_BUS.addListener((ServerStartedEvent event) -> BedrockCauldronBehavior.registerBehavior());
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () ->

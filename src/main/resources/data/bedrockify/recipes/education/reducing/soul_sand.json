@@ -1,0 +1,22 @@
+{
+  "type": "bedrockify:material_reducing",
+  "ingredient": [
+    {
+      "item": "minecraft:soul_sand"
+    }
+  ],
+  "elements": [
+    {
+      "element": 14,
+      "count": 37
+    },
+    {
+      "element": 8,
+      "count": 3
+    },
+    {
+      "element": 0,
+      "count": 60
+    }
+  ]
+}

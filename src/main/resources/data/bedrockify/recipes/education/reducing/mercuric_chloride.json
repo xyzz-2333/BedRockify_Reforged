@@ -1,0 +1,18 @@
+{
+  "type": "bedrockify:material_reducing",
+  "ingredient": [
+    {
+      "item": "bedrockify:mercuric_chloride"
+    }
+  ],
+  "elements": [
+    {
+      "element": 80,
+      "count": 1
+    },
+    {
+      "element": 17,
+      "count": 2
+    }
+  ]
+}

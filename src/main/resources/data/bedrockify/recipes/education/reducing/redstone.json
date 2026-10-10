@@ -1,0 +1,28 @@
+{
+  "type": "bedrockify:material_reducing",
+  "ingredient": [
+    {
+      "item": "minecraft:redstone_ore"
+    },
+    {
+      "item": "minecraft:redstone"
+    },
+    {
+      "item": "minecraft:redstone_block"
+    }
+  ],
+  "elements": [
+    {
+      "element": 6,
+      "count": 31
+    },
+    {
+      "element": 92,
+      "count": 31
+    },
+    {
+      "element": 0,
+      "count": 38
+    }
+  ]
+}

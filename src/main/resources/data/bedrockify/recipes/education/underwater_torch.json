@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "C",
+    "T"
+  ],
+  "key": {
+    "C": {
+      "item": "bedrockify:element_12"
+    },
+    "T": {
+      "item": "minecraft:torch"
+    }
+  },
+  "result": {
+    "item": "bedrockify:underwater_torch",
+    "count": 1
+  }
+}

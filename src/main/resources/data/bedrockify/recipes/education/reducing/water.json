@@ -1,0 +1,36 @@
+{
+  "type": "bedrockify:material_reducing",
+  "ingredient": [
+    {
+      "item": "minecraft:water_bucket"
+    },
+    {
+      "item": "minecraft:ice"
+    },
+    {
+      "item": "minecraft:packed_ice"
+    },
+    {
+      "item": "minecraft:blue_ice"
+    },
+    {
+      "item": "minecraft:snow_block"
+    },
+    {
+      "item": "minecraft:snowball"
+    },
+    {
+      "item": "minecraft:snow"
+    }
+  ],
+  "elements": [
+    {
+      "element": 1,
+      "count": 67
+    },
+    {
+      "element": 8,
+      "count": 33
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "type": "bedrockify:material_reducing",
+  "ingredient": [
+    {
+      "item": "minecraft:grass_block"
+    },
+    {
+      "item": "minecraft:mycelium"
+    }
+  ],
+  "elements": [
+    {
+      "element": 6,
+      "count": 15
+    },
+    {
+      "element": 8,
+      "count": 70
+    },
+    {
+      "element": 7,
+      "count": 8
+    },
+    {
+      "element": 15,
+      "count": 7
+    }
+  ]
+}

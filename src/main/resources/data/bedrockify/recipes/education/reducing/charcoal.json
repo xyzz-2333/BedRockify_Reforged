@@ -1,0 +1,22 @@
+{
+  "type": "bedrockify:material_reducing",
+  "ingredient": [
+    {
+      "item": "minecraft:charcoal"
+    }
+  ],
+  "elements": [
+    {
+      "element": 6,
+      "count": 7
+    },
+    {
+      "element": 1,
+      "count": 4
+    },
+    {
+      "element": 8,
+      "count": 1
+    }
+  ]
+}

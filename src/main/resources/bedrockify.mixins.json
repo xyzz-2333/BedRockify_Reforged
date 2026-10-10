@@ -73,7 +73,9 @@
     "common.features.recipes.FireworkStarRecipeMixin",
     "common.features.recipes.RecipeManagerMixin",
     "common.features.recipes.ShulkerBoxColoringRecipeMixin",
-    "common.features.worldGeneration.TreeConfiguredFeaturesInvoker"
+    "common.features.worldGeneration.TreeConfiguredFeaturesInvoker",
+    "common.features.mechanics.HungerManagerMixin",
+    "common.features.mechanics.PlayerEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

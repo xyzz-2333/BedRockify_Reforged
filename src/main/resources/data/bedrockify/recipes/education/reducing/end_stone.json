@@ -1,0 +1,22 @@
+{
+  "type": "bedrockify:material_reducing",
+  "ingredient": [
+    {
+      "item": "minecraft:end_stone"
+    }
+  ],
+  "elements": [
+    {
+      "element": 14,
+      "count": 59
+    },
+    {
+      "element": 6,
+      "count": 13
+    },
+    {
+      "element": 0,
+      "count": 28
+    }
+  ]
+}

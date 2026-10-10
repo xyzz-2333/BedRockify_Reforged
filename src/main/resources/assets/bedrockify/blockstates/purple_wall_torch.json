@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "bedrockify:block/purple_wall_torch",
+      "y": 0
+    },
+    "facing=south": {
+      "model": "bedrockify:block/purple_wall_torch",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "bedrockify:block/purple_wall_torch",
+      "y": 180
+    },
+    "facing=north": {
+      "model": "bedrockify:block/purple_wall_torch",
+      "y": 270
+    }
+  }
+}

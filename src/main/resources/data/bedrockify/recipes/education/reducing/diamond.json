@@ -1,0 +1,17 @@
+{
+  "type": "bedrockify:material_reducing",
+  "ingredient": [
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "minecraft:diamond_block"
+    }
+  ],
+  "elements": [
+    {
+      "element": 6,
+      "count": 100
+    }
+  ]
+}

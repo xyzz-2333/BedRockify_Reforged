@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "front": "bedrockify:block/material_reducer_front",
+    "side": "bedrockify:block/material_reducer_side",
+    "top": "bedrockify:block/material_reducer_top",
+    "bottom": "bedrockify:block/material_reducer_bottom"
+  }
+}

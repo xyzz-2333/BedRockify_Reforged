@@ -1,0 +1,26 @@
+{
+  "type": "bedrockify:material_reducing",
+  "ingredient": [
+    {
+      "item": "minecraft:netherrack"
+    }
+  ],
+  "elements": [
+    {
+      "element": 14,
+      "count": 64
+    },
+    {
+      "element": 8,
+      "count": 18
+    },
+    {
+      "element": 80,
+      "count": 15
+    },
+    {
+      "element": 0,
+      "count": 3
+    }
+  ]
+}

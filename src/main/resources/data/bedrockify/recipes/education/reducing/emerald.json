@@ -1,0 +1,32 @@
+{
+  "type": "bedrockify:material_reducing",
+  "ingredient": [
+    {
+      "item": "minecraft:emerald_ore"
+    },
+    {
+      "item": "minecraft:emerald"
+    },
+    {
+      "item": "minecraft:emerald_block"
+    }
+  ],
+  "elements": [
+    {
+      "element": 13,
+      "count": 15
+    },
+    {
+      "element": 4,
+      "count": 25
+    },
+    {
+      "element": 14,
+      "count": 20
+    },
+    {
+      "element": 8,
+      "count": 40
+    }
+  ]
+}

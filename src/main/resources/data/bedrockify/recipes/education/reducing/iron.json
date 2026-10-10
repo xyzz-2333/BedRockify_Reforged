@@ -1,0 +1,20 @@
+{
+  "type": "bedrockify:material_reducing",
+  "ingredient": [
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:iron_nugget"
+    },
+    {
+      "item": "minecraft:iron_block"
+    }
+  ],
+  "elements": [
+    {
+      "element": 26,
+      "count": 100
+    }
+  ]
+}

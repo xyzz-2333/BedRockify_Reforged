@@ -54,6 +54,8 @@ public abstract class RecipeManagerMixin {
         while (mapIterator.hasNext()){
             Map.Entry<Identifier, JsonElement> elem = mapIterator.next();
             if (!elem.getKey().getNamespace().equals("bedrockify")) continue;
+            // New content recipes are independent of replacements for vanilla recipes.
+            if (elem.getKey().getPath().startsWith("education/")) continue;
             boolean recipesEnabled = Bedrockify.getInstance().settings.isBedrockRecipesEnabled();
             boolean legacyEnabled = Bedrockify.getInstance().settings.isLegacyBedrockRecipesEnabled();
             if (!recipesEnabled || (!legacyEnabled && LEGACY_RECIPES.contains(elem.getKey().getPath()))) {

@@ -1,0 +1,132 @@
+{
+  "type": "bedrockify:material_reducing",
+  "ingredient": [
+    {
+      "item": "minecraft:andesite"
+    },
+    {
+      "item": "minecraft:diorite"
+    },
+    {
+      "item": "minecraft:granite"
+    },
+    {
+      "item": "minecraft:polished_andesite"
+    },
+    {
+      "item": "minecraft:polished_diorite"
+    },
+    {
+      "item": "minecraft:polished_granite"
+    },
+    {
+      "item": "minecraft:gravel"
+    },
+    {
+      "item": "minecraft:obsidian"
+    },
+    {
+      "item": "minecraft:red_sand"
+    },
+    {
+      "item": "minecraft:sand"
+    },
+    {
+      "item": "minecraft:stone"
+    },
+    {
+      "item": "minecraft:quartz_block"
+    },
+    {
+      "item": "minecraft:quartz_pillar"
+    },
+    {
+      "item": "minecraft:chiseled_quartz_block"
+    },
+    {
+      "item": "minecraft:smooth_quartz"
+    },
+    {
+      "item": "minecraft:quartz_stairs"
+    },
+    {
+      "item": "minecraft:quartz_slab"
+    },
+    {
+      "item": "minecraft:smooth_quartz_stairs"
+    },
+    {
+      "item": "minecraft:smooth_quartz_slab"
+    },
+    {
+      "item": "minecraft:nether_quartz_ore"
+    },
+    {
+      "item": "minecraft:quartz"
+    },
+    {
+      "item": "minecraft:sandstone"
+    },
+    {
+      "item": "minecraft:cut_sandstone"
+    },
+    {
+      "item": "minecraft:chiseled_sandstone"
+    },
+    {
+      "item": "minecraft:smooth_sandstone"
+    },
+    {
+      "item": "minecraft:sandstone_stairs"
+    },
+    {
+      "item": "minecraft:sandstone_slab"
+    },
+    {
+      "item": "minecraft:cut_sandstone_slab"
+    },
+    {
+      "item": "minecraft:smooth_sandstone_stairs"
+    },
+    {
+      "item": "minecraft:smooth_sandstone_slab"
+    },
+    {
+      "item": "minecraft:red_sandstone"
+    },
+    {
+      "item": "minecraft:cut_red_sandstone"
+    },
+    {
+      "item": "minecraft:chiseled_red_sandstone"
+    },
+    {
+      "item": "minecraft:smooth_red_sandstone"
+    },
+    {
+      "item": "minecraft:red_sandstone_stairs"
+    },
+    {
+      "item": "minecraft:red_sandstone_slab"
+    },
+    {
+      "item": "minecraft:cut_red_sandstone_slab"
+    },
+    {
+      "item": "minecraft:smooth_red_sandstone_stairs"
+    },
+    {
+      "item": "minecraft:smooth_red_sandstone_slab"
+    }
+  ],
+  "elements": [
+    {
+      "element": 14,
+      "count": 33
+    },
+    {
+      "element": 8,
+      "count": 67
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "type": "bedrockify:material_reducing",
+  "ingredient": [
+    {
+      "item": "minecraft:mossy_cobblestone"
+    },
+    {
+      "item": "minecraft:mossy_cobblestone_wall"
+    }
+  ],
+  "elements": [
+    {
+      "element": 8,
+      "count": 45
+    },
+    {
+      "element": 14,
+      "count": 28
+    },
+    {
+      "element": 13,
+      "count": 8
+    },
+    {
+      "element": 26,
+      "count": 5
+    },
+    {
+      "element": 20,
+      "count": 4
+    },
+    {
+      "element": 11,
+      "count": 3
+    },
+    {
+      "element": 19,
+      "count": 3
+    },
+    {
+      "element": 12,
+      "count": 2
+    },
+    {
+      "element": 6,
+      "count": 2
+    }
+  ]
+}

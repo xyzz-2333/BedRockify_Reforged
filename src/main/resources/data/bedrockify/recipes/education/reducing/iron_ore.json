@@ -1,0 +1,22 @@
+{
+  "type": "bedrockify:material_reducing",
+  "ingredient": [
+    {
+      "item": "minecraft:iron_ore"
+    }
+  ],
+  "elements": [
+    {
+      "element": 26,
+      "count": 64
+    },
+    {
+      "element": 14,
+      "count": 12
+    },
+    {
+      "element": 8,
+      "count": 24
+    }
+  ]
+}

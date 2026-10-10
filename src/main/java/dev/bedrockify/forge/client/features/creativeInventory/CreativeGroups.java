@@ -21,10 +21,14 @@ public final class CreativeGroups {
             "leggings", "boots", "swords", "axes", "pickaxes", "shovels", "hoes", "cooked_food", "raw_food", "banners",
             "beds", "candles", "chests", "shulker_boxes", "signs", "hanging_signs", "boats", "chest_boats", "music_discs",
             "anvils", "potions", "splash_potions", "lingering_potions", "tipped_arrows", "enchanted_books", "dyes",
-            "buttons", "pressure_plates", "rails", "skulls");
+            "buttons", "pressure_plates", "rails", "skulls", "elements", "chlorides");
 
     public static String family(ItemStack stack) {
         Identifier id = Registries.ITEM.getId(stack.getItem());
+        if (id.getNamespace().equals("bedrockify")) {
+            if (id.getPath().startsWith("element_")) return "elements";
+            if (id.getPath().endsWith("_chloride")) return "chlorides";
+        }
         // Unknown mod families remain fully visible instead of guessing from their display names.
         if (!id.getNamespace().equals("minecraft")) return null;
         String p = id.getPath();

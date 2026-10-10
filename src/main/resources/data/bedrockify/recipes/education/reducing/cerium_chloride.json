@@ -1,0 +1,18 @@
+{
+  "type": "bedrockify:material_reducing",
+  "ingredient": [
+    {
+      "item": "bedrockify:cerium_chloride"
+    }
+  ],
+  "elements": [
+    {
+      "element": 58,
+      "count": 1
+    },
+    {
+      "element": 17,
+      "count": 3
+    }
+  ]
+}

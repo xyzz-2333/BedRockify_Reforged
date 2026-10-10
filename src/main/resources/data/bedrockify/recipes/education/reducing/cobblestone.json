@@ -1,0 +1,57 @@
+{
+  "type": "bedrockify:material_reducing",
+  "ingredient": [
+    {
+      "item": "minecraft:cobblestone"
+    },
+    {
+      "item": "minecraft:cobblestone_stairs"
+    },
+    {
+      "item": "minecraft:cobblestone_slab"
+    },
+    {
+      "item": "minecraft:cobblestone_wall"
+    },
+    {
+      "item": "minecraft:lava_bucket"
+    },
+    {
+      "item": "minecraft:magma_block"
+    }
+  ],
+  "elements": [
+    {
+      "element": 8,
+      "count": 47
+    },
+    {
+      "element": 14,
+      "count": 28
+    },
+    {
+      "element": 13,
+      "count": 8
+    },
+    {
+      "element": 26,
+      "count": 5
+    },
+    {
+      "element": 20,
+      "count": 4
+    },
+    {
+      "element": 11,
+      "count": 3
+    },
+    {
+      "element": 19,
+      "count": 3
+    },
+    {
+      "element": 12,
+      "count": 2
+    }
+  ]
+}

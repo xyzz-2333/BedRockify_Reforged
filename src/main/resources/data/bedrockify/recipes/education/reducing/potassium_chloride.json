@@ -1,0 +1,18 @@
+{
+  "type": "bedrockify:material_reducing",
+  "ingredient": [
+    {
+      "item": "bedrockify:potassium_chloride"
+    }
+  ],
+  "elements": [
+    {
+      "element": 19,
+      "count": 1
+    },
+    {
+      "element": 17,
+      "count": 1
+    }
+  ]
+}

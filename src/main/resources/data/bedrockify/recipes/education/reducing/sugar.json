@@ -1,0 +1,22 @@
+{
+  "type": "bedrockify:material_reducing",
+  "ingredient": [
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "elements": [
+    {
+      "element": 6,
+      "count": 6
+    },
+    {
+      "element": 1,
+      "count": 12
+    },
+    {
+      "element": 8,
+      "count": 6
+    }
+  ]
+}

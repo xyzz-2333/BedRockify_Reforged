@@ -1,0 +1,22 @@
+{
+  "type": "bedrockify:material_reducing",
+  "ingredient": [
+    {
+      "item": "minecraft:ink_sac"
+    }
+  ],
+  "elements": [
+    {
+      "element": 26,
+      "count": 1
+    },
+    {
+      "element": 16,
+      "count": 1
+    },
+    {
+      "element": 8,
+      "count": 4
+    }
+  ]
+}

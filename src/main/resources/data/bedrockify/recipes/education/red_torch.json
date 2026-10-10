@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "C",
+    "T"
+  ],
+  "key": {
+    "C": {
+      "item": "bedrockify:mercuric_chloride"
+    },
+    "T": {
+      "item": "minecraft:torch"
+    }
+  },
+  "result": {
+    "item": "bedrockify:red_torch",
+    "count": 1
+  }
+}

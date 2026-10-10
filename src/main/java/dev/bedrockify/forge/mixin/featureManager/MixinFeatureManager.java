@@ -35,6 +35,7 @@ public class MixinFeatureManager {
         features.put("client.features.worldColorNoise",true);
         features.put("client.features.biggerDraggingItem",true);
         features.put("common.features.recipes", true);
+        features.put("common.features.mechanics", true);
         features.put("client.features.useAnimations", true);
         features.put("client.features.bedrockShading.lightBlock", true);
         features.put("client.features.bedrockShading.sunGlare", true);

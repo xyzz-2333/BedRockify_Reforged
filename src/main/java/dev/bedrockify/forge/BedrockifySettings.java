@@ -10,6 +10,9 @@ public class BedrockifySettings {
     public boolean fernBonemeal = true;
     public boolean fallenTrees = true;
     public boolean bedrockCauldron = true;
+    public boolean bedrockSlowRegeneration = true;
+    public int regenerationIntervalTicks = 80;
+    public boolean bedrockNoAttackCooldown = true;
 
     public boolean isBedrockRecipesEnabled() {
         return bedrockRecipes;

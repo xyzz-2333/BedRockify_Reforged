@@ -1,0 +1,32 @@
+{
+  "type": "bedrockify:material_reducing",
+  "ingredient": [
+    {
+      "item": "minecraft:coal_ore"
+    },
+    {
+      "item": "minecraft:coal"
+    },
+    {
+      "item": "minecraft:coal_block"
+    }
+  ],
+  "elements": [
+    {
+      "element": 1,
+      "count": 6
+    },
+    {
+      "element": 6,
+      "count": 50
+    },
+    {
+      "element": 8,
+      "count": 43
+    },
+    {
+      "element": 7,
+      "count": 1
+    }
+  ]
+}

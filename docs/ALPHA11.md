@@ -20,4 +20,4 @@ Java 1.20.1 本来就有群系水色差异。现有 `worldColorNoise` 在原版�
 
 干净构建、生产重映射、Mixin refmap 与访问拓宽校验通过。原生 Forge 开发客户端在 JEI 15.56.0.205、Curios 5.14.1 和独立测试夹具下通过 23 组、267 次操作：菜单与背景恢复、世界加载、创造搜索与特殊分页、界面状态记忆。夹具包含 12 个模组创造标签、900 个物品及 10900 个合成配方；客户端最大堆为 1 GiB，正常保存世界并退出。
 
-额外使用实际键盘检查 Ctrl+A 全选、删除与搜索结果恢复，并检查修复后文字和蓝色选区截图。结果见 `docs/qa/survival/results/alpha11-*`；最终截图为 `alpha11-search-fixed.png`、`alpha11-search-selection.png`、`alpha11-options-panorama.png`。本轮没有复测用户的 158 模组整合包。
+额外使用实际键盘检查 Ctrl+A 全选、删除与搜索结果恢复，并检查修复后文字和蓝色选区截图。结果见 `docs/qa/survival/results/alpha11-*`；最终截图为 `alpha11-search-fixed.png`、`alpha11-search-selection.png`、`alpha11-options-panorama.png`。

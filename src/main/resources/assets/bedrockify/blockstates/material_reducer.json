@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "bedrockify:block/material_reducer",
+      "y": 0
+    },
+    "facing=east": {
+      "model": "bedrockify:block/material_reducer",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "bedrockify:block/material_reducer",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "bedrockify:block/material_reducer",
+      "y": 270
+    }
+  }
+}

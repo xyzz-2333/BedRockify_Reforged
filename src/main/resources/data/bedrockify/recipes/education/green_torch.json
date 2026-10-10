@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "C",
+    "T"
+  ],
+  "key": {
+    "C": {
+      "item": "bedrockify:tungsten_chloride"
+    },
+    "T": {
+      "item": "minecraft:torch"
+    }
+  },
+  "result": {
+    "item": "bedrockify:green_torch",
+    "count": 1
+  }
+}
