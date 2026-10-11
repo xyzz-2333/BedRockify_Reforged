@@ -1,16 +1,23 @@
-"""Generate original education sprites/models. Requires Pillow; run from any directory."""
+"""Generate education models/recipes and fallback sprites; preserve imported textures."""
 from pathlib import Path
 import json
 from PIL import Image, ImageDraw, ImageFont
-ROOT=Path(__file__).resolve().parents[1]/'src/main/resources'
+ROOT=Path(__file__).resolve().parents[2]/'src/main/resources'
 A=ROOT/'assets/bedrockify'; D=ROOT/'data/bedrockify'
+MANIFEST=Path(__file__).resolve().parents[1]/'education_resources.json'
+IMPORTED={entry['destination'] for entry in json.loads(MANIFEST.read_text(encoding='utf-8'))['textures']} if MANIFEST.exists() else set()
 SYMBOLS='? H He Li Be B C N O F Ne Na Mg Al Si P S Cl Ar K Ca Sc Ti V Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr Rb Sr Y Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I Xe Cs Ba La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu Hf Ta W Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn Fr Ra Ac Th Pa U Np Pu Am Cm Bk Cf Es Fm Md No Lr Rf Db Sg Bh Hs Mt Ds Rg Cn Nh Fl Mc Lv Ts Og'.split()
 assert len(SYMBOLS)==119
 
 def data(path,value):
- path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+ path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
 def png(name,image,kind='block'):
- path=A/'textures'/kind/(name+'.png');path.parent.mkdir(parents=True,exist_ok=True);image.save(path)
+ relative='textures/'+kind+'/'+name+'.png'
+ path=A/relative
+ if relative in IMPORTED:
+  if not path.is_file():raise FileNotFoundError('Restore imported texture with import_education_pack.py: '+relative)
+  return
+ path.parent.mkdir(parents=True,exist_ok=True);image.save(path)
 def loot(name,item=None):
  data(D/'loot_tables/blocks'/(name+'.json'),{'type':'minecraft:block','pools':[{'rolls':1,'entries':[{'type':'minecraft:item','name':'bedrockify:'+(item or name)}],'conditions':[{'condition':'minecraft:survives_explosion'}]}]})
 def cube(name):

@@ -33,7 +33,9 @@ public final class MaterialReducerBlockEntity extends BlockEntity implements Nam
         if (committed || world == null || world.isClient) return;
         MaterialReducingRecipe recipe = stacks.get(0).isEmpty() ? null : world.getRecipeManager()
                 .getFirstMatch(EducationContent.REDUCING, new SimpleInventory(stacks.get(0)), world).orElse(null);
-        if (recipe == previewRecipe) return;
+        // Keep existing stack references while this recipe is still valid. Vanilla
+        // slot clicks may already hold a reference when canTakeItems refreshes it.
+        if (recipe != null && recipe == previewRecipe) return;
         previewRecipe = recipe;
         for (int n = 1; n < 10; n++) stacks.set(n, ItemStack.EMPTY);
         if (recipe != null) { var outputs = recipe.outputs(); for (int n = 0; n < outputs.size(); n++) stacks.set(n+1, outputs.get(n)); }
@@ -59,7 +61,7 @@ public final class MaterialReducerBlockEntity extends BlockEntity implements Nam
         if (world == null || world.isClient) return;
         ItemScatterer.spawn(world, pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5, stacks.get(0));
         if (committed) for (int n = 1; n < 10; n++) ItemScatterer.spawn(world, pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5, stacks.get(n));
-        stacks.clear(); committed = false;
+        stacks.clear(); committed = false; previewRecipe = null;
     }
     @Override public Text getDisplayName() { return Text.translatable("block.bedrockify.material_reducer"); }
     @Override public ScreenHandler createMenu(int id, PlayerInventory playerInventory, PlayerEntity player) {
@@ -79,6 +81,7 @@ public final class MaterialReducerBlockEntity extends BlockEntity implements Nam
         committed = nbt.getBoolean("Committed");
         if (committed) stacks.set(0, ItemStack.EMPTY);
         else for (int n = 1; n < 10; n++) stacks.set(n, ItemStack.EMPTY);
+        if (committed && stacks.stream().allMatch(ItemStack::isEmpty)) committed = false;
     }
     // Keep this workbench's inventory behind its menu. No implicit hopper extraction of preview items.
     private final class ReducerInventory implements Inventory {
@@ -99,9 +102,9 @@ public final class MaterialReducerBlockEntity extends BlockEntity implements Nam
             if (slot == 0) refreshPreview(); else outputChanged();
             MaterialReducerBlockEntity.this.markDirty();
         }
-        @Override public void markDirty() { outputChanged(); }
+        @Override public void markDirty() { refreshPreview(); outputChanged(); }
         @Override public boolean canPlayerUse(PlayerEntity player) { return Inventory.canPlayerUse(MaterialReducerBlockEntity.this, player); }
         @Override public boolean isValid(int slot, ItemStack stack) { return slot == 0 && accepts(stack); }
-        @Override public void clear() { stacks.clear(); committed = false; MaterialReducerBlockEntity.this.markDirty(); }
+        @Override public void clear() { stacks.clear(); committed = false; previewRecipe = null; MaterialReducerBlockEntity.this.markDirty(); }
     }
 }
