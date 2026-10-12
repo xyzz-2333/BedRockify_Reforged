@@ -30,6 +30,14 @@ dependencies {
     modImplementation "me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}"
 }
 sourceSets.main.resources.srcDir 'src/main/generated'
+// Explicit opt-in: test code and structures never enter normal release builds.
+if (project.hasProperty('mechanicsGameTests')) {
+    sourceSets.main.java.srcDir 'docs/tools/mechanics-tests'
+    sourceSets.main.resources.srcDir 'docs/tools/mechanics-tests/resources'
+    loom.runs.server.vmArg '-Dforge.gameTestServer=true'
+    loom.runs.server.vmArg '-Dforge.enabledGameTestNamespaces=bedrockify'
+    loom.runs.server.runDir 'run/mechanics-tests'
+}
 processResources {
     exclude '.cache/**'
     inputs.property 'version', project.version

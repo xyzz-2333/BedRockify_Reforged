@@ -18,8 +18,8 @@ import java.util.function.Supplier;
 
 public final class MechanicsNetwork {
     private static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
-            new Identifier(Bedrockify.MOD_ID, "mechanics"), () -> "1", "1"::equals, "1"::equals);
-    private static Boolean lastBroadcast;
+            new Identifier(Bedrockify.MOD_ID, "mechanics"), () -> "2", "2"::equals, "2"::equals);
+    private static AttackRule lastBroadcast;
     private MechanicsNetwork() {}
     public static void register() {
         CHANNEL.registerMessage(0, AttackRule.class, AttackRule::encode, AttackRule::decode,
@@ -30,9 +30,9 @@ public final class MechanicsNetwork {
         });
         MinecraftForge.EVENT_BUS.addListener((TickEvent.ServerTickEvent event) -> {
             if (event.phase != TickEvent.Phase.END) return;
-            boolean value = current().enabled();
-            if (lastBroadcast == null || lastBroadcast != value) {
-                CHANNEL.send(PacketDistributor.ALL.noArg(), new AttackRule(value));
+            AttackRule value = current();
+            if (lastBroadcast == null || !lastBroadcast.equals(value)) {
+                CHANNEL.send(PacketDistributor.ALL.noArg(), value);
                 lastBroadcast = value;
             }
         });
@@ -41,14 +41,15 @@ public final class MechanicsNetwork {
     private static AttackRule current() {
         return new AttackRule(Bedrockify.getInstance().settings.bedrockNoAttackCooldown
                 && dev.bedrockify.forge.mixin.featureManager.MixinFeatureManager.features
-                .getOrDefault("common.features.mechanics", true));
+                .getOrDefault("common.features.mechanics", true), Bedrockify.getInstance().settings.bedrockProjectiles
+                && dev.bedrockify.forge.mixin.featureManager.MixinFeatureManager.features.getOrDefault("common.features.mechanics", true));
     }
-    private record AttackRule(boolean enabled) {
-        private void encode(PacketByteBuf buffer) { buffer.writeBoolean(enabled); }
-        private static AttackRule decode(PacketByteBuf buffer) { return new AttackRule(buffer.readBoolean()); }
+    private record AttackRule(boolean enabled, boolean projectiles) {
+        private void encode(PacketByteBuf buffer) { buffer.writeBoolean(enabled); buffer.writeBoolean(projectiles); }
+        private static AttackRule decode(PacketByteBuf buffer) { return new AttackRule(buffer.readBoolean(), buffer.readBoolean()); }
         private void handle(Supplier<NetworkEvent.Context> supplier) {
             NetworkEvent.Context context = supplier.get();
-            context.enqueueWork(() -> MechanicsRules.acceptServerRule(enabled));
+            context.enqueueWork(() -> { MechanicsRules.acceptServerRule(enabled); MechanicsRules.acceptProjectileRule(projectiles); });
             context.setPacketHandled(true);
         }
     }

@@ -13,6 +13,9 @@ public class BedrockifySettings {
     public boolean bedrockSlowRegeneration = true;
     public int regenerationIntervalTicks = 80;
     public boolean bedrockNoAttackCooldown = true;
+    public boolean bedrockProjectiles = true;
+    public boolean bedrockPortalSpawning = true;
+    public boolean bedrockTridentKiller = true;
 
     public boolean isBedrockRecipesEnabled() {
         return bedrockRecipes;

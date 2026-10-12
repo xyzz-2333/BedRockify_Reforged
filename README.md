@@ -2,12 +2,12 @@
 
 本仓库基于BedrockIfy，把部分基岩版特性带到 **Minecraft 1.20.1 Java**。
 
-当前版本 ：**alpha.11**。
+当前开发版本：**alpha.13（候选，待游戏内验收）**。开发记录见 [alpha.13](docs/ALPHA13_dev.md) 和 [alpha.12](docs/ALPHA12_dev.md)。
 
 ## 安装与配置
 
 1. 安装 Minecraft **1.20.1** 与 **Forge 47.4.0**。
-2. 将 `bedrockify-forge-1.9.1-forge-alpha.11+mc1.20.1.jar` 放入 `mods`。
+2. 将 `bedrockify-forge-1.9.1-forge-alpha.13+mc1.20.1.jar` 放入 `mods`。
 3. 客户端还需安装依赖： **[Cloth Config 11.x 的 Forge 版本](https://modrinth.com/mod/cloth-config/version/11.1.136+forge)**，
 4. 游戏中按 **B** 打开配置，也可以在 Forge 模组列表或游戏选项界面打开。B 可以在按键设置中更改。
 5. 炼药锅、配方、骨粉和世界生成等共同逻辑需要服务端安装同版模组；界面类功能只在客户端生效。

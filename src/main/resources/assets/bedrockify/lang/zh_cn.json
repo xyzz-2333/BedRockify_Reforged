@@ -453,5 +453,11 @@
   "item.bedrockify.cerium_chloride": "氯化铈",
   "item.bedrockify.mercuric_chloride": "氯化汞",
   "item.bedrockify.potassium_chloride": "氯化钾",
-  "item.bedrockify.tungsten_chloride": "六氯化钨"
+  "item.bedrockify.tungsten_chloride": "六氯化钨",
+  "bedrockify.options.projectiles": "基岩投射物物理",
+  "bedrockify.options.projectiles.tooltip": "调整末影珍珠与投掷三叉戟的物理，由服务端控制。",
+  "bedrockify.options.portalSpawning": "闪门生成僵尸猪灵",
+  "bedrockify.options.portalSpawning.tooltip": "主世界点亮传送门时，按难度增加僵尸猪灵生成尝试。",
+  "bedrockify.options.tridentKiller": "三叉戟搅拌机",
+  "bedrockify.options.tridentKiller.tooltip": "活塞激活的无忠诚三叉戟每 2 tick 对接触的生物造成伤害。"
 }

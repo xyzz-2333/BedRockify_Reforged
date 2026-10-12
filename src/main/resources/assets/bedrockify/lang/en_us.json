@@ -453,5 +453,11 @@
   "item.bedrockify.cerium_chloride": "Cerium Chloride",
   "item.bedrockify.mercuric_chloride": "Mercuric Chloride",
   "item.bedrockify.potassium_chloride": "Potassium Chloride",
-  "item.bedrockify.tungsten_chloride": "Tungsten Chloride"
+  "item.bedrockify.tungsten_chloride": "Tungsten Chloride",
+  "bedrockify.options.projectiles": "Bedrock projectile physics",
+  "bedrockify.options.projectiles.tooltip": "Adjusts ender pearls and thrown tridents. Server controlled.",
+  "bedrockify.options.portalSpawning": "Portal ignition piglin spawning",
+  "bedrockify.options.portalSpawning.tooltip": "Portal ignition adds difficulty-dependent spawning attempts in the Overworld.",
+  "bedrockify.options.tridentKiller": "Piston trident killers",
+  "bedrockify.options.tridentKiller.tooltip": "Piston-activated tridents without Loyalty damage mobs every 2 ticks."
 }

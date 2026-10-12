@@ -75,7 +75,14 @@
     "common.features.recipes.ShulkerBoxColoringRecipeMixin",
     "common.features.worldGeneration.TreeConfiguredFeaturesInvoker",
     "common.features.mechanics.HungerManagerMixin",
-    "common.features.mechanics.PlayerEntityMixin"
+    "common.features.mechanics.PlayerEntityMixin",
+    "common.features.mechanics.ThrownEntityMixin",
+    "common.features.mechanics.ThrownEntityAccessor",
+    "common.features.mechanics.TridentItemMixin",
+    "common.features.mechanics.PersistentProjectileEntityMixin",
+    "common.features.mechanics.EntityMixin",
+    "common.features.mechanics.TridentEntityMixin",
+    "common.features.mechanics.NetherPortalBlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1
