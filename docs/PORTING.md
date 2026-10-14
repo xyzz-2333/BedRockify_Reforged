@@ -61,13 +61,18 @@
 | alpha.9 | 界面状态与搜索词记忆 | 没有，本仓库自研 |
 | alpha.10 | 直接合成细化、1.20.1 原版旋转全景 | 部分（上游用内嵌 Panorama Screens 依赖，这里是原版实现） |
 | alpha.11 | 选项菜单全景、创造搜索文字重影、包名与元数据清理 | 部分 |
+| alpha.12 | 教育版内容、慢速回血与攻击冷却配置 | 没有，本仓库自研 |
+| alpha.14 | 基岩式盔甲架、潜行举盾、Forge HUD 安全区与渐隐、纸娃娃动作、群系水色 | 没有，本仓库自研 |
 
 自研部分沿用上游的配置结构、mod ID 和资源命名，因此仍然共用 `config/bedrockify/` 下的配置文件；新增键在旧配置缺失时取默认值。上游的内嵌依赖（Panorama Screens 等）没有引入，相关内容改为基于 1.20.1 原版实现。
 
+各轮详细记录：alpha.2～alpha.11 见同目录 `ALPHA*.md`；alpha.12 见 [ALPHA12.md](ALPHA12.md)，alpha.14 见 [ALPHA14.md](ALPHA14.md)（含 GameTest、客户端启动与回归检查入口）。
+
 ## 已知缺口
 
-- ForgeGui 覆写的部分 HUD 路径尚未迁移到 Forge overlays：部分非零屏幕安全区偏移、经验条及血条样式可能不生效。默认坐标和热栏已测试。
-- AppleSkin、Sodium/Fastload、Indigo 和 Panorama Screens 的配套集成未迁移，详见 README。
+> 当前缺口的完整清单以 [README.md 已知缺口](../README.md#已知缺口) 为准。
+
+- AppleSkin、Sodium/Fastload、Indigo 未迁移，详见 README。
 - 搭桥的多人场景、纸娃娃的全部动作、字幕、枯树/倒木出现频率、未覆盖到的配方组合与全部炼药锅交互尚未逐项验证。
 - Embeddium、Rubidium、Oculus、OptiFine 及大型整合包兼容性、多人联机和存档升级尚未验证。
 - 本次使用测试新世界；不建议直接把已有重要存档作为首轮测试对象。

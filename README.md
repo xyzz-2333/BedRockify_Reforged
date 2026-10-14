@@ -2,12 +2,32 @@
 
 本仓库基于BedrockIfy，把部分基岩版特性带到 **Minecraft 1.20.1 Java**。
 
-当前开发版本：**alpha.14-update1**
+当前开发版本：**alpha.14-update1**。目前 [Releases](https://github.com/xyzz-2333/BedRockify_Reforged/releases) 可直接下载的预发布版本为 **alpha.11**；alpha.14-update1 需从源码自行构建。
+## 功能一览
+- [x] 基岩经典风格的生存背包、工作台与创造物品栏，支持分类、搜索和同类物品折叠。
+- [x] 仿基岩版合成显示
+- [x] 坐标、帧率、纸娃娃与手持物品信息显示。
+- [x] 基岩风格 HUD、聊天框与加载画面，支持安全区调整、透明度与状态条渐隐。
+- [x] 潜行举盾
+- [x] 基岩式盔甲架：手持装备、13 种姿势、红石姿势控制。
+- [x] 基岩群系水面与水下颜色，支持资源包覆盖。
+- [x] 基岩风格方块明暗、太阳眩光、环境颜色噪声与剪毛后的绵羊颜色。
+- [x] 第三人称进食、手持物品动画与立体钓鱼浮漂。
+- [x] 可盛放染色水与药水的炼药锅，以及皮革装备染色。
+- [x] 基岩式合成与染色配方，可切换旧版基岩配方。
+- [x] 枯树与倒木、骨粉催生甘蔗与蕨、动物进食粒子及火焰附加点火。
+- [x] 前向搭桥、创造飞行惯性调整与按跳跃键结束鞘翅滑翔。
+- [x] 可配置的慢速自然回血、无攻击冷却与基岩式锋利附魔加成。
+- [x] 教育版元素方块、材料分解器、水下与彩色火把，以及氯化物。
+- [x] 游戏内配置界面、中英文设置说明与新增物品多语言名称。
+- [ ] 基岩式末影珍珠与三叉戟投射物参数。
+- [ ] 反复点亮下界传送门生成僵尸猪灵（闪门刷怪）。
+- [ ] 活塞激活的三叉戟搅拌机。
 
 ## 安装与配置
 
 1. 安装 Minecraft **1.20.1** 与 **Forge 47.4.0**。
-2. 将 `bedrockify-forge-1.9.1-forge-alpha.14-update1+mc1.20.1.jar` 放入 `mods`。
+2. 从 [Releases](https://github.com/xyzz-2333/BedRockify_Reforged/releases) 下载 `bedrockify-forge-1.9.1-forge-alpha.11+mc1.20.1.jar`，放入 `mods`。
 3. 客户端还需安装依赖： **[Cloth Config 11.x 的 Forge 版本](https://modrinth.com/mod/cloth-config/version/11.1.136+forge)**，
 4. 游戏中按 **B** 打开配置，也可以在 Forge 模组列表或游戏选项界面打开。B 可以在按键设置中更改。
 5. 炼药锅、配方、骨粉和世界生成等共同逻辑需要服务端安装同版模组；界面类功能只在客户端生效。
@@ -96,7 +116,7 @@ Windows 使用 `gradlew.bat build`、`gradlew.bat runClient`。
 | --- | --- |
 | [CHANGELOG.md](CHANGELOG.md) | 各发布版本简要记录 |
 | [docs/PORTING.md](docs/PORTING.md) | 平台接口替换、alpha.1 验证记录、已知缺口 |
-| [docs/ALPHA14_dev.md](docs/ALPHA14_dev.md) | alpha.14 功能、水色、修复边界、验证记录与实机验收清单 |
+| [docs/ALPHA14.md](docs/ALPHA14.md) | alpha.14 功能、水色、修复边界、验证记录与实机验收清单 |
 | [docs/ALPHA2.md](docs/ALPHA2.md) ～ [docs/ALPHA11.md](docs/ALPHA11.md) | 每轮改动说明与验证范围 |
 | [docs/qa/README.md](docs/qa/README.md)、[docs/qa/survival/README.md](docs/qa/survival/README.md)、[docs/qa/creative/README.md](docs/qa/creative/README.md) | 开发夹具、命令与结果文件说明 |
 
