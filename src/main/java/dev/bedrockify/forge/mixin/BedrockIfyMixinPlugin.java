@@ -23,6 +23,13 @@ public class BedrockIfyMixinPlugin  implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
+        if (mixinClassName.startsWith("dev.bedrockify.forge.mixin.client.features.armorStand.")) {
+            return MixinFeatureManager.features.getOrDefault("common.features.armorStand", true);
+        }
+        if (mixinClassName.equals("dev.bedrockify.forge.mixin.client.features.screenSafeArea.ForgeGuiMixin")) {
+            return MixinFeatureManager.features.getOrDefault("client.features.screenSafeArea", true)
+                    || MixinFeatureManager.features.getOrDefault("client.features.hudOpacity", true);
+        }
         if (mixinClassName.contains(".survivalInventory.Jei") && !Platform.isModLoaded("jei")) {
             return false;
         }

@@ -29,6 +29,10 @@ public class BedrockifyClientSettings {
     public double heldItemTooltipBackground = .5d;
 
     public boolean showPaperDoll = true;
+    public boolean paperDollAlwaysVisible = false;
+    public int paperDollSize = 20;
+    public int paperDollX = 30;
+    public int paperDollTimeoutTicks = 40;
     public boolean showChunkMap = false;
     public boolean reacharound = true;
     public boolean reacharoundSneaking = false;
@@ -51,6 +55,9 @@ public class BedrockifyClientSettings {
     public int hudOpacity = 50;
     public boolean biggerIcons = true;
     public boolean sneakingShield = true;
+    public boolean bedrockWaterColors = true;
+    public boolean bedrockWaterFogColor = true;
+    public boolean bedrockWaterColorNoise = false;
     public boolean bedrockShading = true;
     public boolean disableFlyingMomentum = true;
     public int flyingBrakeStrength = 25;
@@ -151,7 +158,7 @@ public class BedrockifyClientSettings {
     public int getScreenSafeArea() {
         if (screenSafeArea > 30)
             screenSafeArea = 30;
-        return screenSafeArea;
+        return Math.max(0, screenSafeArea);
     }
 
     public float getIdleAnimation() {

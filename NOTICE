@@ -43,3 +43,15 @@ Education block/item textures and display names were imported from the
 user-supplied chemistry resource pack. The imported PNG bytes, source entries,
 archive digest and locale coverage are recorded in docs/education_resources.json.
 These resources replace the earlier generated education textures.
+
+Alpha.14 additions on 2026-10-11:
+Armor stand static pose rotations were extracted from the user-supplied
+Bedrock vanilla animation resource; source path, digest and conversion are
+recorded in docs/armor_stand_poses.json. This adds pose interaction and redstone
+control, repairs automatic sneaking shields, and extends Forge HUD and paper doll.
+
+Water color additions on 2026-10-11 (merged into alpha.14 on 2026-10-14):
+Biome water surface and fog RGB values were imported from the user-supplied
+Bedrock vanilla resource packs with versioned overrides resolved. Source paths,
+digests and Java biome aliases are recorded in docs/water_colors_sources.json.
+Only colors are ported; Java textures and visibility mechanics remain in use.

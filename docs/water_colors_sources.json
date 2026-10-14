@@ -1,0 +1,1618 @@
+{
+  "source": "User-supplied Bedrock 1.21.x vanilla resource packs",
+  "layer_order": [
+    "vanilla",
+    "vanilla_1.14",
+    "vanilla_1.15",
+    "vanilla_1.16",
+    "vanilla_1.16.100",
+    "vanilla_1.16.200",
+    "vanilla_1.16.210",
+    "vanilla_1.16.220",
+    "vanilla_1.17.0",
+    "vanilla_1.17.10",
+    "vanilla_1.17.20",
+    "vanilla_1.17.30",
+    "vanilla_1.17.40",
+    "vanilla_1.18.0",
+    "vanilla_1.18.10",
+    "vanilla_1.18.20",
+    "vanilla_1.18.30",
+    "vanilla_1.19.0",
+    "vanilla_1.19.10",
+    "vanilla_1.19.20",
+    "vanilla_1.19.30",
+    "vanilla_1.19.40",
+    "vanilla_1.19.50",
+    "vanilla_1.19.60",
+    "vanilla_1.19.70",
+    "vanilla_1.19.80",
+    "vanilla_1.20.0",
+    "vanilla_1.20.10",
+    "vanilla_1.20.20",
+    "vanilla_1.20.30",
+    "vanilla_1.20.40",
+    "vanilla_1.20.50",
+    "vanilla_1.20.60",
+    "vanilla_1.20.70",
+    "vanilla_1.20.80",
+    "vanilla_1.21.0",
+    "vanilla_1.21.10",
+    "vanilla_1.21.20",
+    "vanilla_1.21.23"
+  ],
+  "resolution": "Numbered overlays replace biome fields and whole fog resources. Missing biome entries inherit the final default; explicit Java-name aliases listed per entry.",
+  "scope": "Surface and underwater fog RGB only. Fog distances, transition curves and surface transparency are recorded but not ported.",
+  "sources": [
+    {
+      "path": "vanilla/biomes_client.json",
+      "sha256": "1e4c2bb4720bbd846778e1cc2c7baa4caa281967954f3049531c561bc06cb405"
+    },
+    {
+      "path": "vanilla_1.16/biomes_client.json",
+      "sha256": "050b9a4c8fd93d2d7254f4906807f7f8bb87e04571d185f1fee459a57c16ebba"
+    },
+    {
+      "path": "vanilla_1.16.100/biomes_client.json",
+      "sha256": "feeb7640400f8264d5b848d0a5ae700741b4dab6fa36c575fe1e9ee001cf46a3"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/bamboo_jungle_fog_setting.json",
+      "sha256": "4cde2198bcd45df9fc574c56e16a3c8b71e35b25d3399307f54c4ded0f7e3ab4"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/bamboo_jungle_hills_fog_setting.json",
+      "sha256": "63c3cf7dc89cb6b9cfdcf8a70cd942790f76f4db02ed58d7c3b1d9226b7c30b4"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/basalt_deltas_fog_setting.json",
+      "sha256": "98021e441df660a9dbc258e9e553256e76dcbdf284ea10c96ef089d015c4a119"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/beach_fog_setting.json",
+      "sha256": "a2d91c63c402304ccc4776f7fd3c222e6eabf15637507c45801b60362a9a0691"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/birch_forest_fog_setting.json",
+      "sha256": "2d1257abcab19047b8cd14d613d3caf39803ae87aaf104951a828c76c475cae9"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/birch_forest_hills_fog_setting.json",
+      "sha256": "7d3fd1d0818b3dc819337839a14799cdbb49337fd0af252bfd56fb116e4a499b"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/cold_beach_fog_setting.json",
+      "sha256": "0301c16f0eec2c2e71082919425e442228b6e0058309416badb5b66da91d2f18"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/cold_ocean_fog_setting.json",
+      "sha256": "e9dba001a51233599476cea223964f63a949e68f8d40bf12f1b2ac1ade96f056"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/cold_taiga_fog_setting.json",
+      "sha256": "8beff322c29ee8c563c8899f5094d77c4275b3a22126606909af38f8e058f239"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/cold_taiga_hills_fog_setting.json",
+      "sha256": "2134ebc705819393ffe724843b5d1a978e9e0c659a1e542f5239d668ed03d8f0"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/cold_taiga_mutated_fog_setting.json",
+      "sha256": "4a8f3e1b17cf844d182e316ab45fb0802a089c28a00ac3fd61e1529b913ad6f8"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/crimson_forest_fog_setting.json",
+      "sha256": "f3367590ad9d86570b7253fae8e9a8af3fcab6a15e4f13e2ce3eaf56e05a87a7"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/deep_cold_ocean_fog_setting.json",
+      "sha256": "e837ce2b9055adf1669454aaf4f939ff59e39acd7f9981207e3ab8745284661c"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/deep_frozen_ocean_fog_setting.json",
+      "sha256": "d2de93a02060cb75655e95291352842fdb76efd02920c213745d9132ee4b1ebf"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/deep_lukewarm_ocean_fog_setting.json",
+      "sha256": "28c626022f77d6b2feb057fa4c8c014f2513d3ed7730544d62669ea4a168ed75"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/deep_ocean_fog_setting.json",
+      "sha256": "44b0d32ddfb6abb44539c6d18a5951aa175f613bbe8ad26f5b3193bc2e867840"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/deep_warm_ocean_fog_setting.json",
+      "sha256": "ebb4f23171984a7cb400cde2bbcae6b8968140cdf683e071c8ae26828f196f70"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/default_fog_setting.json",
+      "sha256": "ec71eb22fd1708eac2e36a06be40e7c4dd048c844e8305e45db1887a287def01"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/desert_fog_setting.json",
+      "sha256": "a66341b473f7f603a8ebf15453363fda93f4722437348d571d49502c8f9115c8"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/desert_hills_fog_setting.json",
+      "sha256": "bea43c669700becf6d2ba7651586fc29c44ed1d6cdf1a164dab94eb1e39a17db"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/extreme_hills_edge_fog_setting.json",
+      "sha256": "216409c704a69b37a6e09f43cbec55408ca2a28f8eb895088e1635897aac58b9"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/extreme_hills_fog_setting.json",
+      "sha256": "4dc09c7fdff03fe593ae765e4a78f62a51d864cc693c278dd3c83b6462558b48"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/extreme_hills_mutated_fog_setting.json",
+      "sha256": "f1f6be0dd2de8e73a06651954957ca07fa54c56296da261d825d4c7c5933d066"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/extreme_hills_plus_trees_fog_setting.json",
+      "sha256": "b43d8c6acdc571507dc0ea541095ddedddd8dfec9f3270c22df293edb2121512"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/extreme_hills_plus_trees_mutated_fog_setting.json",
+      "sha256": "03be5d1eb8777a853af2fb5a725e0fd29ef3135033696625471a6f96869c1310"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/flower_forest_fog_setting.json",
+      "sha256": "4b9168e3560ee9c96ca5abb887d680154d6b7e4091001b365cad27ecea0fe668"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/forest_fog_setting.json",
+      "sha256": "70e86ff27e5e4770176f2b4a5911cfa4a10a2ce79734897e85a83d3bababf8c8"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/forest_hills_fog_setting.json",
+      "sha256": "678a200ea7cfcfac17c7992e5dbaa90cc33e51ef64410c4d0eaf344fb7c623b8"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/frozen_ocean_fog_setting.json",
+      "sha256": "f1578518f21cfee62fb4f4e02bb494c5be9f8853f789ce00469f5d98d21325ed"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/frozen_river_fog_setting.json",
+      "sha256": "f01e20d5a1d7a4bf1aeb5186d3b90c01b4fd0c40d866c049d16cc4b8cf98bbaa"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/hell_fog_setting.json",
+      "sha256": "4c4f6b4df5013b98ff7a494e8a58a99f9324c9e3041e54abecbf87200ad85719"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/ice_mountains_fog_setting.json",
+      "sha256": "322244c29d44d96ba7190e5045721a8cc3dafbe6d5bd3cc399ad211a392fa7c2"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/ice_plains_fog_setting.json",
+      "sha256": "88975c5e773416974391343b796529577ca2d8c35d0e12c027c1da3c23770382"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/ice_plains_spikes_fog_setting.json",
+      "sha256": "2f8e5d4bb19aa39b8179c9b0ec380ab631b54bafcc9ca76b56b358d24d3d963d"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/jungle_edge_fog_setting.json",
+      "sha256": "8c1ae967ed3cd3d37d45e38f373f949542211986c0cbf24a817927119920ba44"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/jungle_fog_setting.json",
+      "sha256": "2fb7a773bc5897c04b3fcceea9e21eee18042ac076bb97d7d887a8209fa7e9e8"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/jungle_hills_fog_setting.json",
+      "sha256": "b11fb942cb58a147fc2668f03e88cba2a3003c13207af1442969932d09800ec7"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/jungle_mutated_fog_setting.json",
+      "sha256": "bdaf34e1d449ca30f8c9479454bf89431d8aaba83e09f956f772246f5754f3af"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/lukewarm_ocean_fog_setting.json",
+      "sha256": "3507c21f2978c4301ec02214389695e820a1eb8fa256a2bec4cb19dcc2cb9719"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/mega_spruce_taiga_fog_setting.json",
+      "sha256": "ed19eb49ed463f19fca7f5d2cae4c44ccd3126f4b1f6c27b6d95d323e2c20358"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/mega_spruse_taiga_mutated_fog_setting.json",
+      "sha256": "9da0569723bd12f5ab9c22d84453498809b37a8102ea35cb732494bee3359d70"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/mega_taiga_fog_setting.json",
+      "sha256": "0c7e886c778f6a3546beaa69012e96f846c8920f7cf4cdd5584852b0b7b9a91c"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/mega_taiga_hills_fog_setting.json",
+      "sha256": "5a4029dfce5f7c7fee066a0cca4bda295ddc948077e924f3e134aad8811bcee7"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/mega_taiga_mutated_fog_setting.json",
+      "sha256": "f4fbe4a8bc37d6bcf0f26816266fce7d53c4be7dddb34b257a295c45c3d905d9"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/mesa_bryce_fog_setting.json",
+      "sha256": "1d75a94b3cfd28db50d9bfc3f97ced0bba0db57cec579988cdf84be6064f242f"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/mesa_fog_setting.json",
+      "sha256": "bdcb202eee3e339cdf28844a6321cfd031cddffe3e994640e1bfbeaeb13879e4"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/mesa_mutated_fog_setting.json",
+      "sha256": "af3fd995ae5b0e212da3d393b1b85f35c9ffb9fe232cf3ac5500a3b708912073"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/mesa_plateau_fog_setting.json",
+      "sha256": "d6f77ee16af561923ff97ed08d83b235204e018ddb67a809e13a158bf6cdd47e"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/mesa_plateau_stone_fog_setting.json",
+      "sha256": "356a0577fd6b2848c6a92b8f571e333efd73277fc3d57691df840fe97872c28f"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/mushroom_island_fog_setting.json",
+      "sha256": "d7a619ec2fa49e495b7ffcc3e851206c202243d5d06573333206bd11ae5e1b9f"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/mushroom_island_shore_fog_setting.json",
+      "sha256": "595c693f5764cb9c6cc5368759f75532a10aa82f5c48921c0724987f67f348d1"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/ocean_fog_setting.json",
+      "sha256": "d09024cda6c9eb763028591f268e4f13850deb18b2b0d547dac4fd576b246c2e"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/plains_fog_setting.json",
+      "sha256": "787e1644eb3e6ba64c4454294bc7d515c5d3d2ed2c6d02b05077eaca6ce8a210"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/river_fog_setting.json",
+      "sha256": "406dc1e67c8b261b86aad4a8a359249f3e2d178df9ad5ede91d3b2e96d08ef2d"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/roofed_forest_fog_setting.json",
+      "sha256": "c2ec474ab3fd4cb7776f9bdaefbdcb50b7b2d8fbb69d9b87ddce0ce7a4b7aec4"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/savanna_fog_setting.json",
+      "sha256": "442fe03b259e22e0d5db08e9a969bb37da63a852cb0b0e31e1e8d17eae557fdd"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/savanna_mutated_fog_setting.json",
+      "sha256": "d6e54159ad2de17b84051af04cfb05f76f93816d4c7f6abcc561eb5f4b2c61bd"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/savanna_plateau_fog_setting.json",
+      "sha256": "5e0d77423361135fc126c80544732709be3d0c2c5b3c1d405b97e3f48a5d9d92"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/soulsand_valley_fog_setting.json",
+      "sha256": "d842ac9335b452dbb22a0699055d96a54136e01f4796d7c71ddf35c9d5f91998"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/stone_beach_fog_setting.json",
+      "sha256": "5633fffaa142b49fe658825051cc4923ff3a2d31cd32d0abb3ce5b476b43f7ed"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/sunflower_plains_fog_setting.json",
+      "sha256": "a4c3a14c39095115565049b6aff4913a4b6a882563ae7b40b14d8f785168a2e2"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/swampland_fog_setting.json",
+      "sha256": "f07b0c126daa6db2c08466e73bb1616f08e6853d171cd941fa2cea0b4d462b81"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/swampland_mutated_fog_setting.json",
+      "sha256": "4991265c0ecec0a600e2a13ace50b4e38fd474906c2eda9a876438d2fcf7d3da"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/taiga_fog_setting.json",
+      "sha256": "b87762362debc6aa415f8b71389c737ee4db2545892d45376640ed37aa738be8"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/taiga_hills_fog_setting.json",
+      "sha256": "92467fe0c981281d4a1e94b60bf0d6856a5810213cfe5d74c4ef649d9cc5a016"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/taiga_mutated_fog_setting.json",
+      "sha256": "1ad50000221959188d8b4c41ddd70c04cd05e628bee200cff578ab784b0fb45c"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/the_end_fog_setting.json",
+      "sha256": "1ac3dfc78109c05a1a0225c9b90c52ceb95dc72f0ec0dd170774b7a39e51c7a9"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/warm_ocean_fog_setting.json",
+      "sha256": "4adca08c90639fe63a597acbb9f683d1132d71864304281dcf9f1a67a9a6a14c"
+    },
+    {
+      "path": "vanilla_1.16.100/fogs/warped_forest_fog_setting.json",
+      "sha256": "d0abe0f82b02700614b2071db063d1c42abe8b8f8e4aecf25d096352c6b605e6"
+    },
+    {
+      "path": "vanilla_1.16.220/biomes_client.json",
+      "sha256": "41c863bdccd30e39ff90c509dc9e7cf1fc75592cb3298b62e3fefb11256d9f27"
+    },
+    {
+      "path": "vanilla_1.17.0/fogs/powder_snow_fog_setting.json",
+      "sha256": "566982752cdf74ff0e993e836e8f8ac8e2b650125b834eab9c4be3527d435003"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/bamboo_jungle_fog_setting.json",
+      "sha256": "20331cd5e2366588e7b38b6ea63ddb293bd96786ef8c1e1070d5333de964bd54"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/bamboo_jungle_hills_fog_setting.json",
+      "sha256": "e8897d556ae25c61f36477cd8679ea5b8b761962f925528e015a618f510f2dac"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/birch_forest_fog_setting.json",
+      "sha256": "6ad58b472988b297074cb1f8f605158821517f6abfd5c8ae0b806f1ea77fb337"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/birch_forest_hills_fog_setting.json",
+      "sha256": "1fa63136644f943cd5fa49b932a02dfb26ddf9b819e28d83a576c0a4b2aaa53b"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/cold_beach_fog_setting.json",
+      "sha256": "94468bcddbe28731bbb3b123e56d165968fc0c4cf8e83f5bf979680c9eb72650"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/cold_taiga_fog_setting.json",
+      "sha256": "02ba25ff56dacc2952532747ca17e09387f622fb5dc14efa74a4f2378f56cd4e"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/cold_taiga_hills_fog_setting.json",
+      "sha256": "2db0713bae77c14bc279a81e59069d6eaeceac9b0ef5a41559278b83942215d6"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/cold_taiga_mutated_fog_setting.json",
+      "sha256": "a8e94eef69ed8435ba675fb9fc41a5130eb57510b6b5feeeec1cba2813b75470"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/default_fog_setting.json",
+      "sha256": "0b4411df006485007cc8b71a504811dfeead9e3169bf68ab6e3a23402a761c7f"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/desert_fog_setting.json",
+      "sha256": "3e86f0c92343b7d20cc94b250640c080cd89e604763d8f1cb1fceb3bc3f2ea48"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/desert_hills_fog_setting.json",
+      "sha256": "954ec642c4820921db346c894220077a16fe94fbeaba259268aa91a264f2dd7e"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/extreme_hills_edge_fog_setting.json",
+      "sha256": "8c850c016f16ead7b9e96050f9cfaecb053bb68ed1a640dde7031b45dfea7d5c"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/extreme_hills_fog_setting.json",
+      "sha256": "68e3693345dc41a14e758a77b62fb6d76890cff516641474c482e46c564cf310"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/extreme_hills_mutated_fog_setting.json",
+      "sha256": "2cb58bd87704d02e5e4cfe88d671ebd2e9be2a98126e55a01ed0314fa9019b69"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/extreme_hills_plus_trees_fog_setting.json",
+      "sha256": "03350b9e51014794f6dc53bf9c66b07a428f72c665aece16acd52c57fe79aafc"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/extreme_hills_plus_trees_mutated_fog_setting.json",
+      "sha256": "2b1e696f730b6f0c1ae13c5d7d51b4a141a59cc49195a972e49f34341f04df43"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/flower_forest_fog_setting.json",
+      "sha256": "dd890e38c293c7ef0c57a6fab9e063b8194a75d56d6a1b2ef56ade92605b9484"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/forest_fog_setting.json",
+      "sha256": "f9839b7f4fba37634b18a111240fc40379523d18a9c5ddb14016b4283b18241e"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/forest_hills_fog_setting.json",
+      "sha256": "fdbaa5357a366b1ebe9c3427e11f92c295bbf91cc467631694d598855017af6e"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/frozen_river_fog_setting.json",
+      "sha256": "3dca8b3cfdb82f89915be064ad9659a9fcd63c88c6a743fcf4f163242ac11829"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/ice_mountains_fog_setting.json",
+      "sha256": "486c9ed77906ac35a0aa6b42c613528942ed4e907f8e15d0b6deb5cfecb954e3"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/ice_plains_fog_setting.json",
+      "sha256": "6941319a5361d04c8a029401905ed51d225d9aa3f09b0d0126878dd5cf870a18"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/ice_plains_spikes_fog_setting.json",
+      "sha256": "49cac9a0fc8ba24ea643cfb965f6ac2338e5ebcfd13449830503a1545f107f90"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/jungle_edge_fog_setting.json",
+      "sha256": "e862f615084ac9e5d50c3738b374cab1d6eafae5925e51d54966229d0a33d457"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/jungle_fog_setting.json",
+      "sha256": "2ea99b5fdd47b9a965d9d606487a415adea021745bf86f5d401a6eeb1e7a7d70"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/jungle_hills_fog_setting.json",
+      "sha256": "053ab22c40b8281046acca513c84bb651367d3335b86fffdca748bb6abe66b5a"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/jungle_mutated_fog_setting.json",
+      "sha256": "abe45751a1b75ab5b4d0b7533e452f62e2b5058f5f481b4ee8f86afbf4c65ead"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/mega_spruce_taiga_fog_setting.json",
+      "sha256": "d901c3481cea268301ec4fc8639cffdb6cf6f5ce7d1a51e571d7f1a273b965d0"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/mega_spruse_taiga_mutated_fog_setting.json",
+      "sha256": "f7fcbed7e6582dd6eed8f896b30b4ed69050183e1492a84fd6b7961015cf3c54"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/mega_taiga_fog_setting.json",
+      "sha256": "f3e8032be9e3178f44b409b7a50363293d8fb711d86f4543606ba20de3d81abc"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/mega_taiga_hills_fog_setting.json",
+      "sha256": "af8430e3398ad191de5af391fac76cfb37ef18e42512543255a9fe8bc65e1e18"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/mega_taiga_mutated_fog_setting.json",
+      "sha256": "b85612d45dc8d4a29e2a3d92d7dec128b659bb5133902ed5e4dea769f59f41b9"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/mesa_bryce_fog_setting.json",
+      "sha256": "200b17d95441d65ca22176aa917cdb252e2679e90d1a399ae091d3f153ebc0d0"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/mesa_fog_setting.json",
+      "sha256": "6b0ad56edc54ff297adcfb5950181a24335950fcf1981d20d8ca62a991fa49ce"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/mesa_mutated_fog_setting.json",
+      "sha256": "6b7154ea794929c8c08b42dd6672d0aa6bf245fd67d15c905a10ad250bc0f752"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/mesa_plateau_fog_setting.json",
+      "sha256": "533165407a7a9b8625f1abb56d4155f18cc70abe6191dd9dc99af1595a1562e8"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/mesa_plateau_stone_fog_setting.json",
+      "sha256": "fb6cbec2245d78fb48e61aee519ab04973d49d2e8ca5eed1908c528be3f31129"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/mushroom_island_fog_setting.json",
+      "sha256": "c9bdc3b3683bf58029ca3ae7bef08d9606e7fbe8874df3e51e29c65e033db60d"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/mushroom_island_shore_fog_setting.json",
+      "sha256": "a727ea737dc3cb67acfa291d0edef1eee3a1714cad10fdb82fcd627d4d1b270f"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/plains_fog_setting.json",
+      "sha256": "0f02773a5d621c8d9ca507b276ba655c77dbc3ef281ebdbc4920a87ba02f3ee8"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/river_fog_setting.json",
+      "sha256": "77dbd6b3f3b1c17d866fbe5d0e22a5ed04bc2f1e0797b49c0119717acd52e30c"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/roofed_forest_fog_setting.json",
+      "sha256": "1858a749d2c23f0511a27328c20731bf6dded4e26e4175d09340cadc04b9cc4a"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/savanna_fog_setting.json",
+      "sha256": "02086e2b9a2845f796cb17139df716d9c2767f0caad454092018e4f2a925d3f4"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/savanna_mutated_fog_setting.json",
+      "sha256": "c1f2508253602296b31c5082605e466cbd428665f81a29a35aaa1e6ef72d7f52"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/savanna_plateau_fog_setting.json",
+      "sha256": "7bce06c00d48490d36b38948b3e9adbf270632caed419cd9e238789a224e4c5a"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/stone_beach_fog_setting.json",
+      "sha256": "e165dee6d194fb2fce65304ee7fb290606b51b78d2cb8d78083243a28c98268f"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/sunflower_plains_fog_setting.json",
+      "sha256": "8d6d51d9c99d2f1e142e018b5b77831ff93a883322e88beb6e4390d77cb12208"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/swampland_fog_setting.json",
+      "sha256": "a1e0458ec81feba9ebcca52499cc393a9e342d97f8ccc3a8b80e2fd196b9f180"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/swampland_mutated_fog_setting.json",
+      "sha256": "42e2cb01ce7ae5b7d1043a77f53502685c2ed265edfd4d1108760413bab43748"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/taiga_fog_setting.json",
+      "sha256": "6e5a4981ad08a50015b5277a82c96a1ae22de7ec9a64e8195996210454be6271"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/taiga_hills_fog_setting.json",
+      "sha256": "d0038dcc0e9f00ff456a017eefa9697312583abebfdde7e9822459a7b2ffdd8d"
+    },
+    {
+      "path": "vanilla_1.18.0/fogs/taiga_mutated_fog_setting.json",
+      "sha256": "e0b138688ccd6d50327509615b4555e5a79ab385a7f8adfee4ecac168b83dbd2"
+    },
+    {
+      "path": "vanilla_1.19.0/biomes_client.json",
+      "sha256": "3c3cdd56747af7927abfda2b800e93df864be9eff6d5d72314bc1a7220330763"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/bamboo_jungle_fog_setting.json",
+      "sha256": "8a49996a07ddec9c73cae64111e2a4119cb36a69d25a903c2805f22c2755899b"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/bamboo_jungle_hills_fog_setting.json",
+      "sha256": "21ceb159310936608c3ae5851d8def57afa84af53421d5057835d466bbb23c4a"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/basalt_deltas_fog_setting.json",
+      "sha256": "fd7ae51e6a3c1ae460af832e8c71bd96182e9e6ec00471c43e557cf7575d1134"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/beach_fog_setting.json",
+      "sha256": "c685ac857a127fe8047f4bf8b72a90842e0c2f2bc07a93225b6a8f1b22ccfc88"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/birch_forest_fog_setting.json",
+      "sha256": "f40c4887dd10c76a8005401514bbcc86e8a92c0993f099256ad3de2016c1afce"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/birch_forest_hills_fog_setting.json",
+      "sha256": "8390f71c405ef7a36b9e71313ba6d4e2891141ba0a317b2a7ced2b152ebbab5f"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/cold_beach_fog_setting.json",
+      "sha256": "6a91ffa15348d30e4f1577f854398184996b93f4d95bd59c6a8cbc1c2a46dbf9"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/cold_ocean_fog_setting.json",
+      "sha256": "c14dd3d2c1487350cd43643f45ae2ee4f1566d0a76fa9370eab81463e9e5fd6e"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/cold_taiga_fog_setting.json",
+      "sha256": "fb9eb6f3c040b9f36d1bb3d58f45430401d87d03be4e2f344c686b01356384a8"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/cold_taiga_hills_fog_setting.json",
+      "sha256": "751bd323b5b6bc38748fb0e43880fd6a8e398e5685a4f5b58dc3bb51aaa5a4e2"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/cold_taiga_mutated_fog_setting.json",
+      "sha256": "df4ddcde0b297f51dbcb7fbd12919a3b54520ed1b4dea020535210dd78af9302"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/crimson_forest_fog_setting.json",
+      "sha256": "d19182d8874a3ca7e87496b6d25a0609658d04e6e023a444f1a22c26b4baa5d6"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/deep_cold_ocean_fog_setting.json",
+      "sha256": "50a6a61819ca154c10bca0d03c72e13b5bed46da1cd4eaa338ac5684f877ca91"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/deep_frozen_ocean_fog_setting.json",
+      "sha256": "6c9b86473e76128067ce8adb5839c7119d392e6dac8921372382c6a4331c3b95"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/deep_lukewarm_ocean_fog_setting.json",
+      "sha256": "c40d4b789368bb1a3f735de79c3511212ef49d99f26e5042e4a0bab0c461869e"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/deep_ocean_fog_setting.json",
+      "sha256": "b7100144098205baee3e8015bf036dad71c1d5b77fa2df41d6faf6e3fc219c14"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/deep_warm_ocean_fog_setting.json",
+      "sha256": "e2957ba724adbfb79e98fd5192e7b982c182c1ae11302ff2c7644ac7b948a2b9"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/default_fog_setting.json",
+      "sha256": "7d4710628dec8cbbd2e64aad37d9de75624f60f3f691902eb16809f6803d6f83"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/desert_fog_setting.json",
+      "sha256": "0ab311a9bb8fb3994c59bd7028719cec42dbf7709023f3b9c2c9ab9a8855395d"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/desert_hills_fog_setting.json",
+      "sha256": "63c7f71e98ad6f349c914aa51d20b5e77cb9322530d6f6da370560009b055904"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/extreme_hills_edge_fog_setting.json",
+      "sha256": "4a0f2239930f36f31f081739f656c7a60a1743d58ee54cac3f87926209a41afc"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/extreme_hills_fog_setting.json",
+      "sha256": "396ff9c1050d0ceeca5f9bd31c7ce7a5c77fd2815d8268aa6dc962ff9964b241"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/extreme_hills_mutated_fog_setting.json",
+      "sha256": "230bab5c537310059c2462bd0891659d490209ccab8a6d54764a514559d7c7df"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/extreme_hills_plus_trees_fog_setting.json",
+      "sha256": "01c63ae33a1cfd7a9179473b802989006af7d375620e36b8d37de9f5ad502ae3"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/extreme_hills_plus_trees_mutated_fog_setting.json",
+      "sha256": "ec9d58252da9e4840494e420ecb55d1d924026fa5b39f068d0063114a9f62c04"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/flower_forest_fog_setting.json",
+      "sha256": "34fff422a0e701db8c3ae8c8d52eba58448e20fdc91dd295b91ec751535cf679"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/forest_fog_setting.json",
+      "sha256": "a6224928bdd34396c8e853b92a9a13197bf7ca6ca0b35f6cb2484c4a13b526d8"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/forest_hills_fog_setting.json",
+      "sha256": "8ddd2d150ec5b4976b9856699a99fb7c5c1f1bc7ba0b2052fab40fec0cf69039"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/frozen_ocean_fog_setting.json",
+      "sha256": "f82b5c5ba06455048b666cc84183968f6d1ed2325b80983d2e9a5e5099558e00"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/frozen_river_fog_setting.json",
+      "sha256": "922a0ddee6f23da8b2ed37095dc2ff8cee1128303c51ed4bdc5372b25002c265"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/hell_fog_setting.json",
+      "sha256": "76b17740140902817fc46d95c391d6858d8dc03a361197dfe15ea7cbbe7a8751"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/ice_mountains_fog_setting.json",
+      "sha256": "599853d582ba818f01814d042413a7dfe70749b03988c1bdbb033952dda13139"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/ice_plains_fog_setting.json",
+      "sha256": "72c7634bdbe562c1ab70196b4a61f021ef821744b7e1e928824f667300d45642"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/ice_plains_spikes_fog_setting.json",
+      "sha256": "35c827b940784f4ba75bac72ef81997e719327280b2bfc2c989710b46d0722c2"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/jungle_edge_fog_setting.json",
+      "sha256": "a08dfe53c4e2d377ec99f9ea9802a08510c17b046c2b6100d57ded59e4dbc150"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/jungle_fog_setting.json",
+      "sha256": "d341604090c00d92f2440ec54d4e38d38e668d11fd897f99411e9d20094a1791"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/jungle_hills_fog_setting.json",
+      "sha256": "72a53ac89e993f62023b72cf537c2233eb99206a8fc8eb785cf202467971a5cb"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/jungle_mutated_fog_setting.json",
+      "sha256": "961018fb85afa5a72ab0da1ac2259b2e84d7ae5faf88cc3d1550432156b29a5c"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/lukewarm_ocean_fog_setting.json",
+      "sha256": "b267b821680910260e9ea543176d3897fbc45d93da157651df735479a39df816"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/mangrove_swamp_fog_setting.json",
+      "sha256": "db0c6547aa897cba13d94f9ffd64e2ee123fe3629b1c6102cf150b24a44f5812"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/mega_spruce_taiga_fog_setting.json",
+      "sha256": "3137b5ecf5433084c52261da9704daefdc40aee672adae8192059f3f7cff7682"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/mega_spruse_taiga_mutated_fog_setting.json",
+      "sha256": "16e46bda0e09b844025c07e727af2a5c9b80b916026aad2dca9968fe1ca197c6"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/mega_taiga_fog_setting.json",
+      "sha256": "8e698b9e7178d3804d6679832fe748263dc515eb672d7c2e88332c030b9ab5e4"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/mega_taiga_hills_fog_setting.json",
+      "sha256": "20c93583a7c3fd516aa34332ced6466d42368deec92f7638295ca300468d18da"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/mega_taiga_mutated_fog_setting.json",
+      "sha256": "c54e38b726b3a60fbc3b96192c38de2acf01f3d7f3ed849cf885b63bff019df5"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/mesa_bryce_fog_setting.json",
+      "sha256": "6516f09247566fe230ddbd638819a703696d90f2b47f5b06e36ab2e7185e19b5"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/mesa_fog_setting.json",
+      "sha256": "a3cf38c5bfc636c25cb6c35ad8ac7a69622bd8b33d25bcdca267bcce9018e095"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/mesa_mutated_fog_setting.json",
+      "sha256": "306e52c5c84250c8b936d72d06c8f2c83543d41b4ef94b0df02e6255ed1c704b"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/mesa_plateau_fog_setting.json",
+      "sha256": "2d2f0d66e896902c6f499b9b75eda4346d074c70f64f7ba83eeb3b402da85efe"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/mesa_plateau_stone_fog_setting.json",
+      "sha256": "acc73ea155197910d79005c82c494451cf6e780719f5aa7d59564cf9d5ac5d92"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/mushroom_island_fog_setting.json",
+      "sha256": "6c5eb0fab2be8ba16e088ba9002de74ca0f37e018046b252564d257868901134"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/mushroom_island_shore_fog_setting.json",
+      "sha256": "cd2b587c719d84d8ace595f8824bf226868a91ca08fe901507ecbfb3e5cd50d8"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/ocean_fog_setting.json",
+      "sha256": "4a3ac8f044f2f89be97c5798e6e4f1cfd3537c85ddc24a9ae1877649bb3ce8ea"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/plains_fog_setting.json",
+      "sha256": "be73c63cec559e622a6f9d4c278949f4f5d0fc409d4761f181dbb774bb691673"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/river_fog_setting.json",
+      "sha256": "38905c3d3e9ca0dc31c5f0e810ad722d9034c7368a85fbe378813b57404fb2d2"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/roofed_forest_fog_setting.json",
+      "sha256": "19b9a2f9bbc73334cb8974959b2c38c97579d873728a994e9920f01bf222e558"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/savanna_fog_setting.json",
+      "sha256": "3cec03c4d4fc3ae9b2a049225cf3317ee4b5b9c802816b5f58dbf99e3c1c98c1"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/savanna_mutated_fog_setting.json",
+      "sha256": "5e43be24b73e4849e74deb9639731e7d8fa03747ca4ba51f710489686b675f8c"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/savanna_plateau_fog_setting.json",
+      "sha256": "5b5cac7d9488f022dd2e6e3b04eb84d46afe7ed49e84d73ab4f97e7bc18ddc16"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/soulsand_valley_fog_setting.json",
+      "sha256": "7de0af50a9088bce3879cbc18e078474d0c051c78f8516f23cf2c7fd84b3e514"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/stone_beach_fog_setting.json",
+      "sha256": "703a74ea13f0a2910c7ca99309f5970adf1d3b29533b0de48062b74e53cd9047"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/sunflower_plains_fog_setting.json",
+      "sha256": "6b652ac654d9e9426369f0266faa7322da9ed775bb00b9b2c5b2b9f4765f0a90"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/swampland_fog_setting.json",
+      "sha256": "b51deebc2ac71ecd4983bc0514c7d9bdc7f2ca0f9b755127e635081663d58b2b"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/swampland_mutated_fog_setting.json",
+      "sha256": "642fe65b60df4ea84a757295700cd23fe914af7282f530e15c36df5a745358f1"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/taiga_fog_setting.json",
+      "sha256": "538d2ee13855f31cebd61d4f2d30b1ecf06e623ace44f4ae50b70c39f6b23bb7"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/taiga_hills_fog_setting.json",
+      "sha256": "2c120e3ba85100a3de9b0d7c7cb3c39233f7d748d30b9dc84f810633d886c220"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/taiga_mutated_fog_setting.json",
+      "sha256": "438376a97ce9282474a81f22933ce699f1e1a7fb0fc9c08f1f52aa1828e3618d"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/the_end_fog_setting.json",
+      "sha256": "bca3b6d137ff64571ce23fe7a17b40915081938859c8a2034c118d296b6078f8"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/warm_ocean_fog_setting.json",
+      "sha256": "66223d53c8ffbfd1b934a9867a31635368a3aba8b90821afb08bcd86a44cc805"
+    },
+    {
+      "path": "vanilla_1.19.0/fogs/warped_forest_fog_setting.json",
+      "sha256": "fdb29a9d20fa8d963f01e2cb3de460a61ab432390d468232446ba501d9e160a7"
+    },
+    {
+      "path": "vanilla_1.20.0/biomes_client.json",
+      "sha256": "3ad33bb7fe82f3045cf39f012f4293ca1471d0cbde3fd67e8c9589f5bb9447bc"
+    },
+    {
+      "path": "vanilla_1.20.0/fogs/cherry_grove_fog_setting.json",
+      "sha256": "811c5579ad6308be6c2b8563180cac0b793f12745ef31a54fcd5d462e44aa85b"
+    },
+    {
+      "path": "vanilla_1.20.30/fogs/cherry_grove_fog_setting.json",
+      "sha256": "5affad42adfeb054ce96ebc56843574f39815deeb50d774ee3c17754059db19f"
+    }
+  ],
+  "mapping": [
+    {
+      "java": "minecraft:badlands",
+      "bedrock": "mesa",
+      "default_inherited": false,
+      "surface": "#4E7F81",
+      "fog": "#4E7F81",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/mesa_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:bamboo_jungle",
+      "bedrock": "bamboo_jungle",
+      "default_inherited": false,
+      "surface": "#14A2C5",
+      "fog": "#14A2C5",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/bamboo_jungle_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:basalt_deltas",
+      "bedrock": "basalt_deltas",
+      "default_inherited": false,
+      "surface": "#3F76E4",
+      "fog": "#423E42",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/basalt_deltas_fog_setting.json",
+      "fog_end": 15.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:beach",
+      "bedrock": "beach",
+      "default_inherited": false,
+      "surface": "#157CAB",
+      "fog": "#157CAB",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/beach_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:birch_forest",
+      "bedrock": "birch_forest",
+      "default_inherited": false,
+      "surface": "#0677CE",
+      "fog": "#0677CE",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/birch_forest_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:cherry_grove",
+      "bedrock": "cherry_grove",
+      "default_inherited": false,
+      "surface": "#5DB7EF",
+      "fog": "#5DB7EF",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.20.30/fogs/cherry_grove_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:cold_ocean",
+      "bedrock": "cold_ocean",
+      "default_inherited": false,
+      "surface": "#2080C9",
+      "fog": "#14559B",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/cold_ocean_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:crimson_forest",
+      "bedrock": "crimson_forest",
+      "default_inherited": false,
+      "surface": "#905957",
+      "fog": "#905957",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/crimson_forest_fog_setting.json",
+      "fog_end": 15.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:dark_forest",
+      "bedrock": "roofed_forest",
+      "default_inherited": false,
+      "surface": "#3B6CD1",
+      "fog": "#3B6CD1",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/roofed_forest_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:deep_cold_ocean",
+      "bedrock": "deep_cold_ocean",
+      "default_inherited": false,
+      "surface": "#2080C9",
+      "fog": "#185390",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/deep_cold_ocean_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:deep_dark",
+      "bedrock": "deep_dark",
+      "default_inherited": true,
+      "surface": "#44AFF5",
+      "fog": "#44AFF5",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/default_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:deep_frozen_ocean",
+      "bedrock": "deep_frozen_ocean",
+      "default_inherited": false,
+      "surface": "#2570B5",
+      "fog": "#1A4879",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/deep_frozen_ocean_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:deep_lukewarm_ocean",
+      "bedrock": "deep_lukewarm_ocean",
+      "default_inherited": false,
+      "surface": "#0D96DB",
+      "fog": "#0E72B9",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/deep_lukewarm_ocean_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:deep_ocean",
+      "bedrock": "deep_ocean",
+      "default_inherited": false,
+      "surface": "#1787D4",
+      "fog": "#1463A5",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/deep_ocean_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:desert",
+      "bedrock": "desert",
+      "default_inherited": false,
+      "surface": "#32A598",
+      "fog": "#32A598",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/desert_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:dripstone_caves",
+      "bedrock": "dripstone_caves",
+      "default_inherited": true,
+      "surface": "#44AFF5",
+      "fog": "#44AFF5",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/default_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:end_barrens",
+      "bedrock": "the_end",
+      "default_inherited": false,
+      "surface": "#62529E",
+      "fog": "#62529E",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/the_end_fog_setting.json",
+      "fog_end": 15.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:end_highlands",
+      "bedrock": "the_end",
+      "default_inherited": false,
+      "surface": "#62529E",
+      "fog": "#62529E",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/the_end_fog_setting.json",
+      "fog_end": 15.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:end_midlands",
+      "bedrock": "the_end",
+      "default_inherited": false,
+      "surface": "#62529E",
+      "fog": "#62529E",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/the_end_fog_setting.json",
+      "fog_end": 15.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:eroded_badlands",
+      "bedrock": "mesa_bryce",
+      "default_inherited": false,
+      "surface": "#497F99",
+      "fog": "#497F99",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/mesa_bryce_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:flower_forest",
+      "bedrock": "flower_forest",
+      "default_inherited": false,
+      "surface": "#20A3CC",
+      "fog": "#20A3CC",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/flower_forest_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:forest",
+      "bedrock": "forest",
+      "default_inherited": false,
+      "surface": "#1E97F2",
+      "fog": "#1E97F2",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/forest_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:frozen_ocean",
+      "bedrock": "frozen_ocean",
+      "default_inherited": false,
+      "surface": "#2570B5",
+      "fog": "#174985",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/frozen_ocean_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:frozen_peaks",
+      "bedrock": "frozen_peaks",
+      "default_inherited": true,
+      "surface": "#44AFF5",
+      "fog": "#44AFF5",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/default_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:frozen_river",
+      "bedrock": "frozen_river",
+      "default_inherited": false,
+      "surface": "#185390",
+      "fog": "#185390",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/frozen_river_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:grove",
+      "bedrock": "grove",
+      "default_inherited": true,
+      "surface": "#44AFF5",
+      "fog": "#44AFF5",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/default_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:ice_spikes",
+      "bedrock": "ice_plains_spikes",
+      "default_inherited": false,
+      "surface": "#14559B",
+      "fog": "#14559B",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/ice_plains_spikes_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:jagged_peaks",
+      "bedrock": "jagged_peaks",
+      "default_inherited": true,
+      "surface": "#44AFF5",
+      "fog": "#44AFF5",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/default_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:jungle",
+      "bedrock": "jungle",
+      "default_inherited": false,
+      "surface": "#14A2C5",
+      "fog": "#14A2C5",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/jungle_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:lukewarm_ocean",
+      "bedrock": "lukewarm_ocean",
+      "default_inherited": false,
+      "surface": "#0D96DB",
+      "fog": "#0A74C4",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/lukewarm_ocean_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:lush_caves",
+      "bedrock": "lush_caves",
+      "default_inherited": true,
+      "surface": "#44AFF5",
+      "fog": "#44AFF5",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/default_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:mangrove_swamp",
+      "bedrock": "mangrove_swamp",
+      "default_inherited": false,
+      "surface": "#3A7A6A",
+      "fog": "#4D7A60",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/mangrove_swamp_fog_setting.json",
+      "fog_end": 30,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:meadow",
+      "bedrock": "meadow",
+      "default_inherited": true,
+      "surface": "#44AFF5",
+      "fog": "#44AFF5",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/default_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:mushroom_fields",
+      "bedrock": "mushroom_island",
+      "default_inherited": false,
+      "surface": "#8A8997",
+      "fog": "#8A8997",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/mushroom_island_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:nether_wastes",
+      "bedrock": "hell",
+      "default_inherited": false,
+      "surface": "#905957",
+      "fog": "#905957",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/hell_fog_setting.json",
+      "fog_end": 15.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:ocean",
+      "bedrock": "ocean",
+      "default_inherited": false,
+      "surface": "#1787D4",
+      "fog": "#1165B0",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/ocean_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:old_growth_birch_forest",
+      "bedrock": "birch_forest",
+      "default_inherited": false,
+      "surface": "#0677CE",
+      "fog": "#0677CE",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/birch_forest_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": "Birch-family color mapping"
+    },
+    {
+      "java": "minecraft:old_growth_pine_taiga",
+      "bedrock": "mega_taiga",
+      "default_inherited": false,
+      "surface": "#2D6D77",
+      "fog": "#2D6D77",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/mega_taiga_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:old_growth_spruce_taiga",
+      "bedrock": "mega_spruce_taiga",
+      "default_inherited": false,
+      "surface": "#2D6D77",
+      "fog": "#2D6D77",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/mega_spruce_taiga_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:plains",
+      "bedrock": "plains",
+      "default_inherited": false,
+      "surface": "#44AFF5",
+      "fog": "#44AFF5",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/plains_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:river",
+      "bedrock": "river",
+      "default_inherited": false,
+      "surface": "#0084FF",
+      "fog": "#0084FF",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/river_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:savanna",
+      "bedrock": "savanna",
+      "default_inherited": false,
+      "surface": "#2C8B9C",
+      "fog": "#2C8B9C",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/savanna_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:savanna_plateau",
+      "bedrock": "savanna_plateau",
+      "default_inherited": false,
+      "surface": "#2590A8",
+      "fog": "#2590A8",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/savanna_plateau_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:small_end_islands",
+      "bedrock": "the_end",
+      "default_inherited": false,
+      "surface": "#62529E",
+      "fog": "#62529E",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/the_end_fog_setting.json",
+      "fog_end": 15.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:snowy_beach",
+      "bedrock": "cold_beach",
+      "default_inherited": false,
+      "surface": "#1463A5",
+      "fog": "#1463A5",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/cold_beach_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:snowy_plains",
+      "bedrock": "ice_plains",
+      "default_inherited": false,
+      "surface": "#14559B",
+      "fog": "#14559B",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/ice_plains_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:snowy_slopes",
+      "bedrock": "snowy_slopes",
+      "default_inherited": true,
+      "surface": "#44AFF5",
+      "fog": "#44AFF5",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/default_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:snowy_taiga",
+      "bedrock": "cold_taiga",
+      "default_inherited": false,
+      "surface": "#205E83",
+      "fog": "#205E83",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/cold_taiga_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:soul_sand_valley",
+      "bedrock": "soulsand_valley",
+      "default_inherited": false,
+      "surface": "#905957",
+      "fog": "#905957",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/soulsand_valley_fog_setting.json",
+      "fog_end": 15.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:sparse_jungle",
+      "bedrock": "jungle_edge",
+      "default_inherited": false,
+      "surface": "#0D8AE3",
+      "fog": "#0D8AE3",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/jungle_edge_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:stony_peaks",
+      "bedrock": "stony_peaks",
+      "default_inherited": true,
+      "surface": "#44AFF5",
+      "fog": "#44AFF5",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/default_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:stony_shore",
+      "bedrock": "stone_beach",
+      "default_inherited": false,
+      "surface": "#0D67BB",
+      "fog": "#0D67BB",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/stone_beach_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:sunflower_plains",
+      "bedrock": "sunflower_plains",
+      "default_inherited": false,
+      "surface": "#44AFF5",
+      "fog": "#44AFF5",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/sunflower_plains_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:swamp",
+      "bedrock": "swampland",
+      "default_inherited": false,
+      "surface": "#4C6559",
+      "fog": "#4C6559",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/swampland_fog_setting.json",
+      "fog_end": 30,
+      "surface_transparency": 1.0,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:taiga",
+      "bedrock": "taiga",
+      "default_inherited": false,
+      "surface": "#287082",
+      "fog": "#287082",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/taiga_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:the_end",
+      "bedrock": "the_end",
+      "default_inherited": false,
+      "surface": "#62529E",
+      "fog": "#62529E",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/the_end_fog_setting.json",
+      "fog_end": 15.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:the_void",
+      "bedrock": "the_void",
+      "default_inherited": true,
+      "surface": "#44AFF5",
+      "fog": "#44AFF5",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/default_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:warm_ocean",
+      "bedrock": "warm_ocean",
+      "default_inherited": false,
+      "surface": "#02B0E5",
+      "fog": "#0289D5",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/warm_ocean_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.55,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:warped_forest",
+      "bedrock": "warped_forest",
+      "default_inherited": false,
+      "surface": "#905957",
+      "fog": "#905957",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/warped_forest_fog_setting.json",
+      "fog_end": 15.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:windswept_forest",
+      "bedrock": "extreme_hills_plus_trees",
+      "default_inherited": false,
+      "surface": "#0E63AB",
+      "fog": "#0E63AB",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/extreme_hills_plus_trees_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:windswept_gravelly_hills",
+      "bedrock": "extreme_hills_mutated",
+      "default_inherited": false,
+      "surface": "#0E63AB",
+      "fog": "#0E63AB",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/extreme_hills_mutated_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:windswept_hills",
+      "bedrock": "extreme_hills",
+      "default_inherited": false,
+      "surface": "#007BF7",
+      "fog": "#007BF7",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/extreme_hills_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:windswept_savanna",
+      "bedrock": "savanna_mutated",
+      "default_inherited": false,
+      "surface": "#2590A8",
+      "fog": "#2590A8",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/savanna_mutated_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    },
+    {
+      "java": "minecraft:wooded_badlands",
+      "bedrock": "mesa_plateau_stone",
+      "default_inherited": false,
+      "surface": "#55809E",
+      "fog": "#55809E",
+      "surface_source": "vanilla_1.20.0/biomes_client.json",
+      "fog_source": "vanilla_1.19.0/fogs/mesa_plateau_stone_fog_setting.json",
+      "fog_end": 60.0,
+      "surface_transparency": 0.65,
+      "alias_note": ""
+    }
+  ]
+}

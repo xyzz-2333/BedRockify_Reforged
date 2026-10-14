@@ -42,6 +42,7 @@ public class Overlay {
      * Renders the text components for the player position and client fps.
      */
     private void renderText(DrawContext drawContext) {
+        if (client.player == null || client.getCameraEntity() == null || BedrockifyClient.getInstance().hudOpacity.getHudOpacity(false) < 0.016F) return;
         fps = Text.translatable("bedrockify.hud.fps").append(" " + this.client.fpsDebugString.split(" fps")[0].trim());
         renderPositionText(drawContext);
         renderFpsText(drawContext);

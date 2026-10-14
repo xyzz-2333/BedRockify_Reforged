@@ -53,7 +53,13 @@
     "client.features.survivalInventory.HandledScreenMixin",
     "client.features.survivalInventory.RecipeBookWidgetMixin",
     "client.features.survivalInventory.JeiRecipeBookGuiHandlerMixin",
-    "client.features.survivalInventory.JeiCraftingClickAreaMixin"
+    "client.features.survivalInventory.JeiCraftingClickAreaMixin",
+    "client.features.screenSafeArea.ForgeGuiMixin",
+    "client.features.sneakingShield.MinecraftClientMixin",
+    "client.features.biomeWaterColors.BiomeMixin",
+    "client.features.armorStand.GameRendererMixin",
+    "client.features.sneakingShield.ClientPlayerEntityMixin",
+    "client.features.armorStand.ArmorStandEntityModelMixin"
   ],
   "mixins": [
     "common.features.animalEatingParticles.AnimalEntityMixin",
@@ -75,7 +81,9 @@
     "common.features.recipes.ShulkerBoxColoringRecipeMixin",
     "common.features.worldGeneration.TreeConfiguredFeaturesInvoker",
     "common.features.mechanics.HungerManagerMixin",
-    "common.features.mechanics.PlayerEntityMixin"
+    "common.features.mechanics.PlayerEntityMixin",
+    "common.features.armorStand.ArmorStandEntityMixin",
+    "common.features.mechanics.DamageEnchantmentMixin"
   ],
   "injectors": {
     "defaultRequire": 1

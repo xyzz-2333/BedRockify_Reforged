@@ -19,7 +19,7 @@ public abstract class InGameHudMixin {
     /**
      * Set the screenBorder area before anything renders.
      */
-    @Inject(method = "render", at = @At("HEAD"))
+    @Inject(method = {"render", "renderHotbar", "renderExperienceBar", "renderMountJumpBar", "renderStatusEffectOverlay"}, at = @At("HEAD"))
     private void setScreenBorder(CallbackInfo info) {
         this.screenBorder = BedrockifyClient.getInstance().settings.getScreenSafeArea();
     }
@@ -83,6 +83,7 @@ public abstract class InGameHudMixin {
     @Redirect(method = "renderExperienceBar", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;drawText(Lnet/minecraft/client/font/TextRenderer;Ljava/lang/String;IIIZ)I"))
     private int drawExperienceBar(DrawContext drawContext, TextRenderer textRenderer, String text, int x, int y, int color, boolean shadow) {
         int alpha = (int) Math.ceil(BedrockifyClient.getInstance().hudOpacity.getHudOpacity(false)*255);
+        if (alpha < 4) return 0;
 
         if(!BedrockifyClient.getInstance().settings.isExpTextStyle()){
             return drawContext.drawText(textRenderer, text, x, y-screenBorder, color | ((alpha) << 24),false);

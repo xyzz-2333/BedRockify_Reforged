@@ -85,7 +85,10 @@ public class BedrockifyClient {
                         .map(WaterCauldronBlockEntity::getTintColor).orElse(-1);
             }, BedrockCauldronBlocks.POTION_CAULDRON, BedrockCauldronBlocks.COLORED_WATER_CAULDRON);
         });
-        bus.addListener((RegisterClientReloadListenersEvent event) -> event.registerReloadListener(new SheepSkinResource()));
+        bus.addListener((RegisterClientReloadListenersEvent event) -> {
+            event.registerReloadListener(new SheepSkinResource());
+            event.registerReloadListener(new dev.bedrockify.forge.client.features.biomeWaterColors.BedrockWaterColors());
+        });
         MinecraftForge.EVENT_BUS.addListener((RenderGuiEvent.Post event) -> {
             if (instance.overlay != null) instance.overlay.renderOverlay(event.getGuiGraphics());
         });
@@ -122,6 +125,7 @@ public class BedrockifyClient {
     }
 
     private void tick(MinecraftClient client) {
+            dev.bedrockify.forge.client.features.sneakingShield.SneakingShield.tick(client);
 
             while (keyBinding != null && keyBinding.wasPressed()){
                 client.setScreen(settingsGUI.getConfigScreen(client.currentScreen,true));

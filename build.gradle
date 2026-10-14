@@ -30,6 +30,26 @@ dependencies {
     modImplementation "me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}"
 }
 sourceSets.main.resources.srcDir 'src/main/generated'
+if (project.hasProperty('alpha14Regression')) {
+    sourceSets.main.java.srcDir 'docs/tools/alpha14-regression'
+    loom.runs.client.runDir 'run/alpha14-regression'
+    loom.runs.client.programArgs '--quickPlaySingleplayer', 'regression'
+}
+if (project.hasProperty('armorStandGameTests')) {
+    sourceSets.main.java.srcDir 'docs/tools/armorstand-tests'
+    sourceSets.main.resources.srcDir 'docs/tools/armorstand-tests/resources'
+    loom.runs.server.vmArg '-Dforge.gameTestServer=true'
+    loom.runs.server.vmArg '-Dforge.enabledGameTestNamespaces=bedrockify'
+    loom.runs.server.runDir 'run/armorstand-tests'
+}
+if (project.hasProperty('alpha14ClientSmoke')) {
+    sourceSets.main.java.srcDir 'docs/tools/client-smoke-tests'
+    loom.runs.client.runDir 'run/alpha14-client-smoke'
+}
+if (project.hasProperty('waterColorClientSmoke')) {
+    sourceSets.main.java.srcDir 'docs/tools/water-color-tests'
+    loom.runs.client.runDir 'run/alpha15-water-smoke'
+}
 processResources {
     exclude '.cache/**'
     inputs.property 'version', project.version

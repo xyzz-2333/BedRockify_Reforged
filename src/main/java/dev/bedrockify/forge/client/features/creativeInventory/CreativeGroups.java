@@ -21,7 +21,8 @@ public final class CreativeGroups {
             "leggings", "boots", "swords", "axes", "pickaxes", "shovels", "hoes", "cooked_food", "raw_food", "banners",
             "beds", "candles", "chests", "shulker_boxes", "signs", "hanging_signs", "boats", "chest_boats", "music_discs",
             "anvils", "potions", "splash_potions", "lingering_potions", "tipped_arrows", "enchanted_books", "dyes",
-            "buttons", "pressure_plates", "rails", "skulls", "elements", "chlorides");
+            "buttons", "pressure_plates", "rails", "skulls", "copper_blocks", "goat_horns", "paintings",
+            "infested_blocks", "banner_patterns", "pottery_sherds", "armor_trim_templates", "elements", "chlorides");
 
     public static String family(ItemStack stack) {
         Identifier id = Registries.ITEM.getId(stack.getItem());
@@ -32,6 +33,15 @@ public final class CreativeGroups {
         // Unknown mod families remain fully visible instead of guessing from their display names.
         if (!id.getNamespace().equals("minecraft")) return null;
         String p = id.getPath();
+        String copper=p.startsWith("waxed_") ? p.substring(6) : p;
+        if (Set.of("copper_block", "exposed_copper", "weathered_copper", "oxidized_copper").contains(copper)
+                || copper.matches("(?:(?:exposed|weathered|oxidized)_)?cut_copper(?:_stairs|_slab)?")) return "copper_blocks";
+        if (p.equals("goat_horn")) return "goat_horns";
+        if (p.equals("painting")) return "paintings";
+        if (p.startsWith("infested_")) return "infested_blocks";
+        if (p.endsWith("_banner_pattern")) return "banner_patterns";
+        if (p.endsWith("_pottery_sherd")) return "pottery_sherds";
+        if (p.endsWith("_armor_trim_smithing_template")) return "armor_trim_templates";
         if (p.endsWith("_hanging_sign")) return "hanging_signs";
         if (p.endsWith("_sign")) return "signs";
         if (p.endsWith("_chest_boat") || p.equals("bamboo_chest_raft")) return "chest_boats";

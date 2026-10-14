@@ -42,6 +42,12 @@ def main():
     for source in (REPO / 'src/main/java').rglob('*.java'):
         literal_keys.update(re.findall(r'Text\.translatable\("(bedrockify\.[^"]+)"', source.read_text(encoding='utf-8')))
     literal_keys = {key for key in literal_keys if not key.endswith('.')}
+    feature_manager = REPO / 'src/main/java/dev/bedrockify/forge/mixin/featureManager/MixinFeatureManager.java'
+    for feature in re.findall(r'features.put\("([^"]+)"', feature_manager.read_text(encoding='utf-8')):
+        literal_keys.update('bedrockify.options.mixin.' + feature + suffix for suffix in ('', '.tooltip'))
+    pose_manifest = REPO / 'docs/armor_stand_poses.json'
+    if pose_manifest.exists():
+        literal_keys.update('bedrockify.armorStand.pose.' + pose for pose in load(pose_manifest)['pose_order'])
     for locale in ('en_us', 'zh_cn'):
         lang = load(ASSETS / 'lang' / (locale + '.json'))
         missing = sorted(literal_keys - lang.keys())

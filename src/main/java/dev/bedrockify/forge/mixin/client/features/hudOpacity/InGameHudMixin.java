@@ -21,11 +21,16 @@ public class InGameHudMixin {
     public void resetShaderColorOpacity(float tickDelta, DrawContext context, CallbackInfo ci){
         RenderSystem.setShaderColor(1,1,1,1);
     }
-    @Inject(method = "renderExperienceBar", at= @At("HEAD"))
-    public void experienceBar(DrawContext context, int x, CallbackInfo ci){
+    @Inject(method = {"renderExperienceBar", "renderMountJumpBar"}, at= @At("HEAD"))
+    public void experienceBar(CallbackInfo ci){
         RenderSystem.enableBlend();
         RenderSystem.defaultBlendFunc();
         RenderSystem.setShaderColor(1,1,1,BedrockifyClient.getInstance().hudOpacity.getHudOpacity(false));
+    }
+
+    @Inject(method = {"renderExperienceBar", "renderMountJumpBar"}, at = @At("RETURN"))
+    private void bedrockify$resetBarOpacity(CallbackInfo ci) {
+        RenderSystem.setShaderColor(1,1,1,1);
     }
 
     @Inject(method = "render", at=@At(value = "INVOKE",target = "Lnet/minecraft/client/network/ClientPlayerInteractionManager;hasStatusBars()Z"))

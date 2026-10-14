@@ -1,6 +1,7 @@
 package dev.bedrockify.forge.mixin.client.features.worldColorNoise;
 
 import dev.bedrockify.forge.client.BedrockifyClient;
+import dev.bedrockify.forge.client.features.biomeWaterColors.BedrockWaterColors;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockRenderView;
@@ -19,6 +20,7 @@ public class BiomeColorsMixin {
 
     @Inject(method = "getWaterColor", at=@At("RETURN"), cancellable = true)
     private static void getWaterColorWithNoise(BlockRenderView world, BlockPos pos, CallbackInfoReturnable<Integer> info){
+        if (BedrockWaterColors.enabled() && !BedrockifyClient.getInstance().settings.bedrockWaterColorNoise) return;
         info.setReturnValue(BedrockifyClient.getInstance().worldColorNoiseSampler.applyNoise(pos,info.getReturnValue(),15f,0.06f));
     }
 }

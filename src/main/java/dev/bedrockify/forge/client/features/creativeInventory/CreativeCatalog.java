@@ -67,6 +67,9 @@ public final class CreativeCatalog {
         String path = id.getPath();
         if (id.getNamespace().equals("minecraft")) {
             String family = CreativeGroups.family(stack);
+            if ("copper_blocks".equals(family)) return Category.CONSTRUCTION;
+            if ("goat_horns".equals(family)) return Category.EQUIPMENT;
+            if (family != null && Set.of("paintings", "infested_blocks", "banner_patterns", "pottery_sherds", "armor_trim_templates").contains(family)) return Category.ITEMS;
             if (family != null && Set.of("logs", "stripped_logs", "wood", "stripped_wood", "leaves", "saplings",
                     "flowers", "coral", "coral_fans", "coral_blocks", "ores", "seeds", "spawn_eggs", "raw_food", "dyes").contains(family)) return Category.NATURE;
             if (family != null && Set.of("beds", "candles", "banners", "shulker_boxes", "chests", "signs", "hanging_signs",

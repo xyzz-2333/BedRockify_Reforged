@@ -15,13 +15,14 @@ import net.minecraft.util.math.MathHelper;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
 
-import java.util.Arrays;
+
 
 public class PaperDoll {
     private final MinecraftClient client;
-    private final int size = 20;
+    private int size = 20;
     private int posY = 60;
-    private long lastTimeShown = 0;
+    private int visibleUntilTick = -1;
+    private ClientPlayerEntity lastPlayer;
     private BedrockifyClientSettings settings;
     /**
      * Uses in method <code>drawPaperDoll</code>; the custom shading vectors.
@@ -35,13 +36,14 @@ public class PaperDoll {
         this.client = client;
     }
 
-    private static final boolean supportsCrawling = Arrays.stream(EntityPose.values()).anyMatch(pose -> pose.name().equals("CRAWLING"));
+
     /**
      * Render the player at the top left of the screen.
-     * The player will be rendered only when the player is not riding another entity, and it is sneaking, running, using elytra, using an item, underwater, or using a shield.
+     * Shows action poses including swimming/crawling, flying, using items, blocking and riding.
      */
     public void renderPaperDoll(DrawContext drawContext) {
         settings = BedrockifyClient.getInstance().settings;
+        size = MathHelper.clamp(settings.paperDollSize, 10, 40);
         if (!settings.isShowPaperDollEnabled())
             return;
 
@@ -58,12 +60,13 @@ public class PaperDoll {
         }
 
         if (client.player != null) {
+            if (lastPlayer != client.player) { lastPlayer = client.player; visibleUntilTick = -1; }
             //If the player does an action that must show the player entity gui, set the counter to the current time.
-            if (client.player.isSneaking() || client.player.isSubmergedInWater() || client.player.getPose().equals(EntityPose.SWIMMING) || client.player.isSprinting() || client.player.getAbilities().flying || client.player.isFallFlying() || client.player.isBlocking() || client.player.isUsingItem() || (supportsCrawling && client.player.getPose() == EntityPose.valueOf("CRAWLING")))
-                lastTimeShown = System.currentTimeMillis();
+            if (client.player.isSneaking() || client.player.isSubmergedInWater() || client.player.getPose().equals(EntityPose.SWIMMING) || client.player.isSprinting() || client.player.getAbilities().flying || client.player.isFallFlying() || client.player.isBlocking() || client.player.isUsingItem() || client.player.isRiding())
+                visibleUntilTick = client.player.age + MathHelper.clamp(settings.paperDollTimeoutTicks, 0, 200);
 
-            // If the difference between the current game ticks and showTicks is less than 100 ticks, draw the player entity.
-            if ((!client.player.isRiding() && !client.player.isSleeping() && System.currentTimeMillis() - lastTimeShown < 2000))
+            // Game ticks keep the display timeout stable across pause and wall-clock changes.
+            if (!client.player.isSleeping() && (settings.paperDollAlwaysVisible || client.player.age <= visibleUntilTick))
                 drawPaperDoll(drawContext);
         }
     }
@@ -84,14 +87,16 @@ public class PaperDoll {
         if (player.isFallFlying())
             renderPosY = posY - MathHelper.ceil(size * 2 * toMaxAngleRatio(player.getPitch()));
         // If the player is swimming, the entity must also be centered in the Y axis.
-        else if (player.isSwimming()) {
+        else if (player.getPose() == EntityPose.SWIMMING) {
             renderPosY = posY - size;
         }
 
         // Position the entity on screen.
-        int posX = 30;
+        int posX = MathHelper.clamp(settings.paperDollX, size, Math.max(size, drawContext.getScaledWindowWidth() - size));
         int safeArea = settings.overlayIgnoresSafeArea? 0 : settings.getScreenSafeArea();
-        matrixStack.translate(posX + safeArea, renderPosY + safeArea, 0);
+        int x = MathHelper.clamp(posX + safeArea, size, Math.max(size, drawContext.getScaledWindowWidth() - size));
+        int y = MathHelper.clamp(renderPosY + safeArea, size * 2, Math.max(size * 2, drawContext.getScaledWindowHeight() - 5));
+        matrixStack.translate(x, y, 0);
         matrixStack.scale((float) size, (float) size, -(float) size);
         Quaternionf quaternion = new Quaternionf().rotateZ((float)Math.PI);
         matrixStack.multiply(quaternion);
@@ -119,19 +124,17 @@ public class PaperDoll {
         EntityRenderDispatcher entityRenderDispatcher = MinecraftClient.getInstance().getEntityRenderDispatcher();
         entityRenderDispatcher.setRenderShadows(false);
         VertexConsumerProvider.Immediate immediate = MinecraftClient.getInstance().getBufferBuilders().getEntityVertexConsumers();
-        RenderSystem.runAsFancy(() -> entityRenderDispatcher.render(player, 0, 0, 0, 0.0F, 1.0F, matrixStack, immediate, 0xF000F0));
-        immediate.draw();
-        entityRenderDispatcher.setRenderShadows(true);
-
-        // Restore previous entity rotations.
-        player.bodyYaw = bodyYaw;
-        player.setYaw(yaw);
-        player.headYaw = headYaw;
-
-        matrixStack.pop();
-
-        // Restore shading.
-        DiffuseLighting.enableGuiDepthLighting();
+        try {
+            RenderSystem.runAsFancy(() -> entityRenderDispatcher.render(player, 0, 0, 0, 0.0F, 1.0F, matrixStack, immediate, 0xF000F0));
+            immediate.draw();
+        } finally {
+            entityRenderDispatcher.setRenderShadows(true);
+            player.bodyYaw = bodyYaw;
+            player.setYaw(yaw);
+            player.headYaw = headYaw;
+            matrixStack.pop();
+            DiffuseLighting.enableGuiDepthLighting();
+        }
     }
 
     private float toMaxAngleRatio(float angle) {
