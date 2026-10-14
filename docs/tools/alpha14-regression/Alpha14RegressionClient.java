@@ -45,6 +45,16 @@ public final class Alpha14RegressionClient {
         if (!prepared) {
             prepared=true;
             verifyModelArms(client);
+            verifyArmPicking(client);
+            if (net.minecraftforge.fml.ModList.get().isLoaded("shouldersurfing")) {
+                try {
+                    var type=Class.forName("com.github.exopandora.shouldersurfing.client.ShoulderSurfingImpl");
+                    var instance=type.getMethod("getInstance").invoke(null);
+                    type.getMethod("setShoulderSurfing",boolean.class).invoke(instance,true);
+                    check((boolean)type.getMethod("isShoulderSurfing").invoke(instance),"Shoulder camera activated");
+                    Bedrockify.LOGGER.info("ALPHA14 SHOULDER CAMERA ACTIVE: rendering regression with shoulder mode enabled");
+                } catch (ReflectiveOperationException e) { throw new IllegalStateException(e); }
+            }
             verifyCatalog(client);
             client.getServer().execute(()-> {
                 var world=client.getServer().getOverworld();
@@ -94,12 +104,46 @@ public final class Alpha14RegressionClient {
         } else {
             if (ticks%30>10) {
                 float expected=stage==1 ? 0.2F : stage==0 ? 0.3F : 0.06F;
-                check(Math.abs(player.input.movementForward-expected)<0.0001,
-                        "Forward slowdown stage "+stage+": "+player.input.movementForward+" expected "+expected);
-                check(Math.abs(player.input.movementSideways-expected)<0.0001,
-                        "Sideways slowdown stage "+stage+": "+player.input.movementSideways+" expected "+expected);
+                if (net.minecraftforge.fml.ModList.get().isLoaded("shouldersurfing")) {
+                    // Shoulder mode rotates the input vector to match its camera; compare speed, not axes.
+                    check(Math.abs(Math.hypot(player.input.movementForward,player.input.movementSideways)-expected*Math.sqrt(2))<0.0001,
+                            "Shoulder movement magnitude stage "+stage);
+                } else {
+                    check(Math.abs(player.input.movementForward-expected)<0.0001,"Forward slowdown stage "+stage);
+                    check(Math.abs(player.input.movementSideways-expected)<0.0001,"Sideways slowdown stage "+stage);
+                }
             }
             ticks++;
+        }
+    }
+
+    private static void verifyArmPicking(MinecraftClient client) {
+        var stand=new ArmorStandEntity(EntityType.ARMOR_STAND,client.world);
+        stand.setPosition(100,200,100);stand.setShowArms(true);
+        stand.setLeftArmRotation(new EulerAngle(0,0,0));stand.setRightArmRotation(new EulerAngle(0,0,0));
+        client.world.addEntity(190000001,stand);
+        boolean enabled=Bedrockify.getInstance().settings.bedrockArmorStand;
+        try {
+            Bedrockify.getInstance().settings.bedrockArmorStand=true;
+            for(int angle=0;angle<360;angle+=45) {
+                stand.setYaw(angle);
+                double yaw=Math.toRadians(angle),c=Math.cos(yaw),s=Math.sin(yaw);
+                Vec3d start=stand.getPos().add(c*0.4+s*2,1.3,s*0.4-c*2);
+                Vec3d end=stand.getPos().add(c*0.4-s*2,1.3,s*0.4+c*2);
+                var box=new Box(start,end).expand(0.1);
+                var camera=client.getCameraEntity();
+                var hit=net.minecraft.entity.projectile.ProjectileUtil.raycast(camera,start,end,box,e->e==stand,16);
+                check(hit!=null && hit.getEntity()==stand,"Arm ray at yaw "+angle);
+                check(net.minecraft.entity.projectile.ProjectileUtil.raycast(camera,start,end,box,e->e==stand,1)==null,"Occlusion/reach limit at yaw "+angle);
+                check(net.minecraft.entity.projectile.ProjectileUtil.raycast(camera,start,end,box,e->false,16)==null,"Caller predicate respected");
+                Bedrockify.getInstance().settings.bedrockArmorStand=false;
+                check(net.minecraft.entity.projectile.ProjectileUtil.raycast(camera,start,end,box,e->e==stand,16)==null,"Disabled arm extension");
+                Bedrockify.getInstance().settings.bedrockArmorStand=true;
+            }
+            Bedrockify.LOGGER.info("ALPHA14 ARM PICK PASS: eight directions, caller ray, distance cap, predicate and disabled setting");
+        } finally {
+            Bedrockify.getInstance().settings.bedrockArmorStand=enabled;
+            client.world.removeEntity(stand.getId(),net.minecraft.entity.Entity.RemovalReason.DISCARDED);
         }
     }
 

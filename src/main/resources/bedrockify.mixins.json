@@ -57,7 +57,7 @@
     "client.features.screenSafeArea.ForgeGuiMixin",
     "client.features.sneakingShield.MinecraftClientMixin",
     "client.features.biomeWaterColors.BiomeMixin",
-    "client.features.armorStand.GameRendererMixin",
+    "client.features.armorStand.ProjectileUtilMixin",
     "client.features.sneakingShield.ClientPlayerEntityMixin",
     "client.features.armorStand.ArmorStandEntityModelMixin"
   ],
