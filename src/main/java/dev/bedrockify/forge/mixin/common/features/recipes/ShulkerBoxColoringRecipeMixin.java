@@ -1,5 +1,7 @@
 package dev.bedrockify.forge.mixin.common.features.recipes;
 
+import dev.bedrockify.forge.platform.item.ItemStackData;
+
 import dev.bedrockify.forge.Bedrockify;
 import dev.bedrockify.forge.common.features.recipes.DyeHelper;
 import net.minecraft.block.Block;
@@ -70,9 +72,7 @@ public class ShulkerBoxColoringRecipeMixin {
         }
 
         ItemStack itemStack3 = ShulkerBoxBlock.getItemStack(dyeItem.getColor());
-        if (itemStack.hasNbt()) {
-            itemStack3.setNbt(itemStack.getNbt().copy());
-        }
+        ItemStackData.copyData(itemStack, itemStack3);
 
         cir.setReturnValue(itemStack3);
     }

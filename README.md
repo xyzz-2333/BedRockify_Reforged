@@ -128,6 +128,7 @@ Windows 使用 `gradlew.bat build`、`gradlew.bat runClient`。
 | [docs/ALPHA15.md](docs/ALPHA15.md) | 教育版更新 2、工作站交互、资源来源与实现边界 |
 | [docs/ROADMAP.md](docs/ROADMAP.md) | alpha.13 补齐、alpha.15 教育版更新 2、alpha.16 与未来待办 |
 | [docs/PORTING.md](docs/PORTING.md) | 平台接口替换、alpha.1 验证记录、已知缺口 |
+| [docs/FORWARD_PORTING.md](docs/FORWARD_PORTING.md) | 面向 1.21、26.1 及更高版本的数据边界与移植准备 |
 | [docs/ALPHA14.md](docs/ALPHA14.md) | alpha.14 功能、水色、修复边界、验证记录与实机验收清单 |
 | [docs/ALPHA2.md](docs/ALPHA2.md) ～ [docs/ALPHA11.md](docs/ALPHA11.md) | 每轮改动说明与验证范围 |
 | [docs/qa/README.md](docs/qa/README.md)、[docs/qa/survival/README.md](docs/qa/survival/README.md)、[docs/qa/creative/README.md](docs/qa/creative/README.md) | 开发夹具、命令与结果文件说明 |

@@ -1,5 +1,6 @@
 package dev.bedrockify.forge.tests;
 import dev.bedrockify.forge.common.features.education.*;
+import dev.bedrockify.forge.platform.item.ItemStackData;
 import net.minecraft.block.*;
 import net.minecraft.item.*;
 import net.minecraft.nbt.NbtCompound;
@@ -10,6 +11,32 @@ import net.minecraftforge.gametest.*;
 import net.minecraftforge.common.util.FakePlayerFactory;
 @GameTestHolder("bedrockify") @PrefixGameTestTemplate(false)
 public class Education2GameTests {
+    @GameTest(templateName="empty") public static void itemDataCompatibility(TestContext c){
+        var isotope=EducationContent.element(8,1);
+        var legacy=new NbtCompound();legacy.putInt("Neutrons",10);isotope.setNbt(legacy);
+        c.assertTrue(ItemStackData.neutrons(isotope).orElse(-1)==10,"Existing isotope tag remains readable");
+        var restored=ItemStack.fromNbt(isotope.writeNbt(new NbtCompound()));
+        c.assertTrue(ItemStackData.neutrons(restored).orElse(-1)==10,"Isotope survives full stack save/load");
+        var key=ItemStackData.key(isotope);var keys=new java.util.HashSet<ItemStackData.Key>();keys.add(key);
+        restored.setCount(32);
+        c.assertTrue(keys.contains(ItemStackData.key(restored)),"Catalog identity ignores count");
+        ItemStackData.setNeutrons(isotope,11);
+        c.assertTrue(keys.contains(ItemStackData.key(restored)) && !key.equals(ItemStackData.key(isotope)),"Isotopes differ and source mutation cannot change a stored key");
+        var box=new ItemStack(Items.SHULKER_BOX);var contents=new NbtCompound();contents.putString("CustomName","saved contents");
+        box.getOrCreateNbt().put("BlockEntityTag",contents);box.getOrCreateNbt().putString("OtherModData","keep");
+        box.setCustomName(net.minecraft.text.Text.literal("Named box"));
+        var recolored=new ItemStack(Items.RED_SHULKER_BOX);ItemStackData.copyData(box,recolored);
+        c.assertTrue(recolored.getNbt().equals(box.getNbt()) && recolored.isOf(Items.RED_SHULKER_BOX),"Recoloring preserves all data and target item");
+        contents.putString("CustomName","changed");
+        c.assertTrue(!recolored.getNbt().equals(box.getNbt()),"Copied container data is independent");
+        c.assertTrue(!ItemStackData.neutrons(new ItemStack(Items.STONE)).isPresent(),"Missing neutron value stays absent");
+        var plain=new ItemStack(Items.STONE);var explicitEmpty=new ItemStack(Items.STONE);explicitEmpty.setNbt(new NbtCompound());
+        c.assertTrue(!ItemStackData.key(plain).equals(ItemStackData.key(explicitEmpty)),"Keep legacy null versus empty tag identity");
+        var healing=net.minecraft.potion.PotionUtil.setPotion(new ItemStack(Items.POTION),net.minecraft.potion.Potions.HEALING);
+        var poison=net.minecraft.potion.PotionUtil.setPotion(new ItemStack(Items.POTION),net.minecraft.potion.Potions.POISON);
+        c.assertTrue(!ItemStackData.key(healing).equals(ItemStackData.key(poison)),"Potion variants remain separate catalog entries");
+        c.complete();
+    }
     private static ChemistryStationBlockEntity station(TestContext c,String kind){
         var pos=c.getAbsolutePos(new BlockPos(1,2,1));c.getWorld().setBlockState(pos,EducationContent.BLOCKS.get(kind).getDefaultState());
         return (ChemistryStationBlockEntity)c.getWorld().getBlockEntity(pos);

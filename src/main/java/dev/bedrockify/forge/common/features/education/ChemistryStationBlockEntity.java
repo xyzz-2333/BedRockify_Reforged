@@ -1,4 +1,6 @@
 package dev.bedrockify.forge.common.features.education;
+
+import dev.bedrockify.forge.platform.item.ItemStackData;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.*;
@@ -26,7 +28,7 @@ public final class ChemistryStationBlockEntity extends BlockEntity implements In
         if(kind().equals("element_constructor")) {
             if(particles[0]<1 || particles[0]!=particles[2]) return false;
             output=EducationContent.element(particles[0],1);
-            output.getOrCreateNbt().putInt("Neutrons",particles[1]);
+            ItemStackData.setNeutrons(output,particles[1]);
         } else {
             var recipe=world.getRecipeManager().getAllMatches(ChemistryRecipe.TYPE,this,world).stream().filter(r->r.station.equals(kind())).findFirst();
             if(recipe.isPresent()) {output=recipe.get().craft(this,world.getRegistryManager());recipe.get().consume(this);}

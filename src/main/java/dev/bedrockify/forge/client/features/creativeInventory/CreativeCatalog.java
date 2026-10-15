@@ -1,5 +1,7 @@
 package dev.bedrockify.forge.client.features.creativeInventory;
 
+import dev.bedrockify.forge.platform.item.ItemStackData;
+
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
@@ -50,13 +52,13 @@ public final class CreativeCatalog {
 
     public static List<ItemStack> contents(Category wanted) {
         List<ItemStack> result = new ArrayList<>();
-        Set<StackKey> seen = new HashSet<>();
+        Set<ItemStackData.Key> seen = new HashSet<>();
         for (RegistryKey<ItemGroup> source : SOURCES) {
             ItemGroup group = Registries.ITEM_GROUP.get(source);
             if (group == null) continue;
             // getDisplayStacks includes BuildCreativeModeTabContentsEvent additions and feature filtering.
             for (ItemStack stack : group.getDisplayStacks()) {
-                if (classify(stack, source) == wanted && seen.add(new StackKey(stack))) result.add(stack);
+                if (classify(stack, source) == wanted && seen.add(ItemStackData.key(stack))) result.add(stack);
             }
         }
         return result;
@@ -90,11 +92,6 @@ public final class CreativeCatalog {
         if (source == ItemGroups.NATURAL || source == ItemGroups.SPAWN_EGGS) return Category.NATURE;
         if (source == ItemGroups.TOOLS || source == ItemGroups.COMBAT || source == ItemGroups.FOOD_AND_DRINK) return Category.EQUIPMENT;
         return Category.ITEMS;
-    }
-
-    /** NBT is part of identity: potion, enchantment and mod variants must not disappear. */
-    private record StackKey(net.minecraft.item.Item item, net.minecraft.nbt.NbtCompound nbt) {
-        StackKey(ItemStack stack) { this(stack.getItem(), stack.getNbt() == null ? null : stack.getNbt().copy()); }
     }
 
     private CreativeCatalog() {}
