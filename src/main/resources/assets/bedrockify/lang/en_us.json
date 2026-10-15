@@ -455,7 +455,7 @@
   "item.bedrockify.potassium_chloride": "Potassium Chloride",
   "item.bedrockify.tungsten_chloride": "Tungsten Chloride",
   "bedrockify.options.projectiles": "Bedrock projectile physics",
-  "bedrockify.options.projectiles.tooltip": "Adjusts ender pearls and thrown tridents. Server controlled.",
+  "bedrockify.options.projectiles.tooltip": "Adjusts ender pearls, player-fired arrows, and thrown tridents. Server controlled.",
   "bedrockify.options.portalSpawning": "Portal ignition piglin spawning",
   "bedrockify.options.portalSpawning.tooltip": "Portal ignition adds difficulty-dependent spawning attempts in the Overworld.",
   "bedrockify.options.tridentKiller": "Piston trident killers",

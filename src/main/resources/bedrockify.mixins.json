@@ -78,6 +78,8 @@
     "common.features.mechanics.PlayerEntityMixin",
     "common.features.mechanics.ThrownEntityMixin",
     "common.features.mechanics.ThrownEntityAccessor",
+    "common.features.mechanics.BowItemMixin",
+    "common.features.mechanics.CrossbowItemMixin",
     "common.features.mechanics.TridentItemMixin",
     "common.features.mechanics.PersistentProjectileEntityMixin",
     "common.features.mechanics.EntityMixin",
