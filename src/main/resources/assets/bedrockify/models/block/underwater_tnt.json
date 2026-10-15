@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "bedrockify:block/underwater_tnt_top",
+    "down": "bedrockify:block/underwater_tnt_bottom",
+    "north": "bedrockify:block/underwater_tnt_side",
+    "east": "bedrockify:block/underwater_tnt_side",
+    "south": "bedrockify:block/underwater_tnt_side",
+    "west": "bedrockify:block/underwater_tnt_side",
+    "particle": "bedrockify:block/underwater_tnt_side"
+  }
+}

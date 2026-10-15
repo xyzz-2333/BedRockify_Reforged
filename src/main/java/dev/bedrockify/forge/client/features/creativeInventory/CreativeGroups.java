@@ -22,13 +22,16 @@ public final class CreativeGroups {
             "beds", "candles", "chests", "shulker_boxes", "signs", "hanging_signs", "boats", "chest_boats", "music_discs",
             "anvils", "potions", "splash_potions", "lingering_potions", "tipped_arrows", "enchanted_books", "dyes",
             "buttons", "pressure_plates", "rails", "skulls", "copper_blocks", "goat_horns", "paintings",
-            "infested_blocks", "banner_patterns", "pottery_sherds", "armor_trim_templates", "elements", "chlorides");
+            "infested_blocks", "banner_patterns", "pottery_sherds", "armor_trim_templates", "hardened_glass", "hardened_glass_panes", "elements", "chlorides", "compounds");
 
     public static String family(ItemStack stack) {
         Identifier id = Registries.ITEM.getId(stack.getItem());
         if (id.getNamespace().equals("bedrockify")) {
-            if (id.getPath().startsWith("element_")) return "elements";
+            if (id.getPath().endsWith("hardened_glass_pane")) return "hardened_glass_panes";
+            if (id.getPath().endsWith("hardened_glass")) return "hardened_glass";
+            if (id.getPath().matches("element_[0-9]+")) return "elements";
             if (id.getPath().endsWith("_chloride")) return "chlorides";
+            if (dev.bedrockify.forge.common.features.education.EducationContent.COMPOUNDS.containsKey(id.getPath())) return "compounds";
         }
         // Unknown mod families remain fully visible instead of guessing from their display names.
         if (!id.getNamespace().equals("minecraft")) return null;

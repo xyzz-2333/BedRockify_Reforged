@@ -1,0 +1,11 @@
+{
+  "type": "bedrockify:chemistry",
+  "station": "compound_creator",
+  "inputs": {
+    "bedrockify:element_1": 2,
+    "bedrockify:element_8": 2
+  },
+  "result": {
+    "item": "bedrockify:hydrogen_peroxide"
+  }
+}

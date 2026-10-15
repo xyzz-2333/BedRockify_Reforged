@@ -1,0 +1,672 @@
+{
+  "source": "User-supplied Bedrock chemistry resource pack",
+  "textures": [
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/hardened_glass.png",
+      "source": "textures/blocks/hard_glass.png",
+      "sha256": "815df012fc1b054f99145f796962a51c52e90515c7d0e26662761c4e53c9f95b"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/white_hardened_glass.png",
+      "source": "textures/blocks/hard_glass_white.png",
+      "sha256": "d8c5fcfe22e0f5f4e70bdd0cc12f18c4b6f527c466f178c2926cb32dd205445c"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/orange_hardened_glass.png",
+      "source": "textures/blocks/hard_glass_orange.png",
+      "sha256": "d7c95d9ccd7eb815c5462bef15bbe24e34ab540d69f27abdf6091e6a2f739c59"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/magenta_hardened_glass.png",
+      "source": "textures/blocks/hard_glass_magenta.png",
+      "sha256": "2008a15e48e3fc9124e742116b3c16403e5e8268dfc662e1b7a085476ba0532a"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/light_blue_hardened_glass.png",
+      "source": "textures/blocks/hard_glass_light_blue.png",
+      "sha256": "9ceded0baf468dcf15f9f58db330b250b782da65b1bdb79516df400a2f36490c"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/yellow_hardened_glass.png",
+      "source": "textures/blocks/hard_glass_yellow.png",
+      "sha256": "1484ad8e0a6e7e46cd8e6c180417679c1cf7ed1604c810831bb2c1840b5c403e"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/lime_hardened_glass.png",
+      "source": "textures/blocks/hard_glass_lime.png",
+      "sha256": "fd79f605ba5926f2fe23e7253ad0117e285088e188e2ba7c298fd4746836804e"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/pink_hardened_glass.png",
+      "source": "textures/blocks/hard_glass_pink.png",
+      "sha256": "d9b83fb08252d4d2bcb865896a33defebe2a7198b7f74f46d23948f7dd9edab8"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/gray_hardened_glass.png",
+      "source": "textures/blocks/hard_glass_gray.png",
+      "sha256": "934e72ed3dac1c644b5074bc96ba3c9466d4964da9f1763502ab32c26c9623d6"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/light_gray_hardened_glass.png",
+      "source": "textures/blocks/hard_glass_silver.png",
+      "sha256": "0f73ba011d83945aab6fa4f61b5c94072e5c5314bf7d288056ffcb281aa24ce8"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/cyan_hardened_glass.png",
+      "source": "textures/blocks/hard_glass_cyan.png",
+      "sha256": "298f0bfeea6702e40f8eeb46b5b50f79c209c843669935f4c20001568ddb0d57"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/purple_hardened_glass.png",
+      "source": "textures/blocks/hard_glass_purple.png",
+      "sha256": "cc1d8f29b1fff3a352b1e4b7ebb8d33c6140ad11cb51d0028c9ef9b1ede42251"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/blue_hardened_glass.png",
+      "source": "textures/blocks/hard_glass_blue.png",
+      "sha256": "eb3f8bdb86ebaa5760bd496cdb2d2457eba6039ec06483a0ffdc89014a7185fd"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/brown_hardened_glass.png",
+      "source": "textures/blocks/hard_glass_brown.png",
+      "sha256": "79a1abd76d054aad8ac4711c7553c8b45d5d8c52b5e654e0f02d75e2b62d9264"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/green_hardened_glass.png",
+      "source": "textures/blocks/hard_glass_green.png",
+      "sha256": "0634be4ff4a37918f30c3ab99c23ec329417a5f94d4a49d19edd8f4544b407a1"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/red_hardened_glass.png",
+      "source": "textures/blocks/hard_glass_red.png",
+      "sha256": "0d950e5dd9dd233b8dd500745954f1d45b42d63bdb4e2866c106311cb9a619ec"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/black_hardened_glass.png",
+      "source": "textures/blocks/hard_glass_black.png",
+      "sha256": "399031bac71da0f03b69674248859697dec84c603a22d848063fd073e4c5d354"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/underwater_tnt_top.png",
+      "source": "textures/blocks/tnt_top_underwater.png",
+      "sha256": "6404c4795fae48d80e5326ace50ac5a320138cb44da53eae04f41e379699a09c"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/underwater_tnt_side.png",
+      "source": "textures/blocks/tnt_side_underwater.png",
+      "sha256": "a996fc39328c4a61b14fec1dd4e36891f43825dbf67d420a0c2b6460b7eabad5"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/underwater_tnt_bottom.png",
+      "source": "textures/blocks/tnt_bottom_underwater.png",
+      "sha256": "d146b6ab3cf895e97cba8596d279fe81424e7b30268be80c3cafef8dbd7fd15f"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/element_constructor_top.png",
+      "source": "textures/blocks/element_constructor_top.png",
+      "sha256": "5af98b9a9569953478042616190be9a5713ca05c2fa6485a4d3fd996e8633dbb"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/element_constructor_front.png",
+      "source": "textures/blocks/element_constructor_front.png",
+      "sha256": "59e1c3d0248091227beb5db9094c548099401f3e870e5e9d0f2806e7b7ca36c5"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/element_constructor_back.png",
+      "source": "textures/blocks/element_constructor_back.png",
+      "sha256": "135fcb3f974cbb8c9feca00e25f081548e9c6a05393e73cee006ab317def97b2"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/element_constructor_side_a.png",
+      "source": "textures/blocks/element_constructor_side_a.png",
+      "sha256": "a60a132d7e08d243377c59fb4c69f3d17cdda7b3483311af15e6f1720bb7df01"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/element_constructor_side_b.png",
+      "source": "textures/blocks/element_constructor_side_b.png",
+      "sha256": "aa5ba6ff165bab1b3db8302516301102ca95bbaa3a1411653cd2e3d4b5fb8fad"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/compound_creator_top.png",
+      "source": "textures/blocks/compound_creator_top.png",
+      "sha256": "071ce9d89874840ea4210ee18df444383b7231acc00283733c3389e7fc9edd17"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/compound_creator_inside_bottom.png",
+      "source": "textures/blocks/compound_creator_inside_bottom.png",
+      "sha256": "e4ada54c97c5f5cf4b0e1f406e474c7194cee3c0d0547dd4beea022c8572f8f9"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/compound_creator_side_a.png",
+      "source": "textures/blocks/compound_creator_side_a.png",
+      "sha256": "3be0e419af7a61bac7d52d80cb49fd30ebd3228822cbb857a99459995ac89cca"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/compound_creator_side_b.png",
+      "source": "textures/blocks/compound_creator_side_b.png",
+      "sha256": "e7adf5bfe2b943880c1603eb641a2c96c82951d14a5e77661e81a242982bc585"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/compound_creator_side_c.png",
+      "source": "textures/blocks/compound_creator_side_c.png",
+      "sha256": "6111f866f12e5c560837fe8022d29a8547e0f002bba1155e1f520bba7f080852"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/lab_table_top.png",
+      "source": "textures/blocks/lab_table_top.png",
+      "sha256": "22675ac5ef198b67cd6dd42e1839b3a2eff96a007d65a42e1dfe8f5d1e26ff17"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/lab_table_bottom.png",
+      "source": "textures/blocks/lab_table_bottom.png",
+      "sha256": "08baa4e0beac26baecfd0e56b0437ab88f10261276306ae8612e3f9b33558a1a"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/lab_table_front.png",
+      "source": "textures/blocks/lab_table_front.png",
+      "sha256": "c10aafe4a0ef6bcec5b5737b3e1608d5fb60558637f912e9fbdaa54de8ba4bb9"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/lab_table_side_c.png",
+      "source": "textures/blocks/lab_table_side_c.png",
+      "sha256": "0070ecacf3181591237e96804ad3c70e6fa3a87c4c30da8067481af49e2c950f"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/lab_table_side_a.png",
+      "source": "textures/blocks/lab_table_side_a.png",
+      "sha256": "bcd884dc122961055d28ae1a0de653e117a53f055962ee64334192527165a0ae"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/lab_table_side_b.png",
+      "source": "textures/blocks/lab_table_side_b.png",
+      "sha256": "64d2aa9399355da877680c77403d34299ccac3e57e4fd56779753ca4f9326adc"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/salt.png",
+      "source": "textures/items/compounds/salt.png",
+      "sha256": "9d844e878711e8b710b6cbf3a7612293aa1e4d8ce66776096835b2c27b65cf03"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/sodium_oxide.png",
+      "source": "textures/items/compounds/jar_white.png",
+      "sha256": "acb87937e1fca247cfd89fa2b0838c9ee1b7d2de9e640865cf3479560b87c6c8"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/sodium_hydroxide.png",
+      "source": "textures/items/compounds/jar_white.png",
+      "sha256": "acb87937e1fca247cfd89fa2b0838c9ee1b7d2de9e640865cf3479560b87c6c8"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/magnesium_nitrate.png",
+      "source": "textures/items/compounds/jar_yellow.png",
+      "sha256": "b35e623dc8d9f4eb51903f038ce03f91306d0d89a2ac057369f382cbe55dc02c"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/iron_sulfide.png",
+      "source": "textures/items/compounds/jar_black.png",
+      "sha256": "96ed1c752a21b5e67f6d2d84b66543aafb1b5cc444337d460c58e5a45c6c3ea7"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/lithium_hydride.png",
+      "source": "textures/items/compounds/jar_white.png",
+      "sha256": "acb87937e1fca247cfd89fa2b0838c9ee1b7d2de9e640865cf3479560b87c6c8"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/sodium_hydride.png",
+      "source": "textures/items/compounds/jar_light_grey.png",
+      "sha256": "a3c97076407eb730c3fb074769b889d9ea0f6c123bbbf47ed22bed4bca0cd85a"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/calcium_bromide.png",
+      "source": "textures/items/compounds/jar_white.png",
+      "sha256": "acb87937e1fca247cfd89fa2b0838c9ee1b7d2de9e640865cf3479560b87c6c8"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/magnesium_oxide.png",
+      "source": "textures/items/compounds/jar_white.png",
+      "sha256": "acb87937e1fca247cfd89fa2b0838c9ee1b7d2de9e640865cf3479560b87c6c8"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/sodium_acetate.png",
+      "source": "textures/items/compounds/jar_white.png",
+      "sha256": "acb87937e1fca247cfd89fa2b0838c9ee1b7d2de9e640865cf3479560b87c6c8"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/luminol.png",
+      "source": "textures/items/compounds/jar_clear.png",
+      "sha256": "2a3603faf329ca67262f756026801c95c16f96699a701ac3899c96762fb656df"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/charcoal_compound.png",
+      "source": "textures/items/compounds/jar_black.png",
+      "sha256": "96ed1c752a21b5e67f6d2d84b66543aafb1b5cc444337d460c58e5a45c6c3ea7"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/sugar_compound.png",
+      "source": "textures/items/compounds/jar_white.png",
+      "sha256": "acb87937e1fca247cfd89fa2b0838c9ee1b7d2de9e640865cf3479560b87c6c8"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/aluminum_oxide.png",
+      "source": "textures/items/compounds/jar_brown.png",
+      "sha256": "cefc6afc122a3e2b7331e51e34b5a89c17e79c45cbc0b929b5863cdd7eeee0e6"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/boron_trioxide.png",
+      "source": "textures/items/compounds/jar_white.png",
+      "sha256": "acb87937e1fca247cfd89fa2b0838c9ee1b7d2de9e640865cf3479560b87c6c8"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/soap.png",
+      "source": "textures/items/compounds/jar_white.png",
+      "sha256": "acb87937e1fca247cfd89fa2b0838c9ee1b7d2de9e640865cf3479560b87c6c8"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/polyethylene.png",
+      "source": "textures/items/compounds/jar_clear.png",
+      "sha256": "2a3603faf329ca67262f756026801c95c16f96699a701ac3899c96762fb656df"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/magnesium_salts.png",
+      "source": "textures/items/compounds/jar_white.png",
+      "sha256": "acb87937e1fca247cfd89fa2b0838c9ee1b7d2de9e640865cf3479560b87c6c8"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/sulfate.png",
+      "source": "textures/items/compounds/jar_white.png",
+      "sha256": "acb87937e1fca247cfd89fa2b0838c9ee1b7d2de9e640865cf3479560b87c6c8"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/barium_sulfate.png",
+      "source": "textures/items/compounds/jar_white.png",
+      "sha256": "acb87937e1fca247cfd89fa2b0838c9ee1b7d2de9e640865cf3479560b87c6c8"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/potassium_chloride.png",
+      "source": "textures/items/compounds/jar_white.png",
+      "sha256": "acb87937e1fca247cfd89fa2b0838c9ee1b7d2de9e640865cf3479560b87c6c8"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/mercuric_chloride.png",
+      "source": "textures/items/compounds/jar_white.png",
+      "sha256": "acb87937e1fca247cfd89fa2b0838c9ee1b7d2de9e640865cf3479560b87c6c8"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/cerium_chloride.png",
+      "source": "textures/items/compounds/jar_white.png",
+      "sha256": "acb87937e1fca247cfd89fa2b0838c9ee1b7d2de9e640865cf3479560b87c6c8"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/tungsten_chloride.png",
+      "source": "textures/items/compounds/jar_blue.png",
+      "sha256": "d627daa7d025e010ebb36fcc2497f26e00b465d324bdc8f464c7fb1a03b7489c"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/calcium_chloride.png",
+      "source": "textures/items/compounds/jar_white.png",
+      "sha256": "acb87937e1fca247cfd89fa2b0838c9ee1b7d2de9e640865cf3479560b87c6c8"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/water_compound.png",
+      "source": "textures/items/compounds/beaker_blue.png",
+      "sha256": "2c1a8c32b08947ff0cbb80acfe6bc164b38082e91ff952abf218198065a5d0b9"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/glue.png",
+      "source": "textures/items/compounds/glue.png",
+      "sha256": "1ff0189bcf625639cebe5fe2e647cf7dae62c5a1181bab5f4583417c0922a626"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/hypochlorite.png",
+      "source": "textures/items/compounds/beaker_white.png",
+      "sha256": "96ee89fb43075fc11d1403ad989f8e25d767422706421fb98e689c5def5cd44b"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/crude_oil.png",
+      "source": "textures/items/compounds/beaker_black.png",
+      "sha256": "4e338b37cd11d6e65fecc5cdce70813655ea0d7f72e35ace2ed59f195d75c297"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/latex.png",
+      "source": "textures/items/compounds/beaker_white.png",
+      "sha256": "96ee89fb43075fc11d1403ad989f8e25d767422706421fb98e689c5def5cd44b"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/potassium_iodide.png",
+      "source": "textures/items/compounds/beaker_yellow.png",
+      "sha256": "60c7b0fceaa91cbcbecb229d744eba7197e5479305fd35b087a86d030d08ebb5"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/sodium_fluoride.png",
+      "source": "textures/items/compounds/beaker_white.png",
+      "sha256": "96ee89fb43075fc11d1403ad989f8e25d767422706421fb98e689c5def5cd44b"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/benzene.png",
+      "source": "textures/items/compounds/beaker_yellow.png",
+      "sha256": "60c7b0fceaa91cbcbecb229d744eba7197e5479305fd35b087a86d030d08ebb5"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/ink_compound.png",
+      "source": "textures/items/compounds/beaker_black.png",
+      "sha256": "4e338b37cd11d6e65fecc5cdce70813655ea0d7f72e35ace2ed59f195d75c297"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/hydrogen_peroxide.png",
+      "source": "textures/items/compounds/beaker_clear.png",
+      "sha256": "65671406b996b012f2be881e45cebfb93379a31aa7d1fcec21bc8b32d4e86f62"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/ammonia.png",
+      "source": "textures/items/compounds/beaker_clear.png",
+      "sha256": "65671406b996b012f2be881e45cebfb93379a31aa7d1fcec21bc8b32d4e86f62"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/sodium_hypochlorite.png",
+      "source": "textures/items/compounds/beaker_clear.png",
+      "sha256": "65671406b996b012f2be881e45cebfb93379a31aa7d1fcec21bc8b32d4e86f62"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/garbage.png",
+      "source": "textures/items/compounds/garbage.png",
+      "sha256": "40478aae638c9dfd4703e55a261f7db28431c0a206d77f05406ed622c7ac9ea2"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/bleach.png",
+      "source": "textures/items/bleach.png",
+      "sha256": "50109f86b51260e548edbe9bd40aa02f998f057e38840f8b290874b8771d8105"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/super_fertilizer.png",
+      "source": "textures/items/rapid_fertilizer.png",
+      "sha256": "04eac6a7a932872e85c7a6a30bed2d115c0532e0b69609abc6911634dd5d2b21"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/item/ice_bomb.png",
+      "source": "textures/items/ice_bomb.png",
+      "sha256": "7f8dd79336e6d7186237c99ed3f129b303034593c91f302e862b7416f1411f30"
+    },
+    {
+      "target": "src/main/resources/assets/bedrockify/textures/block/heat_block.png",
+      "source": "textures/blocks/chemical_heat.png",
+      "sha256": "e0c0e93e14f1133cf82e8828b92cdc7a1a133f8f07130a0440df42b4ae49762f"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "salt",
+      "elements": {
+        "11": 1,
+        "17": 1
+      }
+    },
+    {
+      "name": "sodium_oxide",
+      "elements": {
+        "11": 2,
+        "8": 1
+      }
+    },
+    {
+      "name": "sodium_hydroxide",
+      "elements": {
+        "11": 1,
+        "8": 1,
+        "1": 1
+      }
+    },
+    {
+      "name": "magnesium_nitrate",
+      "elements": {
+        "12": 1,
+        "7": 2,
+        "8": 6
+      }
+    },
+    {
+      "name": "iron_sulfide",
+      "elements": {
+        "26": 1,
+        "16": 1
+      }
+    },
+    {
+      "name": "lithium_hydride",
+      "elements": {
+        "3": 1,
+        "1": 1
+      }
+    },
+    {
+      "name": "sodium_hydride",
+      "elements": {
+        "11": 1,
+        "1": 1
+      }
+    },
+    {
+      "name": "calcium_bromide",
+      "elements": {
+        "20": 1,
+        "35": 2
+      }
+    },
+    {
+      "name": "magnesium_oxide",
+      "elements": {
+        "12": 1,
+        "8": 1
+      }
+    },
+    {
+      "name": "sodium_acetate",
+      "elements": {
+        "6": 2,
+        "1": 3,
+        "11": 1,
+        "8": 2
+      }
+    },
+    {
+      "name": "luminol",
+      "elements": {
+        "6": 8,
+        "1": 7,
+        "7": 3,
+        "8": 2
+      }
+    },
+    {
+      "name": "charcoal_compound",
+      "elements": {
+        "6": 7,
+        "1": 4,
+        "8": 1
+      }
+    },
+    {
+      "name": "sugar_compound",
+      "elements": {
+        "6": 6,
+        "1": 12,
+        "8": 6
+      }
+    },
+    {
+      "name": "aluminum_oxide",
+      "elements": {
+        "13": 2,
+        "8": 3
+      }
+    },
+    {
+      "name": "boron_trioxide",
+      "elements": {
+        "5": 2,
+        "8": 3
+      }
+    },
+    {
+      "name": "soap",
+      "elements": {
+        "6": 18,
+        "1": 35,
+        "11": 1,
+        "8": 2
+      }
+    },
+    {
+      "name": "polyethylene",
+      "elements": {
+        "6": 10,
+        "1": 20
+      }
+    },
+    {
+      "name": "magnesium_salts",
+      "elements": {
+        "12": 1,
+        "16": 1,
+        "8": 4
+      }
+    },
+    {
+      "name": "sulfate",
+      "elements": {
+        "16": 1,
+        "8": 4
+      }
+    },
+    {
+      "name": "barium_sulfate",
+      "elements": {
+        "56": 1,
+        "16": 1,
+        "8": 4
+      }
+    },
+    {
+      "name": "potassium_chloride",
+      "elements": {
+        "19": 1,
+        "17": 1
+      }
+    },
+    {
+      "name": "mercuric_chloride",
+      "elements": {
+        "80": 1,
+        "17": 2
+      }
+    },
+    {
+      "name": "cerium_chloride",
+      "elements": {
+        "58": 1,
+        "17": 3
+      }
+    },
+    {
+      "name": "tungsten_chloride",
+      "elements": {
+        "74": 1,
+        "17": 6
+      }
+    },
+    {
+      "name": "calcium_chloride",
+      "elements": {
+        "20": 1,
+        "17": 2
+      }
+    },
+    {
+      "name": "water_compound",
+      "elements": {
+        "1": 2,
+        "8": 1
+      }
+    },
+    {
+      "name": "glue",
+      "elements": {
+        "6": 5,
+        "1": 5,
+        "7": 1,
+        "8": 2
+      }
+    },
+    {
+      "name": "hypochlorite",
+      "elements": {
+        "17": 1,
+        "8": 1
+      }
+    },
+    {
+      "name": "crude_oil",
+      "elements": {
+        "6": 9,
+        "1": 20
+      }
+    },
+    {
+      "name": "latex",
+      "elements": {
+        "6": 5,
+        "1": 8
+      }
+    },
+    {
+      "name": "potassium_iodide",
+      "elements": {
+        "19": 1,
+        "53": 1
+      }
+    },
+    {
+      "name": "sodium_fluoride",
+      "elements": {
+        "11": 1,
+        "9": 1
+      }
+    },
+    {
+      "name": "benzene",
+      "elements": {
+        "6": 6,
+        "1": 6
+      }
+    },
+    {
+      "name": "ink_compound",
+      "elements": {
+        "26": 1,
+        "16": 1,
+        "8": 4
+      }
+    },
+    {
+      "name": "hydrogen_peroxide",
+      "elements": {
+        "1": 2,
+        "8": 2
+      }
+    },
+    {
+      "name": "ammonia",
+      "elements": {
+        "7": 1,
+        "1": 3
+      }
+    },
+    {
+      "name": "sodium_hypochlorite",
+      "elements": {
+        "11": 1,
+        "17": 1,
+        "8": 1
+      }
+    }
+  ]
+}

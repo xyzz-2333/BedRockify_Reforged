@@ -1,0 +1,13 @@
+{
+  "type": "bedrockify:chemistry",
+  "station": "lab_table",
+  "inputs": {
+    "bedrockify:element_26": 1,
+    "bedrockify:water_compound": 1,
+    "bedrockify:charcoal_compound": 1,
+    "bedrockify:salt": 1
+  },
+  "result": {
+    "item": "bedrockify:heat_block"
+  }
+}

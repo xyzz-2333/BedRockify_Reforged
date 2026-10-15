@@ -1,0 +1,11 @@
+{
+  "type": "bedrockify:chemistry",
+  "station": "compound_creator",
+  "inputs": {
+    "bedrockify:element_6": 9,
+    "bedrockify:element_1": 20
+  },
+  "result": {
+    "item": "bedrockify:crude_oil"
+  }
+}

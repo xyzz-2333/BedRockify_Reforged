@@ -1,0 +1,11 @@
+{
+  "type": "bedrockify:chemistry",
+  "station": "compound_creator",
+  "inputs": {
+    "bedrockify:element_6": 5,
+    "bedrockify:element_1": 8
+  },
+  "result": {
+    "item": "bedrockify:latex"
+  }
+}

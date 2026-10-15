@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "bedrockify:block/magenta_hardened_glass",
+    "down": "bedrockify:block/magenta_hardened_glass",
+    "north": "bedrockify:block/magenta_hardened_glass",
+    "south": "bedrockify:block/magenta_hardened_glass",
+    "east": "bedrockify:block/magenta_hardened_glass",
+    "west": "bedrockify:block/magenta_hardened_glass",
+    "particle": "bedrockify:block/magenta_hardened_glass"
+  }
+}

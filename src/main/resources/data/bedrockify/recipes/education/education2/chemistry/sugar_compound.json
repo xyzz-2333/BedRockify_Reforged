@@ -1,0 +1,12 @@
+{
+  "type": "bedrockify:chemistry",
+  "station": "compound_creator",
+  "inputs": {
+    "bedrockify:element_6": 6,
+    "bedrockify:element_1": 12,
+    "bedrockify:element_8": 6
+  },
+  "result": {
+    "item": "bedrockify:sugar_compound"
+  }
+}

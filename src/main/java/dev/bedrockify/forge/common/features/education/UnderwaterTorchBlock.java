@@ -11,7 +11,8 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.*;
 
 public final class UnderwaterTorchBlock extends TorchBlock implements Waterloggable {
-    public UnderwaterTorchBlock(Settings settings) { super(settings, ParticleTypes.FLAME); setDefaultState(getDefaultState().with(Properties.WATERLOGGED, false)); }
+    public static final net.minecraft.particle.DustParticleEffect WHITE_PARTICLE = new net.minecraft.particle.DustParticleEffect(new org.joml.Vector3f(1F, 1F, 1F), 1F);
+    public UnderwaterTorchBlock(Settings settings) { super(settings, WHITE_PARTICLE); setDefaultState(getDefaultState().with(Properties.WATERLOGGED, false)); }
     @Override protected void appendProperties(StateManager.Builder<Block, BlockState> builder) { builder.add(Properties.WATERLOGGED); }
     @Override public BlockState getPlacementState(ItemPlacementContext context) {
         return getDefaultState().with(Properties.WATERLOGGED, context.getWorld().getFluidState(context.getBlockPos()).getFluid() == Fluids.WATER);
@@ -23,6 +24,6 @@ public final class UnderwaterTorchBlock extends TorchBlock implements Waterlogga
     }
     @Override public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         if (state.get(Properties.WATERLOGGED)) world.addParticle(ParticleTypes.BUBBLE, pos.getX()+0.5, pos.getY()+0.7, pos.getZ()+0.5, 0, 0.03, 0);
-        else super.randomDisplayTick(state, world, pos, random);
+        world.addParticle(WHITE_PARTICLE, pos.getX()+0.5, pos.getY()+0.7, pos.getZ()+0.5, 0, 0, 0);
     }
 }

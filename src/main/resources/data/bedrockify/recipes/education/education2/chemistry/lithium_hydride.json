@@ -1,0 +1,11 @@
+{
+  "type": "bedrockify:chemistry",
+  "station": "compound_creator",
+  "inputs": {
+    "bedrockify:element_3": 1,
+    "bedrockify:element_1": 1
+  },
+  "result": {
+    "item": "bedrockify:lithium_hydride"
+  }
+}

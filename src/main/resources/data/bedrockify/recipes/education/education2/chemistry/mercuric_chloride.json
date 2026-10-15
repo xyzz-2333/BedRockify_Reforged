@@ -1,0 +1,11 @@
+{
+  "type": "bedrockify:chemistry",
+  "station": "compound_creator",
+  "inputs": {
+    "bedrockify:element_80": 1,
+    "bedrockify:element_17": 2
+  },
+  "result": {
+    "item": "bedrockify:mercuric_chloride"
+  }
+}

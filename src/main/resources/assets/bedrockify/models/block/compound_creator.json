@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "bedrockify:block/compound_creator_top",
+    "down": "bedrockify:block/compound_creator_inside_bottom",
+    "north": "bedrockify:block/compound_creator_side_a",
+    "south": "bedrockify:block/compound_creator_side_b",
+    "east": "bedrockify:block/compound_creator_side_c",
+    "west": "bedrockify:block/compound_creator_side_c",
+    "particle": "bedrockify:block/compound_creator_side_a"
+  }
+}

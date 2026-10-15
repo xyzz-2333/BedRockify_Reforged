@@ -1,0 +1,11 @@
+{
+  "type": "bedrockify:chemistry",
+  "station": "lab_table",
+  "inputs": {
+    "bedrockify:water_compound": 3,
+    "bedrockify:sodium_hypochlorite": 3
+  },
+  "result": {
+    "item": "bedrockify:bleach"
+  }
+}

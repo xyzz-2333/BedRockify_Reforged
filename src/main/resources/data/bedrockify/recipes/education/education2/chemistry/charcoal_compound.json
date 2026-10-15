@@ -1,0 +1,12 @@
+{
+  "type": "bedrockify:chemistry",
+  "station": "compound_creator",
+  "inputs": {
+    "bedrockify:element_6": 7,
+    "bedrockify:element_1": 4,
+    "bedrockify:element_8": 1
+  },
+  "result": {
+    "item": "bedrockify:charcoal_compound"
+  }
+}

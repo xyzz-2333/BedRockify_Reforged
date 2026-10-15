@@ -660,8 +660,8 @@
     },
     {
       "destination": "textures/item/tungsten_chloride.png",
-      "source": "textures/items/compounds/jar_white.png",
-      "sha256": "acb87937e1fca247cfd89fa2b0838c9ee1b7d2de9e640865cf3479560b87c6c8"
+      "source": "textures/items/compounds/jar_blue.png",
+      "sha256": "d627daa7d025e010ebb36fcc2497f26e00b465d324bdc8f464c7fb1a03b7489c"
     }
   ],
   "locales": [

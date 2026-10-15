@@ -1,0 +1,13 @@
+{
+  "type": "bedrockify:chemistry",
+  "station": "compound_creator",
+  "inputs": {
+    "bedrockify:element_6": 5,
+    "bedrockify:element_1": 5,
+    "bedrockify:element_7": 1,
+    "bedrockify:element_8": 2
+  },
+  "result": {
+    "item": "bedrockify:glue"
+  }
+}

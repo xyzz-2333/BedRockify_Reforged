@@ -4,7 +4,7 @@ license="GPL-3.0 with Minecraft linking exception"
 [[mods]]
 modId="bedrockify"
 version="${version}"
-displayName="BedrockIfy Reforged (Forge 1.20.1)"
+displayName="BedrockIfy Reforged"
 logoFile="assets/bedrockify/icon.png"
 authors="BedrockIfy Reforged contributors"
 description='''Brings Bedrock Edition features to Minecraft 1.20.1 on Forge: classic creative and survival inventories with categorized, searchable recipe panels; HUD, chat, loading screen and paper doll; biome water colors, bedrock shading and world decoration; bedrock armor stands, cauldrons, recipes, shields and education content. Started as an unofficial port of BedrockIfy 1.9.1 and has since grown past it. Not an official release by the upstream authors.'''

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "bedrockify:block/heat_block",
+    "down": "bedrockify:block/heat_block",
+    "north": "bedrockify:block/heat_block",
+    "south": "bedrockify:block/heat_block",
+    "east": "bedrockify:block/heat_block",
+    "west": "bedrockify:block/heat_block",
+    "particle": "bedrockify:block/heat_block"
+  }
+}

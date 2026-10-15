@@ -1,0 +1,11 @@
+{
+  "type": "bedrockify:chemistry",
+  "station": "compound_creator",
+  "inputs": {
+    "bedrockify:element_6": 6,
+    "bedrockify:element_1": 6
+  },
+  "result": {
+    "item": "bedrockify:benzene"
+  }
+}

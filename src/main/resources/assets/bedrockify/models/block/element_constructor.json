@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "bedrockify:block/element_constructor_top",
+    "down": "bedrockify:block/element_constructor_top",
+    "north": "bedrockify:block/element_constructor_front",
+    "south": "bedrockify:block/element_constructor_back",
+    "east": "bedrockify:block/element_constructor_side_a",
+    "west": "bedrockify:block/element_constructor_side_b",
+    "particle": "bedrockify:block/element_constructor_front"
+  }
+}

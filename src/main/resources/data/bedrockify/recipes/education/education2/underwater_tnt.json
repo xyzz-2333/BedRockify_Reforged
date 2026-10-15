@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:tnt"
+    },
+    {
+      "item": "bedrockify:element_11"
+    }
+  ],
+  "result": {
+    "item": "bedrockify:underwater_tnt"
+  }
+}

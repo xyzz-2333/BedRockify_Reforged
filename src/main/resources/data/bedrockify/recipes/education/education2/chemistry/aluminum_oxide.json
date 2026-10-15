@@ -1,0 +1,11 @@
+{
+  "type": "bedrockify:chemistry",
+  "station": "compound_creator",
+  "inputs": {
+    "bedrockify:element_13": 2,
+    "bedrockify:element_8": 3
+  },
+  "result": {
+    "item": "bedrockify:aluminum_oxide"
+  }
+}

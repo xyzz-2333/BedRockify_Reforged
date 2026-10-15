@@ -14,6 +14,7 @@ public final class ElementBlockItem extends BlockItem {
     public ElementBlockItem(Block block, int atomicNumber) { super(block, new Settings()); this.atomicNumber = atomicNumber; }
     @Override public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
         if (atomicNumber == 0) tooltip.add(Text.translatable("bedrockify.education.unknown").formatted(Formatting.GRAY));
-        else tooltip.add(Text.translatable("bedrockify.education.atomicNumber", atomicNumber).formatted(Formatting.GRAY));
+        if(stack.hasNbt() && stack.getNbt().contains("Neutrons")) tooltip.add(Text.translatable("bedrockify.education.neutrons").append(": "+stack.getNbt().getInt("Neutrons")).formatted(Formatting.GRAY));
+        if (atomicNumber != 0) tooltip.add(Text.translatable("bedrockify.education.atomicNumber", atomicNumber).formatted(Formatting.GRAY));
     }
 }

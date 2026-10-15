@@ -1,8 +1,14 @@
 # Forge 1.20.1 更新日志
 
-本模组使用 Minecraft 1.20.1、Forge 47.4.0 和 Java 17。项目起于 BedrockIfy 的 Forge 移植：alpha.1 至 alpha.2 对齐上游，alpha.3 起加入本仓库自研功能，范围已超出上游参考版本。完整功能清单见 [README.md](README.md)，每轮详细记录见 `docs/ALPHA*.md`。
+## alpha.15 — 教育版更新 2
 
-**发布状态**：公开预发布版本为 **alpha.11**（[Releases](https://github.com/xyzz-2333/BedRockify_Reforged/releases)），alpha.12 及以后需从源码构建。alpha.13 未发布，其投射物、下界传送门生成与三叉戟搅拌机改动仍属预留特性，详见 [README.md 预留特性](README.md#7-预留特性未实现)。
+- 加入 34 种强化玻璃/玻璃板、水下 TNT，以及对应原版资源和配方。
+- 补齐三个化学工作站、37 种化合物配方和实验台产物，支持服务端库存与存档。
+- 加入漂白剂、热块、冰弹、超级肥料及创造目录分组。
+- 保留 alpha.14-update1 的越肩视角兼容修复。
+
+
+本模组使用 Minecraft 1.20.1、Forge 47.4.0 和 Java 17。项目起于 BedrockIfy 的 Forge 移植，alpha.1 至 alpha.2 对齐上游，alpha.3 起加入本仓库自研的经典物品栏、配方栏与状态记忆，功能范围已超出上游参考版本。完整功能清单见 [README.md](README.md)。
 
 | 版本 | 主要更新 |
 | --- | --- |

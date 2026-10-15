@@ -1,0 +1,13 @@
+{
+  "type": "bedrockify:chemistry",
+  "station": "compound_creator",
+  "inputs": {
+    "bedrockify:element_6": 18,
+    "bedrockify:element_1": 35,
+    "bedrockify:element_11": 1,
+    "bedrockify:element_8": 2
+  },
+  "result": {
+    "item": "bedrockify:soap"
+  }
+}

@@ -30,6 +30,18 @@ dependencies {
     modImplementation "me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}"
 }
 sourceSets.main.resources.srcDir 'src/main/generated'
+if (project.hasProperty('education2Client')) {
+    sourceSets.main.java.srcDir 'docs/tools/education2-client'
+    loom.runs.client.runDir 'run/education2-client'
+    loom.runs.client.programArgs '--quickPlaySingleplayer', 'regression'
+}
+if (project.hasProperty('education2GameTests')) {
+    sourceSets.main.java.srcDir 'docs/tools/education2-tests'
+    sourceSets.main.resources.srcDir 'docs/tools/armorstand-tests/resources'
+    loom.runs.server.vmArg '-Dforge.gameTestServer=true'
+    loom.runs.server.vmArg '-Dforge.enabledGameTestNamespaces=bedrockify'
+    loom.runs.server.runDir 'run/education2-tests'
+}
 if (project.hasProperty('alpha14Regression')) {
     sourceSets.main.java.srcDir 'docs/tools/alpha14-regression'
     loom.runs.client.runDir 'run/alpha14-regression'

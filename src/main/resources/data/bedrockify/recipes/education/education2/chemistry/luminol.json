@@ -1,0 +1,13 @@
+{
+  "type": "bedrockify:chemistry",
+  "station": "compound_creator",
+  "inputs": {
+    "bedrockify:element_6": 8,
+    "bedrockify:element_1": 7,
+    "bedrockify:element_7": 3,
+    "bedrockify:element_8": 2
+  },
+  "result": {
+    "item": "bedrockify:luminol"
+  }
+}

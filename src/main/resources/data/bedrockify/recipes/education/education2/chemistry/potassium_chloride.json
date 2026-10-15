@@ -1,0 +1,11 @@
+{
+  "type": "bedrockify:chemistry",
+  "station": "compound_creator",
+  "inputs": {
+    "bedrockify:element_19": 1,
+    "bedrockify:element_17": 1
+  },
+  "result": {
+    "item": "bedrockify:potassium_chloride"
+  }
+}

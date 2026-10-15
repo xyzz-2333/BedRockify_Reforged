@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "bedrockify:bleach"
+    },
+    {
+      "item": "minecraft:cyan_bed"
+    }
+  ],
+  "result": {
+    "item": "minecraft:white_bed"
+  }
+}

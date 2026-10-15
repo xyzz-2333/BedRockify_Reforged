@@ -1,0 +1,11 @@
+{
+  "type": "bedrockify:chemistry",
+  "station": "lab_table",
+  "inputs": {
+    "bedrockify:ammonia": 1,
+    "bedrockify:element_15": 1
+  },
+  "result": {
+    "item": "bedrockify:super_fertilizer"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "GGG",
+    "BBB"
+  ],
+  "key": {
+    "A": {
+      "item": "bedrockify:aluminum_oxide"
+    },
+    "B": {
+      "item": "bedrockify:boron_trioxide"
+    },
+    "G": {
+      "item": "minecraft:purple_stained_glass_pane"
+    }
+  },
+  "result": {
+    "item": "bedrockify:purple_hardened_glass_pane",
+    "count": 3
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "bedrockify:block/black_hardened_glass",
+    "down": "bedrockify:block/black_hardened_glass",
+    "north": "bedrockify:block/black_hardened_glass",
+    "south": "bedrockify:block/black_hardened_glass",
+    "east": "bedrockify:block/black_hardened_glass",
+    "west": "bedrockify:block/black_hardened_glass",
+    "particle": "bedrockify:block/black_hardened_glass"
+  }
+}

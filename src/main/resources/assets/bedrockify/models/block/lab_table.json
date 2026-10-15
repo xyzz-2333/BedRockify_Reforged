@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "bedrockify:block/lab_table_top",
+    "down": "bedrockify:block/lab_table_bottom",
+    "north": "bedrockify:block/lab_table_front",
+    "south": "bedrockify:block/lab_table_side_c",
+    "east": "bedrockify:block/lab_table_side_a",
+    "west": "bedrockify:block/lab_table_side_b",
+    "particle": "bedrockify:block/lab_table_front"
+  }
+}

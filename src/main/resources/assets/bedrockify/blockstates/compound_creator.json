@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "bedrockify:block/compound_creator",
+      "y": 0
+    },
+    "facing=east": {
+      "model": "bedrockify:block/compound_creator",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "bedrockify:block/compound_creator",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "bedrockify:block/compound_creator",
+      "y": 270
+    }
+  }
+}

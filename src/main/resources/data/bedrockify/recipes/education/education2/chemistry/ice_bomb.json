@@ -1,0 +1,10 @@
+{
+  "type": "bedrockify:chemistry",
+  "station": "lab_table",
+  "inputs": {
+    "bedrockify:sodium_acetate": 4
+  },
+  "result": {
+    "item": "bedrockify:ice_bomb"
+  }
+}

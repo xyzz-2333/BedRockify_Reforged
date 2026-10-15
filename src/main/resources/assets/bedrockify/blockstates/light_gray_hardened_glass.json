@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "bedrockify:block/light_gray_hardened_glass"
+    }
+  }
+}

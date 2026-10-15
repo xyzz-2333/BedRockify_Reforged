@@ -1,0 +1,11 @@
+{
+  "type": "bedrockify:chemistry",
+  "station": "compound_creator",
+  "inputs": {
+    "bedrockify:element_58": 1,
+    "bedrockify:element_17": 3
+  },
+  "result": {
+    "item": "bedrockify:cerium_chloride"
+  }
+}

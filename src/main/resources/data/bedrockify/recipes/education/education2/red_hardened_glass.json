@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "GGG",
+    "BBB"
+  ],
+  "key": {
+    "A": {
+      "item": "bedrockify:aluminum_oxide"
+    },
+    "B": {
+      "item": "bedrockify:boron_trioxide"
+    },
+    "G": {
+      "item": "minecraft:red_stained_glass"
+    }
+  },
+  "result": {
+    "item": "bedrockify:red_hardened_glass",
+    "count": 3
+  }
+}

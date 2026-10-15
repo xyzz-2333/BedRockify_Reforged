@@ -96,6 +96,8 @@ def main():
                 if not translated:
                     translated = english[source_key]
                     fallback += 1
+                if locale.startswith("zh_") and source_key == "tile.underwater_torch.name":
+                    translated = "水下火炬"
                 existing[key] = translated
             path.write_text(json.dumps(existing, ensure_ascii=False, indent=2) + '\n', encoding='utf-8', newline='\n')
             coverage.append({'locale': locale, 'source_locale': source_locale or 'en_us', 'imported_keys': len(labels), 'english_fallbacks': fallback})

@@ -1,0 +1,11 @@
+{
+  "type": "bedrockify:chemistry",
+  "station": "compound_creator",
+  "inputs": {
+    "bedrockify:element_12": 1,
+    "bedrockify:element_8": 1
+  },
+  "result": {
+    "item": "bedrockify:magnesium_oxide"
+  }
+}
