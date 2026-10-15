@@ -6,12 +6,16 @@ import net.minecraft.entity.projectile.TridentEntity;
 import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.entity.projectile.thrown.EnderPearlEntity;
 import net.minecraft.enchantment.Enchantments;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.TrapdoorBlock;
 import net.minecraft.item.*;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.gametest.*;
 import net.minecraftforge.common.util.FakePlayerFactory;
+import dev.bedrockify.forge.common.features.mechanics.BedrockTridentDamage;
 @GameTestHolder("bedrockify")
 @PrefixGameTestTemplate(false)
 public class MechanicsGameTests {
@@ -116,20 +120,61 @@ public class MechanicsGameTests {
  }
  @GameTest(templateName="empty")
  public static void tridentKiller(TestContext c) {
-  var owner=c.spawnMob(EntityType.COW,0,2,0);
+  var owner=FakePlayerFactory.getMinecraft(c.getWorld());
+  var sword=new ItemStack(Items.DIAMOND_SWORD);sword.addEnchantment(Enchantments.LOOTING,3);
+  owner.setStackInHand(net.minecraft.util.Hand.MAIN_HAND,sword);
   var mob=c.spawnMob(EntityType.ZOMBIE,2,2,2);mob.setAiDisabled(true);mob.setNoGravity(true);
-  var t=new TridentEntity(c.getWorld(),owner,new ItemStack(Items.TRIDENT));
+  var stack=new ItemStack(Items.TRIDENT);stack.setDamage(7);
+  var t=new TridentEntity(c.getWorld(),owner,stack);
   t.setPosition(mob.getPos());t.setNoGravity(true);t.setVelocity(Vec3d.ZERO);
+  c.assertTrue(EnchantmentHelper.getLooting(owner)==3,"Owner's held Looting is available at kill time");
   t.move(MovementType.PISTON,new Vec3d(0.01,0,0));
   var nbt=new NbtCompound();t.writeCustomDataToNbt(nbt);
   c.assertTrue(nbt.getBoolean("BedrockifyTridentKiller"),"Piston activation persisted");
-  t.readCustomDataFromNbt(nbt);
-  t.age=1;t.tick();
-  c.assertTrue(mob.getHealth()==20,"Odd tick does not apply killer damage");
-  for(int i=0;i<3;i++){t.age=2;t.setPosition(mob.getPos());t.setVelocity(Vec3d.ZERO);t.tick();}
-  c.assertTrue(mob.getHealth()<=0,"Three 8-damage strikes bypass only killer hurt interval");
+  t.readCustomDataFromNbt(nbt);t.setOwner(owner);
+  t.tick();
+  float firstHealth=mob.getHealth();
+  c.assertTrue(firstHealth<20 && firstHealth>10,"Piston pulse applies one trident hit");
+  t.tick();t.tick();
+  c.assertTrue(mob.getHealth()==firstHealth,"Stationary trident does not repeatedly damage");
+  var trapdoor=t.getBlockPos().north();
+  c.getWorld().setBlockState(trapdoor,Blocks.OAK_TRAPDOOR.getDefaultState());
+  t.tick();
+  c.assertTrue(mob.getHealth()<firstHealth,"Trapdoor state change reactivates trident");
+  c.getWorld().setBlockState(trapdoor,Blocks.OAK_TRAPDOOR.getDefaultState().with(TrapdoorBlock.OPEN,true));
+  t.tick();
+  c.assertTrue(mob.getHealth()<=0,"Opening trapdoor provides another hit");
+  var closingMob=c.spawnMob(EntityType.ZOMBIE,2,2,2);closingMob.setAiDisabled(true);closingMob.setNoGravity(true);
+  c.getWorld().setBlockState(trapdoor,Blocks.OAK_TRAPDOOR.getDefaultState().with(TrapdoorBlock.OPEN,false));
+  t.tick();
+  c.assertTrue(closingMob.getHealth()<20,"Closing trapdoor also reactivates trident");
+  closingMob.discard();
+  var afterHits=new NbtCompound();t.writeCustomDataToNbt(afterHits);
+  c.assertTrue(afterHits.getCompound("Trident").getCompound("tag").getInt("Damage")==7,"Killer hits do not consume durability");
+  var carpetMob=c.spawnMob(EntityType.ZOMBIE,2,2,2);carpetMob.setAiDisabled(true);carpetMob.setNoGravity(true);
+  t.setPosition(carpetMob.getPos());t.tick();
+  var carpet=t.getBlockPos().south();
+  c.getWorld().setBlockState(carpet,Blocks.WHITE_CARPET.getDefaultState());
+  t.tick();
+  float carpetHealth=carpetMob.getHealth();
+  c.assertTrue(carpetHealth<20,"Carpet state change reactivates trident");
+  c.getWorld().setBlockState(carpet,Blocks.AIR.getDefaultState());
+  c.getWorld().setBlockState(carpet.west(),Blocks.WHITE_CARPET.getDefaultState());
+  t.tick();
+  c.assertTrue(carpetMob.getHealth()<carpetHealth,"Moving carpet supplies another activation");
+  var impaling=new ItemStack(Items.TRIDENT);impaling.addEnchantment(Enchantments.IMPALING,5);
+  c.assertTrue(BedrockTridentDamage.withBedrockImpaling(impaling,mob,20)==20,"Dry non-aquatic target receives no Impaling bonus");
+  var guardian=c.spawnMob(EntityType.GUARDIAN,5,2,5);guardian.setNoGravity(true);
+  c.assertTrue(BedrockTridentDamage.withBedrockImpaling(impaling,guardian,20)==7.5F,"Dry aquatic target loses Java-only Impaling bonus");
+  var wet=c.spawnMob(EntityType.ZOMBIE,6,2,6);wet.setAiDisabled(true);wet.setNoGravity(true);
+  c.getWorld().setBlockState(wet.getBlockPos(),Blocks.WATER.getDefaultState());wet.tick();
+  c.assertTrue(wet.isTouchingWaterOrRain(),"Wet target setup");
+  c.assertTrue(BedrockTridentDamage.withBedrockImpaling(impaling,wet,20)==32.5F,"Wet non-aquatic target gains Bedrock Impaling bonus");
+  var ground=new TridentEntity(c.getWorld(),owner,new ItemStack(Items.TRIDENT));
+  for(int i=0;i<1300;i++)ground.age();
+  c.assertFalse(ground.isRemoved(),"Ordinary grounded trident does not despawn");
   var loyal=new ItemStack(Items.TRIDENT);loyal.addEnchantment(Enchantments.LOYALTY,1);
-  var l=new TridentEntity(c.getWorld(),owner,loyal);l.setPosition(mob.getPos());
+  var l=new TridentEntity(c.getWorld(),owner,loyal);l.setPosition(carpetMob.getPos());
   l.move(MovementType.PISTON,new Vec3d(0.01,0,0));var ln=new NbtCompound();l.writeCustomDataToNbt(ln);
   c.assertFalse(ln.getBoolean("BedrockifyTridentKiller"),"Loyalty excluded");
   c.complete();
