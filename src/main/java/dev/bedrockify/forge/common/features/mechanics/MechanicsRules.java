@@ -7,6 +7,11 @@ import net.minecraft.entity.player.PlayerEntity;
 public final class MechanicsRules {
     private static volatile Boolean remoteAttackRule;
     private static volatile Boolean remoteSharpnessRule;
+    private static volatile Boolean remoteProjectileRule;
+    public static boolean projectiles(net.minecraft.world.World world) {
+        return world.isClient && remoteProjectileRule != null ? remoteProjectileRule : Bedrockify.getInstance().settings.bedrockProjectiles;
+    }
+    public static void acceptProjectileRule(boolean enabled) { remoteProjectileRule = enabled; }
     private MechanicsRules() {}
     public static boolean noAttackCooldown(PlayerEntity player) {
         if (player.getWorld().isClient && remoteAttackRule != null) return remoteAttackRule;
@@ -21,7 +26,12 @@ public final class MechanicsRules {
     public static void acceptServerRules(boolean attack, boolean sharpness) {
         remoteAttackRule=attack; remoteSharpnessRule=sharpness;
     }
-    public static void clearServerRule() { remoteAttackRule = null; remoteSharpnessRule=null; }
+    public static void acceptServerRules(boolean attack, boolean sharpness, boolean projectiles) {
+        remoteAttackRule=attack; remoteSharpnessRule=sharpness; remoteProjectileRule=projectiles;
+    }
+    public static void clearServerRule() {
+        remoteAttackRule=null; remoteSharpnessRule=null; remoteProjectileRule=null;
+    }
     public static int regenerationInterval() {
         return Math.max(1, Math.min(1200, Bedrockify.getInstance().settings.regenerationIntervalTicks));
     }

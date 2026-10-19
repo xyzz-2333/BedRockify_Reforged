@@ -62,6 +62,14 @@ if (project.hasProperty('waterColorClientSmoke')) {
     sourceSets.main.java.srcDir 'docs/tools/water-color-tests'
     loom.runs.client.runDir 'run/alpha15-water-smoke'
 }
+// Mechanics tests remain outside the release JAR unless explicitly enabled.
+if (project.hasProperty('mechanicsGameTests')) {
+    sourceSets.main.java.srcDir 'docs/tools/mechanics-tests'
+    sourceSets.main.resources.srcDir 'docs/tools/mechanics-tests/resources'
+    loom.runs.server.vmArg '-Dforge.gameTestServer=true'
+    loom.runs.server.vmArg '-Dforge.enabledGameTestNamespaces=bedrockify'
+    loom.runs.server.runDir 'run/mechanics-tests'
+}
 processResources {
     exclude '.cache/**'
     inputs.property 'version', project.version

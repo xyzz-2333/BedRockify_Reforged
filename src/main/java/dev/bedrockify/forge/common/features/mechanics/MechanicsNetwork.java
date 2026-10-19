@@ -18,7 +18,7 @@ import java.util.function.Supplier;
 
 public final class MechanicsNetwork {
     private static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
-            new Identifier(Bedrockify.MOD_ID, "mechanics"), () -> "3", "3"::equals, "3"::equals);
+            new Identifier(Bedrockify.MOD_ID, "mechanics"), () -> "4", "4"::equals, "4"::equals);
     private static AttackRule lastBroadcast;
     private MechanicsNetwork() {}
     public static void register() {
@@ -42,14 +42,19 @@ public final class MechanicsNetwork {
         boolean enabled=dev.bedrockify.forge.mixin.featureManager.MixinFeatureManager.features
                 .getOrDefault("common.features.mechanics", true);
         return new AttackRule(enabled && Bedrockify.getInstance().settings.bedrockNoAttackCooldown,
-                enabled && Bedrockify.getInstance().settings.bedrockSharpness);
+                enabled && Bedrockify.getInstance().settings.bedrockSharpness,
+                enabled && Bedrockify.getInstance().settings.bedrockProjectiles);
     }
-    private record AttackRule(boolean enabled, boolean sharpness) {
-        private void encode(PacketByteBuf buffer) { buffer.writeBoolean(enabled); buffer.writeBoolean(sharpness); }
-        private static AttackRule decode(PacketByteBuf buffer) { return new AttackRule(buffer.readBoolean(),buffer.readBoolean()); }
+    private record AttackRule(boolean enabled, boolean sharpness, boolean projectiles) {
+        private void encode(PacketByteBuf buffer) {
+            buffer.writeBoolean(enabled); buffer.writeBoolean(sharpness); buffer.writeBoolean(projectiles);
+        }
+        private static AttackRule decode(PacketByteBuf buffer) {
+            return new AttackRule(buffer.readBoolean(), buffer.readBoolean(), buffer.readBoolean());
+        }
         private void handle(Supplier<NetworkEvent.Context> supplier) {
             NetworkEvent.Context context = supplier.get();
-            context.enqueueWork(() -> MechanicsRules.acceptServerRules(enabled,sharpness));
+            context.enqueueWork(() -> MechanicsRules.acceptServerRules(enabled, sharpness, projectiles));
             context.setPacketHandled(true);
         }
     }
