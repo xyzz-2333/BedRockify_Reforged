@@ -1,0 +1,28 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "phase": 0
+      },
+      "apply": {
+        "model": "bedrockify:block/nether_reactor_core_0"
+      }
+    },
+    {
+      "when": {
+        "phase": 1
+      },
+      "apply": {
+        "model": "bedrockify:block/nether_reactor_core_1"
+      }
+    },
+    {
+      "when": {
+        "phase": 2
+      },
+      "apply": {
+        "model": "bedrockify:block/nether_reactor_core_2"
+      }
+    }
+  ]
+}

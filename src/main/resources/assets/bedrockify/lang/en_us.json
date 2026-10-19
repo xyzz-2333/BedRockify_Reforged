@@ -591,5 +591,12 @@
   "bedrockify.options.portalSpawning": "Portal zombified piglin spawning",
   "bedrockify.options.portalSpawning.tooltip": "Overworld portal ignition and random ticks attempt difficulty-dependent zombified piglin spawning.",
   "bedrockify.options.tridentKiller": "Trident killers",
-  "bedrockify.options.tridentKiller.tooltip": "Pistons and nearby trapdoor or carpet changes can reactivate grounded tridents without Loyalty."
+  "bedrockify.options.tridentKiller.tooltip": "Pistons and nearby trapdoor or carpet changes can reactivate grounded tridents without Loyalty.",
+  "block.bedrockify.old_stonecutter": "Old Stonecutter",
+  "block.bedrockify.glowing_obsidian": "Glowing Obsidian",
+  "block.bedrockify.nether_reactor_core": "Nether Reactor Core",
+  "item.minecraft.potion.effect.decay": "Potion of Decay",
+  "item.minecraft.splash_potion.effect.decay": "Splash Potion of Decay",
+  "item.minecraft.lingering_potion.effect.decay": "Lingering Potion of Decay",
+  "item.minecraft.tipped_arrow.effect.decay": "Arrow of Decay"
 }

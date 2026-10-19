@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["IDI", "IDI", "IDI"],
+  "key": {"I": {"item": "minecraft:iron_ingot"}, "D": {"item": "minecraft:diamond"}},
+  "result": {"item": "bedrockify:nether_reactor_core"}
+}

@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "bedrockify:old_stonecutter",
+    "bedrockify:glowing_obsidian",
+    "bedrockify:nether_reactor_core"
+  ]
+}

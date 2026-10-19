@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "bedrockify:block/glowing_obsidian"
+    }
+  }
+}

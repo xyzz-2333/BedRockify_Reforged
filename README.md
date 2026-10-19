@@ -2,7 +2,7 @@
 
 本仓库基于BedrockIfy，把部分基岩版特性带到 **Minecraft 1.20.1 Java**。
 
-当前开发版本：**alpha.15**
+当前开发版本：**alpha.16**
 
 ## 功能一览
 
@@ -27,11 +27,12 @@
 - [x] 基岩式末影珍珠与三叉戟投射物参数。
 - [x] 反复点亮下界传送门生成僵尸猪灵（闪门刷怪）。
 - [x] 活塞、活板门和地毯触发的三叉戟搅拌机。
+- [x] 装饰用旧切石机、发光黑曜石、下界反应核及衰变药水/药水箭。
 
 ## 安装与配置
 
 1. 安装 Minecraft **1.20.1** 与 **Forge 47.4.0**。
-2. 将 `bedrockify-forge-1.9.1-forge-alpha.15+mc1.20.1.jar` 放入 `mods`。
+2. 将 `bedrockify-forge-1.9.1-forge-alpha.16+mc1.20.1.jar` 放入 `mods`。
 3. 客户端还需安装依赖： **[Cloth Config 11.x 的 Forge 版本](https://modrinth.com/mod/cloth-config/version/11.1.136+forge)**，
 4. 游戏中按 **B** 打开配置，也可以在 Forge 模组列表或游戏选项界面打开。B 可以在按键设置中更改。
 5. 炼药锅、配方、骨粉和世界生成等共同逻辑需要服务端安装同版模组；界面类功能只在客户端生效。
@@ -96,6 +97,13 @@
 - 漂白剂还原白色物品，热块融化冰雪，冰弹冻结水，超级肥料促进植物生长。
 - 获取方式、配方格式和实现边界见 [alpha.15 开发记录](docs/ALPHA15.md)。
 
+### 7. 经典方块与衰变药水
+
+- 旧切石机仅作装饰；发光黑曜石提供 12 级光照，挖掘后得到普通黑曜石。
+- 下界反应核使用经典结构，运行 45 秒并生成下界岩尖塔、物品与僵尸猪灵；尖塔外形和生成节奏仍属历史拟合。
+- 衰变药水与药水箭使用凋零 II 效果，通过创造栏或命令取得；没有新增酿造配方。
+- 结构、实现边界和材质来源见 [alpha.16 开发记录](docs/ALPHA16.md)。
+
 ## 本地构建
 
 需要完整 JDK 17，首次构建需要联网下载 Gradle、Minecraft、Forge 和依赖。
@@ -126,6 +134,7 @@ Windows 使用 `gradlew.bat build`、`gradlew.bat runClient`。
 | --- | --- |
 | [CHANGELOG.md](CHANGELOG.md) | 各发布版本简要记录 |
 | [docs/ALPHA15.md](docs/ALPHA15.md) | 教育版更新 2、工作站交互、资源来源与实现边界 |
+| [docs/ALPHA16.md](docs/ALPHA16.md) | 经典方块、下界反应和衰变药水的规则与材质来源 |
 | [docs/ROADMAP.md](docs/ROADMAP.md) | alpha.13 补齐、alpha.15 教育版更新 2、alpha.16 与未来待办 |
 | [docs/PORTING.md](docs/PORTING.md) | 平台接口替换、alpha.1 验证记录、已知缺口 |
 | [docs/FORWARD_PORTING.md](docs/FORWARD_PORTING.md) | 面向 1.21、26.1 及更高版本的数据边界与移植准备 |

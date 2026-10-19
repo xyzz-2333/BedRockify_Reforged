@@ -63,6 +63,13 @@ if (project.hasProperty('waterColorClientSmoke')) {
     loom.runs.client.runDir 'run/alpha15-water-smoke'
 }
 // Mechanics tests remain outside the release JAR unless explicitly enabled.
+if (project.hasProperty('alpha16GameTests')) {
+    sourceSets.main.java.srcDir 'docs/tools/alpha16-tests'
+    sourceSets.main.resources.srcDir 'docs/tools/armorstand-tests/resources'
+    loom.runs.server.vmArg '-Dforge.gameTestServer=true'
+    loom.runs.server.vmArg '-Dforge.enabledGameTestNamespaces=bedrockify'
+    loom.runs.server.runDir 'run/alpha16-tests'
+}
 if (project.hasProperty('mechanicsGameTests')) {
     sourceSets.main.java.srcDir 'docs/tools/mechanics-tests'
     sourceSets.main.resources.srcDir 'docs/tools/mechanics-tests/resources'
