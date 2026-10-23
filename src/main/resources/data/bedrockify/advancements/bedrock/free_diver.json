@@ -1,0 +1,29 @@
+{
+  "parent": "bedrockify:bedrock/root",
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible",
+      "conditions": {}
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "minecraft:turtle_helmet"
+    },
+    "title": {
+      "translate": "advancements.bedrockify.bedrock.free_diver.title"
+    },
+    "description": {
+      "translate": "advancements.bedrockify.bedrock.free_diver.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

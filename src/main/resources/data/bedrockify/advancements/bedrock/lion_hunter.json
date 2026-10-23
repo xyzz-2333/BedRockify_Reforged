@@ -1,0 +1,28 @@
+{
+  "parent": "bedrockify:bedrock/root",
+  "criteria": {
+    "trusted_ocelot": {
+      "trigger": "minecraft:player_interacted_with_entity",
+      "conditions": {
+        "item": { "items": ["minecraft:cod", "minecraft:salmon"] },
+        "entity": [{
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "type": "minecraft:ocelot",
+            "nbt": "{Trusting:1b}"
+          }
+        }]
+      }
+    }
+  },
+  "display": {
+    "icon": { "item": "minecraft:cod" },
+    "title": { "translate": "advancements.bedrockify.bedrock.lion_hunter.title" },
+    "description": { "translate": "advancements.bedrockify.bedrock.lion_hunter.description" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "requirements": [["trusted_ocelot"]]
+}

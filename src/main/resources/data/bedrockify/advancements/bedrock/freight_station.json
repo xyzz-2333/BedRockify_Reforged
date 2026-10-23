@@ -1,0 +1,13 @@
+{
+  "parent": "bedrockify:bedrock/root",
+  "criteria": { "done": { "trigger": "minecraft:impossible" } },
+  "display": {
+    "icon": { "item": "minecraft:chest_minecart" },
+    "title": { "translate": "advancements.bedrockify.bedrock.freight_station.title" },
+    "description": { "translate": "advancements.bedrockify.bedrock.freight_station.description" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "requirements": [["done"]]
+}

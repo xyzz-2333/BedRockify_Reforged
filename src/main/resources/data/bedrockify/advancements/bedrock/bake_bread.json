@@ -1,0 +1,31 @@
+{
+  "parent": "bedrockify:bedrock/root",
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "minecraft:bread"
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "minecraft:bread"
+    },
+    "title": {
+      "translate": "advancements.bedrockify.bedrock.bake_bread.title"
+    },
+    "description": {
+      "translate": "advancements.bedrockify.bedrock.bake_bread.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

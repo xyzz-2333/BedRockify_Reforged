@@ -1,0 +1,31 @@
+{
+  "parent": "bedrockify:bedrock/root",
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "minecraft:cake"
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "minecraft:cake"
+    },
+    "title": {
+      "translate": "advancements.bedrockify.bedrock.the_lie.title"
+    },
+    "description": {
+      "translate": "advancements.bedrockify.bedrock.the_lie.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "parent": "bedrockify:bedrock/root",
+  "criteria": { "done": { "trigger": "minecraft:impossible" } },
+  "display": {
+    "icon": { "item": "minecraft:diamond" },
+    "title": { "translate": "advancements.bedrockify.bedrock.diamonds_to_you.title" },
+    "description": { "translate": "advancements.bedrockify.bedrock.diamonds_to_you.description" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "requirements": [["done"]]
+}

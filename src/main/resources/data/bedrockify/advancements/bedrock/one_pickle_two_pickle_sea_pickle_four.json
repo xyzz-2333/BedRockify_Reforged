@@ -1,0 +1,39 @@
+{
+  "parent": "bedrockify:bedrock/root",
+  "criteria": {
+    "four": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "minecraft:sea_pickle",
+            "properties": {
+              "pickles": "4"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "minecraft:sea_pickle"
+    },
+    "title": {
+      "translate": "advancements.bedrockify.bedrock.one_pickle_two_pickle_sea_pickle_four.title"
+    },
+    "description": {
+      "translate": "advancements.bedrockify.bedrock.one_pickle_two_pickle_sea_pickle_four.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "requirements": [
+    [
+      "four"
+    ]
+  ]
+}

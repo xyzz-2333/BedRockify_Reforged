@@ -1,0 +1,58 @@
+{
+  "parent": "bedrockify:bedrock/root",
+  "criteria": {
+    "site0": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "minecraft:shipwreck"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "site1": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "minecraft:shipwreck_beached"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "minecraft:compass"
+    },
+    "title": {
+      "translate": "advancements.bedrockify.bedrock.ahoy.title"
+    },
+    "description": {
+      "translate": "advancements.bedrockify.bedrock.ahoy.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "requirements": [
+    [
+      "site0",
+      "site1"
+    ]
+  ]
+}

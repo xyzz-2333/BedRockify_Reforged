@@ -2,6 +2,7 @@ package dev.bedrockify.forge.client;
 
 import com.google.gson.Gson;
 import dev.bedrockify.forge.client.features.inventoryMemory.InventoryUiState;
+import dev.bedrockify.forge.common.features.achievements.AchievementsNetwork;
 import dev.bedrockify.forge.client.features.inventoryMemory.RememberedInventory;
 import dev.bedrockify.forge.client.features.survivalInventory.SurvivalRecipeBook;
 import dev.bedrockify.forge.client.features.survivalInventory.SurvivalScreen;
@@ -31,6 +32,7 @@ import dev.bedrockify.forge.client.gui.SettingsGUI;
 import dev.bedrockify.forge.common.block.entity.WaterCauldronBlockEntity;
 import dev.bedrockify.forge.common.features.cauldron.BedrockCauldronBlocks;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.screen.ingame.InventoryScreen;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.network.packet.c2s.play.ClientCommandC2SPacket;
@@ -103,6 +105,11 @@ public class BedrockifyClient {
                 book.bedrockify$recipePanel().cancelCrafting();
                 book.bedrockify$recipePanel().remember();
             }
+        });
+        MinecraftForge.EVENT_BUS.addListener((ScreenEvent.Opening event) -> {
+            if (event.getNewScreen() instanceof InventoryScreen
+                    && MinecraftClient.getInstance().getNetworkHandler() != null)
+                AchievementsNetwork.inventoryOpened();
         });
         ModLoadingContext.get().registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class,
                 () -> new ConfigScreenHandler.ConfigScreenFactory((client, parent) -> instance.settingsGUI.getConfigScreen(parent, false)));

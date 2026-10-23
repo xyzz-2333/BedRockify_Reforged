@@ -62,6 +62,13 @@
     "client.features.armorStand.ArmorStandEntityModelMixin"
   ],
   "mixins": [
+    "common.features.achievements.RaidManagerMixin",
+    "common.features.achievements.CampfireBlockEntityMixin",
+    "common.features.achievements.AbstractFurnaceBlockEntityMixin",
+    "common.features.achievements.ScreenHandlerMixin",
+    "common.features.achievements.SlimeBlockMixin",
+    "common.features.achievements.CatMorningGiftMixin",
+    "common.features.achievements.HopperBlockEntityMixin",
     "common.features.animalEatingParticles.AnimalEntityMixin",
     "common.features.animalEatingParticles.AxolotlEntityMixin",
     "common.features.animalEatingParticles.HorseEntityMixin",

@@ -22,7 +22,6 @@ import net.minecraft.world.World;
 public class NetherReactorBlock extends Block {
     public static final IntProperty PHASE = IntProperty.of("phase", 0, 2);
     public static final IntProperty MINUTE = IntProperty.of("minute", 0, 15);
-    private static final int[] LOOT = {0, 1, 2, 3, 4, 5, 6, 7};
 
     public NetherReactorBlock(Settings settings) {
         super(settings);
@@ -96,15 +95,15 @@ public class NetherReactorBlock extends Block {
                 world.spawnEntity(piglin);
             }
         }
-        ItemStack drop = switch (LOOT[random.nextInt(LOOT.length)]) {
-            case 0 -> new ItemStack(Items.GLOWSTONE_DUST);
-            case 1 -> new ItemStack(Items.QUARTZ);
-            case 2 -> new ItemStack(Items.GOLD_INGOT);
-            case 3 -> new ItemStack(Items.BONE);
-            case 4 -> new ItemStack(Items.RED_MUSHROOM);
-            case 5 -> new ItemStack(Items.BROWN_MUSHROOM);
-            case 6 -> new ItemStack(Items.SUGAR_CANE);
-            default -> new ItemStack(Items.CACTUS);
+        ItemStack drop = switch (random.nextInt(8)) {
+            case 0 -> new ItemStack(Items.GLOWSTONE_DUST, 3);
+            case 1 -> new ItemStack(Items.MELON_SEEDS);
+            case 2 -> new ItemStack(Items.BROWN_MUSHROOM);
+            case 3 -> new ItemStack(Items.RED_MUSHROOM);
+            case 4 -> new ItemStack(Items.SUGAR_CANE);
+            case 5 -> new ItemStack(Items.CACTUS);
+            case 6 -> new ItemStack(Items.QUARTZ, 4);
+            default -> new ItemStack(Items.PUMPKIN_SEEDS);
         };
         Block.dropStack(world, pos.up(2), drop);
         world.setBlockState(pos, state.with(MINUTE, minute), Block.NOTIFY_ALL);

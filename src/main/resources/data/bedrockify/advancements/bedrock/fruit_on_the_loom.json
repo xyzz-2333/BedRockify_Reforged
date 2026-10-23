@@ -1,0 +1,13 @@
+{
+  "parent": "bedrockify:bedrock/root",
+  "criteria": { "done": { "trigger": "minecraft:impossible" } },
+  "display": {
+    "icon": { "item": "minecraft:mojang_banner_pattern" },
+    "title": { "translate": "advancements.bedrockify.bedrock.fruit_on_the_loom.title" },
+    "description": { "translate": "advancements.bedrockify.bedrock.fruit_on_the_loom.description" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "requirements": [["done"]]
+}

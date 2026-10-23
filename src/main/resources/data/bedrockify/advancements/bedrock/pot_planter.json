@@ -1,0 +1,45 @@
+{
+  "parent": "bedrockify:bedrock/root",
+  "criteria": {
+    "crafted": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "minecraft:flower_pot"
+      }
+    },
+    "placed": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "minecraft:flower_pot"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "minecraft:flower_pot"
+    },
+    "title": {
+      "translate": "advancements.bedrockify.bedrock.pot_planter.title"
+    },
+    "description": {
+      "translate": "advancements.bedrockify.bedrock.pot_planter.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "requirements": [
+    [
+      "crafted"
+    ],
+    [
+      "placed"
+    ]
+  ]
+}

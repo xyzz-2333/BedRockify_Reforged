@@ -1,0 +1,13 @@
+{
+  "parent": "bedrockify:bedrock/root",
+  "criteria": { "done": { "trigger": "minecraft:impossible" } },
+  "display": {
+    "icon": { "item": "minecraft:splash_potion" },
+    "title": { "translate": "advancements.bedrockify.bedrock.taste_of_your_own_medicine.title" },
+    "description": { "translate": "advancements.bedrockify.bedrock.taste_of_your_own_medicine.description" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "requirements": [["done"]]
+}

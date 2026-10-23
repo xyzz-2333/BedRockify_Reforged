@@ -12,7 +12,9 @@
 
 只在主世界生存模式激活。以反应核为中心搭建 3×3×3：底层四角金块、其余圆石；中层四个边中点圆石、四角留空；顶层十字形五个圆石、四角留空。激活后，金块与圆石转为发光黑曜石，生成 17×17、35 格高的下界岩尖塔。反应持续 900 游戏刻，期间周期生成物品与僵尸猪灵；结束后反应核进入完成状态，发光黑曜石变为普通黑曜石。尖塔仅填充空气，不覆盖现有建筑。
 
-尖塔的逐层外形、物品权重和生成频率目前是参照历史描述的拟合值；旧版二进制行为尚未校准。实现保留固定结构、45 秒时长和阶段状态，存档中的方块状态及计划方块刻延续反应。
+尖塔的逐层外形、物品权重和生成频率目前是参照历史描述的拟合值。携带版 0.11.0 二进制已确认其反应计数器在超过 920 刻时结束，并在计数器除以 20 所得的第 10、13、20、22、25、30、34、36、38、40 级执行批量生成；当前 900 刻、每 60 刻单件掉落的实现尚未对齐。批次物品数函数在计数器为 0 时返回 9，为 1–3 时返回 15，为 4–7 时返回 `max(0, random % 42 - 4)`，之后返回 `max(0, random % 27 - 2)`。待确认批次计数器初值、旧版物品表、刷怪槽位和尖塔变化顺序后再调整行为。
+
+已从旧版二进制的普通掉落函数解析出八个等概率分支：萤石粉×3、西瓜种子、棕色蘑菇、红色蘑菇、甘蔗、仙人掌、下界石英×4、南瓜种子。普通掉落种类和单次数量已按此表更新。另有低概率物品函数；调用条件尚待确认，暂不并入普通掉落。
 
 ## 衰变药水
 
@@ -20,14 +22,14 @@
 
 ## 材质来源
 
-以下 PNG 原样取自 Minecraft Bedrock 1.21.94 安装资源包 `vanilla/textures/blocks`，未手绘或修改。源资源包保留了历史方块材质及反应核三个阶段。校验值为 SHA-256：
+旧切石机和发光黑曜石 PNG 原样取自 Minecraft Bedrock 1.21.94 安装资源包 `vanilla/textures/blocks`。已与携带版 0.11.0 APK 的图集逐像素比对，内容相同。反应核三个阶段则从携带版 0.11.0 的 `assets/images/terrain-atlas.tga` 按 `terrain.meta` 坐标提取为 16×16 PNG；其像素与 1.21.94 保留的历史材质不同。均未手绘。校验值为 SHA-256：
 
 | 文件 | SHA-256 |
 | --- | --- |
 | glowing_obsidian.png | fd12af625299e85cbcd1338168fc6929cf6a00bd62730d28210c20cdafcbc1a0 |
-| reactor_core_stage_0.png | 4622f07db6e1196c2214ee994980fafd566af17bbfb887b73160f4229d1a147f |
-| reactor_core_stage_1.png | 350d0f91b7a221d0f46d7bdddeb9eb7e7f0569cba683e31a82337651057d3417 |
-| reactor_core_stage_2.png | 6386b5dd77fc511ba8769af7c3f60cb00f26e6e17561e2b0952e6fbfb0496fa3 |
+| reactor_core_stage_0.png | f285962a7ae9443733f5e003fa45b76a575d65ee1c8d2cb4fd379564bb59295d |
+| reactor_core_stage_1.png | f2f4334d72b82092c52692e8c5fef2822a4d616247b0eb6f4c9e9b1a89e796e2 |
+| reactor_core_stage_2.png | f551054a98b9dca0c02a609115d41c537544966532ce4eaddf0bb35ce683a44c |
 | stonecutter_bottom.png | dc527659388fd9b489c89ffd37060354fe0f3fb2984b3a65d9145a69c5e87720 |
 | stonecutter_other_side.png | 9084a220d1682d24d8d3969dce7f0ab785feaca00c6af36ba64318d7e4237cbc |
 | stonecutter_side.png | b60cc2941c8c83e608e2ce0f9a36c05577b5b5e4e3e8f2927b914e10e7ec0518 |

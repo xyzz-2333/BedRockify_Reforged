@@ -1,0 +1,13 @@
+{
+  "parent": "bedrockify:bedrock/root",
+  "criteria": { "done": { "trigger": "minecraft:impossible" } },
+  "display": {
+    "icon": { "item": "minecraft:lava_bucket" },
+    "title": { "translate": "advancements.bedrockify.bedrock.super_fuel.title" },
+    "description": { "translate": "advancements.bedrockify.bedrock.super_fuel.description" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "requirements": [["done"]]
+}

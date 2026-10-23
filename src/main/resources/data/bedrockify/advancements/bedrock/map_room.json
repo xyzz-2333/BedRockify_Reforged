@@ -1,0 +1,13 @@
+{
+  "parent": "bedrockify:bedrock/root",
+  "criteria": { "done": { "trigger": "minecraft:impossible" } },
+  "display": {
+    "icon": { "item": "minecraft:filled_map" },
+    "title": { "translate": "advancements.bedrockify.bedrock.map_room.title" },
+    "description": { "translate": "advancements.bedrockify.bedrock.map_room.description" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "requirements": [["done"]]
+}

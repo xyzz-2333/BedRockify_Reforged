@@ -1,0 +1,13 @@
+{
+  "parent": "bedrockify:bedrock/root",
+  "criteria": { "done": { "trigger": "minecraft:impossible" } },
+  "display": {
+    "icon": { "item": "minecraft:leather_chestplate" },
+    "title": { "translate": "advancements.bedrockify.bedrock.tie_dye_outfit.title" },
+    "description": { "translate": "advancements.bedrockify.bedrock.tie_dye_outfit.description" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "requirements": [["done"]]
+}

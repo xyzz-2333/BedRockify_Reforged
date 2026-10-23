@@ -1,0 +1,18 @@
+{
+  "parent": "bedrockify:bedrock/root",
+  "criteria": {
+    "buried_treasure": {
+      "trigger": "minecraft:player_generates_container_loot",
+      "conditions": { "loot_table": "minecraft:chests/buried_treasure" }
+    }
+  },
+  "display": {
+    "icon": { "item": "minecraft:heart_of_the_sea" },
+    "title": { "translate": "advancements.bedrockify.bedrock.me_gold.title" },
+    "description": { "translate": "advancements.bedrockify.bedrock.me_gold.description" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "requirements": [["buried_treasure"]]
+}

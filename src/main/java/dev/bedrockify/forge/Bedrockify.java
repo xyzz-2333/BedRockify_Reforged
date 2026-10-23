@@ -1,6 +1,8 @@
 package dev.bedrockify.forge;
 
 import com.google.gson.Gson;
+import dev.bedrockify.forge.common.features.achievements.BedrockAchievements;
+import dev.bedrockify.forge.common.features.achievements.AchievementsNetwork;
 import dev.bedrockify.forge.common.block.cauldron.BedrockCauldronBehavior;
 import dev.bedrockify.forge.common.features.cauldron.BedrockCauldronBlocks;
 import dev.bedrockify.forge.common.features.worldGeneration.DyingTrees;
@@ -43,6 +45,8 @@ public class Bedrockify {
         bus.addListener(dev.bedrockify.forge.common.features.legacy.LegacyContent::register);
         bus.addListener(dev.bedrockify.forge.common.features.legacy.LegacyContent::creativeContents);
         dev.bedrockify.forge.common.features.mechanics.MechanicsNetwork.register();
+        BedrockAchievements.register();
+        AchievementsNetwork.register();
         bus.addListener((FMLCommonSetupEvent event) -> event.enqueueWork(BedrockCauldronBehavior::registerBehavior));
         MinecraftForge.EVENT_BUS.addListener((ServerStartedEvent event) -> BedrockCauldronBehavior.registerBehavior());
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () ->

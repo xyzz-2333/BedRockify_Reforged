@@ -1,0 +1,66 @@
+{
+  "parent": "bedrockify:bedrock/root",
+  "criteria": {
+    "wooden_hoe": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "minecraft:wooden_hoe"
+      }
+    },
+    "stone_hoe": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "minecraft:stone_hoe"
+      }
+    },
+    "iron_hoe": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "minecraft:iron_hoe"
+      }
+    },
+    "golden_hoe": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "minecraft:golden_hoe"
+      }
+    },
+    "diamond_hoe": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "minecraft:diamond_hoe"
+      }
+    },
+    "netherite_hoe": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "minecraft:netherite_hoe"
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "minecraft:wooden_hoe"
+    },
+    "title": {
+      "translate": "advancements.bedrockify.bedrock.time_to_farm.title"
+    },
+    "description": {
+      "translate": "advancements.bedrockify.bedrock.time_to_farm.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "requirements": [
+    [
+      "wooden_hoe",
+      "stone_hoe",
+      "iron_hoe",
+      "golden_hoe",
+      "diamond_hoe",
+      "netherite_hoe"
+    ]
+  ]
+}

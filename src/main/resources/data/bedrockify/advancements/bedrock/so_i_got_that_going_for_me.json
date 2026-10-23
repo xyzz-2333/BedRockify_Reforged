@@ -1,0 +1,13 @@
+{
+  "parent": "bedrockify:bedrock/root",
+  "criteria": { "done": { "trigger": "minecraft:impossible" } },
+  "display": {
+    "icon": { "item": "minecraft:lead" },
+    "title": { "translate": "advancements.bedrockify.bedrock.so_i_got_that_going_for_me.title" },
+    "description": { "translate": "advancements.bedrockify.bedrock.so_i_got_that_going_for_me.description" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "requirements": [["done"]]
+}

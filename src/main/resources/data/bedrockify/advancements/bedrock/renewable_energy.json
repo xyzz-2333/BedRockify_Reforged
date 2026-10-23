@@ -1,0 +1,13 @@
+{
+  "parent": "bedrockify:bedrock/root",
+  "criteria": { "done": { "trigger": "minecraft:impossible" } },
+  "display": {
+    "icon": { "item": "minecraft:charcoal" },
+    "title": { "translate": "advancements.bedrockify.bedrock.renewable_energy.title" },
+    "description": { "translate": "advancements.bedrockify.bedrock.renewable_energy.description" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "requirements": [["done"]]
+}

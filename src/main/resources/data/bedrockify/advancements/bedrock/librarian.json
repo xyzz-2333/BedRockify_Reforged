@@ -1,0 +1,13 @@
+{
+  "parent": "bedrockify:bedrock/root",
+  "criteria": { "done": { "trigger": "minecraft:impossible" } },
+  "display": {
+    "icon": { "item": "minecraft:bookshelf" },
+    "title": { "translate": "advancements.bedrockify.bedrock.librarian.title" },
+    "description": { "translate": "advancements.bedrockify.bedrock.librarian.description" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "requirements": [["done"]]
+}

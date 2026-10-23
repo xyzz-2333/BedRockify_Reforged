@@ -1,0 +1,35 @@
+{
+  "parent": "bedrockify:bedrock/root",
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:cooked_rabbit"
+          ]
+        }
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "minecraft:cooked_rabbit"
+    },
+    "title": {
+      "translate": "advancements.bedrockify.bedrock.rabbit_season.title"
+    },
+    "description": {
+      "translate": "advancements.bedrockify.bedrock.rabbit_season.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

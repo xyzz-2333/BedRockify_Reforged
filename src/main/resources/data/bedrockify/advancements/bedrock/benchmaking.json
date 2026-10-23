@@ -1,0 +1,45 @@
+{
+  "parent": "bedrockify:bedrock/root",
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "minecraft:crafting_table",
+        "ingredients": [
+          {
+            "tag": "minecraft:planks"
+          },
+          {
+            "tag": "minecraft:planks"
+          },
+          {
+            "tag": "minecraft:planks"
+          },
+          {
+            "tag": "minecraft:planks"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "minecraft:crafting_table"
+    },
+    "title": {
+      "translate": "advancements.bedrockify.bedrock.benchmaking.title"
+    },
+    "description": {
+      "translate": "advancements.bedrockify.bedrock.benchmaking.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

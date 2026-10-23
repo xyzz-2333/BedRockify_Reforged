@@ -7,6 +7,7 @@ import dev.bedrockify.forge.common.block.PotionCauldronBlock;
 import dev.bedrockify.forge.common.block.entity.WaterCauldronBlockEntity;
 import dev.bedrockify.forge.common.features.cauldron.BedrockCauldronBlocks;
 import dev.bedrockify.forge.common.features.cauldron.ColorBlenderHelper;
+import dev.bedrockify.forge.common.features.achievements.BedrockAchievements;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.LeveledCauldronBlock;
@@ -57,6 +58,7 @@ public interface BedrockCauldronBehavior {
 
         final WaterCauldronBlockEntity blockEntity = entity.get();
         if (!world.isClient) {
+            BedrockAchievements.leatherArmorDyedInCauldron(player, stack);
             ColoredWaterCauldronBlock.decrementWhenDye(state, world, pos);
             player.incrementStat(Stats.USE_CAULDRON);
             player.setStackInHand(hand, ColorBlenderHelper.blendColors(stack, blockEntity.getTintColor()));

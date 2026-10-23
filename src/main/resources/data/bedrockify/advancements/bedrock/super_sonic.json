@@ -1,0 +1,13 @@
+{
+  "parent": "bedrockify:bedrock/root",
+  "criteria": { "done": { "trigger": "minecraft:impossible" } },
+  "display": {
+    "icon": { "item": "minecraft:elytra" },
+    "title": { "translate": "advancements.bedrockify.bedrock.super_sonic.title" },
+    "description": { "translate": "advancements.bedrockify.bedrock.super_sonic.description" },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "requirements": [["done"]]
+}

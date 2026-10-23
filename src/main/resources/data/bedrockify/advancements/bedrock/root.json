@@ -1,0 +1,28 @@
+{
+  "criteria": {
+    "opened": {
+      "trigger": "minecraft:tick",
+      "conditions": {}
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "minecraft:nether_star"
+    },
+    "title": {
+      "translate": "advancements.bedrockify.bedrock.root.title"
+    },
+    "description": {
+      "translate": "advancements.bedrockify.bedrock.root.description"
+    },
+    "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "requirements": [
+    [
+      "opened"
+    ]
+  ]
+}

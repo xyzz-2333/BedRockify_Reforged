@@ -1,0 +1,57 @@
+{
+  "parent": "bedrockify:bedrock/root",
+  "criteria": {
+    "crafted": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "minecraft:oak_sign"
+      }
+    },
+    "placed": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "minecraft:oak_sign"
+          }
+        ]
+      }
+    },
+    "placed_wall": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "minecraft:oak_wall_sign"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "minecraft:oak_sign"
+    },
+    "title": {
+      "translate": "advancements.bedrockify.bedrock.its_a_sign.title"
+    },
+    "description": {
+      "translate": "advancements.bedrockify.bedrock.its_a_sign.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "requirements": [
+    [
+      "crafted"
+    ],
+    [
+      "placed",
+      "placed_wall"
+    ]
+  ]
+}
