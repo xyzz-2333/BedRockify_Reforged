@@ -1,5 +1,5 @@
 {
-  "parent": "bedrockify:bedrock/root",
+  "parent": "bedrockify:bedrock/stage_survival",
   "criteria": { "done": { "trigger": "minecraft:impossible" } },
   "display": {
     "icon": { "item": "minecraft:chest" },

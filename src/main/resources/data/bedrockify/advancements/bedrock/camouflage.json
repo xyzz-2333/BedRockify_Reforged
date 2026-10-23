@@ -1,5 +1,5 @@
 {
-  "parent": "bedrockify:bedrock/root",
+  "parent": "bedrockify:bedrock/stage_combat",
   "criteria": {
     "creeper": {
       "trigger": "minecraft:player_killed_entity",

@@ -1,5 +1,5 @@
 {
-  "parent": "bedrockify:bedrock/root",
+  "parent": "bedrockify:bedrock/stage_homestead",
   "criteria": {
     "trusted_ocelot": {
       "trigger": "minecraft:player_interacted_with_entity",

@@ -1,0 +1,29 @@
+{
+  "parent": "bedrockify:bedrock/stage_industry",
+  "criteria": {
+    "opened": {
+      "trigger": "minecraft:tick",
+      "conditions": {}
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "minecraft:filled_map"
+    },
+    "title": {
+      "translate": "advancements.bedrockify.bedrock.stage_exploration.title"
+    },
+    "description": {
+      "translate": "advancements.bedrockify.bedrock.stage_exploration.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "requirements": [
+    [
+      "opened"
+    ]
+  ]
+}

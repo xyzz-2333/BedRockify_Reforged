@@ -1,5 +1,5 @@
 {
-  "parent": "bedrockify:bedrock/root",
+  "parent": "bedrockify:bedrock/stage_combat",
   "criteria": {
     "done": {
       "trigger": "minecraft:impossible",

@@ -8,7 +8,10 @@ import net.minecraft.entity.projectile.thrown.EnderPearlEntity;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.Block;
+import net.minecraft.block.DispenserBlock;
 import net.minecraft.block.TrapdoorBlock;
+import net.minecraft.block.entity.DispenserBlockEntity;
 import net.minecraft.item.*;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
@@ -19,6 +22,57 @@ import dev.bedrockify.forge.common.features.mechanics.BedrockTridentDamage;
 @GameTestHolder("bedrockify")
 @PrefixGameTestTemplate(false)
 public class MechanicsGameTests {
+ @GameTest(templateName="empty")
+ public static void largePortalBreak(TestContext c) {
+  var world=c.getWorld();
+  var portal=c.getAbsolutePos(new net.minecraft.util.math.BlockPos(30,70,30));
+  int width=21,height=21;
+  for(int x=-1;x<=width;x++) for(int y=-1;y<=height;y++) {
+   if(x==-1 || x==width || y==-1 || y==height)
+    world.setBlockState(portal.add(x,y,0),Blocks.OBSIDIAN.getDefaultState(),Block.NOTIFY_LISTENERS);
+  }
+  var portalState=Blocks.NETHER_PORTAL.getDefaultState()
+   .with(net.minecraft.block.NetherPortalBlock.AXIS,net.minecraft.util.math.Direction.Axis.X);
+  for(int x=0;x<width;x++) for(int y=0;y<height;y++)
+   world.setBlockState(portal.add(x,y,0),portalState,Block.NOTIFY_LISTENERS);
+  long start=System.nanoTime();
+  world.setBlockState(portal.add(width/2,height/2,0),Blocks.AIR.getDefaultState(),Block.NOTIFY_ALL);
+  long millis=(System.nanoTime()-start)/1_000_000;
+  System.out.println("BRP_PORTAL_BREAK_21x21_MS="+millis);
+  for(int x=0;x<width;x++) for(int y=0;y<height;y++)
+   c.assertTrue(world.getBlockState(portal.add(x,y,0)).isAir(),"Broken portal has no surviving blocks");
+  c.complete();
+ }
+
+ @GameTest(templateName="empty")
+ public static void dispenserPowderSnowBreaksPortal(TestContext c) {
+  var world=c.getWorld();
+  world.getServer().setDifficulty(net.minecraft.world.Difficulty.PEACEFUL,true);
+  var portal=c.getAbsolutePos(new net.minecraft.util.math.BlockPos(10,70,10));
+  for(int x=-1;x<=2;x++) for(int y=-1;y<=3;y++) {
+   if(x==-1 || x==2 || y==-1 || y==3)
+    world.setBlockState(portal.add(x,y,0),Blocks.OBSIDIAN.getDefaultState());
+  }
+  var portalState=Blocks.NETHER_PORTAL.getDefaultState()
+   .with(net.minecraft.block.NetherPortalBlock.AXIS,net.minecraft.util.math.Direction.Axis.X);
+  for(int x=0;x<=1;x++) for(int y=0;y<=2;y++)
+   world.setBlockState(portal.add(x,y,0),portalState,Block.NOTIFY_LISTENERS);
+  var dispenser=portal.north();
+  var dispenserState=Blocks.DISPENSER.getDefaultState()
+   .with(DispenserBlock.FACING,net.minecraft.util.math.Direction.SOUTH);
+  world.setBlockState(dispenser,dispenserState);
+  var inventory=(DispenserBlockEntity)world.getBlockEntity(dispenser);
+  inventory.setStack(0,new ItemStack(Items.POWDER_SNOW_BUCKET));
+  Blocks.DISPENSER.scheduledTick(dispenserState,world,dispenser,world.random);
+  c.assertTrue(world.getBlockState(portal).isOf(Blocks.POWDER_SNOW),
+   "Dispenser places powder snow into the portal");
+  c.assertTrue(world.getBlockState(portal.up()).isAir(),
+   "Breaking one portal block collapses the connected portal");
+  c.assertTrue(inventory.getStack(0).isOf(Items.BUCKET),
+   "Successful dispensing returns the empty bucket");
+  c.complete();
+ }
+
  @GameTest(templateName="empty")
  public static void portalSpawning(TestContext c) {
   var world=c.getWorld();
@@ -137,18 +191,18 @@ public class MechanicsGameTests {
   c.assertTrue(firstHealth<20 && firstHealth>10,"Piston pulse applies one trident hit");
   t.tick();t.tick();
   c.assertTrue(mob.getHealth()==firstHealth,"Stationary trident does not repeatedly damage");
-  var trapdoor=t.getBlockPos().north();
+  var trapdoor=t.getBlockPos().down();
   c.getWorld().setBlockState(trapdoor,Blocks.OAK_TRAPDOOR.getDefaultState());
   t.tick();
-  c.assertTrue(mob.getHealth()<firstHealth,"Trapdoor state change reactivates trident");
+  c.assertTrue(mob.getHealth()==firstHealth,"Placing a horizontal trapdoor respects damage immunity");
+  mob.timeUntilRegen=0;
   c.getWorld().setBlockState(trapdoor,Blocks.OAK_TRAPDOOR.getDefaultState().with(TrapdoorBlock.OPEN,true));
   t.tick();
-  c.assertTrue(mob.getHealth()<=0,"Opening trapdoor provides another hit");
-  var closingMob=c.spawnMob(EntityType.ZOMBIE,2,2,2);closingMob.setAiDisabled(true);closingMob.setNoGravity(true);
+  c.assertTrue(mob.getHealth()<firstHealth,"Opening a horizontal trapdoor reactivates the trident");
+  float openedHealth=mob.getHealth();
   c.getWorld().setBlockState(trapdoor,Blocks.OAK_TRAPDOOR.getDefaultState().with(TrapdoorBlock.OPEN,false));
   t.tick();
-  c.assertTrue(closingMob.getHealth()<20,"Closing trapdoor also reactivates trident");
-  closingMob.discard();
+  c.assertTrue(mob.getHealth()==openedHealth,"Closing cannot bypass the target's damage interval");
   var afterHits=new NbtCompound();t.writeCustomDataToNbt(afterHits);
   c.assertTrue(afterHits.getCompound("Trident").getCompound("tag").getInt("Damage")==7,"Killer hits do not consume durability");
   var carpetMob=c.spawnMob(EntityType.ZOMBIE,2,2,2);carpetMob.setAiDisabled(true);carpetMob.setNoGravity(true);
@@ -161,7 +215,11 @@ public class MechanicsGameTests {
   c.getWorld().setBlockState(carpet,Blocks.AIR.getDefaultState());
   c.getWorld().setBlockState(carpet.west(),Blocks.WHITE_CARPET.getDefaultState());
   t.tick();
-  c.assertTrue(carpetMob.getHealth()<carpetHealth,"Moving carpet supplies another activation");
+  c.assertTrue(carpetMob.getHealth()==carpetHealth,"Moving carpet cannot bypass the damage interval");
+  carpetMob.timeUntilRegen=0;
+  c.getWorld().setBlockState(carpet.west(),Blocks.AIR.getDefaultState());
+  t.tick();
+  c.assertTrue(carpetMob.getHealth()<carpetHealth,"Carpet changes can hit again after the damage interval");
   var impaling=new ItemStack(Items.TRIDENT);impaling.addEnchantment(Enchantments.IMPALING,5);
   c.assertTrue(BedrockTridentDamage.withBedrockImpaling(impaling,mob,20)==20,"Dry non-aquatic target receives no Impaling bonus");
   var guardian=c.spawnMob(EntityType.GUARDIAN,5,2,5);guardian.setNoGravity(true);

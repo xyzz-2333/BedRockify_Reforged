@@ -39,22 +39,19 @@ public class TridentEntityMixin implements TridentKillerState {
         TridentEntity self=(TridentEntity)(Object)this;
         if (self.getWorld().isClient || self.isRemoved()
                 || !Bedrockify.getInstance().settings.bedrockTridentKiller || EnchantmentHelper.getLoyalty(tridentStack)>0) return;
-        if (self.getVelocity().lengthSquared()<0.0001) {
-            long current=bedrockify$nearbyBlocks(self);
-            if (bedrockify$observedBlocks && current!=bedrockify$blocks) bedrockify$activate();
-            bedrockify$blocks=current;
-            bedrockify$observedBlocks=true;
-        } else bedrockify$observedBlocks=false;
+        if (!bedrockify$observedBlocks && !bedrockify$killer && self.getVelocity().lengthSquared()>=0.0001) return;
+        long current=bedrockify$nearbyBlocks(self);
+        if (bedrockify$observedBlocks && current!=bedrockify$blocks) bedrockify$activate();
+        bedrockify$blocks=current;
+        bedrockify$observedBlocks=true;
         if (!bedrockify$pendingHit) return;
         bedrockify$pendingHit=false;
         Entity owner=self.getOwner();
         if (owner==null || !owner.isAlive()) return;
         for (MobEntity mob:self.getWorld().getEntitiesByClass(MobEntity.class,self.getBoundingBox().expand(0.3),Entity::isAlive)) {
-            int previous=mob.timeUntilRegen;
-            mob.timeUntilRegen=0;
             float damage=BedrockTridentDamage.withBedrockImpaling(tridentStack,mob,
                     8.0F+EnchantmentHelper.getAttackDamage(tridentStack,mob.getGroup()));
-            if (!mob.damage(self.getDamageSources().trident(self,owner),damage)) mob.timeUntilRegen=previous;
+            mob.damage(self.getDamageSources().trident(self,owner),damage);
         }
     }
     @Unique private long bedrockify$nearbyBlocks(TridentEntity self) {

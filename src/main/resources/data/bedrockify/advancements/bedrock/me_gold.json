@@ -1,5 +1,5 @@
 {
-  "parent": "bedrockify:bedrock/root",
+  "parent": "bedrockify:bedrock/stage_exploration",
   "criteria": {
     "buried_treasure": {
       "trigger": "minecraft:player_generates_container_loot",

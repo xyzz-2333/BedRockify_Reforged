@@ -99,7 +99,8 @@
     "common.features.mechanics.PersistentProjectileEntityMixin",
     "common.features.mechanics.EntityMixin",
     "common.features.mechanics.TridentEntityMixin",
-    "common.features.mechanics.NetherPortalBlockMixin"
+    "common.features.mechanics.NetherPortalBlockMixin",
+    "common.features.mechanics.PowderSnowBucketItemMixin"
   ],
   "injectors": {
     "defaultRequire": 1

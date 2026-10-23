@@ -1,5 +1,5 @@
 {
-  "parent": "bedrockify:bedrock/root",
+  "parent": "bedrockify:bedrock/stage_homestead",
   "criteria": {
     "shear_sheep": {
       "trigger": "minecraft:player_interacted_with_entity",

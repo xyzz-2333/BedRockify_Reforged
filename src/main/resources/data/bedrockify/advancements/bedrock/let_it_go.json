@@ -1,5 +1,5 @@
 {
-  "parent": "bedrockify:bedrock/root",
+  "parent": "bedrockify:bedrock/stage_exploration",
   "criteria": { "done": { "trigger": "minecraft:impossible" } },
   "display": {
     "icon": { "item": "minecraft:leather_boots" },

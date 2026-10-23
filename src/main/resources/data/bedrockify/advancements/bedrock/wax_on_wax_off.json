@@ -1,5 +1,5 @@
 {
-  "parent": "bedrockify:bedrock/root",
+  "parent": "bedrockify:bedrock/stage_industry",
   "criteria": {
     "wax_on_copper_block": {
       "conditions": {

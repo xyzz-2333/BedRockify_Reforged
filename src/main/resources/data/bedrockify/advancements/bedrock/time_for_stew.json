@@ -1,5 +1,5 @@
 {
-  "parent": "bedrockify:bedrock/root",
+  "parent": "bedrockify:bedrock/stage_homestead",
   "criteria": { "done": { "trigger": "minecraft:impossible" } },
   "display": {
     "icon": { "item": "minecraft:suspicious_stew" },

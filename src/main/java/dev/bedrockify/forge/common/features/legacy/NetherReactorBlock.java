@@ -11,6 +11,7 @@ import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -34,11 +35,44 @@ public class NetherReactorBlock extends Block {
 
     @Override public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player,
                                         Hand hand, BlockHitResult hit) {
-        if (state.get(PHASE) != 0 || player.isSpectator() || player.isCreative()
-                || !player.getAbilities().allowModifyWorld) return ActionResult.PASS;
-        if (world.getRegistryKey() != World.OVERWORLD || !validStructure(world, pos)) return ActionResult.PASS;
-        if (world.isClient) return ActionResult.SUCCESS;
-        if (pos.getY() < world.getBottomY() + 2 || pos.getY() + 33 >= world.getTopY()) return ActionResult.PASS;
+        if (player.isSpectator()) return ActionResult.PASS;
+        if (world.isClient || hand != Hand.MAIN_HAND) return ActionResult.SUCCESS;
+        if (state.get(PHASE) == 1) {
+            player.sendMessage(Text.translatable("message.bedrockify.nether_reactor.active"), false);
+            return ActionResult.SUCCESS;
+        }
+        if (state.get(PHASE) == 2) {
+            player.sendMessage(Text.translatable("message.bedrockify.nether_reactor.completed"), false);
+            return ActionResult.SUCCESS;
+        }
+        if (!validStructure(world, pos)) {
+            player.sendMessage(Text.translatable("message.bedrockify.nether_reactor.wrong_pattern"), false);
+            return ActionResult.SUCCESS;
+        }
+        if (world.getRegistryKey() != World.OVERWORLD) {
+            player.sendMessage(Text.translatable("message.bedrockify.nether_reactor.overworld_only"), false);
+            return ActionResult.SUCCESS;
+        }
+        for (PlayerEntity other : world.getPlayers()) {
+            if (other.isSpectator()) continue;
+            if (Math.abs(other.getX() - pos.getX()) > 5 || Math.abs(other.getY() - pos.getY()) > 2
+                    || Math.abs(other.getZ() - pos.getZ()) > 5) {
+                player.sendMessage(Text.translatable("message.bedrockify.nether_reactor.players_too_far"), false);
+                return ActionResult.SUCCESS;
+            }
+        }
+        if (pos.getY() <= 2 || pos.getY() < world.getBottomY() + 2) {
+            player.sendMessage(Text.translatable("message.bedrockify.nether_reactor.built_too_low"), false);
+            return ActionResult.SUCCESS;
+        }
+        if (pos.getY() > 100 || pos.getY() + 33 >= world.getTopY()) {
+            player.sendMessage(Text.translatable("message.bedrockify.nether_reactor.built_too_high"), false);
+            return ActionResult.SUCCESS;
+        }
+        if (!player.getAbilities().allowModifyWorld) {
+            player.sendMessage(Text.translatable("message.bedrockify.nether_reactor.cannot_build"), false);
+            return ActionResult.SUCCESS;
+        }
         makeSpire((ServerWorld) world, pos);
         for (int y = -1; y <= 1; y++) for (int x = -1; x <= 1; x++) for (int z = -1; z <= 1; z++) {
             if (x == 0 && y == 0 && z == 0) continue;
@@ -48,6 +82,7 @@ public class NetherReactorBlock extends Block {
         }
         world.setBlockState(pos, state.with(PHASE, 1), Block.NOTIFY_ALL);
         world.scheduleBlockTick(pos, this, 60);
+        player.sendMessage(Text.translatable("message.bedrockify.nether_reactor.active"), false);
         return ActionResult.SUCCESS;
     }
 
@@ -56,7 +91,7 @@ public class NetherReactorBlock extends Block {
             if (x == 0 && y == 0 && z == 0) continue;
             Block expected;
             if (y == -1) expected = Math.abs(x) == 1 && Math.abs(z) == 1 ? Blocks.GOLD_BLOCK : Blocks.COBBLESTONE;
-            else if (y == 0) expected = Math.abs(x) + Math.abs(z) == 1 ? Blocks.COBBLESTONE : Blocks.AIR;
+            else if (y == 0) expected = Math.abs(x) == 1 && Math.abs(z) == 1 ? Blocks.COBBLESTONE : Blocks.AIR;
             else expected = Math.abs(x) + Math.abs(z) <= 1 ? Blocks.COBBLESTONE : Blocks.AIR;
             if (!world.getBlockState(center.add(x, y, z)).isOf(expected)) return false;
         }
