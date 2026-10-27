@@ -6,14 +6,56 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.*;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.*;
+import net.minecraft.world.dimension.NetherPortal;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import java.util.ArrayDeque;
+import java.util.HashSet;
 @Mixin(NetherPortalBlock.class)
 public abstract class NetherPortalBlockMixin extends Block {
+    @Unique private static final ThreadLocal<Boolean> bedrockify$clearingPortal = ThreadLocal.withInitial(() -> false);
     protected NetherPortalBlockMixin(Settings settings) { super(settings); }
+
+    @Inject(method="getStateForNeighborUpdate", at=@At("HEAD"), cancellable=true)
+    private void bedrockify$collapseInvalidPortal(BlockState state, Direction direction, BlockState neighborState,
+                                                     WorldAccess world, BlockPos pos, BlockPos neighborPos,
+                                                     CallbackInfoReturnable<BlockState> cir) {
+        if (bedrockify$clearingPortal.get()) return;
+        if (!(world instanceof ServerWorld server) || direction.getAxis().isHorizontal()
+                && direction.getAxis() != state.get(NetherPortalBlock.AXIS)
+                || neighborState.isOf(Blocks.NETHER_PORTAL)) return;
+        if (new NetherPortal(world, pos, state.get(NetherPortalBlock.AXIS)).wasAlreadyValid()) return;
+
+        // Vanilla validates the whole rectangle again for every portal block removed.
+        // Gather the connected plane first, then let block notifications run without rescanning it.
+        var pending = new ArrayDeque<BlockPos>();
+        var connected = new HashSet<BlockPos>();
+        pending.add(pos);
+        Direction along = state.get(NetherPortalBlock.AXIS) == Direction.Axis.X ? Direction.EAST : Direction.SOUTH;
+        while (!pending.isEmpty()) {
+            BlockPos current = pending.removeFirst();
+            if (!connected.add(current)) continue;
+            if (connected.size() > 512) return; // Oversized command-built portals use vanilla behavior.
+            for (Direction next : new Direction[]{Direction.UP, Direction.DOWN, along, along.getOpposite()}) {
+                BlockPos adjacent = current.offset(next);
+                if (server.isChunkLoaded(adjacent)
+                        && server.getBlockState(adjacent).isOf(Blocks.NETHER_PORTAL)
+                        && server.getBlockState(adjacent).get(NetherPortalBlock.AXIS) == state.get(NetherPortalBlock.AXIS)
+                        && !connected.contains(adjacent)) pending.add(adjacent);
+            }
+        }
+        bedrockify$clearingPortal.set(true);
+        try {
+            for (BlockPos current : connected) server.setBlockState(current, Blocks.AIR.getDefaultState(), Block.NOTIFY_ALL);
+        } finally {
+            bedrockify$clearingPortal.remove();
+        }
+        cir.setReturnValue(Blocks.AIR.getDefaultState());
+    }
     @Override public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
         super.onBlockAdded(state,world,pos,oldState,notify);
         if (!(world instanceof ServerWorld server) || oldState.isOf(Blocks.NETHER_PORTAL)

@@ -72,7 +72,7 @@ if (project.hasProperty('alpha16GameTests')) {
 }
 if (project.hasProperty('mechanicsGameTests')) {
     sourceSets.main.java.srcDir 'docs/tools/mechanics-tests'
-    sourceSets.main.resources.srcDir 'docs/tools/mechanics-tests/resources'
+    if (!project.hasProperty('alpha16GameTests')) sourceSets.main.resources.srcDir 'docs/tools/mechanics-tests/resources'
     loom.runs.server.vmArg '-Dforge.gameTestServer=true'
     loom.runs.server.vmArg '-Dforge.enabledGameTestNamespaces=bedrockify'
     loom.runs.server.runDir 'run/mechanics-tests'

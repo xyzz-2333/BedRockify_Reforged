@@ -28,6 +28,8 @@ public class Alpha16GameTests {
         var world = c.getWorld();
         BlockPos pos = c.getAbsolutePos(new BlockPos(2, 70, 2));
         var core = LegacyContent.NETHER_REACTOR_CORE;
+        for (int y = -1; y <= 1; y++) for (int x = -1; x <= 1; x++) for (int z = -1; z <= 1; z++)
+            world.setBlockState(pos.add(x, y, z), Blocks.AIR.getDefaultState());
         world.setBlockState(pos, core.getDefaultState());
         var player = FakePlayerFactory.getMinecraft(world);
         player.getAbilities().creativeMode = true;
@@ -46,7 +48,8 @@ public class Alpha16GameTests {
             else block = Math.abs(x) + Math.abs(z) <= 1 ? Blocks.COBBLESTONE : Blocks.AIR;
             world.setBlockState(pos.add(x, y, z), block.getDefaultState());
         }
-        world.setBlockState(pos.add(3, 30, 0), Blocks.AIR.getDefaultState());
+        world.setBlockState(pos.add(4, 0, 0), Blocks.STONE.getDefaultState());
+        world.setBlockState(pos.add(8, 0, 0), Blocks.STONE.getDefaultState());
         c.assertTrue(core.onUse(world.getBlockState(pos), world, pos, player, Hand.MAIN_HAND, hit) == ActionResult.SUCCESS,
                 "Creative activation consumes the click");
         c.assertTrue(world.getBlockState(pos).get(NetherReactorBlock.PHASE) == 1,
@@ -54,8 +57,12 @@ public class Alpha16GameTests {
                         + ", pattern=" + NetherReactorBlock.validStructure(world, pos)
                         + ", modify=" + player.getAbilities().allowModifyWorld
                         + ", players=" + world.getPlayers().size());
-        c.assertTrue(world.getBlockState(pos.add(3, 30, 0)).isOf(Blocks.NETHERRACK),
-                "Activation creates the netherrack shell");
+        c.assertTrue(world.getBlockState(pos.add(4, 0, 0)).isAir(),
+                "Original bottom room clears existing blocks");
+        c.assertTrue(world.getBlockState(pos.add(8, 0, 0)).isOf(Blocks.NETHERRACK),
+                "Original room wall replaces existing blocks");
+        c.assertTrue(world.getBlockState(pos.add(0, 3, 0)).isOf(Blocks.NETHERRACK),
+                "Original room has a solid ceiling");
         c.complete();
     }
 
@@ -82,6 +89,9 @@ public class Alpha16GameTests {
         world.setBlockState(pos.up().north(), Blocks.AIR.getDefaultState());
         c.assertFalse(NetherReactorBlock.validStructure(world, pos), "Incomplete upper cross is rejected");
         world.setBlockState(pos.up().north(), Blocks.COBBLESTONE.getDefaultState());
+        world.getEntitiesByClass(net.minecraft.entity.ItemEntity.class,
+                new net.minecraft.util.math.Box(pos).expand(9), item -> item.isAlive())
+                .forEach(net.minecraft.entity.ItemEntity::discard);
         var player = FakePlayerFactory.getMinecraft(world);
         player.getAbilities().creativeMode = false;
         player.setPosition(pos.toCenterPos());
@@ -92,10 +102,32 @@ public class Alpha16GameTests {
                 "Reactor starts at y=" + pos.getY() + ", pattern=" + NetherReactorBlock.validStructure(world, pos)
                         + ", modify=" + player.getAbilities().allowModifyWorld
                         + ", players=" + world.getPlayers().size());
-        c.assertTrue(world.getBlockState(pos.down().north().west()).isOf(LegacyContent.GLOWING_OBSIDIAN), "Gold becomes glowing obsidian");
-        for (int i = 0; i < 15; i++) core.scheduledTick(world.getBlockState(pos), world, pos, world.random);
-        c.assertTrue(world.getBlockState(pos).get(NetherReactorBlock.PHASE) == 2, "Reactor completes after 900 ticks");
+        c.assertTrue(world.getBlockState(pos.down().north().west()).isOf(Blocks.GOLD_BLOCK), "Gold remains until its transformation level");
+        for (int i = 0; i < 2; i++) core.scheduledTick(world.getBlockState(pos), world, pos, world.random);
+        c.assertTrue(world.getBlockState(pos.down()).isOf(LegacyContent.GLOWING_OBSIDIAN), "Bottom cobblestone changes at level 2");
+        for (int i = 2; i < 7; i++) core.scheduledTick(world.getBlockState(pos), world, pos, world.random);
+        c.assertTrue(world.getBlockState(pos.down().north().west()).isOf(LegacyContent.GLOWING_OBSIDIAN), "Gold changes at level 7");
+        for (int i = 7; i < 9; i++) core.scheduledTick(world.getBlockState(pos), world, pos, world.random);
+        c.assertTrue(world.getBlockState(pos).get(NetherReactorBlock.MINUTE) == 9, "Reactor advances in 20-tick levels");
+        core.scheduledTick(world.getBlockState(pos), world, pos, world.random);
+        c.assertTrue(world.getBlockState(pos).get(NetherReactorBlock.MINUTE) == 10, "First batch occurs at level 10");
+        var drops = world.getEntitiesByClass(net.minecraft.entity.ItemEntity.class,
+                new net.minecraft.util.math.Box(pos).expand(9), item -> item.isAlive());
+        c.assertTrue(drops.size() == 15, "First native batch contains 15 item entities; found " + drops.size());
+        c.assertTrue(drops.stream().allMatch(item -> Math.abs(item.getY() - (pos.getY() - 1)) < 0.01),
+                "Native reactor drops spawn one block below the core");
+        for (int i = 10; i < 43; i++) core.scheduledTick(world.getBlockState(pos), world, pos, world.random);
+        c.assertTrue(world.getBlockState(pos.up().north().west()).isOf(Blocks.OBSIDIAN), "Cooling fills the top layer at level 43");
+        for (int i = 43; i < 46; i++) core.scheduledTick(world.getBlockState(pos), world, pos, world.random);
+        c.assertTrue(world.getBlockState(pos).get(NetherReactorBlock.PHASE) == 1, "Reactor remains active through tick 920");
+        c.assertTrue(world.getBlockState(pos.north()).isOf(Blocks.OBSIDIAN), "Cooling fills the middle layer");
+        core.scheduledTick(world.getBlockState(pos), world, pos, world.random);
+        c.assertTrue(world.getBlockState(pos).get(NetherReactorBlock.PHASE) == 2, "Reactor completes after tick 920");
         c.assertTrue(world.getBlockState(pos.down().north().west()).isOf(Blocks.OBSIDIAN), "Glowing frame cools");
+        int brokenWallBlocks = 0;
+        for (int y = -1; y <= 3; y++) for (int z = -8; z <= 8; z++)
+            if (world.getBlockState(pos.add(8, y, z)).isAir()) brokenWallBlocks++;
+        c.assertTrue(brokenWallBlocks > 0, "Reactor completion breaks part of the spire wall");
         c.complete();
     }
 
