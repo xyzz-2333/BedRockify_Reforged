@@ -173,6 +173,46 @@ public class MechanicsGameTests {
   c.complete();
  }
  @GameTest(templateName="empty")
+ public static void meleeImpaling(TestContext c) {
+  var world=c.getWorld();
+  var player=FakePlayerFactory.getMinecraft(world);
+  var trident=new ItemStack(Items.TRIDENT);
+  trident.addEnchantment(Enchantments.IMPALING,5);
+  player.setStackInHand(net.minecraft.util.Hand.MAIN_HAND,trident);
+  var attack=player.getAttributeInstance(net.minecraft.entity.attribute.EntityAttributes.GENERIC_ATTACK_DAMAGE);
+  double previousAttack=attack.getBaseValue();
+  attack.setBaseValue(9);
+  var settings=Bedrockify.getInstance().settings;
+  boolean previous=settings.bedrockProjectiles;
+  try {
+   settings.bedrockProjectiles=true;
+   var dry=c.spawnMob(EntityType.COD,2,2,2);
+   dry.setAiDisabled(true);dry.setNoGravity(true);
+   dry.getAttributeInstance(net.minecraft.entity.attribute.EntityAttributes.GENERIC_MAX_HEALTH).setBaseValue(50);
+   dry.setHealth(50);
+   c.assertFalse(dry.isTouchingWaterOrRain(),"Dry aquatic target setup");
+   player.attack(dry);
+   c.assertTrue(Math.abs(dry.getHealth()-41)<0.1F,"Dry aquatic target receives no melee Impaling bonus: health="+dry.getHealth());
+   var wet=c.spawnMob(EntityType.COW,4,2,2);
+   wet.setAiDisabled(true);wet.setNoGravity(true);
+   wet.getAttributeInstance(net.minecraft.entity.attribute.EntityAttributes.GENERIC_MAX_HEALTH).setBaseValue(50);
+   wet.setHealth(50);
+   world.setBlockState(wet.getBlockPos(),Blocks.WATER.getDefaultState());wet.tick();
+   c.assertTrue(wet.isTouchingWaterOrRain(),"Wet target setup");
+   player.attack(wet);
+   c.assertTrue(Math.abs(wet.getHealth()-28.5F)<0.1F,"Wet target receives level V melee Impaling bonus");
+   settings.bedrockProjectiles=false;
+   var javaDry=c.spawnMob(EntityType.COD,6,2,2);
+   javaDry.setAiDisabled(true);javaDry.setNoGravity(true);
+   javaDry.getAttributeInstance(net.minecraft.entity.attribute.EntityAttributes.GENERIC_MAX_HEALTH).setBaseValue(50);
+   javaDry.setHealth(50);
+   player.attack(javaDry);
+   c.assertTrue(Math.abs(javaDry.getHealth()-28.5F)<0.1F,"Disabled rule restores Java melee Impaling");
+  } finally { settings.bedrockProjectiles=previous; attack.setBaseValue(previousAttack); }
+  c.complete();
+ }
+
+ @GameTest(templateName="empty")
  public static void tridentKiller(TestContext c) {
   var owner=FakePlayerFactory.getMinecraft(c.getWorld());
   var sword=new ItemStack(Items.DIAMOND_SWORD);sword.addEnchantment(Enchantments.LOOTING,3);

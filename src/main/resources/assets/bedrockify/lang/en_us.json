@@ -587,7 +587,7 @@
   "entity.bedrockify.underwater_tnt": "Underwater TNT",
   "entity.bedrockify.ice_bomb": "Ice Bomb",
   "bedrockify.options.projectiles": "Bedrock projectile physics",
-  "bedrockify.options.projectiles.tooltip": "Adjusts ender pearls, player-fired arrows, and thrown tridents. Server controlled.",
+  "bedrockify.options.projectiles.tooltip": "Adjusts ender pearls, player-fired arrows, thrown tridents, and trident Impaling damage. Server controlled.",
   "bedrockify.options.portalSpawning": "Portal zombified piglin spawning",
   "bedrockify.options.portalSpawning.tooltip": "Overworld portal ignition and random ticks attempt difficulty-dependent zombified piglin spawning.",
   "bedrockify.options.tridentKiller": "Trident killers",

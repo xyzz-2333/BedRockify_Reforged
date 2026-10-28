@@ -587,7 +587,7 @@
   "entity.bedrockify.underwater_tnt": "水下 TNT",
   "entity.bedrockify.ice_bomb": "冰弹",
   "bedrockify.options.projectiles": "基岩投射物物理",
-  "bedrockify.options.projectiles.tooltip": "调整末影珍珠、玩家发射的箭与投掷三叉戟的物理，由服务端控制。",
+  "bedrockify.options.projectiles.tooltip": "调整末影珍珠、玩家发射的箭、投掷三叉戟及三叉戟穿刺伤害，由服务端控制。",
   "bedrockify.options.portalSpawning": "闪门生成僵尸猪灵",
   "bedrockify.options.portalSpawning.tooltip": "主世界的传送门点亮与随机刻均按难度尝试生成僵尸猪灵。",
   "bedrockify.options.tridentKiller": "三叉戟搅拌机",

@@ -77,6 +77,13 @@ if (project.hasProperty('mechanicsGameTests')) {
     loom.runs.server.vmArg '-Dforge.enabledGameTestNamespaces=bedrockify'
     loom.runs.server.runDir 'run/mechanics-tests'
 }
+if (project.hasProperty('alpha17GameTests')) {
+    sourceSets.main.java.srcDir 'docs/tools/alpha17-tests'
+    sourceSets.main.resources.srcDir 'docs/tools/armorstand-tests/resources'
+    loom.runs.server.vmArg '-Dforge.gameTestServer=true'
+    loom.runs.server.vmArg '-Dforge.enabledGameTestNamespaces=bedrockify'
+    loom.runs.server.runDir 'run/alpha17-tests'
+}
 processResources {
     exclude '.cache/**'
     inputs.property 'version', project.version
@@ -98,7 +105,46 @@ tasks.register('validateRefmap') {
         if (!refmap.mappings || !refmap.data) throw new GradleException('Mixin reference map is incomplete')
     }
 }
+tasks.register('validateBedrockAdvancements') {
+    def advancementDir = file('src/main/resources/data/bedrockify/advancements/bedrock')
+    inputs.dir advancementDir
+    inputs.files file('src/main/resources/assets/bedrockify/lang/en_us.json'),
+            file('src/main/resources/assets/bedrockify/lang/zh_cn.json')
+    doLast {
+        def json = new groovy.json.JsonSlurper()
+        def advancements = advancementDir.listFiles().findAll { it.name.endsWith('.json') }
+                .collectEntries { [(it.name.dropRight(5)): json.parse(it)] }
+        if (advancements.size() != 90 || advancements.keySet().count { it.startsWith('stage_') } != 7)
+            throw new GradleException('Expected 82 Bedrock achievements, seven stages and one root')
+        def locales = ['en_us', 'zh_cn'].collect {
+            json.parse(file("src/main/resources/assets/bedrockify/lang/${it}.json"))
+        }
+        advancements.each { name, advancement ->
+            if (name != 'root' && !advancements.containsKey(advancement.parent?.tokenize('/')?.last()))
+                throw new GradleException("Missing Bedrock advancement parent: ${name}")
+            def visited = [] as Set
+            def current = name
+            while (current != 'root') {
+                if (!visited.add(current))
+                    throw new GradleException("Bedrock advancement parent cycle: ${name}")
+                current = advancements[current].parent.tokenize('/').last()
+            }
+            if (!advancement.criteria || !advancement.requirements)
+                throw new GradleException("Missing Bedrock advancement criteria: ${name}")
+            advancement.requirements.flatten().each { criterion ->
+                if (!advancement.criteria.containsKey(criterion))
+                    throw new GradleException("Unknown criterion ${criterion} in ${name}")
+            }
+            ['title', 'description'].each { field ->
+                def key = advancement.display?.get(field)?.translate
+                if (!key || locales.any { !it.containsKey(key) })
+                    throw new GradleException("Missing en_us/zh_cn ${field} for ${name}: ${key}")
+            }
+        }
+    }
+}
 tasks.named('check') { dependsOn tasks.named('validateRefmap') }
+tasks.named('check') { dependsOn tasks.named('validateBedrockAdvancements') }
 tasks.named('jar') { dependsOn tasks.named('validateRefmap') }
 jar {
     exclude '.cache', '.cache/**', '**/.cache', '**/.cache/**'
