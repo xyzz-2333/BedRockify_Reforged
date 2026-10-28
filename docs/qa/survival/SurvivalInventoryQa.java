@@ -213,8 +213,9 @@ public final class SurvivalInventoryQa {
             for(int i=0;i<panel.entries().size();i++) if(!panel.entries().get(i).header() && panel.entries().get(i).node().recipe().getId().toString().equals(id)){index=i;break;}
             if(index<0) throw new AssertionError("missing recipe "+id);
             var l=access.bedrockify$survivalLayout();
-            while(panel.page()!=index/BedrockRecipePanel.PAGE_SIZE) panel.scroll(l.recipeLeft()+20,l.top()+80,panel.page()<index/BedrockRecipePanel.PAGE_SIZE?-1:1);
-            screen.mouseClicked(l.recipeLeft()+18+index%BedrockRecipePanel.COLS*20,l.top()+BedrockRecipePanel.GRID_Y+8+(index%BedrockRecipePanel.PAGE_SIZE)/BedrockRecipePanel.COLS*20,0);
+            int firstRow=Math.min(index/BedrockRecipePanel.COLS,panel.pages()-1);
+            while(panel.page()!=firstRow) panel.scroll(l.recipeLeft()+20,l.top()+80,panel.page()<firstRow?-1:1);
+            screen.mouseClicked(l.recipeLeft()+18+index%BedrockRecipePanel.COLS*20,l.top()+BedrockRecipePanel.GRID_Y+8+(index/BedrockRecipePanel.COLS-panel.page())*20,0);
         }
         if (action.equals("slot")) {
             int id=cmd.get("id").getAsInt(),button=cmd.get("button").getAsInt();

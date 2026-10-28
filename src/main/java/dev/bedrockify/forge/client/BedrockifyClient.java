@@ -107,6 +107,15 @@ public class BedrockifyClient {
             }
         });
         MinecraftForge.EVENT_BUS.addListener((ScreenEvent.Opening event) -> {
+            var client = MinecraftClient.getInstance();
+            boolean fullRequested = dev.bedrockify.forge.client.features.creativeInventory.CreativeViewTabs.consumeFullRequest();
+            if (!fullRequested && event.getNewScreen() instanceof net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen
+                    && instance.settings.creativeInventory && instance.settings.rememberInventoryState
+                    && instance.inventoryUiState != null && instance.inventoryUiState.creativeView() > 0
+                    && client.player != null && client.getWindow().getScaledWidth() >= 214 && client.getWindow().getScaledHeight() >= 230) {
+                event.setNewScreen(new dev.bedrockify.forge.client.features.creativeInventory.BedrockCreativeScreen(client.player,
+                        instance.inventoryUiState.creativeView() == 1));
+            }
             if (event.getNewScreen() instanceof InventoryScreen
                     && MinecraftClient.getInstance().getNetworkHandler() != null)
                 AchievementsNetwork.inventoryOpened();

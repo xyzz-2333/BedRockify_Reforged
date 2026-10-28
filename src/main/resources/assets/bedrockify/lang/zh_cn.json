@@ -786,5 +786,15 @@
   "advancements.bedrockify.bedrock.inception.title": "活塞中的活塞",
   "advancements.bedrockify.bedrock.inception.description": "用活塞推动另一个活塞，再用被推的活塞拉回原来的活塞。",
   "advancements.bedrockify.bedrock.treasure_hunter.title": "寻宝猎人",
-  "advancements.bedrockify.bedrock.treasure_hunter.description": "向制图师购买探险家地图，手持地图进入标记的结构。"
+  "advancements.bedrockify.bedrock.treasure_hunter.description": "向制图师购买探险家地图，手持地图进入标记的结构。",
+  "bedrockify.creative.group.sandstone": "砂岩",
+  "bedrockify.creative.group.stone_bricks": "石砖",
+  "bedrockify.creative.group.other_food": "其他食物",
+  "bedrockify.creative.group.crops": "农作物",
+  "bedrockify.creative.group.suspicious_stew": "迷之炖菜",
+  "bedrockify.creative.group.mushrooms": "蘑菇",
+  "bedrockify.creative.view.0": "创造目录",
+  "bedrockify.creative.view.1": "目录与物品栏",
+  "bedrockify.creative.view.2": "物品栏",
+  "bedrockify.creative.view.putDown": "放下光标上的物品后切换视图"
 }

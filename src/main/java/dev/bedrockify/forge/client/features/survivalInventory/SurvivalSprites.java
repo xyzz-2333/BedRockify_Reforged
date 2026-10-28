@@ -27,6 +27,12 @@ public final class SurvivalSprites {
         sample(context, x + width - 3, y + 2, 2, height - 4, 14, 4);
     }
     public static void cell(DrawContext context, int x, int y, boolean unavailable) {
+        if (unavailable) {
+            context.fill(x, y, x + 20, y + 20, 0xff8b3030);
+            context.fill(x + 1, y + 1, x + 20, y + 20, 0xffed7777);
+            context.fill(x + 1, y + 1, x + 19, y + 19, 0xffd64747);
+            return;
+        }
         int u = unavailable ? 20 : 0;
         context.drawTexture(TEXTURE, x + 1, y + 1, 18, 18, u + 2, 22, 16, 16, 64, 64);
         sample(context, x, y, 20, 1, u + 1, 21);
@@ -36,6 +42,12 @@ public final class SurvivalSprites {
     }
     public static void button(DrawContext context, int x, int y, int width, int height, boolean selected) {
         tile(context, x, y, width, height, selected ? 16 : 0, 44);
+    }
+    public static void highlight(DrawContext context, int x, int y) {
+        var settings = dev.bedrockify.forge.client.BedrockifyClient.getInstance().settings;
+        int outline = settings.getHighLightColor1();
+        context.fill(x + 1, y + 1, x + 19, y + 19, settings.getHighLightColor2());
+        context.drawBorder(x, y, 20, 20, outline);
     }
     private static void sample(DrawContext c, int x, int y, int w, int h, int u, int v) {
         c.drawTexture(TEXTURE, x, y, w, h, u, v, 1, 1, 64, 64);

@@ -1,0 +1,23 @@
+{
+  "source": "Minecraft Bedrock 1.21.94 vanilla resource pack",
+  "files": [
+    {
+      "source": "textures/ui/creative_icon.png",
+      "destination": "src/main/resources/assets/bedrockify/textures/gui/inventory_views/creative_icon.png",
+      "sha256": "878ee16ad7cff76c628848a1b8585de9d02d774fc3422b89093721561b776660",
+      "transformation": "none"
+    },
+    {
+      "source": "textures/ui/inventory_icon.png",
+      "destination": "src/main/resources/assets/bedrockify/textures/gui/inventory_views/inventory_icon.png",
+      "sha256": "57e0a1a340ad5ebb74b82c001c1a22131b08d0ba70913d18899ab13934b82d3c",
+      "transformation": "none"
+    },
+    {
+      "source": "textures/ui/recipe_book_icon.png",
+      "destination": "src/main/resources/assets/bedrockify/textures/gui/inventory_views/recipe_book_icon.png",
+      "sha256": "603c7c9006080f8d9911853239c2ab50337802cad2ec9b19202e305798f103bc",
+      "transformation": "none"
+    }
+  ]
+}

@@ -786,5 +786,15 @@
   "advancements.bedrockify.bedrock.inception.title": "Inception",
   "advancements.bedrockify.bedrock.inception.description": "Push a piston with another piston, then pull the first one back.",
   "advancements.bedrockify.bedrock.treasure_hunter.title": "Treasure Hunter",
-  "advancements.bedrockify.bedrock.treasure_hunter.description": "Buy an explorer map from a cartographer and enter its marked structure."
+  "advancements.bedrockify.bedrock.treasure_hunter.description": "Buy an explorer map from a cartographer and enter its marked structure.",
+  "bedrockify.creative.group.sandstone": "Sandstone",
+  "bedrockify.creative.group.stone_bricks": "Stone Bricks",
+  "bedrockify.creative.group.other_food": "Other Food",
+  "bedrockify.creative.group.crops": "Crops",
+  "bedrockify.creative.group.suspicious_stew": "Suspicious Stew",
+  "bedrockify.creative.group.mushrooms": "Mushrooms",
+  "bedrockify.creative.view.0": "Creative Catalogue",
+  "bedrockify.creative.view.1": "Catalogue and Inventory",
+  "bedrockify.creative.view.2": "Inventory",
+  "bedrockify.creative.view.putDown": "Put down the held item to switch views"
 }

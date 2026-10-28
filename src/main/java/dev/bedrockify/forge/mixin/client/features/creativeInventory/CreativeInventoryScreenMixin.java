@@ -6,6 +6,8 @@ import dev.bedrockify.forge.client.features.creativeInventory.CreativeGrid;
 import dev.bedrockify.forge.client.features.creativeInventory.CreativeGroups;
 import dev.bedrockify.forge.client.features.creativeInventory.CreativePickerSlot;
 import dev.bedrockify.forge.client.features.creativeInventory.CreativeSearchStyle;
+import dev.bedrockify.forge.client.features.creativeInventory.CreativeViewTabs;
+import dev.bedrockify.forge.client.features.creativeInventory.BedrockCreativeScreen;
 import dev.bedrockify.forge.client.features.survivalInventory.SurvivalSprites;
 import dev.bedrockify.forge.client.features.inventoryMemory.InventoryUiState;
 import dev.bedrockify.forge.client.features.inventoryMemory.RememberedInventory;
@@ -66,6 +68,8 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
         super(handler, inventory, title);
     }
 
+    @Unique private int bedrockify$viewTabY() { return backgroundWidth >= 250 ? y - 28 : Math.max(2, y - 62); }
+
     @Unique private boolean bedrockify$enabled() {
         BedrockifyClient mod = BedrockifyClient.getInstance();
         return mod != null && mod.settings != null && mod.settings.creativeInventory;
@@ -114,12 +118,15 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
         }
         bedrockify$initializing = false;
         bedrockify$ready = true;
+        if (bedrockify$enabled() && mod.settings.rememberInventoryState && mod.inventoryUiState != null)
+            mod.inventoryUiState.creativeView(0);
     }
 
     @Override public void bedrockify$rememberInventory() {
         var mod = BedrockifyClient.getInstance();
         if (!bedrockify$ready || bedrockify$initializing || bedrockify$restoring || !bedrockify$enabled()
                 || !mod.settings.rememberInventoryState || mod.inventoryUiState == null) return;
+        mod.inventoryUiState.creativeView(0);
         String id = Registries.ITEM_GROUP.getId(selectedTab).toString();
         mod.inventoryUiState.creativeTab(id);
         if (currentPage != null && !currentPage.getVisibleTabs().isEmpty())
@@ -303,7 +310,13 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
 
     @Inject(method = "mouseClicked", at = @At("HEAD"), cancellable = true)
     private void bedrockify$allGroups(double mouseX, double mouseY, int button, CallbackInfoReturnable<Boolean> cir) {
-        if (!bedrockify$classic || button != 0 || !bedrockify$hasGroups) return;
+        if (!bedrockify$classic || button != 0) return;
+        int view = CreativeViewTabs.hit(mouseX, mouseY, x + backgroundWidth - 135, bedrockify$viewTabY());
+        if (view >= 0) {
+            if (view != 0 && handler.getCursorStack().isEmpty()) client.setScreen(new BedrockCreativeScreen(client.player, view == 1));
+            cir.setReturnValue(true); return;
+        }
+        if (!bedrockify$hasGroups) return;
         if (mouseY >= y + 6 && mouseY < y + 22 && mouseX >= x + backgroundWidth - 54 && mouseX < x + backgroundWidth - 14) {
             if (mouseX < x + backgroundWidth - 34) {
                 for (CreativeGroups.Entry entry : bedrockify$entries) if (entry.header()) bedrockify$expanded.add(entry.group());
@@ -331,7 +344,7 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
         int hotbarLeft = (backgroundWidth - 180) / 2;
         bedrockify$panel(context, x, y, backgroundWidth, mainHeight, 0xffc6c6c6);
         bedrockify$panel(context, x + hotbarLeft - 8, y + mainHeight - 2, 196, 34, 0xffc6c6c6);
-        context.fill(x + 8, y + 26, x + backgroundWidth - 8, y + mainHeight - 4, 0xff5c5c5c);
+        context.fill(x + 8, y + 26, x + backgroundWidth - 8, y + mainHeight - 4, 0xff626262);
         int first = ((CreativeGrid) handler).bedrockify$firstVisibleIndex(scrollPosition);
         for (int cell = 0; cell < bedrockify$columns * bedrockify$rows; cell++) {
             if (first + cell >= handler.itemList.size()) break;
@@ -349,6 +362,7 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
             bedrockify$panel(context, left, top, 10, 16, 0xffc6c6c6);
         }
         if (currentPage.getVisibleTabs().contains(selectedTab)) renderTabIcon(context, selectedTab);
+        CreativeViewTabs.draw(context, x + backgroundWidth - 135, bedrockify$viewTabY(), 0);
         ci.cancel();
     }
 
@@ -358,7 +372,7 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
         boolean selected = group == selectedTab;
         int left = x + getTabX(group);
         int top = y + getTabY(group) + (currentPage.isTop(group) ? 4 : -4);
-        bedrockify$panel(context, left, top, 26, 32, selected ? 0xffc6c6c6 : 0xff5c5c5c);
+        bedrockify$panel(context, left, top, 26, 32, selected ? 0xffc6c6c6 : 0xff626262);
         CreativeCatalog.Category category = CreativeCatalog.category(group);
         context.drawItem(category == null ? group.getIcon() : category.icon, left + 5, top + 8);
         ci.cancel();
@@ -411,7 +425,10 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
 
     @Inject(method = "render", at = @At("TAIL"))
     private void bedrockify$controlsTooltip(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
-        if (!bedrockify$classic || !bedrockify$hasGroups) return;
+        if (!bedrockify$classic) return;
+        CreativeViewTabs.tooltip(context, textRenderer, mouseX, mouseY, x + backgroundWidth - 135,
+                bedrockify$viewTabY(), !handler.getCursorStack().isEmpty());
+        if (!bedrockify$hasGroups) return;
         if (mouseY >= y + 6 && mouseY < y + 22 && mouseX >= x + backgroundWidth - 54 && mouseX < x + backgroundWidth - 14) {
             context.drawTooltip(textRenderer, Text.translatable(mouseX < x + backgroundWidth - 34 ? "bedrockify.creative.expandAll" : "bedrockify.creative.collapseAll"), mouseX, mouseY);
         }

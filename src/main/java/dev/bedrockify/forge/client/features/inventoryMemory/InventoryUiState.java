@@ -34,6 +34,7 @@ public final class InventoryUiState {
         int version = 1;
         String creativeTab = "";
         String creativePage = "";
+        int creativeView;
         Map<String, View> views = new LinkedHashMap<>();
     }
     private final Path file;
@@ -50,6 +51,7 @@ public final class InventoryUiState {
             if (loaded == null || loaded.version != 1) return;
             data.creativeTab = text(loaded.creativeTab, 128);
             data.creativePage = text(loaded.creativePage, 128);
+            creativeView(loaded.creativeView);
             if (loaded.views != null) for (var entry : loaded.views.entrySet()) {
                 if (entry.getKey() != null && entry.getValue() != null) remember(entry.getKey(), entry.getValue());
             }
@@ -70,6 +72,8 @@ public final class InventoryUiState {
     public void creativeTab(String id) { data.creativeTab = text(id, 128); }
     public String creativePage() { return data.creativePage; }
     public void creativePage(String id) { data.creativePage = text(id, 128); }
+    public int creativeView() { return data.creativeView; }
+    public void creativeView(int view) { data.creativeView = Math.max(0, Math.min(2, view)); }
     public void remember(String key, View view) {
         key = text(key, 160);
         if (key.isEmpty() || view == null) return;

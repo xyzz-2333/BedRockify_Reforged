@@ -28,9 +28,9 @@ public final class MenuPanorama {
     }
 
     public static boolean optionsScreen(Screen screen) {
-        return screen instanceof OptionsScreen || screen instanceof GameOptionsScreen
+        return net.minecraft.client.MinecraftClient.getInstance().world == null && (screen instanceof OptionsScreen || screen instanceof GameOptionsScreen
                 || screen instanceof CreditsAndAttributionScreen || screen instanceof TelemetryInfoScreen
-                || screen instanceof PackScreen;
+                || screen instanceof PackScreen);
     }
 
     public static void render(Screen screen, DrawContext context, float delta) {

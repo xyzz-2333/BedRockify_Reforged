@@ -12,11 +12,13 @@ public class InventoryUiStateTest {
         InventoryUiState state = new InventoryUiState(file, warnings::add);
         check(state.view("survival:inventory", true) == null);
         state.creativeTab("test:tab_11"); state.creativePage("test:tab_7");
+        state.creativeView(1);
         state.remember("survival:inventory", new InventoryUiState.View("NATURE", "木板", 96, Set.of("planks", "logs")));
         state.remember("survival:crafting", new InventoryUiState.View("ITEMS", "ingot", 48, Set.of("ingots")));
         state.save(true);
         InventoryUiState reloaded = new InventoryUiState(file, warnings::add);
         check(reloaded.creativeTab().equals("test:tab_11")); check(reloaded.creativePage().equals("test:tab_7"));
+        check(reloaded.creativeView() == 1);
         var inventory = reloaded.view("survival:inventory", true);
         check(inventory.category().equals("NATURE")); check(inventory.search().equals("木板"));
         check(inventory.first() == 96 && inventory.expanded().equals(Set.of("planks", "logs")));
@@ -40,6 +42,7 @@ public class InventoryUiStateTest {
         check(damaged.view("test", true).first() == 1_000_000);
         Files.writeString(file, "{\"version\":1,\"creativeTab\":null,\"views\":null}");
         check(new InventoryUiState(file, warnings::add).creativeTab().isEmpty());
+        check(new InventoryUiState(file, warnings::add).creativeView() == 0);
         System.out.println("PASS: " + assertions + " persistence assertions");
     }
 }

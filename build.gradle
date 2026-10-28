@@ -30,6 +30,11 @@ dependencies {
     modImplementation "me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}"
 }
 sourceSets.main.resources.srcDir 'src/main/generated'
+if (project.hasProperty('inventoryUiClient')) {
+    sourceSets.main.java.srcDir 'docs/tools/inventory-ui-client'
+    loom.runs.client.runDir 'run/inventory-ui-client'
+    loom.runs.client.programArgs '--quickPlaySingleplayer', 'regression', '--width', '1280', '--height', '720'
+}
 if (project.hasProperty('education2Client')) {
     sourceSets.main.java.srcDir 'docs/tools/education2-client'
     loom.runs.client.runDir 'run/education2-client'

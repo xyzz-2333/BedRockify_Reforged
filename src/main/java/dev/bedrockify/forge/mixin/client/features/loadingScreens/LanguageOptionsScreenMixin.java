@@ -14,6 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class LanguageOptionsScreenMixin {
     @Inject(method = "render", at = @At("HEAD"))
     private void bedrockify$panorama(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
-        if (MenuPanorama.enabled()) MenuPanorama.render((Screen)(Object)this, context, delta);
+        if (MenuPanorama.enabled() && net.minecraft.client.MinecraftClient.getInstance().world == null)
+            MenuPanorama.render((Screen)(Object)this, context, delta);
     }
 }
