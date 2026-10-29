@@ -66,7 +66,10 @@ public class NetherReactorBlock extends Block {
                 return ActionResult.SUCCESS;
             }
         }
-        if (pos.getY() <= 2 || pos.getY() < world.getBottomY() + 2) {
+        // The lower limit is measured at the gold-block layer, one below the core.
+        // Only the world's bottom two layers are forbidden, including in negative-Y worlds.
+        int baseY = pos.getY() - 1;
+        if (baseY < world.getBottomY() + 2) {
             player.sendMessage(Text.translatable("message.bedrockify.nether_reactor.built_too_low"), false);
             return ActionResult.SUCCESS;
         }
@@ -118,16 +121,23 @@ public class NetherReactorBlock extends Block {
     private static void crookedRoof(ServerWorld world, BlockPos center, int baseY,
                                     int radius, int height, boolean reverseSlope) {
         for (int x = -radius; x <= radius; x++) for (int z = -radius; z <= radius; z++) {
-            int roof = radius + height + (reverseSlope ? (radius - x) / 2 : (x - radius) / 2);
+            int roof = roofHeight(x, z, radius, height, reverseSlope);
             boolean edge = Math.abs(x) == radius || Math.abs(z) == radius;
-            for (int y = 0; y <= roof; y++) {
+            for (int y = 0; y < 2 * radius + height && y <= roof; y++) {
                 if (edge || y == roof)
                     placeDomeBlock(world, center.add(x, baseY + y, z), Blocks.NETHERRACK);
             }
         }
     }
 
+    private static int roofHeight(int x, int z, int radius, int height, boolean reverseSlope) {
+        // 0.11 slopes along both horizontal axes, with integer division toward zero.
+        // Each volume also stops before 2 * radius + height (including at its high corner).
+        return radius + height + (reverseSlope ? (-x - z) / 2 : (x + z) / 2);
+    }
+
     private static void placeDomeBlock(ServerWorld world, BlockPos pos, Block block) {
+        // Original spire generation replaces bedrock too; do not apply mining-hardness checks.
         if (!world.getBlockState(pos).isOf(block))
             world.setBlockState(pos, block.getDefaultState(), Block.NOTIFY_ALL);
     }
@@ -184,7 +194,8 @@ public class NetherReactorBlock extends Block {
 
     private static void deteriorateDome(ServerWorld world, BlockPos center, Random random) {
         // 0.11 deteriorateDome removes roughly one in three wall blocks and
-        // one in four exposed roof blocks when the run finishes.
+        // one in four roof perimeter blocks when the run finishes. Interior sloped
+        // roof tiles survive; destroying an active core never reaches this step.
         for (int y = -1; y <= 3; y++) for (int x = -8; x <= 8; x++) for (int z = -8; z <= 8; z++) {
             if ((Math.abs(x) == 8 || Math.abs(z) == 8) && random.nextInt(3) == 0)
                 removeDomeBlock(world, center.add(x, y, z));
@@ -198,8 +209,8 @@ public class NetherReactorBlock extends Block {
                                         int radius, int height, boolean reverseSlope, Random random) {
         for (int x = -radius; x <= radius; x++) for (int z = -radius; z <= radius; z++) {
             if (Math.abs(x) != radius && Math.abs(z) != radius) continue;
-            int roof = radius + height + (reverseSlope ? (radius - x) / 2 : (x - radius) / 2);
-            for (int y = 0; y <= roof; y++) if (random.nextInt(4) == 0)
+            int roof = roofHeight(x, z, radius, height, reverseSlope);
+            for (int y = 0; y < 2 * radius + height && y <= roof; y++) if (random.nextInt(4) == 0)
                 removeDomeBlock(world, center.add(x, baseY + y, z));
         }
     }
