@@ -29,122 +29,66 @@
 - [x] 基岩版鼠标手势不作移植，考虑到鼠标手势已经是普遍应用的辅助模组了。
 ## 安装与配置
 
-1. 安装 Minecraft **1.20.1** 与 **Forge 47.4.0**。
-2. 将 `bedrockify-forge-1.9.1-forge-alpha.16+mc1.20.1.jar` 放入 `mods`。
-3. 客户端还需安装依赖： **[Cloth Config 11.x 的 Forge 版本](https://modrinth.com/mod/cloth-config/version/11.1.136+forge)**，
-4. 游戏中按 **B** 打开配置，也可以在 Forge 模组列表或游戏选项界面打开。B 可以在按键设置中更改。
-5. 炼药锅、配方、骨粉和世界生成等共同逻辑需要服务端安装同版模组；界面类功能只在客户端生效。
-运行时不需要 Fabric Loader、Fabric API 或 Architectury API。
+1. 安装 Minecraft 1.20.1、Forge 47.4.0 和 [Cloth Config 11.x 的 Forge 版本](https://modrinth.com/mod/cloth-config/version/11.1.136+forge)。
+2. 将 `bedrockify-forge-1.9.1-forge-alpha.17+mc1.20.1.jar` 放入 `mods`。
+3. 按 **B** 打开配置，也可从 Forge 模组列表或游戏选项进入；快捷键可修改。
+界面与视觉效果在客户端生效；配方、教育内容、成就及其他共同玩法需要服务端安装同版模组。
 
-配置位置沿用上游：
-- `config/bedrockify/bedrockifyClient.json`：客户端功能。
-- `config/bedrockify/bedrockifyCommon.json`：共同玩法功能。
-- `config/bedrockify/bedrockifyMixins.json`：底层注入开关，修改后重启游戏。
-- `config/bedrockify/inventoryUiState.json`：物品栏分类、展开组、搜索词与列表位置。
+配置沿用 `config/bedrockify/`：
 
-## 功能总览
+| 文件 | 用途 |
+| --- | --- |
+| `bedrockifyClient.json` | 客户端功能 |
+| `bedrockifyCommon.json` | 共同玩法 |
+| `bedrockifyMixins.json` | 高级注入开关，修改后重启 |
+| `inventoryUiState.json` | 物品栏分类、分组、搜索与滚动位置 |
 
-### 1. 基岩经典物品栏
+## 功能
 
-把 Java 版物品栏换成基岩经典布局，同时保留原版槽位、配方判定和网络行为。
+| 范围 | 当前实现 | 详细说明 |
+| --- | --- | --- |
+| 经典物品栏 | 生存背包、工作台、创造目录分类与折叠、搜索、直接合成及界面记忆；创造目录支持完整目录、双栏和仅物品栏视图，小窗口或不支持的容器回退原版 | [创造目录](docs/ALPHA3.md)、[生存界面](docs/ALPHA5.md)、[界面记忆](docs/ALPHA9.md)、[近期界面修正](docs/ALPHA17.md#其他界面修正) |
+| HUD 与操作 | 坐标、帧率、纸娃娃、手持物品信息、聊天与加载画面；安全区、透明度及状态条渐隐；潜行举盾、前向搭桥、创造飞行惯性及按跳跃结束鞘翅滑翔 | [HUD、举盾与纸娃娃](docs/ALPHA14.md) |
+| 视觉与书本 | 方块明暗、太阳眩光、群系水面/水下颜色、环境噪声、剪毛后的绵羊颜色、第三人称进食及立体浮漂；雪天树叶渐白、书与笔双页编辑 | [水色](docs/ALPHA14.md#群系水色)、[树叶与书本](docs/ALPHA17.md) |
+| 世界与战斗 | 盔甲架手持装备、13 种姿势与红石控制；药水/染色水炼药锅、基岩合成与染色配方；枯树、倒木、骨粉催生与动物进食粒子；慢速回血、攻击蓄力及锋利附魔配置 | [盔甲架与锋利](docs/ALPHA14.md)、[教育基础与战斗配置](docs/ALPHA12.md) |
+| 投射物与装置 | 末影珍珠、弓弩箭与三叉戟参数，接触水/雨时的穿刺加成，闪门生成僵尸猪灵与三叉戟搅拌机 | [机制与边界](docs/ALPHA13.md) |
+| 教育内容 | 元素、37 种化合物、四种化学工作站、强化玻璃、水下 TNT、彩色/水下火把、漂白剂、热块、冰弹和超级肥料 | [内容与配方](docs/ALPHA15.md)、[工作站界面](docs/CHEMISTRY_UI.md) |
+| 经典方块 | 装饰用旧切石机、发光黑曜石、下界反应核及衰变药水/药水箭 | [规则与资源](docs/ALPHA16.md) |
+| 基岩版成就 | 82 项成就与七个进度章节，使用 Java 原版玩家进度存档；已校正成就中文名称 | [范围与实现](docs/ALPHA17.md#成就范围) |
 
-**生存背包与工作台**
+雪天树叶在高品质和极佳画质生效，分八级变白与恢复；流畅画质保留原色。双页书本保留原版编辑、签名和存档格式。
+## 兼容性与边界
 
-- 基岩经典风格的生存背包、2 × 2 合成与工作台 3 × 3 合成页面。原版盔甲、副手、玩家槽位、合成处理器和网络操作保持原有身份，关闭界面时恢复槽位位置。
-- 附加槽位、非原版屏幕类或窗口不足 470 × 250 个 GUI 单位时使用原界面。
-- 外观按参考图的像素结构绘制，贴图为 `assets/bedrockify/textures/gui/survival.png`，可由资源包覆盖背景、槽位和按钮外观。
-- 配方栏与状态记忆(相对原版来说还有一些改进，如同类配方折叠)
+- Embeddium / Rubidium 安装时停用部分旧光照注入；Oculus 安装时停用上游自定义光照注入。
+- 与其他背包或创造栏界面冲突时，可在 B → 高级兼容设置关闭对应注入并重启。
+- AppleSkin 安全区 HUD 联动尚未迁移；鼠标手势不在本项目移植范围内。
+- 未完成的功能和具体校准事项统一记录在 [更新计划](docs/ROADMAP.md)。
 
+## 开发与文档
 
-### 2. HUD 与手持物品
-
-- 左上角坐标、帧率、纸娃娃与区块地图；坐标文字垂直位置、帧率显示位置、屏幕安全区偏移均可调。纸娃娃支持常驻、大小、水平位置与动作后保留时长，并显示游泳、爬行、滑翔、举盾、使用物品和骑乘动作。
-- Forge 原生血量、饥饿、护甲、氧气与坐骑状态条支持安全区偏移及渐隐，状态变化恢复显示。
-- 潜行时自动举盾并持续使用，取消潜行后释放；保留手动使用物品及原版格挡规则。
-- 快捷栏上方的手持物品名称与信息，含附魔、药水、容器（潜影盒/箱子）等提示内容，背景不透明度可调。
-- 聊天框基岩样式、布局与安全区偏移；左侧加载画面（含区块地图）与保存状态提示。
-- 快捷栏透明度、物品栏格高亮颜色、拖动物品放大、空手摆动速度、第三人称进食动画、快捷栏物品动画、立体钓鱼浮漂。
-- 隐藏主菜单的 JAVA EDITION 副标题。
-- 配置入口：B 键、Forge 模组列表、游戏选项菜单按钮，按钮位置可选；设置界面已完整汉化。
-
-### 3. 视觉效果（上游功能）
-
-- 方块表面明暗、太阳眩光与天空颜色衰减，强度可调（部分路径会被光影/阴影模组停用）。
-- 基岩原版群系水面与水下颜色，覆盖 64 个 Java 1.20.1 群系，支持资源包覆盖和开关；未映射群系保留自身色值。
-- 环境颜色噪声；剪毛后保留绵羊颜色；经验等级文字样式；经典 HUD 选中框使用中性灰白色。
-
-### 4. 世界与玩法
-
-- 基岩式盔甲架：默认带手臂，可装备手持物品；潜行右键循环 13 种姿势，底座跟随实体朝向。红石默认检测脚下方块、可选扩展范围，非零信号变化选择姿势，断电保留姿势。
-- 可选基岩式锋利附魔数值：每级增加 1.25 点伤害，服务端规则同步客户端提示。
-- 基岩版炼药锅：盛放染色水与药水，并用染色水给皮革装备染色。
-- 基岩版合成与染色规则，默认对齐基岩 1.20.10 之后的船、木桶与蛛网规则；可切换“旧版基岩配方（怀旧）”。修改配方后需重新打开世界。
-- 枯树与倒木世界生成、骨粉催生甘蔗与蕨、动物进食粒子、火焰附加点火。
-- 基岩版世界加载画面与加载提示、世界选择/生成/加载使用 1.20.1 原版旋转全景（可在界面设置关闭，资源包仍可替换全景素材）。
-
-### 5. 其他（上游功能）
-
-- 前向搭桥辅助。
-- 创造飞行渐进减速（默认 25%，0% 保留原版惯性）；按跳跃键结束鞘翅滑翔。
-
-### 6. 教育版更新 2
-
-- 无色及 16 色强化玻璃和玻璃板，创造目录分组折叠。
-- 水下 TNT 支持水下爆炸、红石点燃与连锁引爆。
-- 三个化学工作站提供元素构造、37 种化合物制作及实验台产物；库存和操作由服务端处理。
-- 漂白剂还原白色物品，热块融化冰雪，冰弹冻结水，超级肥料促进植物生长。
-- 获取方式、配方格式和实现边界见 [alpha.15 开发记录](docs/ALPHA15.md)。
-
-### 7. 经典方块与衰变药水
-
-- 旧切石机仅作装饰；发光黑曜石提供 12 级光照，挖掘后得到普通黑曜石。
-- 下界反应核使用经典结构，运行 45 秒并生成下界岩尖塔、物品与僵尸猪灵；尖塔外形和生成节奏仍属历史拟合。
-- 衰变药水与药水箭使用凋零 II 效果，通过创造栏或命令取得；没有新增酿造配方。
-- 结构、实现边界和材质来源见 [alpha.16 开发记录](docs/ALPHA16.md)。
-
-## 本地构建
-
-需要完整 JDK 17，首次构建需要联网下载 Gradle、Minecraft、Forge 和依赖。
+需要完整 JDK 17；首次构建需联网获取 Gradle、Minecraft、Forge 和依赖。Windows 使用 `gradlew.bat`，其他平台使用 `./gradlew`。
 
 ```sh
-./gradlew build
+./gradlew compileJava validateRefmap validateBedrockAdvancements
 ./gradlew runClient
 ./gradlew runServer
 ```
 
-Windows 使用 `gradlew.bat build`、`gradlew.bat runClient`。
+仅准备发布时执行不带测试属性的 `./gradlew clean build`。项目使用 Architectury Loom 的 Forge 模式和 Yarn 开发名称，发布时重映射至 Forge 运行名称。
 
-采用 Architectury Loom 的 Forge 模式，开发时保留 Yarn 名称以减少无关的源码重命名；发布包会重映射到 Forge 的运行时名称，并在打包前校验 Mixin 引用映射与访问规则。
-
-## 兼容性
-
-- Embeddium / Rubidium 安装时自动停用部分旧光照注入；Oculus 安装时停用上游自定义光照注入。
-- 与其他创造栏或背包界面模组冲突时，可在 B 键 → 高级兼容设置中单独关闭对应注入并重启，界面会退回 Java 原版布局。
-
-## 已知缺口
-
-- alpha.14 已补齐 Forge 血量、饥饿、护甲、氧气与坐骑血量的安全区/透明度入口，经验与跳跃条沿用原版入口。
-- 未迁移的配套集成：AppleSkin 安全区 HUD 联动。
-
-## 文档索引
-
-| 文档 | 内容 |
+| 文档 | 职责 |
 | --- | --- |
-| [CHANGELOG.md](CHANGELOG.md) | 各发布版本简要记录 |
-| [docs/ALPHA15.md](docs/ALPHA15.md) | 教育版更新 2、工作站交互、资源来源与实现边界 |
-| [docs/ALPHA16.md](docs/ALPHA16.md) | 经典方块、下界反应和衰变药水的规则与材质来源 |
-| [docs/ROADMAP.md](docs/ROADMAP.md) | alpha.13 补齐、alpha.15 教育版更新 2、alpha.16 与未来待办 |
-| [docs/PORTING.md](docs/PORTING.md) | 平台接口替换、alpha.1 验证记录、已知缺口 |
-| [docs/FORWARD_PORTING.md](docs/FORWARD_PORTING.md) | 面向 1.21、26.1 及更高版本的数据边界与移植准备 |
-| [docs/ALPHA14.md](docs/ALPHA14.md) | alpha.14 功能、水色、修复边界、验证记录与实机验收清单 |
-| [docs/ALPHA2.md](docs/ALPHA2.md) ～ [docs/ALPHA11.md](docs/ALPHA11.md) | 每轮改动说明与验证范围 |
-| [docs/qa/README.md](docs/qa/README.md)、[docs/qa/survival/README.md](docs/qa/survival/README.md)、[docs/qa/creative/README.md](docs/qa/creative/README.md) | 开发夹具、命令与结果文件说明 |
+| [更新日志](CHANGELOG.md) | 各版本变更摘要 |
+| [更新计划](docs/ROADMAP.md) | 当前状态、后续功能与待校准事项 |
+| [开发工具](docs/tools/README.md) | 资源导入、校验及全部 Gradle 测试入口 |
+| [GUI 绘制约定](docs/GUI_RENDERING.md) | 文字、绘制状态及专项检查 |
+| [移植记录](docs/PORTING.md)、[后续版本移植](docs/FORWARD_PORTING.md) | 平台适配历史与迁移边界 |
+| [QA 夹具](docs/qa/README.md) | 历史客户端验证器与使用方法 |
+
+`docs/ALPHA2.md` 至 `docs/ALPHA17.md` 保留各版规则、资源来源和验证记录；历史测试结论只对应记录中的版本。当前功能看本页，具体规则看对应专题，待办以更新计划为准。
 
 ## 来源与许可
 
-原项目：https://github.com/juancarloscp52/BedrockIfy
+上游：[juancarloscp52/BedrockIfy](https://github.com/juancarloscp52/BedrockIfy)，标签 `1.9.1+mc1.20`，提交 `907861f43f98622677ae5ed1e896ac7dd68b4aa3`。alpha.1～2 完成 Forge 适配，alpha.3 起继续开发本仓库功能。
 
-上游标签：`1.9.1+mc1.20`  
-上游提交：`907861f43f98622677ae5ed1e896ac7dd68b4aa3`
-
-保留上游 GPL-3.0 与 Minecraft 链接例外；完整文本见 `LICENSE`，修改标记见 `NOTICE`。源码包不包含 Minecraft 本体。本仓库不是上游作者的官方发布。
+保留上游 GPL-3.0 与 Minecraft 链接例外，见 [LICENSE](LICENSE) 和 [NOTICE](NOTICE)。源码包不包含 Minecraft 本体；本仓库不是上游作者的官方发布。

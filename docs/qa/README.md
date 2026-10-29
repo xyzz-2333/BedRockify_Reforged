@@ -1,5 +1,15 @@
 # 开发环境验证
 
+当前 Gradle 测试入口见[开发工具](../tools/README.md#开发测试入口)。本目录保留历史客户端夹具，结果只对应各自记录的版本；部分鼠标验证脚本需要 X11/XTest 环境。
+
+| 夹具 | 使用说明 |
+| --- | --- |
+| 创造目录、Forge 分类及保存栏 | [creative](creative/README.md) |
+| 生存背包、工作台、配方、JEI/Curios 与界面记忆 | [survival](survival/README.md) |
+| 原版菜单及加载画面全景 | [panorama](panorama/README.md) |
+
+## alpha.2 平台适配夹具
+
 `PortVerification.java` 是 alpha.2 游戏复测使用的临时 Forge 模组，单独编译并放入 `run/client/mods`。它位于文档目录，不属于 main 源码集，也不包含在发布 JAR 中。只用于 Loom 的 Yarn 开发环境，请勿放入普通游戏实例或生产服务端。
 
 使用 JDK 17，以主项目的 `sourceSets.main.compileClasspath` 和 `sourceSets.main.output.classesDirs` 为 classpath，通过 `javac -proc:none` 编译。另建临时 JAR，包含生成的 `qa/` 类文件、javafml 47 的 mods.toml（modId 为 `bedrockify_port_qa`）及 pack_format 15 的 pack.mcmeta。启动开发客户端，进入允许命令的独立测试世界。输出会追加到运行目录的 `qa-results.log`。
