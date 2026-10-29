@@ -22,8 +22,15 @@ public final class ChemistryStationBlock extends HorizontalFacingBlock implement
     @Override public BlockState mirror(BlockState state, BlockMirror mirror) { return rotate(state, mirror.getRotation(state.get(FACING))); }
     @Override public BlockEntity createBlockEntity(BlockPos pos, BlockState state) { return new ChemistryStationBlockEntity(pos, state); }
     @Override public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (!world.isClient && player instanceof ServerPlayerEntity serverPlayer && world.getBlockEntity(pos) instanceof ChemistryStationBlockEntity reducer)
+        if (!world.isClient && player instanceof ServerPlayerEntity serverPlayer && world.getBlockEntity(pos) instanceof ChemistryStationBlockEntity reducer) {
+            if (reducer.access.inUse()) {
+                player.sendMessage(net.minecraft.text.Text.translatable("bedrockify.education.inUse"), true);
+                return ActionResult.CONSUME;
+            }
+            var previous=player.currentScreenHandler;
             NetworkHooks.openScreen(serverPlayer, reducer,buffer->buffer.writeString(kind));
+            if(player.currentScreenHandler!=previous)reducer.access.opened(player, player.currentScreenHandler);
+        }
         return ActionResult.success(world.isClient);
     }
     @Override public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {

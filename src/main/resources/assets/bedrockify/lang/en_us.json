@@ -800,5 +800,6 @@
   "bedrockify.options.snowyLeaves": "Snowy leaves",
   "bedrockify.options.snowyLeaves.tooltip": "Leaves in cold biomes gradually frost during snowfall and thaw after it stops. Requires Fancy or Fabulous graphics.",
   "bedrockify.options.doublePageBooks": "Two-page book editor",
-  "bedrockify.options.doublePageBooks.tooltip": "Display Book and Quill pages side by side. Small windows use the original editor."
+  "bedrockify.options.doublePageBooks.tooltip": "Display Book and Quill pages side by side. Small windows use the original editor.",
+  "bedrockify.education.inUse": "This lab table is currently in use"
 }

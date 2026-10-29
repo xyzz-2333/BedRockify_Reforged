@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "plugin": "dev.bedrockify.forge.mixin.BedrockIfyMixinPlugin",
   "client": [
+    "client.features.education.ChemistryResultIconMixin",
     "client.core.snowyLeafTextures.AtlasSourceManagerInvoker",
     "client.core.bedrockIfyButton.OptionsScreenMixin",
     "client.core.bedrockIfyButton.SearchFieldEntryMixin",

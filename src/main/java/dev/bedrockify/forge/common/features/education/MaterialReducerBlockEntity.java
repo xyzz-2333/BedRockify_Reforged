@@ -14,6 +14,7 @@ import net.minecraft.util.math.BlockPos;
 
 /** Unclaimed preview stacks are never saved or dropped as owned items. */
 public final class MaterialReducerBlockEntity extends BlockEntity implements NamedScreenHandlerFactory {
+    public final StationAccess access = new StationAccess();
     private final DefaultedList<ItemStack> stacks = DefaultedList.ofSize(10, ItemStack.EMPTY);
     private boolean committed;
     private MaterialReducingRecipe previewRecipe;

@@ -17,28 +17,34 @@ public final class MaterialReducerScreenHandler extends ScreenHandler {
         inventory = reducer == null ? new SimpleInventory(10) : reducer.inventory;
         properties = reducer == null ? new ArrayPropertyDelegate(1) : reducer.properties;
         addProperties(properties);
-        addSlot(new Slot(inventory, 0, 92, 30) {
+        addSlot(new Slot(inventory, 0, 94, 18) {
             @Override public int getMaxItemCount() { return 1; }
             @Override public boolean canInsert(ItemStack stack) { return !isLocked() && (reducer == null || reducer.accepts(stack)); }
             @Override public boolean canTakeItems(PlayerEntity player) { return !isLocked(); }
         });
-        for (int n = 0; n < 9; n++) addSlot(new Slot(inventory, n+1, 12+n*20, 74) {
+        for (int n = 0; n < 9; n++) addSlot(new Slot(inventory, n+1,
+                n < 5 ? 42+n*26 : 55+(n-5)*26, n < 5 ? 53 : 78) {
             @Override public boolean canInsert(ItemStack stack) { return false; }
             @Override public boolean canTakeItems(PlayerEntity player) {
                 if (reducer != null) reducer.refreshPreview();
                 return hasStack();
             }
         });
-        for (int row = 0; row < 3; row++) for (int col = 0; col < 9; col++) addSlot(new Slot(player, col+row*9+9, 12+col*20, 102+row*20));
-        for (int col = 0; col < 9; col++) addSlot(new Slot(player, col, 12+col*20, 168));
+        var layout = ChemistryLayout.REDUCER;
+        for (int row = 0; row < 3; row++) for (int col = 0; col < 9; col++) addSlot(new Slot(player, col+row*9+9, layout.inventoryX()+col*18, layout.inventoryY()+row*18));
+        for (int col = 0; col < 9; col++) addSlot(new Slot(player, col, layout.inventoryX()+col*18, layout.hotbarY()));
     }
     public boolean isLocked() { return properties.get(0) != 0; }
     @Override public void sendContentUpdates() {
-        // Recheck after datapack reloads and changes made by another viewer.
+        // Recheck after datapack reloads while the sole user's menu is open.
         if (reducer != null) reducer.refreshPreview();
         super.sendContentUpdates();
     }
-    @Override public boolean canUse(PlayerEntity player) { return inventory.canPlayerUse(player); }
+    @Override public boolean canUse(PlayerEntity player) { return inventory.canPlayerUse(player) && (reducer == null || reducer.access.allows(player,this)); }
+    @Override public void onClosed(PlayerEntity player) {
+        super.onClosed(player);
+        if (reducer != null) reducer.access.closed(player, this);
+    }
     @Override public ItemStack quickMove(PlayerEntity player, int index) {
         if (index < 0 || index >= slots.size()) return ItemStack.EMPTY;
         if (index > 0 && index < 10 && reducer != null) reducer.refreshPreview();

@@ -800,5 +800,6 @@
   "bedrockify.options.snowyLeaves": "雪天树叶渐白",
   "bedrockify.options.snowyLeaves.tooltip": "寒冷生物群系的树叶在下雪时逐渐变白，雪停后恢复。需要高品质或极佳画质。",
   "bedrockify.options.doublePageBooks": "书与笔双页显示",
-  "bedrockify.options.doublePageBooks.tooltip": "并排显示并编辑书与笔的两页内容。窗口过小时使用原版界面。"
+  "bedrockify.options.doublePageBooks.tooltip": "并排显示并编辑书与笔的两页内容。窗口过小时使用原版界面。",
+  "bedrockify.education.inUse": "该实验台正在使用"
 }

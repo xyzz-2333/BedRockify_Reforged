@@ -1,0 +1,70 @@
+{
+  "source": "Installed Bedrock 1.21.94 vanilla chemistry resource pack",
+  "assets": [
+    {
+      "source": "chemistry/textures/ui/proton.png",
+      "target": "src/main/resources/assets/bedrockify/textures/gui/chemistry/proton.png",
+      "sha256": "4ca57f1a2b4f0f0a9b01c438098ba8cc876ff4d73dd91f6882481267b7ac4aab"
+    },
+    {
+      "source": "chemistry/textures/ui/electron.png",
+      "target": "src/main/resources/assets/bedrockify/textures/gui/chemistry/electron.png",
+      "sha256": "3042aff38d5ab9fbea0fb7aebedb4c07e98f90b582b32dd5dadca706f9784c36"
+    },
+    {
+      "source": "chemistry/textures/ui/neutron.png",
+      "target": "src/main/resources/assets/bedrockify/textures/gui/chemistry/neutron.png",
+      "sha256": "1d73996f26a26118fd9f4caef2df8e3800665b85b38dd5875643d05191a03622"
+    },
+    {
+      "source": "chemistry/textures/ui/microscope.png",
+      "target": "src/main/resources/assets/bedrockify/textures/gui/chemistry/microscope.png",
+      "sha256": "5a5aa36701d245b750dbd6fe15ed371c8b652b73cdc8148ac5f6d731b0cc18bf"
+    },
+    {
+      "source": "chemistry/textures/ui/compound_background.png",
+      "target": "src/main/resources/assets/bedrockify/textures/gui/chemistry/compound_background.png",
+      "sha256": "0c5b30bde915f0f25608759f92498ee8c036574d032243381a678923bc6d404b"
+    },
+    {
+      "source": "chemistry/textures/ui/dialog_indent_horiz.png",
+      "target": "src/main/resources/assets/bedrockify/textures/gui/chemistry/dialog_indent_horiz.png",
+      "sha256": "8f0c9ac4b91382eaecc0284fe32bebf679eaf88145ce90dd54c1e051ead3af5c"
+    },
+    {
+      "source": "chemistry/textures/ui/material_reducer_connectors.png",
+      "target": "src/main/resources/assets/bedrockify/textures/gui/chemistry/material_reducer_connectors.png",
+      "sha256": "91c1863b978ab9b24ec96bafc92f2d1524499f8e6b84c1d06fcdad86e7c93100"
+    },
+    {
+      "source": "chemistry/textures/ui/beaker_default.png",
+      "target": "src/main/resources/assets/bedrockify/textures/gui/chemistry/beaker_default.png",
+      "sha256": "008590bb8bf16f83816e51e1a0eee3a316447f59d4e7c8b6d1b7e1172e9cc394"
+    },
+    {
+      "source": "chemistry/textures/ui/beaker_active.png",
+      "target": "src/main/resources/assets/bedrockify/textures/gui/chemistry/beaker_active.png",
+      "sha256": "b0e9b065beae9abd1d7647f159991fb28f9adf9034882146829957afe3af2fe6"
+    },
+    {
+      "source": "chemistry/textures/ui/flask_default.png",
+      "target": "src/main/resources/assets/bedrockify/textures/gui/chemistry/flask_default.png",
+      "sha256": "5833c0bf68b5024a4c85ba5d57d4e1bc654e43c5c8b3484d0108154c78085e96"
+    },
+    {
+      "source": "chemistry/textures/ui/flask_active.png",
+      "target": "src/main/resources/assets/bedrockify/textures/gui/chemistry/flask_active.png",
+      "sha256": "5fa7eb58753438423427e6f4bb08bee4e6624079ba6c66a3bef990605cef81b3"
+    },
+    {
+      "source": "chemistry/textures/ui/jar_default.png",
+      "target": "src/main/resources/assets/bedrockify/textures/gui/chemistry/jar_default.png",
+      "sha256": "edd10c63101d7dce01594b59ece87cbfcfc5c5ae3148cbe01985155c22df7329"
+    },
+    {
+      "source": "chemistry/textures/ui/jar_active.png",
+      "target": "src/main/resources/assets/bedrockify/textures/gui/chemistry/jar_active.png",
+      "sha256": "76d49c6b7dfc0bf72826a9ac9470026b359b634af0eb5feb83b14a3c4c86151a"
+    }
+  ]
+}

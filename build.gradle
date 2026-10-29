@@ -30,6 +30,18 @@ dependencies {
     modImplementation "me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}"
 }
 sourceSets.main.resources.srcDir 'src/main/generated'
+if (project.hasProperty('chemistryUiClient')) {
+    sourceSets.main.java.srcDir 'docs/tools/chemistry-ui-client'
+    loom.runs.client.runDir 'run/chemistry-ui-client'
+    loom.runs.client.programArgs '--quickPlaySingleplayer', 'regression', '--width', '1280', '--height', '960'
+}
+if (project.hasProperty('chemistryUiGameTests')) {
+    sourceSets.main.java.srcDirs 'docs/tools/education2-tests', 'docs/tools/chemistry-ui-tests'
+    sourceSets.main.resources.srcDir 'docs/tools/armorstand-tests/resources'
+    loom.runs.server.vmArg '-Dforge.gameTestServer=true'
+    loom.runs.server.vmArg '-Dforge.enabledGameTestNamespaces=bedrockify'
+    loom.runs.server.runDir 'run/chemistry-ui-tests'
+}
 if (project.hasProperty('guiTextClient')) {
     sourceSets.main.java.srcDir 'docs/tools/gui-text-client'
     loom.runs.client.runDir 'run/alpha17-snow-book'
