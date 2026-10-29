@@ -30,6 +30,16 @@ dependencies {
     modImplementation "me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}"
 }
 sourceSets.main.resources.srcDir 'src/main/generated'
+if (project.hasProperty('guiTextClient')) {
+    sourceSets.main.java.srcDir 'docs/tools/gui-text-client'
+    loom.runs.client.runDir 'run/alpha17-snow-book'
+    loom.runs.client.programArgs '--quickPlaySingleplayer', 'regression', '--width', '1280', '--height', '720'
+}
+if (project.hasProperty('snowBookClient')) {
+    sourceSets.main.java.srcDir 'docs/tools/snow-book-client'
+    loom.runs.client.runDir 'run/alpha17-snow-book'
+    loom.runs.client.programArgs '--quickPlaySingleplayer', 'regression', '--width', '1280', '--height', '720'
+}
 if (project.hasProperty('inventoryUiClient')) {
     sourceSets.main.java.srcDir 'docs/tools/inventory-ui-client'
     loom.runs.client.runDir 'run/inventory-ui-client'

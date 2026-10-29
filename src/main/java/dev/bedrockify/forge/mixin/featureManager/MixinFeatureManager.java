@@ -35,6 +35,8 @@ public class MixinFeatureManager {
         features.put("client.features.sheepColors", true);
         features.put("client.features.worldColorNoise",true);
         features.put("client.features.biomeWaterColors",true);
+        features.put("client.features.snowyLeaves", true);
+        features.put("client.features.doublePageBooks", true);
         features.put("client.features.biggerDraggingItem",true);
         features.put("common.features.recipes", true);
         features.put("common.features.mechanics", true);

@@ -796,5 +796,9 @@
   "bedrockify.creative.view.0": "创造目录",
   "bedrockify.creative.view.1": "目录与物品栏",
   "bedrockify.creative.view.2": "物品栏",
-  "bedrockify.creative.view.putDown": "放下光标上的物品后切换视图"
+  "bedrockify.creative.view.putDown": "放下光标上的物品后切换视图",
+  "bedrockify.options.snowyLeaves": "雪天树叶渐白",
+  "bedrockify.options.snowyLeaves.tooltip": "寒冷生物群系的树叶在下雪时逐渐变白，雪停后恢复。需要高品质或极佳画质。",
+  "bedrockify.options.doublePageBooks": "书与笔双页显示",
+  "bedrockify.options.doublePageBooks.tooltip": "并排显示并编辑书与笔的两页内容。窗口过小时使用原版界面。"
 }

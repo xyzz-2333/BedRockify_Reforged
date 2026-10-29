@@ -69,6 +69,9 @@ public class BedrockifyClient {
     }
     public static void register(IEventBus bus) {
         instance = new BedrockifyClient();
+        dev.bedrockify.forge.client.features.snowyLeaves.SnowyLeafAtlasSource.register();
+        bus.addListener(dev.bedrockify.forge.client.features.snowyLeaves.SnowyLeafModel::wrapModels);
+        bus.addListener(dev.bedrockify.forge.client.features.snowyLeaves.SnowyLeaves::registerColorResolvers);
         MinecraftForge.EVENT_BUS.addListener((net.minecraftforge.client.event.ClientPlayerNetworkEvent.LoggingOut event) ->
                 dev.bedrockify.forge.common.features.mechanics.MechanicsRules.clearServerRule());
         bus.addListener((FMLClientSetupEvent event) -> event.enqueueWork(() ->
@@ -141,6 +144,7 @@ public class BedrockifyClient {
     }
 
     private void tick(MinecraftClient client) {
+            dev.bedrockify.forge.client.features.snowyLeaves.SnowyLeaves.tick(client);
             dev.bedrockify.forge.client.features.sneakingShield.SneakingShield.tick(client);
 
             while (keyBinding != null && keyBinding.wasPressed()){

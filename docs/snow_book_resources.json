@@ -1,0 +1,42 @@
+{
+  "source": "Minecraft Bedrock 1.21.94 installed vanilla pack",
+  "reference": "vanilla/ui/book_screen.json: book_size 320x207, page_size 160x207, 2x1 grid",
+  "assets": [
+    {
+      "source": "vanilla/textures/ui/book_back.png",
+      "target": "src/main/resources/assets/bedrockify/textures/gui/book/book_back.png",
+      "size": [
+        28,
+        28
+      ],
+      "sha256": "450ee4837e908ba3a9026815a185d2f35752620f9545547dee523c386552f418"
+    },
+    {
+      "source": "vanilla/textures/ui/book_spine.png",
+      "target": "src/main/resources/assets/bedrockify/textures/gui/book/book_spine.png",
+      "size": [
+        8,
+        1
+      ],
+      "sha256": "574abad8bc565244e99d69a522ef8c9cd030604fc6b52d08e773c2c4fb0c50ba"
+    },
+    {
+      "source": "vanilla/textures/ui/book_pagecrease_left.png",
+      "target": "src/main/resources/assets/bedrockify/textures/gui/book/book_pagecrease_left.png",
+      "size": [
+        110,
+        14
+      ],
+      "sha256": "3970bdabeee0b40b925e2d9766db91f1aa4f927f8dd9b644e3029dc67f96ef24"
+    },
+    {
+      "source": "vanilla/textures/ui/book_pagecrease_right.png",
+      "target": "src/main/resources/assets/bedrockify/textures/gui/book/book_pagecrease_right.png",
+      "size": [
+        110,
+        14
+      ],
+      "sha256": "20fd22ed3e4f19c95a83fd49dfa4d86104e272fc634e5a52675a4fce48c1eeaa"
+    }
+  ]
+}

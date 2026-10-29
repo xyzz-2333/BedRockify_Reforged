@@ -58,6 +58,8 @@ public class BedrockifyClientSettings {
     public boolean bedrockWaterColors = true;
     public boolean bedrockWaterFogColor = true;
     public boolean bedrockWaterColorNoise = false;
+    public boolean snowyLeaves = true;
+    public boolean doublePageBooks = true;
     public boolean bedrockShading = true;
     public boolean disableFlyingMomentum = true;
     public int flyingBrakeStrength = 25;
