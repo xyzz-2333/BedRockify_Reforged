@@ -1,6 +1,6 @@
 package dev.bedrockify.forge.client.features.education;
 
-import dev.bedrockify.forge.client.features.survivalInventory.SurvivalSprites;
+import dev.bedrockify.forge.client.gui.BedrockGui;
 import dev.bedrockify.forge.common.features.education.ChemistryLayout;
 import dev.bedrockify.forge.common.features.education.MaterialReducerScreenHandler;
 import net.minecraft.client.gui.DrawContext;
@@ -14,7 +14,7 @@ public final class MaterialReducerScreen extends HandledScreen<MaterialReducerSc
     }
     @Override protected void init() { super.init();addDrawableChild(ChemistrySprites.close(x+backgroundWidth-18,y+7,this::close)); }
     @Override protected void drawBackground(DrawContext c,float delta,int mx,int my) {
-        SurvivalSprites.panel(c,x,y,backgroundWidth,backgroundHeight,false);
+        BedrockGui.panel(c,x,y,backgroundWidth,backgroundHeight,false);
         // The original connector texture joins the top input to five upper/four staggered lower outputs.
         ChemistrySprites.image(c,"material_reducer_connectors",x+49,y+25,108,54,108,54);
         for(var slot:handler.slots)ChemistrySprites.cell(c,x+slot.x-1,y+slot.y-1,18,slot.id==0&&handler.isLocked());

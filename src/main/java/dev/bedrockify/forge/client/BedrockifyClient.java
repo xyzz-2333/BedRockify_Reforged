@@ -112,10 +112,11 @@ public class BedrockifyClient {
         MinecraftForge.EVENT_BUS.addListener((ScreenEvent.Opening event) -> {
             var client = MinecraftClient.getInstance();
             boolean fullRequested = dev.bedrockify.forge.client.features.creativeInventory.CreativeViewTabs.consumeFullRequest();
-            if (!fullRequested && event.getNewScreen() instanceof net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen
+            if (!fullRequested && event.getNewScreen() instanceof net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen creativeScreen
                     && instance.settings.creativeInventory && instance.settings.rememberInventoryState
                     && instance.inventoryUiState != null && instance.inventoryUiState.creativeView() > 0
-                    && client.player != null && client.getWindow().getScaledWidth() >= 214 && client.getWindow().getScaledHeight() >= 230) {
+                    && client.player != null && dev.bedrockify.forge.client.features.creativeInventory.BedrockCreativeScreen.canReplace(
+                            creativeScreen, client.player, client.getWindow().getScaledWidth(), client.getWindow().getScaledHeight())) {
                 event.setNewScreen(new dev.bedrockify.forge.client.features.creativeInventory.BedrockCreativeScreen(client.player,
                         instance.inventoryUiState.creativeView() == 1));
             }

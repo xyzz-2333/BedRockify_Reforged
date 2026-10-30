@@ -37,6 +37,10 @@ public abstract class CreativeScreenHandlerMixin extends ScreenHandler implement
     @Inject(method = "<init>", at = @At("TAIL"))
     private void bedrockify$rememberInventory(PlayerEntity player, CallbackInfo ci) { bedrockify$inventory = player.getInventory(); }
 
+    @Override public int bedrockify$nativeSlotCount() {
+        return bedrockify$nativeSlots == null ? slots.size() : bedrockify$nativeSlots.size();
+    }
+
     @Override
     public void bedrockify$configureGrid(boolean classic, int columns, int rows, boolean rebuild) {
         // Capture after construction, so constructor hooks from other mods have run.

@@ -1,5 +1,6 @@
 package dev.bedrockify.forge.mixin.client.features.survivalInventory;
 
+import dev.bedrockify.forge.client.gui.BedrockGui;
 import dev.bedrockify.forge.client.features.survivalInventory.*;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.CraftingScreen;
@@ -66,9 +67,9 @@ public abstract class CraftingScreenMixin extends HandledScreen<CraftingScreenHa
     @Inject(method = "drawBackground", at = @At("HEAD"), cancellable = true)
     private void bedrockify$background(DrawContext context, float delta, int mouseX, int mouseY, CallbackInfo ci) {
         if (!bedrockify$layout.active()) return;
-        SurvivalSprites.inventory(context, handler, x, y);
+        BedrockGui.container(context, handler, x, y, SurvivalLayout.WIDTH, SurvivalLayout.HEIGHT);
         var arrow = bedrockify$layout.craftingArrow();
-        SurvivalSprites.craftingArrow(context, x + arrow.getX(), y + arrow.getY(), arrow.getWidth(), arrow.getHeight()); ci.cancel();
+        BedrockGui.craftingArrow(context, x + arrow.getX(), y + arrow.getY(), arrow.getWidth(), arrow.getHeight()); ci.cancel();
     }
     @Override
     protected void drawForeground(DrawContext context, int mouseX, int mouseY) {

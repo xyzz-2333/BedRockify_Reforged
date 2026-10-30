@@ -34,6 +34,10 @@ public final class ItemStackData {
         target.setNbt(data == null ? null : data.copy());
     }
 
+    public static boolean matches(ItemStack stack, Key key) {
+        return key != null && stack.getItem() == key.item && Objects.equals(stack.getNbt(), key.data);
+    }
+
     public static Key key(ItemStack stack) {
         return new Key(stack);
     }

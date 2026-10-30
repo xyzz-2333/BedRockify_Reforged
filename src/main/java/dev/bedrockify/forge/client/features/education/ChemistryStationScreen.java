@@ -1,7 +1,8 @@
 package dev.bedrockify.forge.client.features.education;
 
-import dev.bedrockify.forge.client.features.survivalInventory.SurvivalSprites;
+import dev.bedrockify.forge.client.gui.BedrockGui;
 import dev.bedrockify.forge.common.features.education.ChemistryLayout;
+import dev.bedrockify.forge.common.features.education.ChemistryStationKind;
 import dev.bedrockify.forge.common.features.education.ChemistryStationScreenHandler;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
@@ -30,7 +31,7 @@ public final class ChemistryStationScreen extends HandledScreen<ChemistryStation
     private void send(int id) { if(client!=null && client.interactionManager!=null)client.interactionManager.clickButton(handler.syncId,id); }
     /** Only the enlarged constructor result uses the periodic-table face, as in Bedrock. */
     public boolean drawElementResult(DrawContext c,net.minecraft.screen.slot.Slot slot) {
-        if(!handler.kind.equals("element_constructor") || slot.id!=9 || !slot.hasStack()
+        if(handler.type != ChemistryStationKind.ELEMENT_CONSTRUCTOR || slot.id!=9 || !slot.hasStack()
                 || !(slot.getStack().getItem() instanceof dev.bedrockify.forge.common.features.education.ElementBlockItem))return false;
         var id=net.minecraft.registry.Registries.ITEM.getId(slot.getStack().getItem());
         if(!id.getNamespace().equals("bedrockify") || !id.getPath().matches("element_[0-9]+"))return false;
@@ -48,9 +49,9 @@ public final class ChemistryStationScreen extends HandledScreen<ChemistryStation
         super.init();
         addDrawableChild(ChemistrySprites.close(x+backgroundWidth-18,y+7,this::close));
         lastReaction=handler.reaction();
-        if(handler.kind.equals("lab_table"))
+        if(handler.type == ChemistryStationKind.LAB_TABLE)
             combine=addDrawableChild(ChemistrySprites.button(x+38,y+92,100,14,Text.translatable("bedrockify.education.combine"),()->send(0)));
-        if(!handler.kind.equals("element_constructor"))return;
+        if(handler.type != ChemistryStationKind.ELEMENT_CONSTRUCTOR)return;
         for(int col=0;col<3;col++) {
             int index=DISPLAY[col],column=x+4+col*26;
             var field=new TextFieldWidget(textRenderer,column+2,y+32,20,16,Text.translatable("bedrockify.education."+LABEL[col]));
@@ -84,7 +85,7 @@ public final class ChemistryStationScreen extends HandledScreen<ChemistryStation
         return super.keyPressed(key,scan,modifiers);
     }
     @Override public boolean mouseClicked(double mx,double my,int button) {
-        if(handler.kind.equals("element_constructor") && button<=1 && isPointWithinBounds(208,86,24,24,mx,my)) {
+        if(handler.type == ChemistryStationKind.ELEMENT_CONSTRUCTOR && button<=1 && isPointWithinBounds(208,86,24,24,mx,my)) {
             if(client!=null && client.interactionManager!=null)client.interactionManager.clickSlot(handler.syncId,9,button,
                     hasShiftDown()?net.minecraft.screen.slot.SlotActionType.QUICK_MOVE:net.minecraft.screen.slot.SlotActionType.PICKUP,client.player);
             return true;
@@ -96,14 +97,14 @@ public final class ChemistryStationScreen extends HandledScreen<ChemistryStation
         return super.mouseDragged(mx,my,button,dx,dy);
     }
     @Override protected void drawBackground(DrawContext c,float delta,int mx,int my) {
-        SurvivalSprites.panel(c,x,y,backgroundWidth,backgroundHeight,false);
-        if(handler.kind.equals("element_constructor"))drawElement(c);
-        else if(handler.kind.equals("compound_creator")) {
+        BedrockGui.panel(c,x,y,backgroundWidth,backgroundHeight,false);
+        if(handler.type == ChemistryStationKind.ELEMENT_CONSTRUCTOR)drawElement(c);
+        else if(handler.type == ChemistryStationKind.COMPOUND_CREATOR) {
             ChemistrySprites.nineSlice(c,"compound_background",x+30,y+15,84,68,79,61,27);
             ChemistrySprites.nineSlice(c,"dialog_indent_horiz",x+111,y+48,27,6,4,4,1);
         } else drawLab(c);
         for(var slot:handler.slots)if(slot.isEnabled()) {
-            if(slot.id==9 && handler.kind.equals("element_constructor"))continue;
+            if(slot.id==9 && handler.type == ChemistryStationKind.ELEMENT_CONSTRUCTOR)continue;
             ChemistrySprites.cell(c,x+slot.x-1,y+slot.y-1,18,false);
         }
     }
@@ -154,10 +155,10 @@ public final class ChemistryStationScreen extends HandledScreen<ChemistryStation
     }
     @Override protected void drawForeground(DrawContext c,int mx,int my) {
         c.drawText(textRenderer,title,(backgroundWidth-textRenderer.getWidth(title))/2,5,0xff4c4c4c,false);
-        if(handler.kind.equals("element_constructor")) {
+        if(handler.type == ChemistryStationKind.ELEMENT_CONSTRUCTOR) {
             String[] letters={"p","e","n"};
             for(int col=0;col<3;col++)c.drawText(textRenderer,letters[col],4+col*26,17,0xff4c4c4c,false);
-        } else if(handler.kind.equals("lab_table"))c.drawText(textRenderer,playerInventoryTitle,7,112,0xff4c4c4c,false);
+        } else if(handler.type == ChemistryStationKind.LAB_TABLE)c.drawText(textRenderer,playerInventoryTitle,7,112,0xff4c4c4c,false);
     }
     @Override public void render(DrawContext c,int mx,int my,float delta) {
         renderBackground(c);super.render(c,mx,my,delta);drawMouseoverTooltip(c,mx,my);

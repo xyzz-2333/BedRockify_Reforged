@@ -2,7 +2,9 @@ package dev.bedrockify.forge.client.features.creativeInventory;
 
 import dev.bedrockify.forge.client.BedrockifyClient;
 import dev.bedrockify.forge.client.features.survivalInventory.SurvivalLayout;
-import dev.bedrockify.forge.client.features.survivalInventory.SurvivalSprites;
+import dev.bedrockify.forge.client.gui.BedrockGui;
+import dev.bedrockify.forge.client.gui.GridViewport;
+import dev.bedrockify.forge.client.gui.ContainerScreenPolicy;
 import dev.bedrockify.forge.client.features.inventoryMemory.InventoryUiState;
 import dev.bedrockify.forge.client.features.inventoryMemory.RememberedInventory;
 import dev.bedrockify.forge.platform.item.ItemStackData;
@@ -18,7 +20,6 @@ import net.minecraft.screen.PlayerScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.SlotActionType;
 import net.minecraft.text.Text;
-import net.minecraft.util.math.MathHelper;
 
 import java.util.*;
 
@@ -30,7 +31,21 @@ public final class BedrockCreativeScreen extends HandledScreen<PlayerScreenHandl
     private CreativeCatalog.Category category = CreativeCatalog.Category.CONSTRUCTION;
     private List<CreativeGroups.Entry> entries = List.of();
     private final boolean split;
+    private static final ContainerScreenPolicy POLICY = new ContainerScreenPolicy(
+            BedrockCreativeScreen.class, 46, SurvivalLayout.WIDTH + 16, SurvivalLayout.HEIGHT + 32);
+    private static final ContainerScreenPolicy SOURCE_POLICY = new ContainerScreenPolicy(
+            CreativeInventoryScreen.class, 54, SurvivalLayout.WIDTH + 16, SurvivalLayout.HEIGHT + 32);
+    public static boolean supportsPlayerInventory(PlayerEntity player) {
+        return player != null && player.playerScreenHandler.slots.size() == POLICY.expectedSlots();
+    }
+    public static boolean canReplace(CreativeInventoryScreen screen, PlayerEntity player, int width, int height) {
+        var mod = BedrockifyClient.getInstance();
+        return SOURCE_POLICY.evaluate(screen.getClass(), ((CreativeGrid) screen.getScreenHandler()).bedrockify$nativeSlotCount(),
+                mod != null && mod.settings != null && mod.settings.creativeInventory, width, height)
+                == ContainerScreenPolicy.Decision.CUSTOM && supportsPlayerInventory(player);
+    }
     private int catalogX, firstRow;
+    private static final GridViewport VIEWPORT = new GridViewport(COLS, ROWS);
     private boolean draggingScrollbar;
     private TextFieldWidget search;
     private ItemStackData.Key selectedStack;
@@ -46,7 +61,7 @@ public final class BedrockCreativeScreen extends HandledScreen<PlayerScreenHandl
     @Override protected void init() {
         if (initialized) bedrockify$rememberInventory();
         super.init();
-        if (width < backgroundWidth + 16 || height < backgroundHeight + 32) {
+        if (!supported()) {
             CreativeViewTabs.openFull(client);
             return;
         }
@@ -104,7 +119,6 @@ public final class BedrockCreativeScreen extends HandledScreen<PlayerScreenHandl
         rebuild(false);
     }
     private void move(int id, int sx, int sy) { Slot slot = handler.getSlot(id); slot.x = sx; slot.y = sy; }
-    private int maxRow() { return Math.max(0, MathHelper.ceilDiv(entries.size(), COLS) - ROWS); }
     private void rebuild(boolean reset) {
         String query = search == null ? "" : search.getText().strip().toLowerCase(Locale.ROOT);
         List<ItemStack> source = new ArrayList<>();
@@ -118,7 +132,7 @@ public final class BedrockCreativeScreen extends HandledScreen<PlayerScreenHandl
         entries = CreativeGroups.layout(source, expanded,
                 query.isEmpty() && BedrockifyClient.getInstance().settings.creativeInventoryGroups,
                 category == CreativeCatalog.Category.CONSTRUCTION || category == CreativeCatalog.Category.EQUIPMENT);
-        firstRow = reset ? 0 : Math.min(firstRow, maxRow());
+        firstRow = reset ? 0 : VIEWPORT.clamp(firstRow, entries.size());
     }
     private int entryAt(double mx, double my) {
         int col = (int)Math.floor((mx - catalogX - 10) / 20);
@@ -127,25 +141,25 @@ public final class BedrockCreativeScreen extends HandledScreen<PlayerScreenHandl
         return search != null && col >= 0 && col < COLS && row >= 0 && row < ROWS && index < entries.size() ? index : -1;
     }
     @Override protected void drawBackground(DrawContext context, float delta, int mx, int my) {
-        SurvivalSprites.inventory(context, handler, x, y);
+        BedrockGui.container(context, handler, x, y, SurvivalLayout.WIDTH, SurvivalLayout.HEIGHT);
         context.fill(x + 30, y + 10, x + 90, y + 90, 0xff000000);
         InventoryScreen.drawEntity(context, x + 60, y + 86, 35, x + 60 - mx, y + 45 - my, client.player);
-        SurvivalSprites.craftingArrow(context, x + 156, y + 44, 14, 16);
+        BedrockGui.craftingArrow(context, x + 156, y + 44, 14, 16);
         CreativeViewTabs.draw(context, x + backgroundWidth - 81, y - 28, split ? 1 : 2);
         if (search == null) return;
-        SurvivalSprites.panel(context, catalogX, y, CATALOG_WIDTH, backgroundHeight, false);
+        BedrockGui.panel(context, catalogX, y, CATALOG_WIDTH, backgroundHeight, false);
         context.fill(catalogX + 8, y + 26, catalogX + CATALOG_WIDTH - 8, y + backgroundHeight - 8, 0xff626262);
         int tab = 0;
         for (var candidate : CreativeCatalog.Category.values()) {
-            SurvivalSprites.frame(context, catalogX + tab * 26, y - 28, 24, 28, category == candidate ? 0xffc6c6c6 : 0xff626262);
+            BedrockGui.frame(context, catalogX + tab * 26, y - 28, 24, 28, category == candidate ? 0xffc6c6c6 : 0xff626262);
             context.drawItem(candidate.icon, catalogX + tab * 26 + 4, y - 22); tab++;
         }
         for (int local = 0; local < COLS * ROWS && firstRow * COLS + local < entries.size(); local++) {
             var entry = entries.get(firstRow * COLS + local);
             int sx = catalogX + 10 + local % COLS * 20, sy = y + GRID_Y + local / COLS * 20;
-            SurvivalSprites.cell(context, sx, sy, false);
-            if (firstRow * COLS + local == entryAt(mx, my) || ItemStackData.key(entry.stack()).equals(selectedStack))
-                SurvivalSprites.highlight(context, sx, sy);
+            BedrockGui.cell(context, sx, sy, false);
+            if (firstRow * COLS + local == entryAt(mx, my) || ItemStackData.matches(entry.stack(), selectedStack))
+                BedrockGui.highlight(context, sx, sy);
             context.drawItem(entry.stack(), sx + 2, sy + 2);
             if (entry.header()) {
                 context.getMatrices().push(); context.getMatrices().translate(0, 0, 200);
@@ -155,8 +169,8 @@ public final class BedrockCreativeScreen extends HandledScreen<PlayerScreenHandl
         }
         int sx = catalogX + CATALOG_WIDTH - 18;
         context.fill(sx, y + GRID_Y, sx + 10, y + GRID_Y + ROWS * 20, 0xff373737);
-        int thumb = maxRow() == 0 ? 0 : Math.round((ROWS * 20 - 16) * (float)firstRow / maxRow());
-        SurvivalSprites.frame(context, sx, y + GRID_Y + thumb, 10, 16, 0xffc6c6c6);
+        int thumb = VIEWPORT.thumb(firstRow, entries.size(), ROWS * 20, 16);
+        BedrockGui.frame(context, sx, y + GRID_Y + thumb, 10, 16, 0xffc6c6c6);
     }
     @Override protected void drawForeground(DrawContext context, int mx, int my) {
         context.drawText(textRenderer, Text.translatable("container.crafting"), 114, 20, 0xff303030, false);
@@ -245,7 +259,7 @@ public final class BedrockCreativeScreen extends HandledScreen<PlayerScreenHandl
         return super.isClickOutsideBounds(mx, my, left, top, button);
     }
     private void dragScrollbar(double my) {
-        firstRow = Math.round(MathHelper.clamp((float)(my - y - GRID_Y - 8) / (ROWS * 20 - 16), 0, 1) * maxRow());
+        firstRow = VIEWPORT.drag(my, y + GRID_Y, ROWS * 20, 16, entries.size());
     }
     @Override public boolean mouseDragged(double mx, double my, int button, double dx, double dy) {
         if (draggingScrollbar) { dragScrollbar(my); return true; }
@@ -257,7 +271,7 @@ public final class BedrockCreativeScreen extends HandledScreen<PlayerScreenHandl
     }
     @Override public boolean mouseScrolled(double mx, double my, double amount) {
         if (search != null && mx >= catalogX && mx < catalogX + CATALOG_WIDTH) {
-            firstRow = MathHelper.clamp(firstRow - (int)Math.signum(amount), 0, maxRow()); return true;
+            firstRow = VIEWPORT.scroll(firstRow, amount, entries.size()); return true;
         }
         return super.mouseScrolled(mx, my, amount);
     }
@@ -266,8 +280,14 @@ public final class BedrockCreativeScreen extends HandledScreen<PlayerScreenHandl
             return search.keyPressed(key, scan, modifiers);
         return super.keyPressed(key, scan, modifiers);
     }
+    private boolean supported() {
+        var mod = BedrockifyClient.getInstance();
+        return POLICY.supports(this, handler.slots.size(),
+                mod != null && mod.settings != null && mod.settings.creativeInventory);
+    }
     @Override protected void handledScreenTick() {
         if (!client.interactionManager.hasCreativeInventory()) close();
+        else if (!supported()) CreativeViewTabs.openFull(client);
     }
     @Override public boolean charTyped(char c, int modifiers) {
         return search != null && search.charTyped(c, modifiers) || super.charTyped(c, modifiers);

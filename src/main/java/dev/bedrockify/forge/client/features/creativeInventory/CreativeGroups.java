@@ -1,5 +1,6 @@
 package dev.bedrockify.forge.client.features.creativeInventory;
 
+import dev.bedrockify.forge.client.gui.GroupedList;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
@@ -109,31 +110,15 @@ public final class CreativeGroups {
     }
 
     public static List<Entry> layout(List<ItemStack> stacks, Set<String> expanded, boolean collapse, boolean bedrockOrder) {
-        if (!collapse) return stacks.stream().map(s -> new Entry(s, null, 0)).toList();
-        Map<String, List<ItemStack>> families = new LinkedHashMap<>();
-        for (ItemStack stack : stacks) {
-            String group = family(stack);
-            if (group != null) families.computeIfAbsent(group, key -> new ArrayList<>()).add(stack);
-        }
-        List<Entry> result = new ArrayList<>();
-        Set<String> added = new HashSet<>();
-        if (bedrockOrder) for (String group : ORDER) append(group, families, expanded, added, result);
-        for (ItemStack stack : stacks) {
-            String group = family(stack);
-            if (group == null || families.get(group).size() < 2) result.add(new Entry(stack, null, 0));
-            else append(group, families, expanded, added, result);
-        }
-        return result;
+        return GroupedList.layout(stacks, CreativeGroups::family, expanded, collapse,
+                bedrockOrder ? ORDER : List.of(), CreativeGroups::representative).stream()
+                .map(row -> new Entry(row.value(), row.group(), row.header() ? row.count() : 0)).toList();
     }
 
-    private static void append(String group, Map<String, List<ItemStack>> families, Set<String> expanded,
-                               Set<String> added, List<Entry> result) {
-        List<ItemStack> members = families.get(group);
-        if (members == null || members.size() < 2 || !added.add(group)) return;
-        ItemStack icon = group.equals("cooked_food") ? members.stream()
-                .filter(s -> s.isOf(net.minecraft.item.Items.COOKED_CHICKEN)).findFirst().orElse(members.get(0)) : members.get(0);
-        result.add(new Entry(icon, group, members.size()));
-        if (expanded.contains(group)) for (ItemStack stack : members) result.add(new Entry(stack, null, 0));
+    private static ItemStack representative(String group, List<ItemStack> members) {
+        return group.equals("cooked_food") ? members.stream()
+                .filter(stack -> stack.isOf(net.minecraft.item.Items.COOKED_CHICKEN)).findFirst().orElse(members.get(0))
+                : members.get(0);
     }
 
     private CreativeGroups() {}

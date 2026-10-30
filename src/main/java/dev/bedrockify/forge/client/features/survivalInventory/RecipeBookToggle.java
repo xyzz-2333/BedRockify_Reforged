@@ -1,5 +1,6 @@
 package dev.bedrockify.forge.client.features.survivalInventory;
 
+import dev.bedrockify.forge.client.gui.BedrockGui;
 import dev.bedrockify.forge.client.BedrockifyClient;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
@@ -38,7 +39,7 @@ public final class RecipeBookToggle extends ButtonWidget {
     }
 
     @Override protected void renderButton(DrawContext context, int mouseX, int mouseY, float delta) {
-        SurvivalSprites.button(context, getX(), getY(), getWidth(), getHeight(), book.isOpen());
+        BedrockGui.button(context, getX(), getY(), getWidth(), getHeight(), book.isOpen());
         context.drawItem(Items.KNOWLEDGE_BOOK.getDefaultStack(), getX() + 2, getY() + 1);
         if (isSelected()) {
             int x = getX(), y = getY();

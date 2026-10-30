@@ -32,6 +32,13 @@
 
 ## 开发测试入口
 
+公共分组模型可用 JDK 17 或更高版本独立验证，无需启动 Minecraft：
+
+```sh
+javac --release 17 -d build/gui-logic-tests src/main/java/dev/bedrockify/forge/client/gui/GroupedList.java docs/tools/gui-logic-tests/GroupedListTest.java
+java -cp build/gui-logic-tests GroupedListTest
+```
+
 使用 JDK 17，从仓库根目录运行。先以 `gradlew compileJava validateRefmap validateBedrockAdvancements` 做源码与资源检查；仅准备发布时使用不带测试属性的 `gradlew clean build`。Windows 使用 `gradlew.bat`，其他平台使用 `./gradlew`。
 
 以下每行属性单独使用，例如 `gradlew runServer -Palpha16GameTests`。测试类由属性加入源码集，不能带入正式包。`--offline` 仅在所需缓存完整时使用。
@@ -43,13 +50,13 @@
 | `chemistryUiGameTests` | `runServer` | 教育基础及预览领取、Shift、旧输出、实验结果、单用户占用；`run/chemistry-ui-tests` |
 | `mechanicsGameTests` | `runServer` | 投射物、穿刺、闪门与搅拌机；`run/mechanics-tests` |
 | `alpha16GameTests` | `runServer` | 七项经典内容测试，含 0.11 塔形、单次破损、拆核、最低层限制与基岩替换；`run/alpha16-tests` |
-| `alpha17GameTests` | `runServer` | 成就服务端判定；`run/alpha17-tests` |
+| `alpha17GameTests` | `runServer` | 成就目录、玩家状态隔离、移动判定、动物驯服、交易累计、探险地图来源、地图室、生存进度、冰霜行者、红石活塞、方块交互、潮涌核心、末影珍珠、物品来源/拾取及原版容器事务；`run/alpha17-tests` |
 | `alpha14ClientSmoke` | `runClient` | 客户端初始化和配置构建；`run/alpha14-client-smoke` |
 | `waterColorClientSmoke` | `runClient` | 64 群系水色、开关、资源覆盖及回退；`run/alpha15-water-smoke` |
 | `alpha14Regression` | `runClient` | 盔甲架手臂射线、方向、举盾输入；`run/alpha14-regression` |
 | `education2Client` | `runClient` | 教育模型、工作站菜单与实体同步；`run/education2-client` |
 | `chemistryUiClient` | `runClient` | 化学菜单网络、输入、滑条、结果与截图；`run/chemistry-ui-client` |
-| `inventoryUiClient` | `runClient` | 创造目录、生存配方栏和界面记忆；`run/inventory-ui-client` |
+| `inventoryUiClient` | `runClient` | 创造目录、生存配方栏、界面回退和记忆生命周期；`run/inventory-ui-client` |
 | `snowBookClient` | `runClient` | 双页书本编辑、签名、主副手保存及覆雪/融雪纹理；`run/alpha17-snow-book` |
 | `guiTextClient` | `runClient` | 页码与中英文正文实际帧缓冲比较；`run/alpha17-snow-book` |
 

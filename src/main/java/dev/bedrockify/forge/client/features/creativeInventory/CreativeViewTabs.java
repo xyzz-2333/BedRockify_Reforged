@@ -1,6 +1,6 @@
 package dev.bedrockify.forge.client.features.creativeInventory;
 
-import dev.bedrockify.forge.client.features.survivalInventory.SurvivalSprites;
+import dev.bedrockify.forge.client.gui.BedrockGui;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.util.Identifier;
 import net.minecraft.client.font.TextRenderer;
@@ -21,7 +21,7 @@ public final class CreativeViewTabs {
     private static final String[] ICONS = {"creative_icon", "recipe_book_icon", "inventory_icon"};
     public static void draw(DrawContext context, int x, int y, int selected) {
         for (int i = 0; i < 3; i++) {
-            SurvivalSprites.frame(context, x + i * STEP, y, 26, HEIGHT, selected == i ? 0xffc6c6c6 : 0xff626262);
+            BedrockGui.frame(context, x + i * STEP, y, 26, HEIGHT, selected == i ? 0xffc6c6c6 : 0xff626262);
             Identifier texture = new Identifier("bedrockify", "textures/gui/inventory_views/" + ICONS[i] + ".png");
             context.drawTexture(texture, x + i * STEP + 4, y + 9, 18, 13, 0, 0, 19, 13, 19, 13);
         }

@@ -1,5 +1,8 @@
 package dev.bedrockify.forge.client.features.survivalInventory;
 
+import dev.bedrockify.forge.client.gui.BedrockGui;
+import dev.bedrockify.forge.client.gui.GridViewport;
+import dev.bedrockify.forge.client.gui.GroupedList;
 import dev.bedrockify.forge.client.BedrockifyClient;
 import dev.bedrockify.forge.client.features.creativeInventory.CreativeGroups;
 import net.minecraft.client.MinecraftClient;
@@ -57,6 +60,7 @@ public final class BedrockRecipePanel {
     private Language language;
     private long inputVersion = Long.MIN_VALUE;
     private int firstRow, filteredCount;
+    private static final GridViewport VIEWPORT = new GridViewport(COLS, ROWS);
     private boolean draggingScrollbar;
     private Category category = Category.ALL;
     private boolean craftableOnly;
@@ -108,7 +112,7 @@ public final class BedrockRecipePanel {
     public int filteredCount() { return filteredCount; }
     public int page() { return firstRow; }
     public int pages() { return maxScrollRow() + 1; }
-    private int maxScrollRow() { return Math.max(0, MathHelper.ceilDiv(entries.size(), COLS) - ROWS); }
+    private int maxScrollRow() { return VIEWPORT.maxRow(entries.size()); }
     public boolean craftableOnly() { return craftableOnly; }
     public void invalidate() { source = null; inputVersion = Long.MIN_VALUE; }
 
@@ -205,26 +209,15 @@ public final class BedrockRecipePanel {
         }
         filteredCount = filtered.size();
         boolean collapse = BedrockifyClient.getInstance().settings.survivalRecipeGroups && query.isEmpty();
-        Map<String, List<Node>> families = new LinkedHashMap<>();
-        if (collapse) for (Node node : filtered) if (node.family != null)
-            families.computeIfAbsent(node.family, key -> new ArrayList<>()).add(node);
-        List<Entry> visible = new ArrayList<>();
-        Set<String> added = new HashSet<>();
-        for (Node node : filtered) {
-            List<Node> family = collapse && node.family != null ? families.get(node.family) : null;
-            if (family == null || family.size() < 2) visible.add(new Entry(node, null, 1, node.collection.isCraftable(node.recipe)));
-            else if (added.add(node.family)) {
-                Node representative = family.stream().filter(n -> n.collection.isCraftable(n.recipe)).findFirst().orElse(node);
-                visible.add(new Entry(representative, node.family, family.size(), representative.collection.isCraftable(representative.recipe)));
-                if (expanded.contains(node.family)) for (Node member : family)
-                    visible.add(new Entry(member, null, 1, member.collection.isCraftable(member.recipe)));
-            }
-        }
-        entries = List.copyOf(visible);
+        entries = GroupedList.layout(filtered, Node::family, expanded, collapse, List.of(),
+                (group, members) -> members.stream().filter(node -> node.collection.isCraftable(node.recipe))
+                        .findFirst().orElse(members.get(0))).stream()
+                .map(row -> new Entry(row.value(), row.group(), row.count(),
+                        row.value().collection.isCraftable(row.value().recipe))).toList();
         if (remembered != null && restored) {
             firstRow = MathHelper.clamp(remembered.first() / COLS, 0, maxScrollRow());
             remembered = null;
-        } else firstRow = resetPage ? 0 : MathHelper.clamp(firstRow, 0, maxScrollRow());
+        } else firstRow = resetPage ? 0 : VIEWPORT.clamp(firstRow, entries.size());
         rebuildCount++;
     }
     public void position(SurvivalLayout layout, TextFieldWidget search) {
@@ -250,23 +243,23 @@ public final class BedrockRecipePanel {
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         if (layout == null) return;
         int x = layout.recipeLeft(), y = layout.top();
-        SurvivalSprites.panel(context, x, y, SurvivalLayout.RECIPE_WIDTH, PANEL_HEIGHT, false);
+        BedrockGui.panel(context, x, y, SurvivalLayout.RECIPE_WIDTH, PANEL_HEIGHT, false);
         for (int i = 0; i < Category.values().length; i++) {
             int tx = x + 10 + i * 32;
-            SurvivalSprites.button(context, tx, y + CATEGORY_Y, CATEGORY_SIZE, CATEGORY_SIZE, category.ordinal() == i);
+            BedrockGui.button(context, tx, y + CATEGORY_Y, CATEGORY_SIZE, CATEGORY_SIZE, category.ordinal() == i);
             context.drawItem(Category.values()[i].icon, tx + 4, y + CATEGORY_Y + 4);
         }
-        SurvivalSprites.button(context, x + 158, y + FILTER_Y, 22, 22, craftableOnly);
+        BedrockGui.button(context, x + 158, y + FILTER_Y, 22, 22, craftableOnly);
         context.drawItem(Items.CRAFTING_TABLE.getDefaultStack(), x + 161, y + FILTER_Y + 3);
         if (search != null) search.render(context, mouseX, mouseY, delta);
-        SurvivalSprites.panel(context, x + 8, y + GRID_Y - 2, 174, GRID_HEIGHT + 4, true);
+        BedrockGui.panel(context, x + 8, y + GRID_Y - 2, 174, GRID_HEIGHT + 4, true);
         int hover = hovered(mouseX, mouseY); paintedCells = 0;
         for (int i = firstRow * COLS; i < Math.min(entries.size(), firstRow * COLS + PAGE_SIZE); i++) {
             Entry entry = entries.get(i); int local = i - firstRow * COLS;
             int sx = x + 10 + local % COLS * 20, sy = y + GRID_Y + local / COLS * 20;
-            SurvivalSprites.cell(context, sx, sy, !entry.craftable);
+            BedrockGui.cell(context, sx, sy, !entry.craftable);
             if (i == hover || !entry.header() && entry.node.recipe.getId().equals(selectedRecipe))
-                SurvivalSprites.highlight(context, sx, sy);
+                BedrockGui.highlight(context, sx, sy);
             context.drawItem(entry.node.output, sx + 2, sy + 2);
             if (entry.header()) marker(context, expanded.contains(entry.family) ? "−" : "+", sx + 12, sy + 10);
             else context.drawItemInSlot(client.textRenderer, entry.node.output, sx + 2, sy + 2);
@@ -276,8 +269,8 @@ public final class BedrockRecipePanel {
                 Text.translatable("bedrockify.survival.empty"), x + 95, y + 100, 0xffffff);
         int sx = x + SurvivalLayout.RECIPE_WIDTH - 18;
         context.fill(sx, y + GRID_Y, sx + 10, y + GRID_Y + GRID_HEIGHT, 0xff373737);
-        int thumb = maxScrollRow() == 0 ? 0 : Math.round((GRID_HEIGHT - 16) * (float)firstRow / maxScrollRow());
-        SurvivalSprites.frame(context, sx, y + GRID_Y + thumb, 10, 16, 0xffc6c6c6);
+        int thumb = VIEWPORT.thumb(firstRow, entries.size(), GRID_HEIGHT, 16);
+        BedrockGui.frame(context, sx, y + GRID_Y + thumb, 10, 16, 0xffc6c6c6);
     }
     private void marker(DrawContext c, String text, int x, int y) {
         c.getMatrices().push();
@@ -331,13 +324,12 @@ public final class BedrockRecipePanel {
     public boolean scroll(double x, double y, double amount) {
         if (!contains(x, y)) return false;
         quickCraft.cancel();
-        firstRow = MathHelper.clamp(firstRow - (int)Math.signum(amount), 0, maxScrollRow()); return true;
+        firstRow = VIEWPORT.scroll(firstRow, amount, entries.size()); return true;
     }
     public boolean drag(double x, double y) {
         if (!draggingScrollbar || layout == null) return false;
         quickCraft.cancel();
-        float fraction = MathHelper.clamp((float)(y - layout.top() - GRID_Y - 8) / (GRID_HEIGHT - 16), 0, 1);
-        firstRow = Math.round(fraction * maxScrollRow());
+        firstRow = VIEWPORT.drag(y, layout.top() + GRID_Y, GRID_HEIGHT, 16, entries.size());
         return true;
     }
     public boolean release() {

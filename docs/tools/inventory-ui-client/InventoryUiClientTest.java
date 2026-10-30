@@ -42,6 +42,155 @@ public final class InventoryUiClientTest {
         c.getServer().execute(() -> { try { task.accept(c.getServer().getPlayerManager().getPlayer(id)); }
             catch (Throwable e) { failure=e.toString(); } });
     }
+    private static net.minecraft.screen.slot.Slot extraSlot(net.minecraft.screen.ScreenHandler handler)
+            throws ReflectiveOperationException {
+        // Use the native registration path so tracked stacks match the added slot, as with a mod hook.
+        var add = net.minecraft.screen.ScreenHandler.class.getDeclaredMethod("addSlot", net.minecraft.screen.slot.Slot.class);
+        add.setAccessible(true);
+        return (net.minecraft.screen.slot.Slot)add.invoke(handler,
+                new net.minecraft.screen.slot.Slot(new net.minecraft.inventory.SimpleInventory(1), 0, 220, 20));
+    }
+    private static void removeExtraSlot(net.minecraft.screen.ScreenHandler handler, net.minecraft.screen.slot.Slot slot) {
+        int index = handler.slots.indexOf(slot);
+        if (index < 0) return;
+        handler.slots.remove(index);
+        handler.trackedStacks.remove(index);
+        handler.previousTrackedStacks.remove(index);
+    }
+    private static void survivalFallbacks(MinecraftClient c) throws ReflectiveOperationException {
+        var settings = BedrockifyClient.getInstance().settings;
+        boolean enabled = settings.survivalInventory;
+        net.minecraft.screen.slot.Slot extra = null;
+        try {
+            settings.survivalInventory = true;
+            c.setScreen(new InventoryScreen(c.player));
+            var screen = (InventoryScreen)c.currentScreen;
+            var layout = ((SurvivalScreen)screen).bedrockify$survivalLayout();
+            screen.init(c, 640, 360);
+            check(layout.active(), "Supported vanilla inventory uses the custom layout");
+            screen.init(c, 300, 200);
+            check(!layout.active(), "Small window falls back");
+            check(c.player.playerScreenHandler.getSlot(9).x == 8 && c.player.playerScreenHandler.getSlot(9).y == 84,
+                    "Small-window fallback restores native slot coordinates");
+            screen.init(c, 640, 360);
+            check(layout.active(), "Growing the window restores the custom layout");
+            settings.survivalInventory = false;
+            screen.init(c, 640, 360);
+            check(!layout.active(), "Disabled setting falls back");
+            c.setScreen(null);
+            settings.survivalInventory = true;
+            c.setScreen(new InventoryScreen(c.player) {});
+            check(!((SurvivalScreen)c.currentScreen).bedrockify$survivalLayout().active(), "Foreign inventory subclass falls back");
+            c.setScreen(null);
+            extra = extraSlot(c.player.playerScreenHandler);
+            c.setScreen(new InventoryScreen(c.player));
+            check(!((SurvivalScreen)c.currentScreen).bedrockify$survivalLayout().active(), "Additional player slots fall back");
+            var grid = new dev.bedrockify.forge.client.gui.GridViewport(8, 6);
+            check(grid.scroll(0, -1, 0) == 0 && grid.drag(1000, 0, 120, 16, 48) == 0,
+                    "Empty and single-page lists cannot scroll");
+            check(grid.drag(-100, 0, 120, 16, 100) == 0
+                    && grid.drag(1000, 0, 120, 16, 100) == 7, "Scrollbar drag clamps at both ends");
+            check(grid.clamp(7, 8) == 0, "Filtering a scrolled list restores a valid row");
+            Bedrockify.LOGGER.info("INVENTORY UI SURVIVAL FALLBACK PASS");
+        } finally {
+            c.setScreen(null);
+            if (extra != null) removeExtraSlot(c.player.playerScreenHandler, extra);
+            settings.survivalInventory = enabled;
+        }
+    }
+    private static void creativeFallbacks(MinecraftClient c) throws ReflectiveOperationException {
+        var settings = BedrockifyClient.getInstance().settings;
+        boolean enabled = settings.creativeInventory;
+        net.minecraft.screen.slot.Slot extra = null;
+        try {
+            settings.creativeInventory = true;
+            extra = extraSlot(c.player.playerScreenHandler);
+            c.setScreen(new CreativeInventoryScreen(c.player, c.player.networkHandler.getEnabledFeatures(), true));
+            check(c.currentScreen.getClass() == CreativeInventoryScreen.class,
+                    "Additional slots bypass remembered compact creative view; actual=" + c.currentScreen.getClass().getName());
+            check(((CreativeInventoryScreen)c.currentScreen).getScreenHandler().slots.size() == 54,
+                    "Additional player slots preserve the native creative picker");
+            c.setScreen(null);
+            removeExtraSlot(c.player.playerScreenHandler, extra);
+            extra = null;
+            var nativeScreen = new CreativeInventoryScreen(c.player, c.player.networkHandler.getEnabledFeatures(), true);
+            var pickerExtra = extraSlot(nativeScreen.getScreenHandler());
+            c.setScreen(nativeScreen);
+            check(c.currentScreen == nativeScreen && nativeScreen.getScreenHandler().slots.size() == 55
+                    && nativeScreen.getScreenHandler().slots.contains(pickerExtra), "Additional native picker slots survive fallback intact");
+            c.setScreen(null);
+            settings.creativeInventory = false;
+            c.setScreen(new BedrockCreativeScreen(c.player, true));
+            check(c.currentScreen.getClass() == CreativeInventoryScreen.class, "Disabled compact view opens the native screen");
+            c.setScreen(null);
+            settings.creativeInventory = true;
+            c.setScreen(new CreativeInventoryScreen(c.player, c.player.networkHandler.getEnabledFeatures(), true) {});
+            check(c.currentScreen.getClass() != BedrockCreativeScreen.class
+                    && ((CreativeInventoryScreen)c.currentScreen).getScreenHandler().slots.size() == 54,
+                    "Foreign creative subclass keeps native slots and bypasses remembered compact view");
+            Bedrockify.LOGGER.info("INVENTORY UI CREATIVE FALLBACK PASS");
+        } finally {
+            c.setScreen(null);
+            if (extra != null) removeExtraSlot(c.player.playerScreenHandler, extra);
+            settings.creativeInventory = enabled;
+        }
+    }
+    private static void classicMemoryLifecycle(MinecraftClient c) throws Exception {
+        CreativeViewTabs.openFull(c);
+        var screen = (CreativeInventoryScreen)c.currentScreen;
+        var layout = (CreativeScreenLayout)field(screen, "bedrockify$layout");
+        check(layout.classic(), "Classic geometry is active");
+        // Establish a known native tab; previous runs may have persisted the search tab.
+        var selectTab = CreativeInventoryScreen.class.getDeclaredMethod("setSelectedTab", ItemGroup.class);
+        selectTab.setAccessible(true);
+        selectTab.invoke(screen, net.minecraft.registry.Registries.ITEM_GROUP.stream()
+                .filter(group -> CreativeCatalog.category(group) == CreativeCatalog.Category.CONSTRUCTION).findFirst().orElseThrow());
+        layout = (CreativeScreenLayout)field(screen, "bedrockify$layout");
+        screen.mouseClicked(layout.left()+layout.width()-44, layout.top()+12, 0);
+        screen.mouseScrolled(layout.left()+30, layout.top()+60, -1);
+        var rememberedGroups = Set.copyOf(((CreativeScreenMemory)field(screen,"bedrockify$memory")).expanded());
+        int rememberedFirst = ((CreativeGrid)screen.getScreenHandler()).bedrockify$firstVisibleIndex((float)field(screen,"scrollPosition"));
+        check(!rememberedGroups.isEmpty() && rememberedFirst>0, "Native controls expand groups and scroll the classic catalogue; groups=" + rememberedGroups.size() + ", first=" + rememberedFirst + ", tab=" + field(screen,"selectedTab"));
+        c.setScreen(null);
+        CreativeViewTabs.openFull(c);
+        screen = (CreativeInventoryScreen)c.currentScreen;
+        check(((CreativeScreenMemory)field(screen,"bedrockify$memory")).expanded().equals(rememberedGroups), "Classic expanded groups survive reopening");
+        check(((CreativeGrid)screen.getScreenHandler()).bedrockify$firstVisibleIndex((float)field(screen,"scrollPosition"))==rememberedFirst,
+                "Classic scroll anchor survives reopening");
+        screen.init(c,300,200);
+        check(!((CreativeScreenLayout)field(screen,"bedrockify$layout")).classic(), "Small classic window uses native geometry");
+        screen.init(c,640,360);
+        layout = (CreativeScreenLayout)field(screen,"bedrockify$layout");
+        check(layout.classic() && ((CreativeScreenMemory)field(screen,"bedrockify$memory")).expanded().equals(rememberedGroups),
+                "Resize reinitialization does not overwrite remembered groups");
+        selectTab.invoke(screen, net.minecraft.registry.Registries.ITEM_GROUP.stream()
+                .filter(group -> group.getType() == ItemGroup.Type.SEARCH).findFirst().orElseThrow());
+        var search = (TextFieldWidget)field(screen,"searchBox");
+        check(search.isVisible(), "Native search tab exposes its search field");
+        search.setText(""); search.setFocused(true);
+        String query = Items.STONE.getName().getString();
+        for(char ch : query.toCharArray()) screen.charTyped(ch,0);
+        check(search.getText().equals(query), "Native search accepts the current-language item name");
+        int found = screen.getScreenHandler().itemList.size();
+        check(found > 0 && screen.getScreenHandler().itemList.stream().anyMatch(stack -> stack.isOf(Items.STONE)),
+                "The native search finds Stone before its results are saved");
+        c.setScreen(null);
+        CreativeViewTabs.openFull(c);
+        screen = (CreativeInventoryScreen)c.currentScreen;
+        check(((TextFieldWidget)field(screen,"searchBox")).getText().equals(query) && screen.getScreenHandler().itemList.size()==found,
+                "Restoring the search tab restores both text and native results");
+        var state = BedrockifyClient.getInstance().inventoryUiState;
+        String storedTab = state.creativeTab();
+        var settings = BedrockifyClient.getInstance().settings;
+        settings.rememberInventoryState = false;
+        try {
+            layout = (CreativeScreenLayout)field(screen,"bedrockify$layout");
+            screen.mouseClicked(layout.left()+13,layout.top()-12,0);
+            c.setScreen(null);
+            check(state.creativeTab().equals(storedTab), "Disabling memory prevents selection changes from replacing saved state");
+        } finally { settings.rememberInventoryState = true; c.setScreen(null); }
+        Bedrockify.LOGGER.info("INVENTORY UI CLASSIC MEMORY PASS");
+    }
     @SubscribeEvent public static void tick(TickEvent.ClientTickEvent event) {
         if (event.phase != TickEvent.Phase.END) return;
         var c=MinecraftClient.getInstance();
@@ -54,7 +203,14 @@ public final class InventoryUiClientTest {
                 c.options.getGuiScale().setValue(2); c.onResolutionChanged();
                 var mod=BedrockifyClient.getInstance();mod.settings.rememberInventoryState=true;mod.settings.rememberInventorySearch=true;
                 mod.inventoryUiState.creativeView(0);
+                mod.inventoryUiState.creativeTab("minecraft:building_blocks");
+                mod.inventoryUiState.remember("creative:minecraft:building_blocks",
+                        new dev.bedrockify.forge.client.features.inventoryMemory.InventoryUiState.View("", "", 0, Set.of()));
                 mod.inventoryUiState.remember("creative:split",new dev.bedrockify.forge.client.features.inventoryMemory.InventoryUiState.View("CONSTRUCTION","",0,Set.of()));
+                // Category views survive previous runs independently of the overall split view.
+                for (var category : CreativeCatalog.Category.values())
+                    mod.inventoryUiState.remember("creative:split:" + category.name(),
+                            new dev.bedrockify.forge.client.features.inventoryMemory.InventoryUiState.View(category.name(), "", 0, Set.of()));
                 server(c,p -> { p.changeGameMode(GameMode.CREATIVE); p.getInventory().clear(); p.getInventory().setStack(p.getInventory().selectedSlot,new ItemStack(Items.DIAMOND,3)); p.playerScreenHandler.setCursorStack(ItemStack.EMPTY); p.playerScreenHandler.sendContentUpdates(); });
             }
             if(ticks==30) {
@@ -170,7 +326,12 @@ public final class InventoryUiClientTest {
             }
             if(ticks==290) check(c.currentScreen instanceof CreativeInventoryScreen,"Explicit full view bypasses split restore");
             if(ticks==295) screenshot(c,"creative-toolbar-aligned");
-            if(ticks==305) { Bedrockify.LOGGER.info("INVENTORY UI CLIENT PASS"); c.scheduleStop(); }
+            if(ticks==300) { c.setScreen(null); server(c,p -> p.changeGameMode(GameMode.SURVIVAL)); }
+            if(ticks==320) survivalFallbacks(c);
+            if(ticks==330) server(c,p -> p.changeGameMode(GameMode.CREATIVE));
+            if(ticks==350) creativeFallbacks(c);
+            if(ticks==380) classicMemoryLifecycle(c);
+            if(ticks==400) { Bedrockify.LOGGER.info("INVENTORY UI CLIENT PASS"); c.scheduleStop(); }
         } catch(Throwable e) { Bedrockify.LOGGER.error("INVENTORY UI CLIENT FAILED at tick "+ticks,e); c.scheduleStop(); }
     }
 }

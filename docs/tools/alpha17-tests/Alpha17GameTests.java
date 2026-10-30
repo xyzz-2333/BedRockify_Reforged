@@ -14,6 +14,35 @@ import java.util.UUID;
 
 @GameTestHolder("bedrockify") @PrefixGameTestTemplate(false)
 public class Alpha17GameTests {
+    @GameTest(templateName="empty")
+    public static void movementStateIsIndependentAndClearedOnLogout(TestContext context) {
+        var world = context.getWorld();
+        var first = new ServerPlayerEntity(world.getServer(), world, new GameProfile(UUID.randomUUID(), "brpBounce"));
+        var second = new ServerPlayerEntity(world.getServer(), world, new GameProfile(UUID.randomUUID(), "brpNoBounce"));
+        var departed = new ServerPlayerEntity(world.getServer(), world, new GameProfile(UUID.randomUUID(), "brpDeparted"));
+        var origin = context.getAbsolutePos(new net.minecraft.util.math.BlockPos(1, 2, 1));
+        for (var player : new ServerPlayerEntity[]{first, second, departed}) {
+            player.age = 1; // Leave the independent once-per-second checks out of this event scenario.
+            player.setPosition(origin.getX(), origin.getY(), origin.getZ());
+            player.setVelocity(0, 1, 0);
+        }
+        BedrockAchievements.slimeBounce(first);
+        BedrockAchievements.slimeBounce(departed);
+        net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(new net.minecraftforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent(departed));
+        for (var player : new ServerPlayerEntity[]{first, second, departed}) {
+            player.setPosition(origin.getX(), origin.getY() + 31, origin.getZ());
+            net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(new net.minecraftforge.event.TickEvent.PlayerTickEvent(
+                    net.minecraftforge.event.TickEvent.Phase.END, player));
+        }
+        Advancement trampoline = advancement(context, "trampoline");
+        context.assertTrue(first.getAdvancementTracker().getProgress(trampoline).isDone(), "A tracked 30-block bounce grants Trampoline");
+        context.assertFalse(second.getAdvancementTracker().getProgress(trampoline).isDone(), "Another player's upward movement does not inherit the bounce");
+        context.assertFalse(departed.getAdvancementTracker().getProgress(trampoline).isDone(), "Logout discards the pending bounce");
+        for (var player : new ServerPlayerEntity[]{first, second, departed})
+            net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(new net.minecraftforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent(player));
+        context.complete();
+    }
+
     private static Advancement advancement(TestContext context, String path) {
         return context.getWorld().getServer().getAdvancementLoader()
                 .get(new Identifier("bedrockify", "bedrock/" + path));

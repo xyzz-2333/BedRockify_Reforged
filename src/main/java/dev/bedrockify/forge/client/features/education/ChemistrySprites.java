@@ -1,6 +1,6 @@
 package dev.bedrockify.forge.client.features.education;
 
-import dev.bedrockify.forge.client.features.survivalInventory.SurvivalSprites;
+import dev.bedrockify.forge.client.gui.BedrockGui;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.MinecraftClient;
@@ -32,7 +32,7 @@ public final class ChemistrySprites {
         return new ButtonWidget(x,y,w,h,text,b->action.run(),narration->narration.get()) {
             @Override public void renderButton(DrawContext c,int mx,int my,float delta) {
                 int face=active ? (isHovered()||isFocused() ? 0xff80b54b : 0xffc6c6c6) : 0xff777777;
-                SurvivalSprites.frame(c,getX(),getY(),getWidth(),getHeight(),face);
+                BedrockGui.frame(c,getX(),getY(),getWidth(),getHeight(),face);
                 var font=MinecraftClient.getInstance().textRenderer;
                 c.drawText(font,getMessage(),getX()+(getWidth()-font.getWidth(getMessage()))/2,getY()+(getHeight()-8)/2,active?0xff4c4c4c:0xff555555,false);
             }

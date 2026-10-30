@@ -1,6 +1,7 @@
 package dev.bedrockify.forge.client.features.survivalInventory;
 
 import dev.bedrockify.forge.client.BedrockifyClient;
+import dev.bedrockify.forge.client.gui.ContainerScreenPolicy;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.math.Rect2i;
 import net.minecraft.client.gui.screen.ingame.CraftingScreen;
@@ -15,6 +16,10 @@ import java.util.Map;
 public final class SurvivalLayout {
     public static final int WIDTH = 198, HEIGHT = 198, RECIPE_WIDTH = 190, GAP = 0;
     public static final int PORTRAIT_X = 30, PORTRAIT_Y = 10, PORTRAIT_WIDTH = 60, PORTRAIT_HEIGHT = 80;
+    private static final ContainerScreenPolicy INVENTORY = new ContainerScreenPolicy(
+            InventoryScreen.class, 46, WIDTH + RECIPE_WIDTH + GAP + 32, HEIGHT + 24);
+    private static final ContainerScreenPolicy CRAFTING = new ContainerScreenPolicy(
+            CraftingScreen.class, 46, WIDTH + RECIPE_WIDTH + GAP + 32, HEIGHT + 24);
     private final Map<Slot, int[]> original = new IdentityHashMap<>();
     private boolean active, crafting;
     private int screenWidth, screenHeight;
@@ -57,15 +62,12 @@ public final class SurvivalLayout {
 
     private static boolean supported(Screen screen, ScreenHandler handler, boolean crafting) {
         var mod = BedrockifyClient.getInstance();
-        return mod != null && mod.settings != null && mod.settings.survivalInventory
-                && screen.width >= WIDTH + RECIPE_WIDTH + GAP + 32 && screen.height >= HEIGHT + 24
-                && handler.slots.size() == 46
-                && screen.getClass() == (crafting ? CraftingScreen.class : InventoryScreen.class);
+        return (crafting ? CRAFTING : INVENTORY).supports(screen, handler.slots.size(),
+                mod != null && mod.settings != null && mod.settings.survivalInventory);
     }
 
     public boolean needsRefresh(Screen screen, ScreenHandler handler, boolean crafting) {
         // Some screen wrappers reuse an existing screen without its normal init flow.
-        if (screen.getClass() != (crafting ? CraftingScreen.class : InventoryScreen.class)) return false;
         return screenWidth != screen.width || screenHeight != screen.height || active != supported(screen, handler, crafting);
     }
 

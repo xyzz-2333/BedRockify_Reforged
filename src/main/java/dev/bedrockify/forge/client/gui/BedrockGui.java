@@ -1,13 +1,13 @@
-package dev.bedrockify.forge.client.features.survivalInventory;
+package dev.bedrockify.forge.client.gui;
 
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.util.Identifier;
 
 /** Classic pixel geometry, using the original resource-pack-overridable atlas. */
-public final class SurvivalSprites {
+public final class BedrockGui {
     public static final Identifier TEXTURE = new Identifier("bedrockify", "textures/gui/survival.png");
-    private SurvivalSprites() {}
+    private BedrockGui() {}
 
     public static void panel(DrawContext context, int x, int y, int width, int height, boolean dark) {
         if (dark) {
@@ -33,7 +33,7 @@ public final class SurvivalSprites {
             context.fill(x + 1, y + 1, x + 19, y + 19, 0xffd64747);
             return;
         }
-        int u = unavailable ? 20 : 0;
+        int u = 0;
         context.drawTexture(TEXTURE, x + 1, y + 1, 18, 18, u + 2, 22, 16, 16, 64, 64);
         sample(context, x, y, 20, 1, u + 1, 21);
         sample(context, x, y, 1, 20, u + 1, 21);
@@ -92,8 +92,8 @@ public final class SurvivalSprites {
         c.drawTexture(TEXTURE, x + w - b, y + b, b, h - b * 2, u + n - b, v + b, b, n - b * 2, 64, 64);
         c.drawTexture(TEXTURE, x + b, y + b, w - b * 2, h - b * 2, u + b, v + b, n - b * 2, n - b * 2, 64, 64);
     }
-    public static void inventory(DrawContext context, ScreenHandler handler, int x, int y) {
-        panel(context, x, y, SurvivalLayout.WIDTH, SurvivalLayout.HEIGHT, false);
-        for (var slot : handler.slots) cell(context, x + slot.x - 2, y + slot.y - 2, false);
+    public static void container(DrawContext context, ScreenHandler handler, int x, int y, int width, int height) {
+        panel(context, x, y, width, height, false);
+        for (var slot : handler.slots) if (slot.isEnabled()) cell(context, x + slot.x - 2, y + slot.y - 2, false);
     }
 }

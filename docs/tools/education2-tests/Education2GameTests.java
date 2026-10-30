@@ -20,8 +20,10 @@ public class Education2GameTests {
         var key=ItemStackData.key(isotope);var keys=new java.util.HashSet<ItemStackData.Key>();keys.add(key);
         restored.setCount(32);
         c.assertTrue(keys.contains(ItemStackData.key(restored)),"Catalog identity ignores count");
+        c.assertTrue(ItemStackData.matches(restored,key) && !ItemStackData.matches(restored,null),"Selection comparison ignores count and accepts an absent selection");
         ItemStackData.setNeutrons(isotope,11);
         c.assertTrue(keys.contains(ItemStackData.key(restored)) && !key.equals(ItemStackData.key(isotope)),"Isotopes differ and source mutation cannot change a stored key");
+        c.assertTrue(ItemStackData.matches(restored,key) && !ItemStackData.matches(isotope,key),"Selection comparison retains snapshot isolation");
         var box=new ItemStack(Items.SHULKER_BOX);var contents=new NbtCompound();contents.putString("CustomName","saved contents");
         box.getOrCreateNbt().put("BlockEntityTag",contents);box.getOrCreateNbt().putString("OtherModData","keep");
         box.setCustomName(net.minecraft.text.Text.literal("Named box"));

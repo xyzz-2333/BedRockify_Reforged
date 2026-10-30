@@ -30,87 +30,42 @@ dependencies {
     modImplementation "me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}"
 }
 sourceSets.main.resources.srcDir 'src/main/generated'
-if (project.hasProperty('chemistryUiClient')) {
-    sourceSets.main.java.srcDir 'docs/tools/chemistry-ui-client'
-    loom.runs.client.runDir 'run/chemistry-ui-client'
-    loom.runs.client.programArgs '--quickPlaySingleplayer', 'regression', '--width', '1280', '--height', '960'
+// Development sources are opt-in and must not enter a release JAR.
+def testProfiles = [
+    chemistryUiClient: [side: 'client', sources: ['chemistry-ui-client'], dir: 'chemistry-ui-client', size: ['1280', '960']],
+    chemistryUiGameTests: [side: 'server', sources: ['education2-tests', 'chemistry-ui-tests'], dir: 'chemistry-ui-tests'],
+    guiTextClient: [side: 'client', sources: ['gui-text-client'], dir: 'alpha17-snow-book', size: ['1280', '720']],
+    snowBookClient: [side: 'client', sources: ['snow-book-client'], dir: 'alpha17-snow-book', size: ['1280', '720']],
+    inventoryUiClient: [side: 'client', sources: ['inventory-ui-client'], dir: 'inventory-ui-client', size: ['1280', '720']],
+    education2Client: [side: 'client', sources: ['education2-client'], dir: 'education2-client'],
+    education2GameTests: [side: 'server', sources: ['education2-tests'], dir: 'education2-tests'],
+    alpha14Regression: [side: 'client', sources: ['alpha14-regression'], dir: 'alpha14-regression'],
+    armorStandGameTests: [side: 'server', sources: ['armorstand-tests'], dir: 'armorstand-tests'],
+    alpha14ClientSmoke: [side: 'client', sources: ['client-smoke-tests'], dir: 'alpha14-client-smoke', quickPlay: false],
+    waterColorClientSmoke: [side: 'client', sources: ['water-color-tests'], dir: 'alpha15-water-smoke', quickPlay: false],
+    alpha16GameTests: [side: 'server', sources: ['alpha16-tests'], dir: 'alpha16-tests', resources: ['alpha16-tests/resources']],
+    mechanicsGameTests: [side: 'server', sources: ['mechanics-tests'], dir: 'mechanics-tests', resources: ['mechanics-tests/resources']],
+    alpha17GameTests: [side: 'server', sources: ['alpha17-tests'], dir: 'alpha17-tests']
+]
+def selectedProfiles = testProfiles.findAll { name, profile -> project.hasProperty(name) }
+if (selectedProfiles.size() > 1) {
+    throw new GradleException("Select one development test profile at a time: ${selectedProfiles.keySet().join(', ')}")
 }
-if (project.hasProperty('chemistryUiGameTests')) {
-    sourceSets.main.java.srcDirs 'docs/tools/education2-tests', 'docs/tools/chemistry-ui-tests'
-    sourceSets.main.resources.srcDir 'docs/tools/armorstand-tests/resources'
-    loom.runs.server.vmArg '-Dforge.gameTestServer=true'
-    loom.runs.server.vmArg '-Dforge.enabledGameTestNamespaces=bedrockify'
-    loom.runs.server.runDir 'run/chemistry-ui-tests'
-}
-if (project.hasProperty('guiTextClient')) {
-    sourceSets.main.java.srcDir 'docs/tools/gui-text-client'
-    loom.runs.client.runDir 'run/alpha17-snow-book'
-    loom.runs.client.programArgs '--quickPlaySingleplayer', 'regression', '--width', '1280', '--height', '720'
-}
-if (project.hasProperty('snowBookClient')) {
-    sourceSets.main.java.srcDir 'docs/tools/snow-book-client'
-    loom.runs.client.runDir 'run/alpha17-snow-book'
-    loom.runs.client.programArgs '--quickPlaySingleplayer', 'regression', '--width', '1280', '--height', '720'
-}
-if (project.hasProperty('inventoryUiClient')) {
-    sourceSets.main.java.srcDir 'docs/tools/inventory-ui-client'
-    loom.runs.client.runDir 'run/inventory-ui-client'
-    loom.runs.client.programArgs '--quickPlaySingleplayer', 'regression', '--width', '1280', '--height', '720'
-}
-if (project.hasProperty('education2Client')) {
-    sourceSets.main.java.srcDir 'docs/tools/education2-client'
-    loom.runs.client.runDir 'run/education2-client'
-    loom.runs.client.programArgs '--quickPlaySingleplayer', 'regression'
-}
-if (project.hasProperty('education2GameTests')) {
-    sourceSets.main.java.srcDir 'docs/tools/education2-tests'
-    sourceSets.main.resources.srcDir 'docs/tools/armorstand-tests/resources'
-    loom.runs.server.vmArg '-Dforge.gameTestServer=true'
-    loom.runs.server.vmArg '-Dforge.enabledGameTestNamespaces=bedrockify'
-    loom.runs.server.runDir 'run/education2-tests'
-}
-if (project.hasProperty('alpha14Regression')) {
-    sourceSets.main.java.srcDir 'docs/tools/alpha14-regression'
-    loom.runs.client.runDir 'run/alpha14-regression'
-    loom.runs.client.programArgs '--quickPlaySingleplayer', 'regression'
-}
-if (project.hasProperty('armorStandGameTests')) {
-    sourceSets.main.java.srcDir 'docs/tools/armorstand-tests'
-    sourceSets.main.resources.srcDir 'docs/tools/armorstand-tests/resources'
-    loom.runs.server.vmArg '-Dforge.gameTestServer=true'
-    loom.runs.server.vmArg '-Dforge.enabledGameTestNamespaces=bedrockify'
-    loom.runs.server.runDir 'run/armorstand-tests'
-}
-if (project.hasProperty('alpha14ClientSmoke')) {
-    sourceSets.main.java.srcDir 'docs/tools/client-smoke-tests'
-    loom.runs.client.runDir 'run/alpha14-client-smoke'
-}
-if (project.hasProperty('waterColorClientSmoke')) {
-    sourceSets.main.java.srcDir 'docs/tools/water-color-tests'
-    loom.runs.client.runDir 'run/alpha15-water-smoke'
-}
-// Mechanics tests remain outside the release JAR unless explicitly enabled.
-if (project.hasProperty('alpha16GameTests')) {
-    sourceSets.main.java.srcDir 'docs/tools/alpha16-tests'
-    sourceSets.main.resources.srcDir 'docs/tools/armorstand-tests/resources'
-    sourceSets.main.resources.srcDir 'docs/tools/alpha16-tests/resources'
-    loom.runs.server.vmArg '-Dforge.gameTestServer=true'
-    loom.runs.server.vmArg '-Dforge.enabledGameTestNamespaces=bedrockify'
-    loom.runs.server.runDir 'run/alpha16-tests'
-}
-if (project.hasProperty('mechanicsGameTests')) {
-    sourceSets.main.java.srcDir 'docs/tools/mechanics-tests'
-    if (!project.hasProperty('alpha16GameTests')) sourceSets.main.resources.srcDir 'docs/tools/mechanics-tests/resources'
-    loom.runs.server.vmArg '-Dforge.gameTestServer=true'
-    loom.runs.server.vmArg '-Dforge.enabledGameTestNamespaces=bedrockify'
-    loom.runs.server.runDir 'run/mechanics-tests'
-}
-if (project.hasProperty('alpha17GameTests')) {
-    sourceSets.main.java.srcDir 'docs/tools/alpha17-tests'
-    sourceSets.main.resources.srcDir 'docs/tools/armorstand-tests/resources'
-    loom.runs.server.vmArg '-Dforge.gameTestServer=true'
-    loom.runs.server.vmArg '-Dforge.enabledGameTestNamespaces=bedrockify'
-    loom.runs.server.runDir 'run/alpha17-tests'
+selectedProfiles.each { name, profile ->
+    sourceSets.main.java.srcDirs profile.sources.collect { "docs/tools/${it}" }
+    def run = loom.runs.getByName(profile.side)
+    run.runDir "run/${profile.dir}"
+    if (profile.side == 'server') {
+        def resourceDirectories = (profile.resources ?: ['armorstand-tests/resources']).collect { "docs/tools/${it}" }
+        sourceSets.main.resources.srcDirs resourceDirectories
+        // Reactor fixtures supplement the shared empty structure.
+        if (name == 'alpha16GameTests') sourceSets.main.resources.srcDir 'docs/tools/armorstand-tests/resources'
+        run.vmArg '-Dforge.gameTestServer=true'
+        run.vmArg '-Dforge.enabledGameTestNamespaces=bedrockify'
+    } else {
+        if (profile.quickPlay != false) run.programArgs '--quickPlaySingleplayer', 'regression'
+        if (profile.size) run.programArgs '--width', profile.size[0], '--height', profile.size[1]
+    }
 }
 processResources {
     exclude '.cache/**'

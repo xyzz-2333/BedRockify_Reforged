@@ -2,22 +2,22 @@ package dev.bedrockify.forge.mixin.client.features.creativeInventory;
 
 import dev.bedrockify.forge.client.BedrockifyClient;
 import dev.bedrockify.forge.client.features.creativeInventory.CreativeCatalog;
+import dev.bedrockify.forge.client.features.creativeInventory.CreativeScreenLayout;
+import dev.bedrockify.forge.client.features.creativeInventory.CreativeScreenMemory;
 import dev.bedrockify.forge.client.features.creativeInventory.CreativeGrid;
 import dev.bedrockify.forge.client.features.creativeInventory.CreativeGroups;
 import dev.bedrockify.forge.client.features.creativeInventory.CreativePickerSlot;
 import dev.bedrockify.forge.client.features.creativeInventory.CreativeSearchStyle;
 import dev.bedrockify.forge.client.features.creativeInventory.CreativeViewTabs;
 import dev.bedrockify.forge.client.features.creativeInventory.BedrockCreativeScreen;
-import dev.bedrockify.forge.client.features.survivalInventory.SurvivalSprites;
+import dev.bedrockify.forge.client.features.creativeInventory.CreativeScreenContent;
+import dev.bedrockify.forge.client.features.creativeInventory.CreativeScreenRenderer;
+import dev.bedrockify.forge.client.gui.ContainerScreenPolicy;
 import dev.bedrockify.forge.client.features.inventoryMemory.InventoryUiState;
 import dev.bedrockify.forge.client.features.inventoryMemory.RememberedInventory;
-import net.minecraft.registry.Registries;
-import net.minecraft.util.Identifier;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.Element;
 import net.minecraft.client.gui.screen.ingame.AbstractInventoryScreen;
 import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen;
-import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.SimpleInventory;
@@ -27,7 +27,6 @@ import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.SlotActionType;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.client.gui.CreativeTabsScreenPage;
 import net.minecraftforge.common.CreativeModeTabRegistry;
 import org.spongepowered.asm.mixin.Mixin;
@@ -54,21 +53,18 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
     @Shadow private int getTabX(ItemGroup group) { throw new AssertionError(); }
     @Shadow private int getTabY(ItemGroup group) { throw new AssertionError(); }
 
-    @Unique private boolean bedrockify$classic;
-    @Unique private int bedrockify$columns = 17;
-    @Unique private int bedrockify$rows = 7;
-    @Unique private List<ItemStack> bedrockify$source = List.of();
-    @Unique private List<CreativeGroups.Entry> bedrockify$entries = List.of();
-    @Unique private boolean bedrockify$hasGroups;
+    @Unique private static final ContainerScreenPolicy BEDROCKIFY_POLICY =
+            new ContainerScreenPolicy(CreativeInventoryScreen.class, 54, 260, 230);
+    @Unique private final CreativeScreenContent bedrockify$content = new CreativeScreenContent();
     @Unique private boolean bedrockify$populating;
-    @Unique private final Set<String> bedrockify$expanded = new HashSet<>();
-    @Unique private boolean bedrockify$ready, bedrockify$initializing, bedrockify$restoring;
+    @Unique private CreativeScreenLayout bedrockify$layout = CreativeScreenLayout.calculate(0, 0, false);
+    @Unique private final CreativeScreenMemory bedrockify$memory = new CreativeScreenMemory();
 
     protected CreativeInventoryScreenMixin(CreativeInventoryScreen.CreativeScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
 
-    @Unique private int bedrockify$viewTabY() { return backgroundWidth >= 250 ? y - 28 : Math.max(2, y - 62); }
+    @Unique private int bedrockify$viewTabY() { return bedrockify$layout.viewTabY(); }
 
     @Unique private boolean bedrockify$enabled() {
         BedrockifyClient mod = BedrockifyClient.getInstance();
@@ -76,67 +72,40 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
     }
 
     @Override public boolean bedrockify$flatSearch(TextFieldWidget field) {
-        return bedrockify$classic && searchBox == field;
+        return bedrockify$layout.classic() && searchBox == field;
+    }
+
+    @Unique private boolean bedrockify$supported() {
+        return BEDROCKIFY_POLICY.supports(this, ((CreativeGrid) handler).bedrockify$nativeSlotCount(),
+                bedrockify$enabled()) && BedrockCreativeScreen.supportsPlayerInventory(client.player);
     }
 
     @Unique private boolean bedrockify$useClassic(ItemGroup group) {
-        return bedrockify$enabled() && width >= 260 && height >= 230 && group.getType() != ItemGroup.Type.INVENTORY && group.getType() != ItemGroup.Type.HOTBAR;
+        return bedrockify$supported() && group.getType() != ItemGroup.Type.INVENTORY && group.getType() != ItemGroup.Type.HOTBAR;
     }
 
     @Redirect(method = "init", at = @At(value = "INVOKE", target = "Lnet/minecraftforge/common/CreativeModeTabRegistry;getSortedCreativeModeTabs()Ljava/util/List;", remap = false))
     private List<ItemGroup> bedrockify$fourCategories() {
         List<ItemGroup> tabs = CreativeModeTabRegistry.getSortedCreativeModeTabs();
-        return bedrockify$enabled() && width >= 260 && height >= 230 ? CreativeCatalog.visibleTabs(tabs) : tabs;
+        return bedrockify$supported() ? CreativeCatalog.visibleTabs(tabs) : tabs;
     }
 
     @Inject(method = "init", at = @At("HEAD"))
     private void bedrockify$initialGeometry(CallbackInfo ci) {
         bedrockify$rememberInventory();
-        bedrockify$initializing = true;
+        bedrockify$memory.beginInitialization();
         bedrockify$geometry(selectedTab);
     }
 
     @Inject(method = "init", at = @At("TAIL"))
     private void bedrockify$restoreTab(CallbackInfo ci) {
-        var mod = BedrockifyClient.getInstance();
-        if (bedrockify$enabled() && mod.settings.rememberInventoryState && mod.inventoryUiState != null) {
-            Identifier id = Identifier.tryParse(mod.inventoryUiState.creativeTab());
-            ItemGroup wanted = id == null ? null : Registries.ITEM_GROUP.get(id);
-            if (wanted != null) for (var page : pages) {
-                if (!page.getVisibleTabs().contains(wanted)) continue;
-                bedrockify$restoring = true;
-                if (currentPage != page) setCurrentPage(page);
-                setSelectedTab(wanted);
-                bedrockify$restoring = false;
-                break;
-            }
-            Identifier anchor = Identifier.tryParse(mod.inventoryUiState.creativePage());
-            ItemGroup visible = anchor == null ? null : Registries.ITEM_GROUP.get(anchor);
-            if (visible != null) for (var page : pages) {
-                if (page.getVisibleTabs().contains(visible)) { setCurrentPage(page); break; }
-            }
-        }
-        bedrockify$initializing = false;
-        bedrockify$ready = true;
-        if (bedrockify$enabled() && mod.settings.rememberInventoryState && mod.inventoryUiState != null)
-            mod.inventoryUiState.creativeView(0);
+        bedrockify$memory.restoreTabs(pages, () -> currentPage,
+                page -> setCurrentPage(page), group -> setSelectedTab(group));
     }
 
     @Override public void bedrockify$rememberInventory() {
-        var mod = BedrockifyClient.getInstance();
-        if (!bedrockify$ready || bedrockify$initializing || bedrockify$restoring || !bedrockify$enabled()
-                || !mod.settings.rememberInventoryState || mod.inventoryUiState == null) return;
-        mod.inventoryUiState.creativeView(0);
-        String id = Registries.ITEM_GROUP.getId(selectedTab).toString();
-        mod.inventoryUiState.creativeTab(id);
-        if (currentPage != null && !currentPage.getVisibleTabs().isEmpty())
-            mod.inventoryUiState.creativePage(Registries.ITEM_GROUP.getId(currentPage.getVisibleTabs().get(0)).toString());
-        if (bedrockify$classic) {
-            mod.inventoryUiState.remember("creative:" + id, new InventoryUiState.View("",
-                    selectedTab.hasSearchBar() && searchBox != null ? searchBox.getText() : "",
-                    ((CreativeGrid) handler).bedrockify$firstVisibleIndex(scrollPosition), bedrockify$expanded));
-        }
-        mod.inventoryUiState.save(mod.settings.rememberInventorySearch);
+        bedrockify$memory.remember(selectedTab, currentPage, bedrockify$layout.classic(), searchBox,
+                ((CreativeGrid) handler).bedrockify$firstVisibleIndex(scrollPosition));
     }
 
     @Inject(method = "refreshSelectedTab", at = @At("HEAD"))
@@ -149,7 +118,7 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
         bedrockify$geometry(group);
         // Release the old catalogue before vanilla loads saved hotbar NBT. Leave inventory
         // wrappers intact until vanilla restores its cached picker slots on the way out.
-        if (!bedrockify$classic) bedrockify$sourceFromTab();
+        if (!bedrockify$layout.classic()) bedrockify$sourceFromTab();
         if (selectedTab.getType() != ItemGroup.Type.INVENTORY) bedrockify$configureGrid(true);
     }
 
@@ -161,93 +130,46 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
     }
 
     @Unique private void bedrockify$configureGrid(boolean rebuild) {
-        ((CreativeGrid) handler).bedrockify$configureGrid(bedrockify$classic,
-                bedrockify$classic ? bedrockify$columns : 9, bedrockify$classic ? bedrockify$rows : 5, rebuild);
+        ((CreativeGrid) handler).bedrockify$configureGrid(bedrockify$layout.classic(),
+                bedrockify$layout.classic() ? bedrockify$layout.columns() : 9, bedrockify$layout.classic() ? bedrockify$layout.rows() : 5, rebuild);
     }
 
     @Inject(method = "setSelectedTab", at = @At("TAIL"))
     private void bedrockify$select(ItemGroup group, CallbackInfo ci) {
-        var mod = BedrockifyClient.getInstance();
-        InventoryUiState.View view = bedrockify$classic && mod.settings.rememberInventoryState && mod.inventoryUiState != null
-                ? mod.inventoryUiState.view("creative:" + Registries.ITEM_GROUP.getId(group), mod.settings.rememberInventorySearch) : null;
-        if (mod.settings.rememberInventoryState) {
-            bedrockify$expanded.clear();
-            if (view != null) bedrockify$expanded.addAll(view.expanded());
-        }
+        InventoryUiState.View view = bedrockify$memory.select(group, bedrockify$layout.classic());
         bedrockify$sourceFromTab();
         bedrockify$rebuild(true);
         bedrockify$positionControls();
         bedrockify$populating = false;
+        bedrockify$memory.restoreSearch(view, group, searchBox, () -> search());
         if (view != null) {
-            if (group.hasSearchBar() && searchBox != null) {
-                searchBox.setText(view.search());
-                if (!view.search().isEmpty()) search();
-            }
-            int overflow = Math.max(0, MathHelper.ceilDiv(handler.itemList.size(), bedrockify$columns) - bedrockify$rows);
-            scrollPosition = overflow == 0 ? 0 : MathHelper.clamp((float)(view.first() / bedrockify$columns) / overflow, 0, 1);
+            scrollPosition = bedrockify$layout.restoredScroll(view.first(), handler.itemList.size());
             handler.scrollItems(scrollPosition);
         }
     }
 
     @Unique private void bedrockify$geometry(ItemGroup group) {
-        bedrockify$classic = bedrockify$useClassic(group);
-        bedrockify$columns = MathHelper.clamp((width - 70) / 20, 9, 17);
-        // Leave 50 GUI pixels above and below for native Forge tabs and page controls.
-        bedrockify$rows = MathHelper.clamp((height - 170) / 20, 3, 7);
-        backgroundWidth = bedrockify$classic ? bedrockify$columns * 20 + 32 : 195;
-        backgroundHeight = bedrockify$classic ? bedrockify$rows * 20 + 70 : 136;
-        x = (width - backgroundWidth) / 2;
-        y = (height - backgroundHeight) / 2;
+        bedrockify$layout = CreativeScreenLayout.calculate(width, height, bedrockify$useClassic(group));
+        backgroundWidth = bedrockify$layout.width(); backgroundHeight = bedrockify$layout.height();
+        x = bedrockify$layout.left(); y = bedrockify$layout.top();
     }
 
     @Unique private void bedrockify$positionControls() {
-        if (searchBox != null && bedrockify$classic) {
-            searchBox.setX(x + 12);
-            searchBox.setY(y + 10);
-            searchBox.setWidth(backgroundWidth - 124);
-            searchBox.setEditableColor(0xff303030);
-        } else if (searchBox != null) {
-            searchBox.setWidth(selectedTab.getSearchBarWidth());
-            searchBox.setX(x + 171 - searchBox.getWidth());
-            searchBox.setY(y + 6);
-            searchBox.setEditableColor(0xffffff);
-        }
-        for (Element element : children()) {
-            if (element instanceof ButtonWidget button) {
-                String label = button.getMessage().getString();
-                if (label.equals("<") || label.equals(">")) {
-                    button.setX(label.equals("<") ? x : x + backgroundWidth - 20);
-                    button.setY(y - 50);
-                }
-            }
-        }
+        bedrockify$layout.positionControls(searchBox, selectedTab, children());
     }
 
     @Unique private void bedrockify$sourceFromTab() {
-        if (!bedrockify$classic) {
-            bedrockify$source = List.of();
-            bedrockify$entries = List.of();
-            bedrockify$hasGroups = false;
-            return;
-        }
-        CreativeCatalog.Category category = CreativeCatalog.category(selectedTab);
-        bedrockify$source = category == null ? new ArrayList<>(handler.itemList) : CreativeCatalog.contents(category);
+        bedrockify$content.select(bedrockify$layout.classic(), selectedTab, handler.itemList);
     }
 
     @Unique private void bedrockify$rebuild(boolean resetScroll) {
-        if (!bedrockify$classic) return;
+        if (!bedrockify$layout.classic()) return;
         int firstVisible = ((CreativeGrid) handler).bedrockify$firstVisibleIndex(scrollPosition);
-        boolean collapse = BedrockifyClient.getInstance().settings.creativeInventoryGroups &&
-                selectedTab.getType() != ItemGroup.Type.SEARCH && (!selectedTab.hasSearchBar() || searchBox.getText().isEmpty());
-        CreativeCatalog.Category category = CreativeCatalog.category(selectedTab);
-        bedrockify$entries = CreativeGroups.layout(bedrockify$source, bedrockify$expanded, collapse,
-                category == CreativeCatalog.Category.CONSTRUCTION || category == CreativeCatalog.Category.EQUIPMENT);
-        bedrockify$hasGroups = bedrockify$entries.stream().anyMatch(CreativeGroups.Entry::header);
+        bedrockify$content.rebuild(selectedTab, searchBox == null ? "" : searchBox.getText(),
+                BedrockifyClient.getInstance().settings.creativeInventoryGroups, bedrockify$memory.expanded());
         handler.itemList.clear();
-        for (CreativeGroups.Entry entry : bedrockify$entries) handler.itemList.add(entry.stack());
-        int overflow = Math.max(0, MathHelper.ceilDiv(bedrockify$entries.size(), bedrockify$columns) - bedrockify$rows);
-        scrollPosition = resetScroll || overflow == 0 ? 0 : (float) (firstVisible / bedrockify$columns) / overflow;
-        scrollPosition = Float.isFinite(scrollPosition) ? MathHelper.clamp(scrollPosition, 0, 1) : 0;
+        for (CreativeGroups.Entry entry : bedrockify$content.entries()) handler.itemList.add(entry.stack());
+        scrollPosition = resetScroll ? 0 : bedrockify$layout.restoredScroll(firstVisible, handler.itemList.size());
         handler.scrollItems(scrollPosition);
     }
 
@@ -260,14 +182,14 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
 
     @Inject(method = "search", at = @At("TAIL"))
     private void bedrockify$searchResults(CallbackInfo ci) {
-        if (!bedrockify$classic || bedrockify$populating) return;
-        bedrockify$source = new ArrayList<>(handler.itemList);
+        if (!bedrockify$layout.classic() || bedrockify$populating) return;
+        bedrockify$content.searchResults(handler.itemList);
         bedrockify$rebuild(true);
     }
 
     @ModifyConstant(method = "onMouseClick", constant = @Constant(intValue = 45))
     private int bedrockify$hotbarOffset(int original) {
-        return bedrockify$classic ? ((CreativeGrid) handler).bedrockify$pickerSize() : original;
+        return bedrockify$layout.classic() ? ((CreativeGrid) handler).bedrockify$pickerSize() : original;
     }
 
     @Redirect(method = {"onMouseClick", "isCreativeInventorySlot"}, at = @At(value = "FIELD", target = "Lnet/minecraft/client/gui/screen/ingame/CreativeInventoryScreen;INVENTORY:Lnet/minecraft/inventory/SimpleInventory;"))
@@ -276,9 +198,9 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
     }
 
     @Unique private CreativeGroups.Entry bedrockify$entry(Slot slot) {
-        if (!bedrockify$classic || slot == null || slot.inventory != ((CreativeGrid) handler).bedrockify$pickerInventory()) return null;
+        if (!bedrockify$layout.classic() || slot == null || slot.inventory != ((CreativeGrid) handler).bedrockify$pickerInventory()) return null;
         int index = ((CreativeGrid) handler).bedrockify$firstVisibleIndex(scrollPosition) + slot.getSlotIndex();
-        return index >= 0 && index < bedrockify$entries.size() ? bedrockify$entries.get(index) : null;
+        return bedrockify$content.entry(index);
     }
 
     @Inject(method = "onMouseClick", at = @At("HEAD"), cancellable = true)
@@ -288,7 +210,7 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
         if (entry == null || !entry.header() || button != 0 || (action != SlotActionType.PICKUP && action != SlotActionType.QUICK_MOVE)) return;
         // Do not disturb a held stack or an in-progress drag when a header is clicked.
         if (handler.getCursorStack().isEmpty()) {
-            if (!bedrockify$expanded.remove(entry.group())) bedrockify$expanded.add(entry.group());
+            bedrockify$memory.toggle(entry.group());
             bedrockify$rebuild(false);
         }
         ci.cancel();
@@ -296,13 +218,13 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
 
     @Inject(method = "isClickInScrollbar", at = @At("HEAD"), cancellable = true)
     private void bedrockify$scrollbarHitbox(double mouseX, double mouseY, CallbackInfoReturnable<Boolean> cir) {
-        if (bedrockify$classic) cir.setReturnValue(mouseX >= x + backgroundWidth - 16 && mouseX < x + backgroundWidth - 6 && mouseY >= y + 28 && mouseY < y + 28 + bedrockify$rows * 20);
+        if (bedrockify$layout.classic()) cir.setReturnValue(bedrockify$layout.scrollbarContains(mouseX, mouseY));
     }
 
     @Inject(method = "mouseDragged", at = @At("HEAD"), cancellable = true)
     private void bedrockify$dragScrollbar(double mouseX, double mouseY, int button, double deltaX, double deltaY, CallbackInfoReturnable<Boolean> cir) {
-        if (bedrockify$classic && scrolling) {
-            scrollPosition = MathHelper.clamp(((float) mouseY - y - 28 - 8) / (bedrockify$rows * 20 - 16), 0, 1);
+        if (bedrockify$layout.classic() && scrolling) {
+            scrollPosition = bedrockify$layout.draggedScroll(mouseY);
             handler.scrollItems(scrollPosition);
             cir.setReturnValue(true);
         }
@@ -310,17 +232,17 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
 
     @Inject(method = "mouseClicked", at = @At("HEAD"), cancellable = true)
     private void bedrockify$allGroups(double mouseX, double mouseY, int button, CallbackInfoReturnable<Boolean> cir) {
-        if (!bedrockify$classic || button != 0) return;
+        if (!bedrockify$layout.classic() || button != 0) return;
         int view = CreativeViewTabs.hit(mouseX, mouseY, x + backgroundWidth - 135, bedrockify$viewTabY());
         if (view >= 0) {
             if (view != 0 && handler.getCursorStack().isEmpty()) client.setScreen(new BedrockCreativeScreen(client.player, view == 1));
             cir.setReturnValue(true); return;
         }
-        if (!bedrockify$hasGroups) return;
+        if (!bedrockify$content.hasGroups()) return;
         if (mouseY >= y + 6 && mouseY < y + 22 && mouseX >= x + backgroundWidth - 54 && mouseX < x + backgroundWidth - 14) {
             if (mouseX < x + backgroundWidth - 34) {
-                for (CreativeGroups.Entry entry : bedrockify$entries) if (entry.header()) bedrockify$expanded.add(entry.group());
-            } else bedrockify$expanded.clear();
+                for (CreativeGroups.Entry entry : bedrockify$content.entries()) if (entry.header()) bedrockify$memory.expand(entry.group());
+            } else bedrockify$memory.collapseAll();
             bedrockify$rebuild(true);
             cir.setReturnValue(true);
         }
@@ -338,29 +260,11 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
 
     @Inject(method = "drawBackground", at = @At("HEAD"), cancellable = true)
     private void bedrockify$background(DrawContext context, float delta, int mouseX, int mouseY, CallbackInfo ci) {
-        if (!bedrockify$classic) return;
+        if (!bedrockify$layout.classic()) return;
         for (ItemGroup group : currentPage.getVisibleTabs()) if (group != selectedTab) renderTabIcon(context, group);
-        int mainHeight = 38 + bedrockify$rows * 20;
-        int hotbarLeft = (backgroundWidth - 180) / 2;
-        bedrockify$panel(context, x, y, backgroundWidth, mainHeight, 0xffc6c6c6);
-        bedrockify$panel(context, x + hotbarLeft - 8, y + mainHeight - 2, 196, 34, 0xffc6c6c6);
-        context.fill(x + 8, y + 26, x + backgroundWidth - 8, y + mainHeight - 4, 0xff626262);
-        int first = ((CreativeGrid) handler).bedrockify$firstVisibleIndex(scrollPosition);
-        for (int cell = 0; cell < bedrockify$columns * bedrockify$rows; cell++) {
-            if (first + cell >= handler.itemList.size()) break;
-            bedrockify$slot(context, x + 12 + cell % bedrockify$columns * 20, y + 28 + cell / bedrockify$columns * 20);
-        }
-        for (int i = 0; i < 9; i++) bedrockify$slot(context, x + hotbarLeft + i * 20, y + 42 + bedrockify$rows * 20);
-        if (searchBox.isVisible()) {
-            context.fill(searchBox.getX() - 3, searchBox.getY() - 3, searchBox.getX() + searchBox.getWidth() + 3, searchBox.getY() + 12, 0xff8b8b8b);
-            context.fill(searchBox.getX() - 2, searchBox.getY() - 2, searchBox.getX() + searchBox.getWidth() + 2, searchBox.getY() + 11, 0xfff0f0f0);
-        }
-        if (selectedTab.hasScrollbar() && handler.shouldShowScrollbar()) {
-            int left = x + backgroundWidth - 16;
-            context.fill(left, y + 28, left + 10, y + 28 + bedrockify$rows * 20, 0xff373737);
-            int top = y + 28 + Math.round((bedrockify$rows * 20 - 16) * scrollPosition);
-            bedrockify$panel(context, left, top, 10, 16, 0xffc6c6c6);
-        }
+        CreativeScreenRenderer.background(context, bedrockify$layout, searchBox,
+                ((CreativeGrid) handler).bedrockify$firstVisibleIndex(scrollPosition), handler.itemList.size(),
+                selectedTab.hasScrollbar() && handler.shouldShowScrollbar(), scrollPosition);
         if (currentPage.getVisibleTabs().contains(selectedTab)) renderTabIcon(context, selectedTab);
         CreativeViewTabs.draw(context, x + backgroundWidth - 135, bedrockify$viewTabY(), 0);
         ci.cancel();
@@ -368,20 +272,18 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
 
     @Inject(method = "renderTabIcon", at = @At("HEAD"), cancellable = true)
     private void bedrockify$tabStyle(DrawContext context, ItemGroup group, CallbackInfo ci) {
-        if (!bedrockify$classic) return;
+        if (!bedrockify$layout.classic()) return;
         boolean selected = group == selectedTab;
         int left = x + getTabX(group);
         int top = y + getTabY(group) + (currentPage.isTop(group) ? 4 : -4);
-        bedrockify$panel(context, left, top, 26, 32, selected ? 0xffc6c6c6 : 0xff626262);
-        CreativeCatalog.Category category = CreativeCatalog.category(group);
-        context.drawItem(category == null ? group.getIcon() : category.icon, left + 5, top + 8);
+        CreativeScreenRenderer.tab(context, group, selected, left, top);
         ci.cancel();
     }
 
     @Inject(method = "renderTabTooltipIfHovered", at = @At("HEAD"), cancellable = true)
     private void bedrockify$tabTitle(DrawContext context, ItemGroup group, int mouseX, int mouseY, CallbackInfoReturnable<Boolean> cir) {
         CreativeCatalog.Category category = CreativeCatalog.category(group);
-        if (!bedrockify$classic || category == null) return;
+        if (!bedrockify$layout.classic() || category == null) return;
         if (isPointWithinBounds(getTabX(group) + 3, getTabY(group) + 3, 21, 27, mouseX, mouseY)) {
             context.drawTooltip(textRenderer, category.title(), mouseX, mouseY);
             cir.setReturnValue(true);
@@ -390,45 +292,23 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
 
     @Inject(method = "drawForeground", at = @At("HEAD"), cancellable = true)
     private void bedrockify$foreground(DrawContext context, int mouseX, int mouseY, CallbackInfo ci) {
-        if (!bedrockify$classic) return;
-        CreativeCatalog.Category category = CreativeCatalog.category(selectedTab);
-        Text title = category == null ? selectedTab.getDisplayName() : category.title();
-        int titleWidth = searchBox.isVisible() ? (bedrockify$hasGroups ? 54 : 98) : backgroundWidth - 80;
-        if (textRenderer.getWidth(title) > titleWidth) title = Text.literal(textRenderer.trimToWidth(title.getString(), titleWidth - 10) + "…");
-        int titleX = searchBox.isVisible() ? backgroundWidth - textRenderer.getWidth(title) - (bedrockify$hasGroups ? 60 : 12) : 12;
-        context.drawText(textRenderer, title, titleX, 10, 0xff404040, false);
-        context.getMatrices().push();
-        context.getMatrices().translate(0, 0, 300);
-        int first = ((CreativeGrid) handler).bedrockify$firstVisibleIndex(scrollPosition);
-        for (int cell = 0; cell < bedrockify$columns * bedrockify$rows && first + cell < bedrockify$entries.size(); cell++) {
-            CreativeGroups.Entry entry = bedrockify$entries.get(first + cell);
-            if (!entry.header()) continue;
-            int left = 12 + cell % bedrockify$columns * 20 + 10;
-            int top = 28 + cell / bedrockify$columns * 20 + 10;
-            String marker = bedrockify$expanded.contains(entry.group()) ? "−" : "+";
-            // Outline the glyph itself; Bedrock does not put a black tile behind group markers.
-            context.drawText(textRenderer, marker, left + 1, top, 0xff000000, false);
-            context.drawText(textRenderer, marker, left + 3, top, 0xff000000, false);
-            context.drawText(textRenderer, marker, left + 2, top - 1, 0xff000000, false);
-            context.drawText(textRenderer, marker, left + 2, top + 1, 0xff000000, false);
-            context.drawText(textRenderer, marker, left + 2, top, 0xffffffff, false);
-        }
-        if (bedrockify$hasGroups) {
-            bedrockify$panel(context, backgroundWidth - 54, 6, 18, 16, 0xff8b8b8b);
-            bedrockify$panel(context, backgroundWidth - 34, 6, 18, 16, 0xff8b8b8b);
-            context.drawText(textRenderer, "+", backgroundWidth - 48, 9, 0xffffffff, false);
-            context.drawText(textRenderer, "−", backgroundWidth - 28, 9, 0xffffffff, false);
-        }
-        context.getMatrices().pop();
+        if (!bedrockify$layout.classic()) return;
+        CreativeScreenRenderer.foreground(context, textRenderer, bedrockify$layout, selectedTab, searchBox,
+                bedrockify$content, bedrockify$memory, ((CreativeGrid) handler).bedrockify$firstVisibleIndex(scrollPosition));
         ci.cancel();
+    }
+
+    @Inject(method = "render", at = @At("HEAD"))
+    private void bedrockify$refreshCompatibility(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
+        if (client.currentScreen == (Object) this && bedrockify$layout.classic() != bedrockify$useClassic(selectedTab)) clearAndInit();
     }
 
     @Inject(method = "render", at = @At("TAIL"))
     private void bedrockify$controlsTooltip(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
-        if (!bedrockify$classic) return;
+        if (!bedrockify$layout.classic()) return;
         CreativeViewTabs.tooltip(context, textRenderer, mouseX, mouseY, x + backgroundWidth - 135,
                 bedrockify$viewTabY(), !handler.getCursorStack().isEmpty());
-        if (!bedrockify$hasGroups) return;
+        if (!bedrockify$content.hasGroups()) return;
         if (mouseY >= y + 6 && mouseY < y + 22 && mouseX >= x + backgroundWidth - 54 && mouseX < x + backgroundWidth - 14) {
             context.drawTooltip(textRenderer, Text.translatable(mouseX < x + backgroundWidth - 34 ? "bedrockify.creative.expandAll" : "bedrockify.creative.collapseAll"), mouseX, mouseY);
         }
@@ -436,26 +316,8 @@ public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScre
 
     @Inject(method = "render", at = @At("TAIL"))
     private void bedrockify$searchField(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
-        if (!bedrockify$classic || searchBox == null || !searchBox.isVisible()) return;
-        // Render once, above the panel and item passes. Buffered text in drawBackground
-        // could be covered by later GUI batches, leaving only fragments of its shadow.
-        context.draw();
-        context.getMatrices().push();
-        context.getMatrices().translate(0, 0, 200);
-        context.setShaderColor(1, 1, 1, 1);
-        context.enableScissor(searchBox.getX() - 1, searchBox.getY() - 1,
-                searchBox.getX() + searchBox.getWidth() + 1, searchBox.getY() + 12);
-        searchBox.render(context, mouseX, mouseY, delta);
-        context.draw();
-        context.disableScissor();
-        context.getMatrices().pop();
+        if (!bedrockify$layout.classic() || searchBox == null || !searchBox.isVisible()) return;
+        CreativeScreenRenderer.search(context, searchBox, mouseX, mouseY, delta);
     }
 
-    @Unique private static void bedrockify$panel(DrawContext context, int x, int y, int w, int h, int color) {
-        SurvivalSprites.frame(context, x, y, w, h, color);
-    }
-
-    @Unique private static void bedrockify$slot(DrawContext context, int x, int y) {
-        SurvivalSprites.cell(context, x, y, false);
-    }
 }
